@@ -16,5 +16,6 @@
 		<li><a href="RawData.php">Raw Data</a></li>
 		<li><a href="NoteEntry.php">Note Entry</a></li>
 		<li><a href="Rankings.php">Rankings</a></li>
+		<li><a href="Logout.php">Logout</a></li>
 	</ul>
 </div>
