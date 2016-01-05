@@ -1,5 +1,5 @@
 <?php
-//Scout List
+//Search for Teams and Matches
 include("HeadTemplate.php");
 include("UserVerification.php");
 ?>

@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=0.5">
-    <title>624 Scouting</title>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=0.5">
+		<title>624 Scouting</title>
 	
-	<link rel="icon" type="image/png" href="./favicon.png">
+		<link rel="icon" type="image/png" href="favicon.ico">
+		<link rel="stylesheet" type="text/css" href="css/responsive_navbar.css">
+	
+	</head>
+

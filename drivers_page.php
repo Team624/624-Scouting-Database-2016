@@ -5,6 +5,7 @@ if(isset($valid_user) && isset($user_type))
 {
 	if($valid_user && $user_type=="driver")
 	{
+		include("navbar.php");
 ?>	
 
 <!-- Make this page Tablet Friendly -->
