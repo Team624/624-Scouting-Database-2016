@@ -30,7 +30,7 @@
 		
 		
 		<?php
-			if(strcmp($user_type,"dataentry")==0 || strcmp($user_type,"admin")==0 )
+			if(strcmp($user_type,"data")==0 || strcmp($user_type,"admin")==0 )
 			{
 			
 		?>
