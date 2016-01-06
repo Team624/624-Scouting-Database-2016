@@ -27,7 +27,7 @@ if(isset($valid_user) && isset($user_type))
 	<body>
 		<!-- This is going to be the team's logo -->
 		<img src="images/pretty_green_text.png"></img>
-		
+
 		<?php
 		if(isset($_GET['login']))
 		{
@@ -52,8 +52,10 @@ if(isset($valid_user) && isset($user_type))
 		
 		<!-- Make this into a cool login dialog box thing pls -->
 		<div class="loginDialog">
+		<h1>Scouting Database</h1>
+		<h3>Login Password </h3>
 			<form method="post" action="login.php">
-				Password: <input type="text" name ="password"></input>
+				<input type="text" name ="password"></input>
 			</form>
 		</div>
 		
