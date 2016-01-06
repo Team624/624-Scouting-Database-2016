@@ -1,0 +1,26 @@
+body {
+	background-color: #1a1a1a;
+    background-image: url("http://i.imgur.com/nFG9WyA.png");
+}
+.title {
+	text-align: center;
+}
+#scoutTable {
+	margin: 0 auto;
+	background-color: white;
+	background-image: url("http://i.imgur.com/nFG9WyA.png");
+	height: 100%;
+	width: 25%;
+	opacity: 0.7;
+	border: 2px solid black;
+	text-align: center;
+	padding: 1%;
+	border-radius: 10px;
+}
+th {
+	text-decoration: underline;
+	color: #06f000;
+}
+td {
+	padding: 2%; 
+}
