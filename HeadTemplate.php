@@ -7,7 +7,12 @@
 		<title>624 Scouting</title>
 	
 		<link rel="icon" type="image/png" href="favicon.ico">
+		
+		<!-- Other Styles -->
 		<link rel="stylesheet" type="text/css" href="css/responsive_navbar.css">
+		
+		<!-- Specific Page Styles -->
+		<link rel="stylesheet" type="text/css" href="css/indexstyle.css">
 	
 	</head>
 

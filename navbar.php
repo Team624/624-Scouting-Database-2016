@@ -53,7 +53,7 @@
 		<?php
 			}
 		?>
-			<li class="navbar"><a class="navbar" href="Logout.php">Logout</a></li>
+			<li class="navbar"><a class="navbar" href="logout.php">Logout</a></li>
 	</ul>
 </nav>
 </header>
