@@ -1,18 +1,28 @@
 body {
 	background-color: #000;
 }
+div#dialog_centerer
+{
+	width:75%;
+	margin:0 auto;
+	text-align: center;
+}
 .error_message {
+    padding-top: 10px;
 	color: red;
-	margin-left: 500px;
-	margin-top: 0px;
+	width: 100%;
+	text-align: center;
+	margin: 0 auto;
 	font-family:monospace;
 	font-size: 13px;
 }
 .logout_message {
+    padding-top: 10px;
 	color: green;
+	width: 100%;
+	text-align: center;
 	font-family:monospace;
-	margin-left: 500px;
-	margin-top: 0px;
+	margin: 0 auto;
 	font-size: 13px;
 }
 .loginDialog {
@@ -21,11 +31,9 @@ body {
 	margin-top: 20px;
 	color: white;
 	margin-bottom: 100px;
-	position: fixed;
-	margin-left: 410px;
 	border: none;
 	width: 350px;
-	height: 200px;
+	height: 225px;
 	background:
 	linear-gradient(27deg, #151515 5px, transparent 5px) 0 5px,
 	linear-gradient(207deg, #151515 5px, transparent 5px) 10px 0px,
@@ -38,19 +46,33 @@ body {
 	border-radius: 5px;
 	
 }
+
 input {
 	height: 30px;
 	width: 200px;
 	text-align: center;
 	background-color: white;	
 	font-family:monospace;
-	border: none;
+	/*border: none;*/
 	outline: none;
 	
 }
 input:hover {
-	background-color: #06f000;
+	border-color: #06f000;
 }
+
+input.subButton {
+	background-color: #06F000;
+	border-radius: 5px;
+	color: #000;
+	border:none;
+	font-weight: bold;
+}
+input.subButton:hover{
+	cursor:pointer;
+	background-color: #39F934;
+}
+
 h3{
 	font-family:monospace;
 	margin-top: 10px;
@@ -58,10 +80,11 @@ h3{
 	size: 20px;
 }
 img{
-	margin-left: 470px;
-	margin-top: 90px;
+	margin:0 auto;
+	height: 75px;
 }
 h1{
+	padding-top: 20px;
 	font-family:monospace;
 	color: white;
 	size: 70px;
