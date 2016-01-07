@@ -89,7 +89,7 @@ a:hover#menu-icon {
 }
 
 /*When the screen is small, show the mobile friendly menu*/
-@media only screen and (max-width : 640px) {
+@media only screen and (max-width : 1200px) {
 
 	header {
 
@@ -114,7 +114,7 @@ a:hover#menu-icon {
 		position: absolute;
 		/*padding: 20px;*/
 		background: #000;
-		border: 5px solid #00F600;
+		/*border: 5px solid #00F600;*/
 		right: 20px;
 		top: 60px;
 		width: 20%;
@@ -126,7 +126,7 @@ a:hover#menu-icon {
 
 		text-align: right;
 		width: 100%;
-		padding: 10px 0;
+		/*padding: 10px 0;*/
 		margin: 0;
 
 	}

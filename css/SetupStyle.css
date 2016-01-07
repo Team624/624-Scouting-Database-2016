@@ -2,7 +2,10 @@ body {
 	background-color: #1a1a1a;
     background-image: url("http://i.imgur.com/nFG9WyA.png");
 }
-div.quickLinks{
+.title {
+	text-align: center;
+}
+div.setupdiv {
 	margin: 0 auto;
 	margin-top:15px;
 	background-color: white;
@@ -14,16 +17,4 @@ div.quickLinks{
 	text-align: center;
 	padding: 1%;
 	border-radius: 10px;
-}
-.page_container {
-	text-align: center;
-}
-
-a,a:visited
-{
-	color:#06F000;
-}
-a:hover, a:focus
-{
-	color:#3CFF37;
 }

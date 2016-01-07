@@ -19,6 +19,8 @@
 		<link rel="stylesheet" type="text/css" href="css/RankingsStyle.css">
 		<link rel="stylesheet" type="text/css" href="css/SearchStyle.css">
 		<link rel="stylesheet" type="text/css" href="css/ScoutListStyle.css">
+		<link rel="stylesheet" type="text/css" href="css/SetupStyle.css">
+		
 	
 	</head>
 
