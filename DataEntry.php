@@ -12,13 +12,35 @@ include("navbar.php");
 <br>
 <br>
 <br>
+<div class="title">
+	<h1>Data Entry</h1>
+</div>
 <div class="page_container">
-	<form class="datafield">
-		Name:<br>
-		<input type = "text" name = "username">
-		<br>
-		Team #:<br>
-		<input type="text" name="teamName">
-		<br>
-	</form>
+	<div class="form_container">
+		<form class="datafield">
+			<table class="red">
+				<tr>
+					<td>Match #</td>
+					<td>Team #</td>
+					<td>Scout ID</td>
+				</tr>
+				<tr>
+					<td><input type="number" name="match_num" class="small_num"></td>
+					<td><input type="number" name="team_num" class="small_num"></td>
+					<td><input type="number" name="scoutID" class="small_num"></td>
+				</tr>
+			</table>
+			<br>
+			<table class="blue">
+				<tr>
+					<td>Notes:</td>
+				</tr>
+				<tr>
+					<td><textarea rows=5 cols=20></textarea></td>
+				</tr>
+			</table>
+			<br>
+			<input type="submit" class="subButton"></input>
+		</form>
+	</div>
 </div>

@@ -1,3 +1,32 @@
-datafield {
+div.form_container{
+	background-color: #1a1a1a;
+	padding:25px;
+	width:90%;
+	margin:0 auto;
+}
+.datafield {
 	color: white;
+}
+
+table{
+	padding:5px;
+	margin:0 auto;
+	border-radius: 5px;
+}
+table.red{
+	border: 1px red solid;
+}
+table.blue{
+	border: 1px blue solid;
+}
+table.green{
+	border: 1px #06F000 solid;
+}
+td {
+	padding:2px;
+	margin:0;
+}
+input.small_num
+{
+	width:100px;
 }
