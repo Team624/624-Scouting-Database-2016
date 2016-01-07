@@ -24,7 +24,7 @@ if(isset($valid_user) && isset($user_type))
 
 ?>
 <html>
-	<body>
+	<body id="index_body">
 	<br>
 	<br>
 		<div id="dialog_centerer">

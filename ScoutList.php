@@ -9,6 +9,10 @@ include("db_connect.php");
 <br>
 <br>
 <br>
+<head>	<link rel="stylesheet" type="text/css" href="css/ScoutListStyle.css"> </head>
+<div class = "title" >
+	<h1> Scout List </h1>
+</div>
 
 <div class="page_container">
 
@@ -16,7 +20,7 @@ include("db_connect.php");
 
 	<table id="scoutTable">
 		<thead>
-			<th>id</th>
+			<th>ID</th>
 			<th>Name</th>
 		</thead>
 		<?php
