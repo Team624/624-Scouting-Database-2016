@@ -9,7 +9,7 @@ div.form_container{
 }
 
 table{
-	padding:5px;
+	padding:15px;
 	margin:0 auto;
 	border-radius: 5px;
 }
@@ -29,4 +29,14 @@ td {
 input.small_num
 {
 	width:100px;
+}
+input[type="checkbox"]
+{
+	width:40px;
+}
+h2{
+	font-family:monospace;
+	margin-top: 10px;
+	color: #bfbfbf;
+	size: 40px;
 }
