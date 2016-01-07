@@ -16,10 +16,17 @@
 			<a class="logo" href="drivers_page.php"></img></a>
 		<?php		
 			}
+			if(strcmp($user_type,"data")==0)
+			{
+		?>
+			<a class="logo" href="DataEntry.php"></img></a>
+		<?php
+			}
 			else
 			{
 		?>
 			<a class="logo" href="mainpage.php"></img></a>
+		
 		<?php
 			}
 		?>
