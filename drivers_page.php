@@ -2,6 +2,8 @@
 //Check to make sure the drive team is logged in
 include("HeadTemplate.php");
 include("UserVerification.php");
+include("kick_intruders.php");
+
 if(isset($valid_user) && isset($user_type))
 {
 	if($valid_user && $user_type=="driver")

@@ -1,0 +1,9 @@
+div.raw_data
+{
+	width:90%;
+	height: 500px;
+	margin:0 auto;
+	background-color:#1a1a1a;
+	overflow-x: scroll;
+	overflow-y: scroll;
+}

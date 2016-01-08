@@ -3,6 +3,7 @@
 //Put Match Schedule Stuff Below. This requires the Events API
 include("HeadTemplate.php");
 include("UserVerification.php");
+include("kick_intruders.php");
 include("navbar.php");
 ?>
 <head>	<link rel="stylesheet" type="text/css" href="css/MatchScheduleStyle.css"> </head>

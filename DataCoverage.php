@@ -2,6 +2,7 @@
 //Data Coverage
 include("HeadTemplate.php");
 include("UserVerification.php");
+include("kick_intruders.php");
 include("navbar.php");
 ?>
 <head>	<link rel="stylesheet" type="text/css" href="css/DataCoverageStyle.css"> </head>

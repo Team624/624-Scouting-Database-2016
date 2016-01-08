@@ -1,5 +1,12 @@
-h2{color:green;
-   font-size:69px;}
-.container{text-align:center;}
-	p{font-size:21px;}
+h2{
+	color:green;
+   font-size:69px;
+}
+   
+.container{
+	text-align:center;
+}
+p{
+	font-size:21px;
+}
 	/*not much here for now, I just want this file to exist

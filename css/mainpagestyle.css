@@ -1,12 +1,12 @@
 body {
 	background-color: #1a1a1a;
-    background-image: url("http://i.imgur.com/nFG9WyA.png");
+    background-image: url("../images/pixel_bg.png");
 }
 div.quickLinks{
 	margin: 0 auto;
 	margin-top:15px;
 	background-color: white;
-	background-image: url("http://i.imgur.com/nFG9WyA.png");
+	background-image: url("../images/pixel_bg.png");
 	height: 100%;
 	width: 50%;
 	opacity: 0.7;
