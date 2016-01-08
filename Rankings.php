@@ -3,16 +3,17 @@
 include("HeadTemplate.php");
 include("UserVerification.php");
 include("navbar.php");
-echo "<br><br><br><br><br><br><br>";
 include("read_ini.php");
 
 include("api_connect.php");
 
 
-	$url = "https://frc-api.usfirst.org/api/v1.0/rankings/2016/TXHO";
-	$response=file_get_contents($url,false,$context);
+	//NEW API CALL FOR 2.0
+	$url = "https://frc-api.firstinspires.org/v2.0/2015/rankings/TXHO";
+	$response = file_get_contents($url,false,$context);
 	
-var_dump($response);
+	//hint: use json_decode to decode $response. Look it up.
+
 ?>
 <head>	<link rel="stylesheet" type="text/css" href="css/RankingsStyle.css"> </head>
 <br>
@@ -21,4 +22,10 @@ var_dump($response);
 <br>
 <div class = "title" >
 	<h1> Rankings </h1>
+</div>
+
+<div class="page_container">
+	<?php 	
+		var_dump($response); //This prints a nice red string
+	?>
 </div>

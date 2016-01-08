@@ -3,13 +3,11 @@
 include("read_ini.php");
 //$ini['api_encoder'] will be the name that the API Key has in the INI file
 	$auth = "Authorization: Basic " . base64_encode($ini['api_user']. ":".$ini['api_token']); 
-	echo base64_encode($ini['api_user']. ":".$ini['api_token']);
 	
 	$opts = array(
 		'http'=>array(
 			'method'=>"GET",
-			'header'=> $auth . "\r\n" .
-						"Accept: application/json"
+			'header'=> $auth . "\r\n" . "Accept: application/json"
 			)
 		);
 		
