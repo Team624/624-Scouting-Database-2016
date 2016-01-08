@@ -10,8 +10,17 @@ if(isset($valid_user) && isset($user_type))
 ?>	
 
 <!-- Make this page Tablet Friendly -->
+<head>
+<link rel="stylesheet" type="text/css" href="css/DankDriverPageStyle.css">
+</head>
+
 <div class="container">
-	<h2>Drive Team Page</h2>
+<br>
+<br>
+<br>
+<br>
+<br>
+	<h2><span>Drive Team Page</span></h2>
 	
 	<div>
 	Put Zoomed in Ranking Here <!-- 5 teams above and below in rankings, if 0 above, put only 5 below -->
