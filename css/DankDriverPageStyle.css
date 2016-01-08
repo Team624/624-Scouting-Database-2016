@@ -9,4 +9,69 @@ h2{
 p{
 	font-size:21px;
 }
+
+pre{
+	text-align:left;
+}
+
+
+.slideli
+{
+	background-color: #000;
+	list-style-type: none;
+	width:100%;
+	margin: 0 auto;
+	height:30px;
+	font-size:14px;
+	text-align:left;
+}
+.slidebutton
+{
+	transition: background-color .5s ease;
+	background-color: #000;
+	color: #FFF;
+	height:30;
+	width:30px;
+	font-size:18px;
+	padding-top: 5;
+	border: transparent;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+}
+.slidebutton:hover
+{
+	background-color: #313131;
+	color: #FFF;
+	height:30px;
+	width:30px;
+	font-size:18px;
+	border: transparent;
+	padding-top: 5;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+}
+
+.slidediv
+{
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	background-color: #E4E4E4;
+	margin-bottom: 15px;
+	-webkit-transition:     height .8s ease;
+    -moz-transition:        height .8s ease;
+    -o-transition:          height .8s ease;
+    -ms-transition:         height .8s ease;
+	transition: height .8s ease;
+    overflow: hidden;
+	width:100%;
+	font-size:14px;
+	text-align:center;
+	/*margin: 0 auto;*/
+}
+button:focus
+{
+	outline: 0;
+}
 	/*not much here for now, I just want this file to exist

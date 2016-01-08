@@ -9,14 +9,21 @@ if(isset($valid_user) && isset($user_type))
 	if($valid_user && $user_type=="driver")
 	{
 		include("navbar.php");
+		include("api_connect.php");
+		
+		$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/txho?teamNumber=624";
+		$response = file_get_contents($url,false,$context);
 ?>	
 
 <!-- Make this page Tablet Friendly -->
+<body onload="load()">
 <head>
 	<link rel="stylesheet" type="text/css" href="css/DankDriverPageStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/mainpagestyle.css"> 
 	<link rel="stylesheet" type="text/css" href="css/dataform.css">
 </head>
+
+<script src="./scripts/dropdown.js"></script>
 
 <div class="page_container">
 	<div class="form_container">
@@ -26,6 +33,37 @@ if(isset($valid_user) && isset($user_type))
 <br>
 	<h2><span>Drive Team Page</span></h2>
 	
+	<ul>
+	<?php 
+		
+		$json = json_decode($response, true);
+		//echo json_encode($json, JSON_PRETTY_PRINT);
+		$iter = 0;
+		
+		foreach($json as $schedule)
+		{
+			foreach($schedule as $match)
+			{
+				$description = $match["description"];
+				?>
+				<li class="slideli" id="slide_li_<?= $iter ?>">
+					<span id="collapseView">
+						<button class="slidebutton" id="slide_button_<?= $iter ?>" onclick="expand('<?= $iter ?>')" type="button">-</button>
+						<?php echo $description; ?>
+					</span>
+				</li>
+				<div id="slide_<?= $iter ?>" class="slidediv">
+					YOLOLOL
+				</div>
+				<?php
+				$iter++;
+			}
+		}
+		//echo json_encode($match, JSON_PRETTY_PRINT);
+				
+				//echo $item['description'];
+	?>
+	</ul>
 	
 </div>
 
