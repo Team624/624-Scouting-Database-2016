@@ -9,7 +9,7 @@ include("db_connect.php");
 <br>
 <br>
 <br>
-<head>	<link rel="stylesheet" type="text/css" href="css/ScoutListStyle.css"> </head>
+
 <div class = "title" >
 	<h1> Scout List </h1>
 </div>

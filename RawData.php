@@ -8,7 +8,10 @@ include("db_connect.php");
 	$query = "SELECT * FROM `scout2016`.`match_data`";
 	
 ?>
-
+<br>
+<br>
+<br>
+<br>
 <div class="page_container">
 	<table>
 		<thead>
