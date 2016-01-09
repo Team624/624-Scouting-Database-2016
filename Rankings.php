@@ -21,9 +21,65 @@ include("api_connect.php");
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
 <div class = "title" >
 	<h1> Rankings </h1>
 </div>
+
+<?php
+		$json = json_decode($response, true);
+
+		foreach ($json as $rank)
+		{
+			foreach ($rank as $team)
+			{
+				$roast = $team["rank"];
+				$teamNumber = $team["teamNumber"];
+				$qualAverage = $team["qualAverage"];
+				$autoPoints = $team["autoPoints"];
+				$containerPoints = $team["containerPoints"];
+				$coopertitionPoints = ["oopertitionPoints"];
+				$litterPoints = ["litterPoints"];
+				$totePoints = ["totePoints"];
+				$wins = ["wins"];
+				$losses = ["losses"];
+				$ties = ["ties"];
+				$dq = ["dq"];
+				$matchesPlayed = ["matchesPlayed"];
+				?>
+				<table class = "rankingsTable">
+					<tr> 
+						<th>Rank</th>
+						<td><?php echo $roast; ?></td> 
+					</tr>
+					<tr> 
+						<td><?php echo $teamNumber; ?></td>
+					</tr>
+					<tr>
+						<td><?php echo $qualAverage; ?></td> 
+					</tr>
+					<tr> 
+						<td><?php echo $autoPoints; ?></td> 
+					</tr>
+					<tr> <td><?php echo $containerPoints; ?></td> </tr>
+					<tr> <td><?php echo $coopertitionPoints; ?></td> </tr>
+					<tr> <td><?php echo $litterPoints; ?></td> </tr>
+					<tr> <td><?php echo $totePoints; ?></td> </tr>
+					<tr> <td><?php echo $wins; ?></td> </tr>
+					<tr> <td><?php echo $losses; ?></td> </tr>
+					<tr> <td><?php echo $ties; ?></td> </tr>
+					<tr> <td><?php echo $dq; ?></td> </tr>
+					<tr> <td><?php echo $matchesPlayed; ?></td> </tr>
+					</table>
+					<?php
+			}
+		}
+	?>
+
+
+
 
 <div class="page_container">
 	<?php 	

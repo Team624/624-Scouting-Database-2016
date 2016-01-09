@@ -5,3 +5,12 @@ body {
 .title {
 	text-align: center;
 }
+.rankingsTable {
+	margin: 0 auto;
+	background-color: white;
+	background-image: url("../images/pixel_bg.png");
+	border-radius: 10px;
+	border: 2px solid black;
+	width: 15%;
+	height: 100%
+}
