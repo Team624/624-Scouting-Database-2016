@@ -21,14 +21,31 @@ include("api_connect.php");
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
 <div class = "title" >
 	<h1> Rankings </h1>
 </div>
+	<table class = "fixedHead">
+		<thead>
+			<th><span>Rank</span></th>
+			<th>Team Number</th>
+			<th>Qual Average</th>
+			<th>Auto Points</th>
+			<th>Container Points</th>
+			<th>Coopertition Points</th>
+			<th>Litter Points</th>
+			<th>Tote Points</th>
+			<th>Wins</th>
+			<th>Losses</th>
+			<th>Ties</th>
+			<th>DQ</th>
+			<th>Matches Played</th>
+		</thead>
+	</table>
+	<div id = "invisible">
+	<table class = "rankingsTable">
+		<tbody>
 
-<?php
+	<?php
 		$json = json_decode($response, true);
 
 		foreach ($json as $rank)
@@ -48,41 +65,35 @@ include("api_connect.php");
 				$ties = ["ties"];
 				$dq = ["dq"];
 				$matchesPlayed = ["matchesPlayed"];
-				?>
-				<table class = "rankingsTable">
-					<tr> 
-						<th>Rank</th>
-						<td><?php echo $roast; ?></td> 
-					</tr>
-					<tr> 
-						<td><?php echo $teamNumber; ?></td>
-					</tr>
+	?>
 					<tr>
+						<td><?php echo $roast; ?></td> 
+						<td><?php echo $teamNumber; ?></td>
 						<td><?php echo $qualAverage; ?></td> 
-					</tr>
-					<tr> 
 						<td><?php echo $autoPoints; ?></td> 
+						<td><?php echo $containerPoints; ?></td> 
+						<td><?php echo $coopertitionPoints; ?></td>
+						<td><?php echo $litterPoints; ?></td> 
+						<td><?php echo $totePoints; ?></td> 
+						<td><?php echo $wins; ?></td> 
+						<td><?php echo $losses; ?></td> 
+						<td><?php echo $ties; ?></td> 
+						<td><?php echo $dq; ?></td>
+						<td><?php echo $matchesPlayed; ?></td> 
 					</tr>
-					<tr> <td><?php echo $containerPoints; ?></td> </tr>
-					<tr> <td><?php echo $coopertitionPoints; ?></td> </tr>
-					<tr> <td><?php echo $litterPoints; ?></td> </tr>
-					<tr> <td><?php echo $totePoints; ?></td> </tr>
-					<tr> <td><?php echo $wins; ?></td> </tr>
-					<tr> <td><?php echo $losses; ?></td> </tr>
-					<tr> <td><?php echo $ties; ?></td> </tr>
-					<tr> <td><?php echo $dq; ?></td> </tr>
-					<tr> <td><?php echo $matchesPlayed; ?></td> </tr>
-					</table>
+
+
 					<?php
 			}
 		}
 	?>
+	</tbody>
+	</table>
+	</div>
 
 
 
 
 <div class="page_container">
-	<?php 	
-		var_dump($response); //This prints a nice red string
-	?>
+
 </div>

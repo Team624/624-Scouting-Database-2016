@@ -6,11 +6,50 @@ body {
 	text-align: center;
 }
 .rankingsTable {
+	border-spacing: 0px 15px;
+	border-collapse: separate;
 	margin: 0 auto;
 	background-color: white;
 	background-image: url("../images/pixel_bg.png");
 	border-radius: 10px;
 	border: 2px solid black;
-	width: 15%;
-	height: 100%
+	width: 80%;
+	text-align: left;
+	opacity: 0.9;
+	margin-top: 5%;
+	height: 400px;
+
+}
+
+th {
+	color: black;
+	text-decoration: underline;
+	padding-left: 3%;
+	padding-right: 3%;
+}
+td {
+	padding-left: 3%;
+	padding-right: 3%;
+	text-align: center;
+}
+
+span {
+	color: #06f000;
+
+}
+.fixedHead {
+	z-index: 1000000;
+	position: fixed;
+	margin: 0 auto;
+	margin-left: 1%;
+	background-color: white;
+	background-image: url("../images/pixel_bg.png");
+	border-radius: 10px;
+	border: 2px solid black;
+	width: 55%;
+	text-align: left;
+}
+#invisible {
+	height: 400px;
+	overflow: scroll;
 }
