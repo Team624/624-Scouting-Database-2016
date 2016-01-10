@@ -11,7 +11,7 @@ if(isset($valid_user) && isset($user_type))
 		include("navbar.php");
 		include("api_connect.php");
 		
-		$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/txho?teamNumber=624";
+		$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/txho?tournamentLevel=Qualification&teamNumber=624";
 		$response = file_get_contents($url,false,$context);
 ?>	
 
@@ -30,10 +30,11 @@ if(isset($valid_user) && isset($user_type))
 		<form class="datafield" method="post">
 <div class="container">
 <br>
-<br>
+<br><br>
 	<h2><span>Drive Team Page</span></h2>
 	
-	<ul>
+	<h2>Upcoming Matches</h2>
+	<ul id="match_list">
 	<?php 
 		
 		$json = json_decode($response, true);
@@ -47,7 +48,7 @@ if(isset($valid_user) && isset($user_type))
 				$description = $match["description"];
 				?>
 				<li class="slideli" id="slide_li_<?= $iter ?>">
-					<span id="collapseView">
+					<span class="collapseView">
 						<button class="slidebutton" id="slide_button_<?= $iter ?>" onclick="expand('<?= $iter ?>')" type="button">-</button>
 						<?php echo $description; ?>
 					</span>
@@ -59,6 +60,8 @@ if(isset($valid_user) && isset($user_type))
 				$iter++;
 			}
 		}
+		
+		
 		//echo json_encode($match, JSON_PRETTY_PRINT);
 				
 				//echo $item['description'];

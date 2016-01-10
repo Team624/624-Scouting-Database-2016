@@ -1,8 +1,10 @@
 var slideheights = [];
+
 function load()
 {
 	var i;
-	for(i=0;i<NUM_SLIDES;i++)
+	
+	for(i=0;i<document.getElementById("match_list").getElementsByTagName("li").length;i++)
 	{
 		var d = document.getElementById("slide_"+i);
 		var b = document.getElementById("slide_button_"+i);
@@ -11,12 +13,13 @@ function load()
 		
 		d.style.height="0px";
 		b.innerHTML = "+";
-		l.setAttribute("style", "-webkit-border-bottom-right-radius: 5px;-moz-border-radius-bottomright: 5px;-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;margin-bottom:5px; font-size:18px;"); 
-		b.setAttribute("style","-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;");
+		//l.setAttribute("style", "-webkit-border-bottom-right-radius: 5px;-moz-border-radius-bottomright: 5px;-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;margin-bottom:5px; font-size:18px;"); 
+		//b.setAttribute("style","-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;");
 	}
 
-	
+	console.log(slideheights);
 }
+
 function expand(id)
 {
 	
@@ -33,8 +36,8 @@ function expand(id)
 		step(1,function(){ 
 		if(d.style.height=="0px")
 		{
-		l.setAttribute("style", "-webkit-border-bottom-right-radius: 5px;-moz-border-radius-bottomright: 5px;-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;margin-bottom:5px; font-size:18px;"); 
-		b.setAttribute("style","-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;");
+		//l.setAttribute("style", "-webkit-border-bottom-right-radius: 5px;-moz-border-radius-bottomright: 5px;-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;margin-bottom:5px; font-size:18px;"); 
+		//b.setAttribute("style","-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;");
 		}
 		});
 	}
@@ -42,15 +45,16 @@ function expand(id)
 	{
 		var d = document.getElementById("slide_"+id);
 		
-		d.style.height=slideheights[id];
+		d.style.height = slideheights[id];
+		console.log(slideheights[id]);
 		
 		var l = document.getElementById("slide_li_"+id);
 		
 		var b = document.getElementById("slide_button_"+id);
 		b.innerHTML = "-";
 		
-		l.setAttribute("style", "-webkit-border-bottom-right-radius: 0px;-moz-border-radius-bottomright: 0px;-webkit-border-bottom-left-radius: 0px;-moz-border-radius-bottomleft: 0px;margin-bottom:0px;");
-		b.setAttribute("style","-webkit-border-bottom-left-radius: 0px;-moz-border-radius-bottomleft: 0px;");
+		//l.setAttribute("style", "-webkit-border-bottom-right-radius: 0px;-moz-border-radius-bottomright: 0px;-webkit-border-bottom-left-radius: 0px;-moz-border-radius-bottomleft: 0px;margin-bottom:0px;");
+		//b.setAttribute("style","-webkit-border-bottom-left-radius: 0px;-moz-border-radius-bottomleft: 0px;");
 		
 		step(2,function(){ 
 			d.style.opacity = '100'; 
