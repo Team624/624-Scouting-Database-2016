@@ -16,8 +16,9 @@ body {
 	width: 80%;
 	text-align: left;
 	opacity: 0.9;
-	margin-top: 5%;
+	margin-top: 1%;
 	height: 400px;
+	overflow: scroll;
 
 }
 
@@ -39,7 +40,6 @@ span {
 }
 .fixedHead {
 	z-index: 1000000;
-	position: fixed;
 	margin: 0 auto;
 	margin-left: 1%;
 	background-color: white;
@@ -49,7 +49,4 @@ span {
 	width: 55%;
 	text-align: left;
 }
-#invisible {
-	height: 400px;
-	overflow: scroll;
-}
+

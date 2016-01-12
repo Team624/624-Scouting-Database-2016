@@ -41,8 +41,7 @@ include("api_connect.php");
 			<th>Matches Played</th>
 		</thead>
 	</table>
-	<div id = "invisible">
-	<table class = "rankingsTable">
+	<table class = "rankingsTable" >
 		<tbody>
 
 	<?php
@@ -89,7 +88,6 @@ include("api_connect.php");
 	?>
 	</tbody>
 	</table>
-	</div>
 
 
 
