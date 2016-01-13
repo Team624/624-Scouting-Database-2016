@@ -18,16 +18,16 @@ include("navbar.php");
 </div>
 <div class="page_container">
 <form class="NoteEntry" method="post">
-<p>Search For Da Team</p>
-<input type="number" name="selectteam">
+
+<span class="teamsearch">Search For Da Team:</span><input type="number" name="selectteam">
 <br>
 <br>
 <br>
-<textarea rows="5" cols="30">
+<textarea rows="7" cols="50" name="notes">
 Type notes in here!
 </textarea>
 <br>
 <br>
-<input type="submit" value="Enter!">
+<input type="submit" value="Enter!" name="submitnotes">
 </form>
 </div>

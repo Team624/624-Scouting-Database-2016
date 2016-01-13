@@ -2,7 +2,9 @@
 	border-style:solid;
 	border-color:green;
 }*/
-p{
-	font-family:monospace;
-	color:#bfbfbf;
+.teamsearch{
+	ont-family:monospace;
+	margin-top: 10px;
+	color: #bfbfbf;
+	font-size: 18px;
 }
