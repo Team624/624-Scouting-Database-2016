@@ -28,6 +28,12 @@ Type notes in here!
 </textarea>
 <br>
 <br>
-<input type="submit" value="Enter!" name="submitnotes">
+<input type="submit" value="Enter!" class="subButton" name="submitnotes">
 </form>
 </div>
+<?php
+if(isset($_POST['submitnotes'])){
+	
+	
+}
+?>
