@@ -33,7 +33,10 @@ Type notes in here!
 </div>
 <?php
 if(isset($_POST['submitnotes'])){
-	
-	
+if(!empty($_POST['selectteam']) && !empty($_POST['notes'])) {
+	$teamselect=$_POST['selectteam'];
+	$notes=$_POST['notes'];	
+
+}
 }
 ?>
