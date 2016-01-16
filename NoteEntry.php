@@ -36,7 +36,8 @@ if(isset($_POST['submitnotes'])){
 if(!empty($_POST['selectteam']) && !empty($_POST['notes'])) {
 	$teamselect=$_POST['selectteam'];
 	$notes=$_POST['notes'];	
-
+	$con=mysqli_connect('localhost','username','password','databasename','portnumba') or die(mysqli_error());
+	
 }
 }
 ?>
