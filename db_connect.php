@@ -2,7 +2,7 @@
 	error_reporting(E_ALL ^ E_NOTICE);
 	
 	$ini = parse_ini_file("./config.ini");
-	
+	//if you ever want to access your own database instead, this is the place to do it.
 	$dbhost = $ini['dbhost'];
 	$dbname = $ini['dbname'];
 	$dbuser = $ini['dbuser'];
@@ -14,6 +14,10 @@
 	if ($mysqli->connect_errno) {
 		printf("Connect failed: %s\n", $mysqli->connect_error);
 		exit();
+	}
+	/*I might comment this out fo later if I have to.*/ 
+	else {
+		echo"Connection Successful!";
 	}
 	
 ?>
