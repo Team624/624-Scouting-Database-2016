@@ -3,6 +3,12 @@
 	
 	$ini = parse_ini_file("./config.ini");
 	//if you ever want to access your own database instead, this is the place to do it.
+	
+	//$dbhost = localhost /*$ini['dbhost']*/;
+	//$dbname = testdatabase /*$ini['dbname']*/;
+	//$dbuser = anuragtest /*$ini['dbuser']*/;
+	//$dbpass = helloworld /*$ini['dbpass']*/; 
+	
 	$dbhost = $ini['dbhost'];
 	$dbname = $ini['dbname'];
 	$dbuser = $ini['dbuser'];

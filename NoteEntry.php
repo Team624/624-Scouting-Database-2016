@@ -38,6 +38,15 @@ if(!empty($_POST['selectteam']) && !empty($_POST['notes'])) {
 	$notes=$_POST['notes'];	
 	// commenting this out for now, never know when It will have to use it later. $con=mysqli_connect('localhost','username','password','databasename','portnumba') or die(mysqli_error());
 	include("db_connect.php");
+	$query = "INSERT INTO note_entry (selectteam,notes) VALUES ('$teamselect','$notes')";
+	$result = $mysqli->query($query);
+	if($result) {
+	echo"Successfully added notes";	
+	}
+	else {
+	echo"NOPE!";	
+	}
+	
 }
 }
 ?>
