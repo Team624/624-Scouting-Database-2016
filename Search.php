@@ -21,7 +21,7 @@ include("db_connect.php");
 <div class="page_container">
 <form class="Searchforsearch" method="post">
 <br>
-<span class="teamsearch">Search Fo:</span><select>
+<span class="teamsearch">Search Fo:</span><select name="dropdown">
   <option value="teams" name="choseteam">Teams</option>
   <option value="matches" name="chosematch">Matches</option>
  </select>&nbsp;&nbsp;&nbsp;<input type="number" name="number">
@@ -33,7 +33,8 @@ include("db_connect.php");
 </div>
 <?php
 if(isset($_POST['searchsubmit'])){
-if(!empty($_POST['choseteam']) && !empty($_POST['number'])) {
+if(($_POST['dropdown'] =='teams') && !empty($_POST['number'])) {
+	echo"BLAZE IT!";
 	$teamnumber=$_POST['number'];
 	$query = //"INSERT INTO note_entry (selectteam,notes) VALUES ('$teamselect','$notes')";
 	$result = $mysqli->query($query);
@@ -41,9 +42,10 @@ if(!empty($_POST['choseteam']) && !empty($_POST['number'])) {
 	echo"Successfully blazed it";	
 	}
 	else {
-	echo"NOPE!";	
+	echo"NyyyOPE!";	
 	}
-}elseif(!empty($_POST['chosematch']) && !empty($_POST['number'])) {
+}elseif(($_POST['dropdown'] == 'matches') && !empty($_POST['number'])) {
+	echo"@ mo blae";
 	$matchnumber=$_POST['number'];
 	$query = //"INSERT INTO note_entry (selectteam,notes) VALUES ('$teamselect','$notes')";
 	$result = $mysqli->query($query);
