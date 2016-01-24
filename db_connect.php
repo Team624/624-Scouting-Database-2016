@@ -23,8 +23,8 @@
 		exit();
 	}
 	/*I might comment this out fo later if I have to.*/ 
-	else {
+	/*elseif ($mysqli) {
 		echo"Connection Successful!";
-	}
+	}*/
 	
 ?>

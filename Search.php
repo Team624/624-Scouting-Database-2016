@@ -7,7 +7,7 @@ include("navbar.php");
 include("db_connect.php");
 
 include("api_connect.php");
-		
+		//the url needs a change
 		$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/txho?tournamentLevel=Qualification&teamNumber=624";
 		$response = file_get_contents($url,false,$context);
 ?>
@@ -41,6 +41,7 @@ if(isset($_POST['searchsubmit'])){
 if(($_POST['dropdown'] =='teams') && !empty($_POST['number'])) {
 	echo"BLAZE IT!";
 	$teamnumber=$_POST['number'];
+	
 	$query = //"SELECT `id`,`name` FROM `scout2016`.`scouts`";
 	$result = $mysqli->query($query);
 	if($result) {
@@ -52,6 +53,7 @@ if(($_POST['dropdown'] =='teams') && !empty($_POST['number'])) {
 }elseif(($_POST['dropdown'] == 'matches') && !empty($_POST['number'])) {
 	echo"@ mo blae";
 	$matchnumber=$_POST['number'];
+	
 	$query = //"SELECT `id`,`name` FROM `scout2016`.`scouts`";
 	$result = $mysqli->query($query);
 	if($result) {

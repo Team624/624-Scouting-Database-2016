@@ -46,7 +46,7 @@ include("api_connect.php");
 
 	<?php
 		$json = json_decode($response, true);
-
+		//var_dump($json);use this if you want to see if you are getting all the elements from the API url
 		foreach ($json as $rank)
 		{
 			foreach ($rank as $team)
@@ -56,14 +56,14 @@ include("api_connect.php");
 				$qualAverage = $team["qualAverage"];
 				$autoPoints = $team["autoPoints"];
 				$containerPoints = $team["containerPoints"];
-				$coopertitionPoints = ["oopertitionPoints"];
-				$litterPoints = ["litterPoints"];
-				$totePoints = ["totePoints"];
-				$wins = ["wins"];
-				$losses = ["losses"];
-				$ties = ["ties"];
-				$dq = ["dq"];
-				$matchesPlayed = ["matchesPlayed"];
+				$coopertitionPoints = $team["coopertitionPoints"];
+				$litterPoints = $team["litterPoints"];
+				$totePoints = $team["totePoints"];
+				$wins = $team["wins"];
+				$losses = $team["losses"];
+				$ties = $team["ties"];
+				$dq = $team["dq"];
+				$matchesPlayed = $team["matchesPlayed"];
 	?>
 					<tr>
 						<td><?php echo $roast; ?></td> 
