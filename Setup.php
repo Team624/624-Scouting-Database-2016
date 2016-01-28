@@ -30,7 +30,7 @@ include("db_connect.php");
 	Update:Already can put teams into the database, need to add code for inserting match data into da database
 	<table class = "rankingsTable" >
 		<tbody>
-		<pre>
+		<!--<pre>-->
 <?php
 $json = json_decode($response, true);
 //var_dump($response);
@@ -63,7 +63,7 @@ echo $jsonNew = str_replace( $string_to_replace,"",$complete_data);
 			
 		}
 	?>
-	</pre>
+	<!--</pre>-->
 	</tbody>
 	</table>
 		</div>
