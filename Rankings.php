@@ -43,9 +43,10 @@ include("api_connect.php");
 	</table>
 	<table class = "rankingsTable" >
 		<tbody>
-
+<pre>
 	<?php
 		$json = json_decode($response, true);
+		echo json_encode($json/*, JSON_PRETTY_PRINT*/);
 		//var_dump($json);use this if you want to see if you are getting all the elements from the API url
 		foreach ($json as $rank)
 		{
@@ -65,6 +66,7 @@ include("api_connect.php");
 				$dq = $team["dq"];
 				$matchesPlayed = $team["matchesPlayed"];
 	?>
+	</pre>
 					<tr>
 						<td><?php echo $roast; ?></td> 
 						<td><?php echo $teamNumber; ?></td>

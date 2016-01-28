@@ -5,9 +5,10 @@ include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
 include("api_connect.php");
-	//$url = "https://frc-api.firstinspires.org/v2.0/2016/teams?eventCode=TXHO&state=state";
+include("db_connect.php");
+	$url = "https://frc-api.firstinspires.org/v2.0/2016/teams?eventCode=TXHO&state=state";
 	//$url="https://frc-api.firstinspires.org/v2.0/2016/schedule/TXHO?tournamentLevel=qual";
-	$url="https://frc-api.firstinspires.org/v2.0/2015/schedule/TXHO?tournamentLevel=qual";
+	//$url="https://frc-api.firstinspires.org/v2.0/2015/schedule/TXHO?tournamentLevel=qual";
 	$response = file_get_contents($url,false,$context);
 ?>
 <br><br>
@@ -33,14 +34,20 @@ include("api_connect.php");
 <?php
 $json = json_decode($response, true);
 //var_dump($response);
-//echo json_encode($json, JSON_PRETTY_PRINT);
-		foreach ($json as $somevariable)
-		{	if(isset($somevariable)){
-			foreach ($somevariable as $team)
+//var_dump($json);
+/*echo*/ $complete_data=json_encode($json/*, JSON_PRETTY_PRINT*/);
+$string_to_replace=",\"teamCountTotal\":64,\"teamCountPage\":64,\"pageCurrent\":1,\"pageTotal\":1";
+
+echo $jsonNew = str_replace( $string_to_replace,"",$complete_data);
+//echo $jsonNew;
+		//echo $string_to_replace="],\"teamCountTotal\":64,\"teamCountPage\":64,\"pageCurrent\":1,\"pageTotal\":1}";
+		foreach ($jsonNew as $i)
+		{	
+			foreach ($i as $team)
 			{ 
 				$teamName = $team["nameShort"];
 				$teamNumber = $team["teamNumber"];
-				include("db_connect.php");
+			
 				
 				$query = "INSERT INTO teams (teamNumber,teamName) VALUES ('$teamNumber','$teamName')";
 				$result = $mysqli->query($query);
@@ -53,7 +60,7 @@ $json = json_decode($response, true);
 			</tr>
 			<?php
 				}
-			}
+			
 		}
 	?>
 	</pre>

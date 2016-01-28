@@ -3,11 +3,13 @@
 	
 	$ini = parse_ini_file("./config.ini");
 	//if you ever want to access your own database instead, this is the place to do it.
-	//For now, this is only going to work for my own database.
+	//Just uncomment out and add in your own info.
 	$dbhost = localhost /*$ini['dbhost']*/;
 	$dbname = testdatabase /*$ini['dbname']*/;
 	$dbuser = anuragtest /*$ini['dbuser']*/;
 	$dbpass = helloworld /*$ini['dbpass']*/; 
+	
+	
 	
 	//this is if you want to connect to the team624 database
 	//$dbhost = $ini['dbhost'];
@@ -23,8 +25,8 @@
 		exit();
 	}
 	/*I might comment this out fo later if I have to.*/ 
-	/*elseif ($mysqli) {
+	elseif ($mysqli) {
 		echo"Connection Successful!";
-	}*/
+	}
 	
 ?>
