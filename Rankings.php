@@ -5,7 +5,7 @@ include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
 include("read_ini.php");
-
+include("db_connect.php");
 include("api_connect.php");
 
 
@@ -16,7 +16,10 @@ include("api_connect.php");
 	//hint: use json_decode to decode $response. Look it up.
 
 ?>
-<head>	<link rel="stylesheet" type="text/css" href="css/RankingsStyle.css"> </head>
+<head>	<link rel="stylesheet" type="text/css" href="css/RankingsStyle.css"> 
+
+
+</head>
 <br>
 <br>
 <br>
@@ -45,15 +48,16 @@ include("api_connect.php");
 		<tbody>
 <!--<pre>-->
 	<?php
+		mysqli_select_db($mysqli,"mynewdatabase3");
 		$json = json_decode($response, true);
-		echo json_encode($json/*, JSON_PRETTY_PRINT*/);
+		//echo json_encode($json/*, JSON_PRETTY_PRINT*/);  /use this for unformatted json 
 		//var_dump($json);use this if you want to see if you are getting all the elements from the API url
 		foreach ($json as $rank)
 		{
 			foreach ($rank as $team)
 			{
-				$roast = $team["rank"];
 				$teamNumber = $team["teamNumber"];
+				$roast = $team["rank"];
 				$qualAverage = $team["qualAverage"];
 				$autoPoints = $team["autoPoints"];
 				$containerPoints = $team["containerPoints"];
@@ -65,6 +69,18 @@ include("api_connect.php");
 				$ties = $team["ties"];
 				$dq = $team["dq"];
 				$matchesPlayed = $team["matchesPlayed"];
+				
+				$sql="INSERT INTO teamsatevents2(teamNumber,rank,qualAverage)
+				VALUES('$teamNumber','$roast','$qualAverage')";
+				
+					$result=mysqli_query($mysqli,$sql);
+				if(!$result){
+					echo 'Fail';
+				} else{
+					echo 'Sucess';
+				}
+					
+				
 	?>
 	<!--</pre>-->
 					<tr>

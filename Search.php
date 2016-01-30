@@ -26,7 +26,7 @@ include("api_connect.php");
 <div class="page_container">
 <form class="Searchforsearch" method="post">
 <br>
-<span class="teamsearch">Search Fo:</span><select name="dropdown">
+<span class="teamsearch">Search For:</span><select name="dropdown">
   <option value="teams" name="choseteam">Team</option>
   <option value="matches" name="chosematch">Match</option>
  </select>&nbsp;&nbsp;&nbsp;<input type="number" name="number">
@@ -37,18 +37,20 @@ include("api_connect.php");
 </form>
 </div>
 <?php
+mysqli_select_db($mysqli,"mynewdatabase3");
 if(isset($_POST['searchsubmit'])){
 if(($_POST['dropdown'] =='teams') && !empty($_POST['number'])) {
 	echo"BLAZE IT!";
 	$teamnumber=$_POST['number'];
-	
-	$query = //"SELECT `id`,`name` FROM `scout2016`.`scouts`";
-	$result = $mysqli->query($query);
-	if($result) {
-	echo"Successfully blazed it";	
-	}
-	else {
-	echo"NyyyOPE!";	
+	$query1= SELECT * FROM mynewdatabase3
+	WHERE teamNumber='624';
+	$result=mysqli_query($mysqli,$sql);
+  if(!$result){
+   echo 'mySQL ERROR';
+  } else{
+   echo 'Sucess';
+  }
+  
 	}
 }elseif(($_POST['dropdown'] == 'matches') && !empty($_POST['number'])) {
 	echo"@ mo blae";
