@@ -27,24 +27,26 @@ include("db_connect.php");
 	<div>
 		<div class="setupdiv">
 			Put Data Loading DIV Here
-	Update:Already can put teams into the database, need to add code for inserting match data into da database
+	<br><br>Update: Not broken anymore!
 	<table class = "rankingsTable" >
 		<tbody>
-		<!--<pre>-->
+		<pre>
 <?php
-$json = json_decode($response, true);
+ $json = json_decode($response, true);
+ //$teamlist= $json[teams];
+ //$json = json_decode($response, false);
 //var_dump($response);
-//var_dump($json);
-/*echo*/ $complete_data=json_encode($json/*, JSON_PRETTY_PRINT*/);
-$string_to_replace=",\"teamCountTotal\":64,\"teamCountPage\":64,\"pageCurrent\":1,\"pageTotal\":1";
+//var_dump($json[teams]);
+/*echo*/ //echo $complete_data=json_encode($teamlist, JSON_PRETTY_PRINT);
+//$string_to_replace=",\"teamCountTotal\":64,\"teamCountPage\":64,\"pageCurrent\":1,\"pageTotal\":1";
 
-echo $jsonNew = str_replace( $string_to_replace,"",$complete_data);
+//echo $jsonNew = str_replace( $string_to_replace,"",$complete_data);
 //echo $jsonNew;
 		//echo $string_to_replace="],\"teamCountTotal\":64,\"teamCountPage\":64,\"pageCurrent\":1,\"pageTotal\":1}";
-		foreach ($jsonNew as $i)
+		foreach ($json[teams] as $team)
 		{	
-			foreach ($i as $team)
-			{ 
+			//foreach ($i as $team)
+			//{ 
 				$teamName = $team["nameShort"];
 				$teamNumber = $team["teamNumber"];
 			
@@ -59,11 +61,11 @@ echo $jsonNew = str_replace( $string_to_replace,"",$complete_data);
 				
 			</tr>
 			<?php
-				}
+				//}
 			
 		}
 	?>
-	<!--</pre>-->
+	</pre>
 	</tbody>
 	</table>
 		</div>

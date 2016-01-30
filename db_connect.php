@@ -5,9 +5,9 @@
 	//if you ever want to access your own database instead, this is the place to do it.
 	//Just uncomment out and add in your own info.
 	$dbhost = localhost /*$ini['dbhost']*/;
-	$dbname = mynewdatabase2 /*$ini['dbname']*/;
-	$dbuser = ViraJJ /*$ini['dbuser']*/;
-	$dbpass = madara123 /*$ini['dbpass']*/; 
+	$dbname =  testdatabase/*$ini['dbname']*/;
+	$dbuser = anuragtest /*$ini['dbuser']*/;
+	$dbpass = helloworld /*$ini['dbpass']*/; 
 	
 	
 	
