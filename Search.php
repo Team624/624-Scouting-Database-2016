@@ -37,19 +37,25 @@ include("api_connect.php");
 </form>
 </div>
 <?php
+include("db_connect.php");
 mysqli_select_db($mysqli,"mynewdatabase3");
 if(isset($_POST['searchsubmit'])){
 if(($_POST['dropdown'] =='teams') && !empty($_POST['number'])) {
-	echo"BLAZE IT!";
+	echo"Sucesss!";
 	$teamnumber=$_POST['number'];
-	$query1= SELECT * FROM mynewdatabase3
-	WHERE teamNumber='624';
+	$sql="SELECT * from teamsatevents2 WHERE teamNumber=$teamNumber";
 	$result=mysqli_query($mysqli,$sql);
-  if(!$result){
-   echo 'mySQL ERROR';
-  } else{
-   echo 'Sucess';
-  }
+	
+	if ($result->num_rows > 0) {
+    echo "<table><tr><th>ID</th><th>Name</th></tr>";
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>".$row["id"]."</td><td>".$row["firstname"]." ".$row["lastname"]."</td></tr>";
+    }
+    echo "</table>";
+} else {
+    echo "0 results";
+}
   
 	}
 }elseif(($_POST['dropdown'] == 'matches') && !empty($_POST['number'])) {
@@ -58,15 +64,15 @@ if(($_POST['dropdown'] =='teams') && !empty($_POST['number'])) {
 	
 	$query = //"SELECT `id`,`name` FROM `scout2016`.`scouts`";
 	$result = $mysqli->query($query);
-	if($result) {
-	echo"Successfully blazed it";	
+	if(!$result) {
+	echo"mySql error";	
 	}
 	else {
-	echo"NOPE!";	
+	echo"Sucess";	
 	}
 	
 } else{
 	echo"Nothin";
 }
-}
+	
 ?>
