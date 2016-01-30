@@ -43,14 +43,14 @@ if(isset($_POST['searchsubmit'])){
 if(($_POST['dropdown'] =='teams') && !empty($_POST['number'])) {
 	echo"Sucesss!";
 	$teamnumber=$_POST['number'];
-	$sql="SELECT * from teamsatevents2 WHERE teamNumber=$teamNumber";
+	$sql="SELECT * from teamsatevents2 WHERE teamNumber=624";
 	$result=mysqli_query($mysqli,$sql);
 	
 	if ($result->num_rows > 0) {
-    echo "<table><tr><th>ID</th><th>Name</th></tr>";
+    echo "<table ><tr><th>teamNumber</th><th>Rank</th><th>qualAverage</th></tr>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["id"]."</td><td>".$row["firstname"]." ".$row["lastname"]."</td></tr>";
+        echo "<tr><td>".$row["teamNumber"]."</td><td>".$row["rank"]."</td><td>".$row["qualAverage"]."</td></tr>";
     }
     echo "</table>";
 } else {
