@@ -70,15 +70,10 @@ include("api_connect.php");
 				$dq = $team["dq"];
 				$matchesPlayed = $team["matchesPlayed"];
 				
-				$sql="INSERT INTO teamsatevents2(teamNumber,rank,qualAverage)
+				$sql="INSERT INTO teamatevents2(teamNumber,rank,qualAverage)
 				VALUES('$teamNumber','$roast','$qualAverage')";
 				
-					$result=mysqli_query($mysqli,$sql);
-				if(!$result){
-					echo 'Fail';
-				} else{
-					echo 'Sucess420';
-				}
+				mysqli_query($mysqli,$sql);
 					
 				
 	?>

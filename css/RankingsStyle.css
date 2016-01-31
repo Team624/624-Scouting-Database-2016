@@ -50,14 +50,21 @@ span {
 	text-align: left;
 }
 #TeamRankings{
-	
 	color: green;
-	padding-left:
+	padding-left:2em;
+	word-wrap: normal;
 	margin: 0 auto;
 	text-align:center;
 	
 	
 	
+	
+}
+
+
+#oneline{
+	
+	width:175px;
 	
 }
 
