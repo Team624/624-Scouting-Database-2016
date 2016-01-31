@@ -42,14 +42,15 @@ $eventcode="2015";
 			Put Data Loading DIV Here
 	<br><br>Update:Can now load and update the teams list from all the regionals we are going to.
 	<!--<table class = "rankingsTable" >
-		<tbody>
-		<pre>-->
+		<tbody>-->
+		<pre>
 <?php
  $json = json_decode($response, true);
 //var_dump($json[teams]);
+//echo json_encode($json[teams], JSON_PRETTY_PRINT);
 		foreach ($json[teams] as $team)
 		{	
-			
+			var_dump($team);
 				$teamName = $team["nameShort"];
 				$teamNumber = $team["teamNumber"];
 			
@@ -68,8 +69,8 @@ $eventcode="2015";
 			
 		}
 	?>
-	<!--</pre>
-	</tbody>
+	</pre>
+	<!--</tbody>
 	</table>-->
 	
 	<!--<table class = "rankingsTable" >
@@ -140,18 +141,23 @@ $eventcode="2015";
 		<pre>
 <?php
  $json4 = json_decode($response4, true);
-//var_dump($json4[]);
+//var_dump($json4);
+//echo json_encode($json4, JSON_PRETTY_PRINT);
 		foreach ($json4 as $blazeit)
 		{	
+		//var_dump($blazeit);
+		//5 arrays=5 variables!I think? Needs to be narrowed down into one array 
 		foreach ($blazeit as $match)
 		{
 			
-		var_dump($match);
+		//$alliances = $match/*[Teams]*/;
+		//var_dump($alliances);
+		$matchNumba = $match["matchNumber"];
+		$time = $match["startTime"];
 			
-				$matchNumba = $match["matchNumber"];
-				$time = $match["startTime"];
 				
-				$Red1 = $match["station"];
+				
+				$Red1 = $alliances["teamNumber"];
 				$Red2 = $match["teamNumber"];
 				$Red3 = $match["teamNumber"];
 				$Blue1 = $match["teamNumber"];
