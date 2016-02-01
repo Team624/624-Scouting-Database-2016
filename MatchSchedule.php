@@ -21,30 +21,30 @@ $response1 = file_get_contents($url1,false,$context);
 	<h1> Match Schedule </h1>
 	
 </div>
-	<table class = "fixedHead">
+<table class = "rankingsTable" >
 		<thead>
 			<th><span>TeamNumber</span></th>
 			<th>startTime</th>
 			<th>matchNumber</th>
 			<th>station</th>
 		</thead>
-	</table>
-	<table class = "rankingsTable" >
+	
 		<tbody>
 
 <?php
 
 mysqli_select_db($mysqli,"mynewdatabase3");
 $json1 = json_decode($response1, true);
+//echo json_encode($json1/*, JSON_PRETTY_PRINT*/);
 
 foreach($json1 as $match){
 	
-	foreach($match as $garbage){
-		
-		$matchNumber=$garbage["matchNumber"];
-		$teamNumber1=$garbage["teamNumber"];
-		$startTime=$garbage["startTime"];
-		$station=$garbage["station"];
+	foreach($match as $move){
+		foreach($match as $move){
+		$teamNumber1=$move["teamNumber"];
+		$startTime=$move["startTime"];
+		$matchNumber=$move["matchNumber"];
+		$station=$move["station"];
 		
 	
 		$sql1="INSERT INTO matchschedule(TeamNumber,startTime,matchNumber,station)
@@ -53,12 +53,13 @@ foreach($json1 as $match){
 		mysqli_query($mysqli,$sql1);
 		?>
 		<tr>
-						<td><?php echo $matchNumber; ?></td> 
 						<td><?php echo $teamNumber1; ?></td>
 						<td><?php echo $startTime; ?></td> 
+						<td><?php echo $matchNumber; ?></td> 
 						<td><?php echo $station; ?></td> 
 		</tr>
 		<?php	
+		
 	}
 }
 ?>

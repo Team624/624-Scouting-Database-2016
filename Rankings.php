@@ -101,10 +101,3 @@ include("api_connect.php");
 	?>
 	</tbody>
 	</table>
-
-
-
-
-<div class="page_container">
-
-</div>
