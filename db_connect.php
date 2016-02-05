@@ -5,9 +5,9 @@
 	//if you ever want to access your own database instead, this is the place to do it.
 	//Just uncomment out and add in your own info.
 	$dbhost = localhost /*$ini['dbhost']*/;
-	$dbname =  testdatabase/*$ini['dbname']*/;
-	$dbuser = anuragtest /*$ini['dbuser']*/;
-	$dbpass = helloworld /*$ini['dbpass']*/; 
+	$dbname =  mynewdatabase3/*$ini['dbname']*/;
+	$dbuser = ViraJJ /*$ini['dbuser']*/;
+	$dbpass = madara123 /*$ini['dbpass']*/; 
 	
 	
 	
@@ -19,14 +19,15 @@
 	
 	$mysqli = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
 	
-	/* check connection */
-	if ($mysqli->connect_errno) {
+	// check connection */
+	/* if ($mysqli->connect_errno) {
 		printf("Connect failed: %s\n", $mysqli->connect_error);
 		exit();
 	}
-	/*I might comment this out fo later if I have to.*/ 
+	/*I might comment this out fo later if I have to.
 	elseif ($mysqli) {
 		echo"Connection Successful!";
 	}
+	*/
 	
 ?>
