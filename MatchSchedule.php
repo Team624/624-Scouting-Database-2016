@@ -48,18 +48,19 @@ foreach($json1 as $match){
 		
 		?>
 		<tr>
-						
 						<td><?php echo $startTime; ?></td> 
 						<td><?php echo $matchNumber; ?></td> 
 						<td><?php echo $teamNumber1; ?></td> 
 						<td><?php echo $station; ?></td> 
 		</tr>
 		<?php	
-		
-		}
-		$sql1="INSERT INTO matchschedule(TeamNumber,startTime,matchNumber,station)
-		VALUES('$teamNumber1','$startTime','$matchNumber','$teamNumber1','$station')";
+		$sql1="INSERT INTO matchschedule(TeamNumber,station)
+		VALUES('$teamNumber1','$station')";
 		mysqli_query($mysqli,$sql1);
+		}
+		$sql2="INSERT INTO matchschedule(startTime,matchNumber)
+		VALUES('$startTime','$matchNumber')";
+		mysqli_query($mysqli,$sql2);
 	}
 
 }
