@@ -5,7 +5,7 @@ include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
 include("read_ini.php");
-include("db_connect.php");
+//include("db_connect.php");
 include("api_connect.php");
 
 
@@ -48,7 +48,7 @@ include("api_connect.php");
 		<tbody>
 <!--<pre>-->
 	<?php
-		mysqli_select_db($mysqli,"mynewdatabase3");
+		//mysqli_select_db($mysqli,"mynewdatabase3");
 		$json = json_decode($response, true);
 		//echo json_encode($json/*, JSON_PRETTY_PRINT*/);  /use this for unformatted json 
 		//var_dump($json);use this if you want to see if you are getting all the elements from the API url
@@ -73,7 +73,7 @@ include("api_connect.php");
 				$sql="INSERT INTO teamsatevents2(teamNumber,rank,qualAverage)
 				VALUES('$teamNumber','$roast','$qualAverage')";
 				
-					$result=mysqli_query($mysqli,$sql);
+					//$result=mysqli_query($mysqli,$sql);
 				if(!$result){
 					echo 'Fail';
 				} else{

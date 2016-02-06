@@ -4,7 +4,7 @@ include("HeadTemplate.php");
 include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
-include("db_connect.php");
+//include("db_connect.php");
 
 include("api_connect.php");
 		//the url needs a change
@@ -37,8 +37,8 @@ include("api_connect.php");
 </form>
 </div>
 <?php
-include("db_connect.php");
-mysqli_select_db($mysqli,"mynewdatabase3");
+//include("db_connect.php");
+//mysqli_select_db($mysqli,"mynewdatabase3");
 if(isset($_POST['searchsubmit'])){
 if(($_POST['dropdown'] =='teams') && !empty($_POST['number'])) {
 	echo"Sucesss!";
