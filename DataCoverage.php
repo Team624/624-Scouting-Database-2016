@@ -13,3 +13,16 @@ include("navbar.php");
 <div class = "title" >
 	<h1> Data Coverage </h1>
 </div>
+<div class="page-container">
+	<table class="Schedule-table">
+		<tr>
+			<th>Match</th>
+			<th>Red 1</th>
+			<th>Red 2</th>
+			<th>Red 3</th>
+			<th>Blue 1</th>
+			<th>Blue 2</th>
+			<th>Blue 3</th>
+		</tr>
+	</table>
+</div>
