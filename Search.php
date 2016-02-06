@@ -53,47 +53,5 @@ include("api_connect.php");
 </form>
 </div>
 <?php
-/* 
 
-I would rather do the page based approach
-
-include("db_connect.php");
-mysqli_select_db($mysqli,"mynewdatabase3");
-if(isset($_POST['searchsubmit'])){
-if(($_POST['dropdown'] =='teams') && !empty($_POST['number'])) {
-	$teamnumber=$_POST['number'];
-	$result=mysqli_query($mysqli,"SELECT * from teamatevents2 WHERE teamNumber='$teamnumber'");
-	
-	if ($result->num_rows > 0) {
-		?>
-    <table id="TeamRankings" ><tr><th>Team Number</th><th>Rank</th><th id="oneline">Qualification Average</th></tr>
-	<?php
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        echo "<tr><td>".$row["teamNumber"]."</td><td>".$row["rank"]."</td><td>".$row["qualAverage"]."</td></tr>";
-    }
-    echo "</table>";
-} else {
-    echo "0 results";
-}
-  
-	} elseif(($_POST['dropdown'] == 'matches') && !empty($_POST['number'])) {
-	echo 'Sucess';
-	$result1=mysqli_query($mysqli,"SELECT * from matchschedule WHERE matchNumber='$teamnumber'");
-	if ($result1->num_rows > 0) {
-		?>
-    <table id="TeamRankings" ><tr><th>Team Number</th><th>startTime</th><th id="oneline">matchNumber</th><th>Station</th></tr>
-	<?php
-    // output data of each row
-    while($row1 = $result1->fetch_assoc()) {
-        echo "<tr><td>".$row1["TeamNumber"]."</td><td>".$row1["startTime"]."</td><td>".$row1["matchNumber"]."</td><td>".$row1["station"]."</td></tr>";
-    }
-    echo "</table>";
-} else {
-    echo "0 results";
-}
-	
-}
-}
-*/	
 ?>

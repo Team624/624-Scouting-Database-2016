@@ -41,31 +41,30 @@ foreach($json1 as $match){
 	foreach($match as $move){
 		$startTime=$move["startTime"];
 		$matchNumber=$move["matchNumber"];
+		 foreach($move[Teams] as $t){
+			 $teamNumber1=$t['teamNumber'];
+			 $station=$t['station'];
 		
-		$sql1="INSERT INTO matchschedule(startTime,matchNumber,teamNumber,station)
-		VALUES('$startTime','$matchNumber','$teamNumber1','$station')";
-		foreach($move[Teams] as $t){
-			$teamNumber1=$t['teamNumber'];
-			$station=$t['station'];
-		mysqli_query($mysqli,$sql1);
+		
 		?>
 		<tr>
 						
 						<td><?php echo $startTime; ?></td> 
 						<td><?php echo $matchNumber; ?></td> 
-						<td><?php echo $teamNumber1; ?></td>
+						<td><?php echo $teamNumber1; ?></td> 
 						<td><?php echo $station; ?></td> 
-						
 		</tr>
 		<?php	
 		
-			
 		}
+		$sql1="INSERT INTO matchschedule(TeamNumber,startTime,matchNumber,station)
+		VALUES('$teamNumber1','$startTime','$matchNumber','$teamNumber1','$station')";
+		mysqli_query($mysqli,$sql1);
 	}
+
 }
-?>
-					
-					</tr>
+			
+	?>
 </tbody>
 	</table>
 

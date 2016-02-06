@@ -32,4 +32,28 @@
 
 	<h1><?php echo "Team " . $team; ?></h1>
 	
+	<?php
+	include("db_connect.php");
+	mysqli_select_db($mysqli,"mynewdatabase3");
+
+	$teamnumber=$_POST['team'];
+	$result=mysqli_query($mysqli,"SELECT * from teamatevents2 WHERE teamNumber='$team'");
+	
+	if ($result->num_rows > 0) {
+		?>
+    <table id="TeamRankings" ><tr><th>Team Number</th><th>Rank</th><th id="oneline">Qualification Average</th><th>Container Points</th><th>Litter Points</th><th>Tote Points</th><th>Wins</th><th>Losses</th><th>Ties</th></tr>
+	<?php
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        echo "<tr><td>".$row["teamNumber"]."</td><td>".$row["rank"]."</td><td>".$row["qualAverage"]."</td><td>".$row["containerPoints"]."</td><td>".$row["litterPoints"]."</td>
+		<td>".$row["totePoints"]."</td><td>".$row["wins"]."</td><td>".$row["losses"]."</td><td>".$row["ties"]."</td></tr>";
+    }
+    echo "</table>";
+} else {
+    echo "0 results";
+}
+
+ 
+
+?>	
 </div>
