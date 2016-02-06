@@ -41,8 +41,8 @@ $eventcode="2015";
 		<div class="setupdiv">
 			Put Data Loading DIV Here
 	<br><br>Update:Can now load and update the teams list from all the regionals we are going to.
-	<!--<table class = "rankingsTable" >
-		<tbody>-->
+	<table class = "rankingsTable" >
+		<tbody>
 		<pre>
 <?php
  $json = json_decode($response, true);
@@ -50,7 +50,7 @@ $eventcode="2015";
 //echo json_encode($json[teams], JSON_PRETTY_PRINT);
 		foreach ($json[teams] as $team)
 		{	
-			var_dump($team);
+			//var_dump($team);
 				$teamName = $team["nameShort"];
 				$teamNumber = $team["teamNumber"];
 			
@@ -59,19 +59,19 @@ $eventcode="2015";
 				$result = $mysqli->query($query);
 				
 ?>
-			<!--<tr>
+			<tr>
 				<td><?php echo $teamName; ?></td> 
 				<td><?php echo $teamNumber; ?></td>
 				
-			</tr>-->
+			</tr>
 			<?php
 				
 			
 		}
 	?>
 	</pre>
-	<!--</tbody>
-	</table>-->
+	</tbody>
+	</table>
 	
 	<!--<table class = "rankingsTable" >
 		<tbody>
@@ -143,15 +143,16 @@ $eventcode="2015";
  $json4 = json_decode($response4, true);
 //var_dump($json4);
 //echo json_encode($json4, JSON_PRETTY_PRINT);
-		foreach ($json4 as $blazeit)
+		foreach ($json4 as $schedule)
 		{	
-		//var_dump($blazeit);
+		//var_dump($schedule);
 		//5 arrays=5 variables!I think? Needs to be narrowed down into one array 
-		foreach ($blazeit as $match)
-		{
-			
-		//$alliances = $match/*[Teams]*/;
-		//var_dump($alliances);
+		foreach ($schedule as $match)
+		{ //var_dump($match);
+		foreach ($match["Teams"] as $teams)
+		{ //var_dump($teams);
+				
+		
 		$matchNumba = $match["matchNumber"];
 		$time = $match["startTime"];
 			
@@ -180,6 +181,7 @@ $eventcode="2015";
 				<td><?php echo $Blue3; ?></td>
 			</tr>
 			<?php
+		}
 		
 		}
 			
@@ -195,7 +197,7 @@ $eventcode="2015";
 <?php
  $json5 = json_decode($response5, true);
 //var_dump($json[teams]);
-		foreach ($json5[teams] as $team)
+		foreach ($json5[Teams] as $team)
 		{	
 			
 				$teamName = $team["nameShort"];
@@ -226,7 +228,7 @@ $eventcode="2015";
 <?php
  $json6 = json_decode($response6, true);
 //var_dump($json[teams]);
-		foreach ($json6[teams] as $team)
+		foreach ($json6[Teams] as $team)
 		{	
 			
 				$teamName = $team["nameShort"];
