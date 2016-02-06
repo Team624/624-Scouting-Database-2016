@@ -22,14 +22,30 @@ include("navbar.php");
 			<h2>Basic Data</h2>
 			<table class="red">
 				<tr>
+					<td></td>
 					<td>Match #</td>
 					<td>Team #</td>
 					<td>Scout ID</td>
 				</tr>
 				<tr>
+					<td></td>
 					<td><input type="number" name="match_num" class="small_num"></td>
 					<td><input type="number" name="team_num" class="small_num"></td>
 					<td><input type="number" name="scoutID" class="small_num"></td>
+				</tr>
+				<tr>
+					<td>Defense 1</td>
+					<td>Defense 2</td>
+					<td>Defense 3</td>
+					<td>Defense 4</td>
+					<td>Defense 5</td>
+				</tr>
+				<tr>
+					<td><input type="text" name="def_type_1" class="small_num"></td>
+					<td><input type="text" name="def_type_2" class="small_num"></td>
+					<td><input type="text" name="def_type_3" class="small_num"></td>
+					<td><input type="text" name="def_type_4" class="small_num"></td>
+					<td><input type="text" name="def_type_5" class="small_num"></td>
 				</tr>
 			</table>
 			
@@ -43,9 +59,42 @@ include("navbar.php");
 			<br>
 			
 			<h2>Teleop</h2>
+			<div class="green">
 			<table class="green">
-				<td>Teleop stuff will go here one day!!!</td>
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td>Defense 1 Crosses</td>
+								<td>Defense 2 Crosses</td>
+								<td>Defense 3 Crosses</td>
+								<td>Defense 4 Crosses</td>
+								<td>Defense 5 Crosses</td>
+							</tr>
+							<tr>
+								<td><input type="number" name="def_1" class="small_num"></td>
+								<td><input type="number" name="def_2" class="small_num"></td>
+								<td><input type="number" name="def_3" class="small_num"></td>
+								<td><input type="number" name="def_4" class="small_num"></td>
+								<td><input type="number" name="def_5" class="small_num"></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<table>
+							<tr>
+								<td>Balls Shot:</td><td><input type="number" name="ball_shot" class="small_num"></td>
+							</tr>
+							<tr>
+								<td>Balls Scored</td><td><input type="number" name="balls_scored" class="small_num"></td>
+							</tr>
+						</table>
+					</td>
+				</tr>
 			</table>
+			</div>
 			
 			<h2>Robot Issues</h2>
 			<table class="red">
