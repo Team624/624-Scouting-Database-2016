@@ -141,10 +141,12 @@ $eventcode="2015";
 		<pre>
 <?php
  $json4 = json_decode($response4, true);
-//var_dump($json4);
+
+ //var_dump($json4);
 //echo json_encode($json4, JSON_PRETTY_PRINT);
 		foreach ($json4 as $schedule)
 		{	
+<<<<<<< Updated upstream
 		//var_dump($schedule);
 		//5 arrays=5 variables!I think? Needs to be narrowed down into one array 
 		foreach ($schedule as $match)
@@ -169,21 +171,54 @@ $eventcode="2015";
 				//$result = $mysqli->query($query);
 				
 ?>
+=======
+			//var_dump($blazeit);
+			//5 arrays=5 variables!I think? Needs to be narrowed down into one array 
+			foreach ($schedule as $match)
+			{ //var_dump($match);
+			?>
+>>>>>>> Stashed changes
 			<tr>
-				<td><?php echo $matchNumba; ?></td> 
-				<td><?php echo $time; ?></td>
-				
-				<td><?php echo $Red1; ?></td>
-				<td><?php echo $Red2; ?></td>
-				<td><?php echo $Red3; ?></td>
-				<td><?php echo $Blue1; ?></td>
-				<td><?php echo $Blue2; ?></td>
-				<td><?php echo $Blue3; ?></td>
-			</tr>
 			<?php
+<<<<<<< Updated upstream
 		}
 		
 		}
+=======
+				$matchNumba = $match["matchNumber"];
+				$time = $match["startTime"];
+				?>
+				<td><?php echo $matchNumba; ?></td>
+				<?php
+				foreach ($match["Teams"] as $teams)
+				{ //var_dump($fuck);
+				
+						$station = $teams["station"];
+						$team_num = $teams["teamNumber"];
+						/*$Red3 = $match["teamNumber"];
+						$Blue1 = $match["teamNumber"];
+						$Blue2 = $match["teamNumber"];
+						$Blue3= $match["teamNumber"];*/
+						
+						$query = "INSERT INTO match_schedule (time,team_num,station) VALUES ('$time','$team_num','$station')";
+						$result = $mysqli->query($query);
+						
+?>		
+					
+						 
+						<td><?php echo $time; ?></td>
+						<td><?php echo $team_num; ?></td> 
+						<td><?php echo $station; ?></td>
+						
+					
+					<?php
+				}
+				
+				?>
+				</tr>
+				<?php
+			}
+>>>>>>> Stashed changes
 			
 		}
 	?>
@@ -191,8 +226,8 @@ $eventcode="2015";
 	</tbody>
 	</table>
 	
-	<table class = "rankingsTable" >
-		<tbody>
+	<!--<table class = "rankingsTable" >
+		<tbody>-->
 		<pre>
 <?php
  $json5 = json_decode($response5, true);
@@ -219,11 +254,11 @@ $eventcode="2015";
 		}
 	?>
 	</pre>
-	</tbody>
+	<!--</tbody>
 	</table>
 	
 	<table class = "rankingsTable" >
-		<tbody>
+		<tbody>-->
 		<pre>
 <?php
  $json6 = json_decode($response6, true);
@@ -250,8 +285,8 @@ $eventcode="2015";
 		}
 	?>
 	</pre>
-	</tbody>
-	</table>
+	<!--</tbody>
+	</table>-->
 		</div>
 	</div>
 	<div>
