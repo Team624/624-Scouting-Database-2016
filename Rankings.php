@@ -70,8 +70,8 @@ include("api_connect.php");
 				$dq = $team["dq"];
 				$matchesPlayed = $team["matchesPlayed"];
 				
-				$sql="INSERT INTO teamatevents2(teamNumber,rank,qualAverage,containerPoints,litterPoints,totePoints,wins,losses,ties)
-				VALUES('$teamNumber','$roast','$qualAverage','$containerPoints','$litterPoints','$totePoints','$wins','$losses','$ties')";
+				$sql="INSERT INTO teamatevents2(teamNumber,rank,qualAverage,autoPoints,containerPoints,coopertitionPoints,litterPoints,totePoints,wins,losses,ties)
+				VALUES('$teamNumber','$roast','$qualAverage',$autoPoints,'$containerPoints',$coopertitionPoints,'$litterPoints','$totePoints','$wins','$losses','$ties')";
 				
 				mysqli_query($mysqli,$sql);
 					

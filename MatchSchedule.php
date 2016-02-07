@@ -23,9 +23,9 @@ $response1 = file_get_contents($url1,false,$context);
 </div>
 <table class = "rankingsTable" >
 		<thead>
-			<th>startTime</th>
-			<th>matchNumber</th>
-			<th><span>TeamNumber</span></th>
+			<th>Start Time</th>
+			<th>Match Number</th>
+			<th><span>Team Number</span></th>
 			<th>station</th>
 		</thead>
 	
