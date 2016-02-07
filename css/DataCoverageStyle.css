@@ -1,7 +1,24 @@
-body {
+body
+{
 	background-color: #1a1a1a;
     background-image: url("../images/pixel_bg.png");
 }
-.title {
+.title
+{
 	text-align: center;
+}
+.page-container
+{
+	
+}
+.Schedule-table
+{
+	border-radius: 25px 50px 25px 50px;
+	background-color: white;
+	background-image: url("../images/pixel_bg.png");
+	width: 75%;
+}
+.table-top
+{
+	
 }
