@@ -55,7 +55,7 @@ $eventcode="2015";
 				$teamNumber = $team["teamNumber"];
 			
 				
-				$query = "INSERT INTO teams (teamNumber,teamName) VALUES ('$teamNumber','$teamName')";
+				$query = "INSERT INTO teams (number,name) VALUES ('$teamNumber','$teamName')";
 				$result = $mysqli->query($query);
 				
 ?>
@@ -86,7 +86,7 @@ $eventcode="2015";
 				$teamNumber = $team["teamNumber"];
 			
 				
-				$query = "INSERT INTO teams (teamNumber,teamName) VALUES ('$teamNumber','$teamName')";
+				$query = "INSERT INTO teams (number,name) VALUES ('$teamNumber','$teamName')";
 				$result = $mysqli->query($query);
 				
 ?>
@@ -117,7 +117,7 @@ $eventcode="2015";
 				$teamNumber = $team["teamNumber"];
 			
 				
-				$query = "INSERT INTO teams (teamNumber,teamName) VALUES ('$teamNumber','$teamName')";
+				$query = "INSERT INTO teams (number,name) VALUES ('$teamNumber','$teamName')";
 				$result = $mysqli->query($query);
 				
 ?>
@@ -168,8 +168,8 @@ $eventcode="2015";
 						$Blue1 = $blue1Teams["teamNumber"];
 						$Blue2 = $blue2Teams["teamNumber"];
 						$Blue3 = $blue3Teams["teamNumber"];
-						
-						$query = "INSERT INTO match_schedule (matchNumber,time,Red1,Red2,Red3,Blue1,Blue2,Blue3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
+						//needs to still be able to update database info, just a few MySQL command tweaks will work.
+						$query = "INSERT INTO schedule (match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
 						$result = $mysqli->query($query);
 						
 ?>		
@@ -195,9 +195,9 @@ $eventcode="2015";
 	</tbody>
 	</table>
 	
-	<!--<table class = "rankingsTable" >
+	<table class = "rankingsTable" >
 		<tbody>
-		<pre>-->
+		<pre>
 <?php
  $json5 = json_decode($response5, true);
 //var_dump($json[teams]);
@@ -226,11 +226,11 @@ foreach ($json5 as $schedule)
 						$Blue2 = $blue2Teams["teamNumber"];
 						$Blue3 = $blue3Teams["teamNumber"];
 						
-						$query = "INSERT INTO match_schedule (matchNumber,time,Red1,Red2,Red3,Blue1,Blue2,Blue3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
+						$query = "INSERT INTO schedule (match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
 						$result = $mysqli->query($query);
 						
 ?>		
-					<!--<tr>
+					<tr>
 						<td><?php echo $matchNumba; ?></td>
 						<td><?php echo $time; ?></td>
 						<td><?php echo $Red1; ?></td> 
@@ -239,7 +239,7 @@ foreach ($json5 as $schedule)
 						<td><?php echo $Blue1; ?></td>
 						<td><?php echo $Blue2; ?></td> 
 						<td><?php echo $Blue3; ?></td>
-					</tr>-->
+					</tr>
 					
 					<?php
 				
@@ -248,9 +248,9 @@ foreach ($json5 as $schedule)
 				
 				?>
 					
-	<!--</pre>
+	</pre>
 	</tbody>
-	</table>-->
+	</table>
 	
 	<!--<table class = "rankingsTable" >
 		<tbody>
@@ -283,7 +283,7 @@ foreach ($json5 as $schedule)
 						$Blue2 = $blue2Teams["teamNumber"];
 						$Blue3 = $blue3Teams["teamNumber"];
 						
-						$query = "INSERT INTO match_schedule (matchNumber,time,Red1,Red2,Red3,Blue1,Blue2,Blue3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
+						$query = "INSERT INTO schedule (match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
 						$result = $mysqli->query($query);
 						
 ?>		

@@ -20,15 +20,15 @@
 	
 	$mysqli = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
 	
-	// check connection */
-	/* if ($mysqli->connect_errno) {
+	// check connection 
+	 if ($mysqli->connect_errno) {
 		printf("Connect failed: %s\n", $mysqli->connect_error);
 		exit();
 	}
-	/*I might comment this out fo later if I have to.
+	//I might comment this out fo later if I have to.
 	elseif ($mysqli) {
 		echo"Connection Successful!";
 	}
-	*/
+	
 	
 ?>
