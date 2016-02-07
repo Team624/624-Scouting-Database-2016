@@ -6,7 +6,6 @@
 	include("kick_intruders.php");
 	include("navbar.php");
 	include("db_connect.php");
-	
 	include("api_connect.php");
 ?>
 
@@ -36,9 +35,23 @@
 	{
 		
 ?>
-
+	
 	<h1> Qualification Match <?php echo $match; ?> </h1>
-
+	<?php
+	mysqli_select_db($mysqli,"mynewdatabase3");
+	$match=$_POST['match'];
+	$result1=mysqli_query($mysqli,"SELECT * from matchschedule WHERE matchNumber='$match'");
+	if ($result1->num_rows > 0) {
+		?>
+    <table id="TeamRankings" ><tr><th>Team Number</th><th>startTime</th><th id="oneline">matchNumber</th><th>Station</th></tr>
+	<?php
+    // output data of each row
+    while($row1 = $result1->fetch_assoc()) {
+        echo "<tr><td>".$row1["TeamNumber"]."</td><td>".$row1["startTime"]."</td><td>".$row1["matchNumber"]."</td><td>".$row1["station"]."</td></tr>";
+    }
+    echo "</table>";
+}
+?>
 <?php
 	}
 	else

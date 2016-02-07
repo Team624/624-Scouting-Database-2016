@@ -23,9 +23,9 @@ $response1 = file_get_contents($url1,false,$context);
 </div>
 <table class = "rankingsTable" >
 		<thead>
-			<th>startTime</th>
-			<th>matchNumber</th>
-			<th><span>TeamNumber</span></th>
+			<th>Start Time</th>
+			<th>Match Number</th>
+			<th><span>Team Number</span></th>
 			<th>station</th>
 		</thead>
 	
@@ -41,31 +41,31 @@ foreach($json1 as $match){
 	foreach($match as $move){
 		$startTime=$move["startTime"];
 		$matchNumber=$move["matchNumber"];
+		 foreach($move[Teams] as $t){
+			 $teamNumber1=$t['teamNumber'];
+			 $station=$t['station'];
 		
-		$sql1="INSERT INTO matchschedule(startTime,matchNumber,teamNumber,station)
-		VALUES('$startTime','$matchNumber','$teamNumber1','$station')";
-		foreach($move[Teams] as $t){
-			$teamNumber1=$t['teamNumber'];
-			$station=$t['station'];
-		mysqli_query($mysqli,$sql1);
+		
 		?>
 		<tr>
-						
 						<td><?php echo $startTime; ?></td> 
 						<td><?php echo $matchNumber; ?></td> 
-						<td><?php echo $teamNumber1; ?></td>
+						<td><?php echo $teamNumber1; ?></td> 
 						<td><?php echo $station; ?></td> 
-						
 		</tr>
 		<?php	
-		
-			
+		$sql1="INSERT INTO matchschedule(TeamNumber,station)
+		VALUES('$teamNumber1','$station')";
+		mysqli_query($mysqli,$sql1);
 		}
+		$sql2="INSERT INTO matchschedule(startTime,matchNumber)
+		VALUES('$startTime','$matchNumber')";
+		mysqli_query($mysqli,$sql2);
 	}
+
 }
-?>
-					
-					</tr>
+			
+	?>
 </tbody>
 	</table>
 
