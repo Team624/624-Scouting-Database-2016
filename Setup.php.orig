@@ -41,9 +41,9 @@ $eventcode="2015";
 		<div class="setupdiv">
 			Put Data Loading DIV Here
 	<br><br>Update:Can now load and update the teams list from all the regionals we are going to.
-	<!--<table class = "rankingsTable" >
+	<table class = "rankingsTable" >
 		<tbody>
-		<pre>-->
+		<pre>
 <?php
  $json = json_decode($response, true);
 //var_dump($json[teams]);
@@ -59,21 +59,21 @@ $eventcode="2015";
 				$result = $mysqli->query($query);
 				
 ?>
-			<!--<tr>
+			<tr>
 				<td><?php echo $teamName; ?></td> 
 				<td><?php echo $teamNumber; ?></td>
 				
-			</tr>-->
+			</tr>
 			<?php
 				
 			
 		}
 	?>
-	<!--</pre>
+	</pre>
 	</tbody>
 	</table>
 	
-	<table class = "rankingsTable" >
+	<!--<table class = "rankingsTable" >
 		<tbody>
 		<pre>-->
 <?php
@@ -102,9 +102,9 @@ $eventcode="2015";
 	?>
 	<!--</pre>
 	</tbody>
-	</table>-->
+	</table>
 	
-	<!--<table class = "rankingsTable" >
+	<table class = "rankingsTable" >
 		<tbody>
 		<pre>-->
 <?php
@@ -146,166 +146,146 @@ $eventcode="2015";
 //echo json_encode($json4, JSON_PRETTY_PRINT);
 		foreach ($json4 as $schedule)
 		{	
+<<<<<<< Updated upstream
 		//var_dump($schedule);
 		//5 arrays=5 variables!I think? Needs to be narrowed down into one array 
 		foreach ($schedule as $match)
-		{ $alliances = $match["Teams"];
-		//var_dump($alliances);
-		$red1Teams=  $alliances[0];
-		$red2Teams=  $alliances[1];
-		$red3Teams=  $alliances[2];
-		$blue1Teams= $alliances[3];
-		$blue2Teams= $alliances[4];
-		$blue3Teams= $alliances[5];
+		{ //var_dump($match);
+		foreach ($match["Teams"] as $teams)
+		{ //var_dump($teams);
+				
 		
+		$matchNumba = $match["matchNumber"];
+		$time = $match["startTime"];
+			
+				
+				
+				$Red1 = $alliances["teamNumber"];
+				$Red2 = $match["teamNumber"];
+				$Red3 = $match["teamNumber"];
+				$Blue1 = $match["teamNumber"];
+				$Blue2 = $match["teamNumber"];
+				$Blue3= $match["teamNumber"];
+				
+				//$query = "INSERT INTO teams (teamNumber,teamName) VALUES ('$teamNumber','$teamName')";
+				//$result = $mysqli->query($query);
+				
+?>
+=======
+			//var_dump($blazeit);
+			//5 arrays=5 variables!I think? Needs to be narrowed down into one array 
+			foreach ($schedule as $match)
+			{ //var_dump($match);
+			?>
+>>>>>>> Stashed changes
+			<tr>
+			<?php
+<<<<<<< Updated upstream
+		}
+		
+		}
+=======
+				$matchNumba = $match["matchNumber"];
+				$time = $match["startTime"];
+				?>
+				<td><?php echo $matchNumba; ?></td>
+				<?php
+				foreach ($match["Teams"] as $teams)
+				{ //var_dump($fuck);
+				
+						$station = $teams["station"];
+						$team_num = $teams["teamNumber"];
+						/*$Red3 = $match["teamNumber"];
+						$Blue1 = $match["teamNumber"];
+						$Blue2 = $match["teamNumber"];
+						$Blue3= $match["teamNumber"];*/
 						
-						$matchNumba = $match["matchNumber"];
-						$time = $match["startTime"];
-						
-						$Red1 = $red1Teams["teamNumber"];
-						$Red2 = $red2Teams["teamNumber"];
-						$Red3 = $red3Teams["teamNumber"];
-						$Blue1 = $blue1Teams["teamNumber"];
-						$Blue2 = $blue2Teams["teamNumber"];
-						$Blue3 = $blue3Teams["teamNumber"];
-						
-						$query = "INSERT INTO match_schedule (matchNumber,time,Red1,Red2,Red3,Blue1,Blue2,Blue3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
+						$query = "INSERT INTO match_schedule (time,team_num,station) VALUES ('$time','$team_num','$station')";
 						$result = $mysqli->query($query);
 						
 ?>		
-					<tr>
-						<td><?php echo $matchNumba; ?></td>
+					
+						 
 						<td><?php echo $time; ?></td>
-						<td><?php echo $Red1; ?></td> 
-						<td><?php echo $Red2; ?></td>
-						<td><?php echo $Red3; ?></td> 
-						<td><?php echo $Blue1; ?></td>
-						<td><?php echo $Blue2; ?></td> 
-						<td><?php echo $Blue3; ?></td>
-					</tr>
+						<td><?php echo $team_num; ?></td> 
+						<td><?php echo $station; ?></td>
+						
 					
 					<?php
-				
-		}
-	}
+				}
 				
 				?>
-				
+				</tr>
+				<?php
+			}
+>>>>>>> Stashed changes
+			
+		}
+	?>
 	</pre>
 	</tbody>
 	</table>
 	
 	<!--<table class = "rankingsTable" >
-		<tbody>
-		<pre>-->
+		<tbody>-->
+		<pre>
 <?php
  $json5 = json_decode($response5, true);
 //var_dump($json[teams]);
-foreach ($json5 as $schedule)
+		foreach ($json5[Teams] as $team)
 		{	
-		//var_dump($schedule);
-		//5 arrays=5 variables!I think? Needs to be narrowed down into one array 
-		foreach ($schedule as $match)
-		{ $alliances = $match["Teams"];
-		//var_dump($alliances);
-		$red1Teams=  $alliances[0];
-		$red2Teams=  $alliances[1];
-		$red3Teams=  $alliances[2];
-		$blue1Teams= $alliances[3];
-		$blue2Teams= $alliances[4];
-		$blue3Teams= $alliances[5];
-		
-						
-						$matchNumba = $match["matchNumber"];
-						$time = $match["startTime"];
-						
-						$Red1 = $red1Teams["teamNumber"];
-						$Red2 = $red2Teams["teamNumber"];
-						$Red3 = $red3Teams["teamNumber"];
-						$Blue1 = $blue1Teams["teamNumber"];
-						$Blue2 = $blue2Teams["teamNumber"];
-						$Blue3 = $blue3Teams["teamNumber"];
-						
-						$query = "INSERT INTO match_schedule (matchNumber,time,Red1,Red2,Red3,Blue1,Blue2,Blue3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
-						$result = $mysqli->query($query);
-						
-?>		
-					<!--<tr>
-						<td><?php echo $matchNumba; ?></td>
-						<td><?php echo $time; ?></td>
-						<td><?php echo $Red1; ?></td> 
-						<td><?php echo $Red2; ?></td>
-						<td><?php echo $Red3; ?></td> 
-						<td><?php echo $Blue1; ?></td>
-						<td><?php echo $Blue2; ?></td> 
-						<td><?php echo $Blue3; ?></td>
-					</tr>-->
-					
-					<?php
+			
+				$teamName = $team["nameShort"];
+				$teamNumber = $team["teamNumber"];
+			
 				
+				$query = "INSERT INTO teams (teamNumber,teamName) VALUES ('$teamNumber','$teamName')";
+				$result = $mysqli->query($query);
+				
+?>
+			<tr>
+				<td><?php echo $teamName; ?></td> 
+				<td><?php echo $teamNumber; ?></td>
+				
+			</tr>
+			<?php
+				
+			
 		}
-	}
-				
-				?>
-					
-	<!--</pre>
-	</tbody>
-	</table>-->
+	?>
+	</pre>
+	<!--</tbody>
+	</table>
 	
-	<!--<table class = "rankingsTable" >
-		<tbody>
-		<pre>-->
+	<table class = "rankingsTable" >
+		<tbody>-->
+		<pre>
 <?php
  $json6 = json_decode($response6, true);
 //var_dump($json[teams]);
-		foreach ($json6 as $schedule)
+		foreach ($json6[Teams] as $team)
 		{	
-		//var_dump($schedule);
-		//5 arrays=5 variables!I think? Needs to be narrowed down into one array 
-		foreach ($schedule as $match)
-		{ $alliances = $match["Teams"];
-		//var_dump($alliances);
-		$red1Teams=  $alliances[0];
-		$red2Teams=  $alliances[1];
-		$red3Teams=  $alliances[2];
-		$blue1Teams= $alliances[3];
-		$blue2Teams= $alliances[4];
-		$blue3Teams= $alliances[5];
-		
-						
-						$matchNumba = $match["matchNumber"];
-						$time = $match["startTime"];
-						
-						$Red1 = $red1Teams["teamNumber"];
-						$Red2 = $red2Teams["teamNumber"];
-						$Red3 = $red3Teams["teamNumber"];
-						$Blue1 = $blue1Teams["teamNumber"];
-						$Blue2 = $blue2Teams["teamNumber"];
-						$Blue3 = $blue3Teams["teamNumber"];
-						
-						$query = "INSERT INTO match_schedule (matchNumber,time,Red1,Red2,Red3,Blue1,Blue2,Blue3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
-						$result = $mysqli->query($query);
-						
-?>		
-					<!--<tr>
-						<td><?php echo $matchNumba; ?></td>
-						<td><?php echo $time; ?></td>
-						<td><?php echo $Red1; ?></td> 
-						<td><?php echo $Red2; ?></td>
-						<td><?php echo $Red3; ?></td> 
-						<td><?php echo $Blue1; ?></td>
-						<td><?php echo $Blue2; ?></td> 
-						<td><?php echo $Blue3; ?></td>
-					</tr>-->
-					
-					<?php
+			
+				$teamName = $team["nameShort"];
+				$teamNumber = $team["teamNumber"];
+			
 				
+				$query = "INSERT INTO teams (teamNumber,teamName) VALUES ('$teamNumber','$teamName')";
+				$result = $mysqli->query($query);
+				
+?>
+			<tr>
+				<td><?php echo $teamName; ?></td> 
+				<td><?php echo $teamNumber; ?></td>
+				
+			</tr>
+			<?php
+				
+			
 		}
-	}
-				
-				?>
-	<!--</pre>
-	</tbody>
+	?>
+	</pre>
+	<!--</tbody>
 	</table>-->
 		</div>
 	</div>
