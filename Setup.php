@@ -6,14 +6,7 @@ include("kick_intruders.php");
 include("navbar.php");
 include("api_connect.php");
 include("db_connect.php");
-	$url = "https://frc-api.firstinspires.org/v2.0/2016/teams?eventCode=TXHO&state=state";
-	$url2 = "https://frc-api.firstinspires.org/v2.0/2016/teams?eventCode=TXSA&state=state";
-	$url3 = "https://frc-api.firstinspires.org/v2.0/2016/teams?eventCode=ALHU&state=state";
-	//$url="https://frc-api.firstinspires.org/v2.0/2016/schedule/TXHO?tournamentLevel=qual";
-	//$url="https://frc-api.firstinspires.org/v2.0/2015/schedule/TXHO?tournamentLevel=qual";
-	$response = file_get_contents($url,false,$context);
-	$response2 = file_get_contents($url2,false,$context);
-	$response3 = file_get_contents($url3,false,$context);
+
 ?>
 <br><br>
 <br><br>
@@ -24,107 +17,217 @@ include("db_connect.php");
 	<div>
 		<div class="setupdiv">
 		
-			Put Some way of editing scouts here
+			Put Some way of editing scouts here(or not supposedly)
 			
 		</div>
 	</div>
 	<div>
 		<div class="setupdiv">
-			Put Data Loading DIV Here
-	<br><br>Update:Can now load and update the teams list from all the regionals we are going to.
-	<!--<table class = "rankingsTable" >
-		<tbody>
-		<pre>-->
+	Put in event code:
+	<form class="loadData" method="post">
+	<input type="text" name="eventCode"><br><br>
+	<input type="submit" value="Load Team List!" class="subButton" name="loadTeam"><br><br>
+	<input type="submit" value="Load Match Schedule!" class="subButton" name="loadSchedule">
+	</form>
 <?php
- $json = json_decode($response, true);
+if(isset($_POST['loadTeam'])){
+	if(!empty($_POST['eventCode'])){
+$eventCode = $_POST['eventCode'];
+if(strcasecmp($eventCode,"TXHO")==0){
+	$url = "https://frc-api.firstinspires.org/v2.0/2016/teams?eventCode=TXHO&state=state";
+	$response = file_get_contents($url,false,$context);
+	$json = json_decode($response, true);
 //var_dump($json[teams]);
+//echo json_encode($json[teams], JSON_PRETTY_PRINT);
+$query = "TRUNCATE TABLE teams";
+$result = $mysqli->query($query);
 		foreach ($json[teams] as $team)
 		{	
-			
+			//var_dump($team);
 				$teamName = $team["nameShort"];
 				$teamNumber = $team["teamNumber"];
 			
 				
-				$query = "INSERT INTO teams (teamNumber,teamName) VALUES ('$teamNumber','$teamName')";
-				$result = $mysqli->query($query);
-				
-?>
-			<!--<tr>
-				<td><?php echo $teamName; ?></td> 
-				<td><?php echo $teamNumber; ?></td>
-				
-			</tr>-->
-			<?php
-				
-			
+				$query2 = "INSERT INTO teams (number,name) VALUES ('$teamNumber','$teamName')";
+				$result2 = $mysqli->query($query2);
 		}
-	?>
-	<!--</pre>
-	</tbody>
-	</table>-->
-	
-	<!--<table class = "rankingsTable" >
-		<tbody>
-		<pre>-->
-<?php
- $json2 = json_decode($response2, true);
+
+}
+else if(strcasecmp($eventCode,"TXSA")==0){
+	$url = "https://frc-api.firstinspires.org/v2.0/2016/teams?eventCode=TXSA&state=state";
+	$response = file_get_contents($url,false,$context);
+	$json = json_decode($response, true);
 //var_dump($json[teams]);
-		foreach ($json2[teams] as $team)
+//echo json_encode($json[teams], JSON_PRETTY_PRINT);
+$query = "TRUNCATE TABLE teams";
+$result = $mysqli->query($query);
+		foreach ($json[teams] as $team)
 		{	
-			
+			//var_dump($team);
 				$teamName = $team["nameShort"];
 				$teamNumber = $team["teamNumber"];
 			
 				
-				$query = "INSERT INTO teams (teamNumber,teamName) VALUES ('$teamNumber','$teamName')";
-				$result = $mysqli->query($query);
-				
-?>
-			<!--<tr>
-				<td><?php echo $teamName; ?></td> 
-				<td><?php echo $teamNumber; ?></td>
-				
-			</tr>-->
-			<?php
-				
-			
+				$query2 = "INSERT INTO teams (number,name) VALUES ('$teamNumber','$teamName')";
+				$result2 = $mysqli->query($query2);
 		}
-	?>
-	<!--</pre>
-	</tbody>
-	</table>
-	
-	<table class = "rankingsTable" >
-		<tbody>
-		<pre>-->
-<?php
- $json3 = json_decode($response3, true);
+}
+else if(strcasecmp($eventCode,"ALHU")==0){
+	$url = "https://frc-api.firstinspires.org/v2.0/2016/teams?eventCode=ALHU&state=state";
+	$response = file_get_contents($url,false,$context);
+	$json = json_decode($response, true);
 //var_dump($json[teams]);
-		foreach ($json3[teams] as $team)
+//echo json_encode($json[teams], JSON_PRETTY_PRINT);
+$query = "TRUNCATE TABLE teams";
+$result = $mysqli->query($query);
+		foreach ($json[teams] as $team)
 		{	
-			
+			//var_dump($team);
 				$teamName = $team["nameShort"];
 				$teamNumber = $team["teamNumber"];
 			
 				
-				$query = "INSERT INTO teams (teamNumber,teamName) VALUES ('$teamNumber','$teamName')";
-				$result = $mysqli->query($query);
-				
-?>
-			<!--<tr>
-				<td><?php echo $teamName; ?></td> 
-				<td><?php echo $teamNumber; ?></td>
-				
-			</tr>-->
-			<?php
-				
-			
+				$query2 = "INSERT INTO teams (number,name) VALUES ('$teamNumber','$teamName')";
+				$result2 = $mysqli->query($query2);
 		}
-	?>
-	<!--</pre>
-	</tbody>
-	</table>-->
-		</div>
+}
+else {
+	echo "Sorry";
+}
+
+
+	}
+}
+?>
+			
+	
+<?php
+if(isset($_POST['loadSchedule'])){
+	if(!empty($_POST['eventCode'])){
+$eventCode = $_POST['eventCode'];
+if(strcasecmp($eventCode,"TXHO")==0){
+	$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/TXHO?tournamentLevel=qual";
+	$response = file_get_contents($url,false,$context);
+	$json = json_decode($response, true);
+$query = "TRUNCATE TABLE schedule";
+$result = $mysqli->query($query);
+ //var_dump($json);
+//echo json_encode($json, JSON_PRETTY_PRINT);
+		foreach ($json as $schedule)
+		{	
+		//var_dump($schedule);
+		
+		foreach ($schedule as $match)
+		{ $alliances = $match["Teams"];
+		//var_dump($alliances);
+		$red1Teams=  $alliances[0];
+		$red2Teams=  $alliances[1];
+		$red3Teams=  $alliances[2];
+		$blue1Teams= $alliances[3];
+		$blue2Teams= $alliances[4];
+		$blue3Teams= $alliances[5];
+		
+						
+						$matchNumba = $match["matchNumber"];
+						$time = $match["startTime"];
+						
+						$Red1 = $red1Teams["teamNumber"];
+						$Red2 = $red2Teams["teamNumber"];
+						$Red3 = $red3Teams["teamNumber"];
+						$Blue1 = $blue1Teams["teamNumber"];
+						$Blue2 = $blue2Teams["teamNumber"];
+						$Blue3 = $blue3Teams["teamNumber"];
+						
+						$query2 = "INSERT INTO schedule (match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
+						$result2 = $mysqli->query($query2);
+			}
+		}
+}
+else if(strcasecmp($eventCode,"TXSA")==0){
+	$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/TXSA?tournamentLevel=qual";
+	$response = file_get_contents($url,false,$context);
+	$json = json_decode($response, true);
+$query = "TRUNCATE TABLE schedule";
+$result = $mysqli->query($query);
+ //var_dump($json);
+//echo json_encode($json, JSON_PRETTY_PRINT);
+		foreach ($json as $schedule)
+		{	
+		//var_dump($schedule);
+		
+		foreach ($schedule as $match)
+		{ $alliances = $match["Teams"];
+		//var_dump($alliances);
+		$red1Teams=  $alliances[0];
+		$red2Teams=  $alliances[1];
+		$red3Teams=  $alliances[2];
+		$blue1Teams= $alliances[3];
+		$blue2Teams= $alliances[4];
+		$blue3Teams= $alliances[5];
+		
+						
+						$matchNumba = $match["matchNumber"];
+						$time = $match["startTime"];
+						
+						$Red1 = $red1Teams["teamNumber"];
+						$Red2 = $red2Teams["teamNumber"];
+						$Red3 = $red3Teams["teamNumber"];
+						$Blue1 = $blue1Teams["teamNumber"];
+						$Blue2 = $blue2Teams["teamNumber"];
+						$Blue3 = $blue3Teams["teamNumber"];
+						
+						$query2 = "INSERT INTO schedule (match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
+						$result2 = $mysqli->query($query2);
+			}
+		} 
+}
+else if(strcasecmp($eventCode,"ALHU")==0){
+$url = "https://frc-api.firstinspires.org/v2.0/2016/schedule/ALHU?tournamentLevel=qual";
+$response = file_get_contents($url,false,$context);
+$json = json_decode($response, true);
+$query = "TRUNCATE TABLE schedule";
+$result = $mysqli->query($query);
+ //var_dump($json);
+//echo json_encode($json, JSON_PRETTY_PRINT);
+		foreach ($json as $schedule)
+		{	
+		//var_dump($schedule);
+		
+		foreach ($schedule as $match)
+		{ $alliances = $match["Teams"];
+		//var_dump($alliances);
+		$red1Teams=  $alliances[0];
+		$red2Teams=  $alliances[1];
+		$red3Teams=  $alliances[2];
+		$blue1Teams= $alliances[3];
+		$blue2Teams= $alliances[4];
+		$blue3Teams= $alliances[5];
+		
+						
+						$matchNumba = $match["matchNumber"];
+						$time = $match["startTime"];
+						
+						$Red1 = $red1Teams["teamNumber"];
+						$Red2 = $red2Teams["teamNumber"];
+						$Red3 = $red3Teams["teamNumber"];
+						$Blue1 = $blue1Teams["teamNumber"];
+						$Blue2 = $blue2Teams["teamNumber"];
+						$Blue3 = $blue3Teams["teamNumber"];
+						
+						$query2 = "INSERT INTO schedule (match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
+						$result2 = $mysqli->query($query2);
+					}
+				} 
+			}
+else{
+	echo"Sorry Snoop";
+		}
+	}
+}					
+						
+?>		
+				
+</div>
 	</div>
 	<div>
 		<div class="setupdiv">

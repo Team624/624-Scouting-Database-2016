@@ -51,11 +51,12 @@ include("api_connect.php");
 		//mysqli_select_db($mysqli,"mynewdatabase3");
 		$json = json_decode($response, true);
 		//echo json_encode($json/*, JSON_PRETTY_PRINT*/);  /use this for unformatted json 
-		//var_dump($json);use this if you want to see if you are getting all the elements from the API url
+		//var_dump($json);//use this if you want to see if you are getting all the elements from the API url
 		foreach ($json as $rank)
 		{
 			foreach ($rank as $team)
 			{
+				var_dump($team);
 				$teamNumber = $team["teamNumber"];
 				$roast = $team["rank"];
 				$qualAverage = $team["qualAverage"];
@@ -70,15 +71,16 @@ include("api_connect.php");
 				$dq = $team["dq"];
 				$matchesPlayed = $team["matchesPlayed"];
 				
-				$sql="INSERT INTO teamsatevents2(teamNumber,rank,qualAverage)
-				VALUES('$teamNumber','$roast','$qualAverage')";
+				$sql="INSERT INTO teamatevents2(teamNumber,rank,qualAverage,autoPoints,containerPoints,coopertitionPoints,litterPoints,totePoints,wins,losses,ties)
+				VALUES('$teamNumber','$roast','$qualAverage',$autoPoints,'$containerPoints',$coopertitionPoints,'$litterPoints','$totePoints','$wins','$losses','$ties')";
 				
-					//$result=mysqli_query($mysqli,$sql);
-				if(!$result){
+					$result=mysqli_query($mysqli,$sql);
+					if(!$result){
 					echo 'Fail';
 				} else{
 					echo 'Sucess420';
 				}
+
 					
 				
 	?>
@@ -106,10 +108,3 @@ include("api_connect.php");
 	?>
 	</tbody>
 	</table>
-
-
-
-
-<div class="page_container">
-
-</div>

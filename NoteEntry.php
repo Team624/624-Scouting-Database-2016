@@ -4,6 +4,7 @@ include("HeadTemplate.php");
 include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
+include("db_connect.php");
 ?>
 <head>	
 	<link rel="stylesheet" type="text/css" href="css/mainpagestyle.css">
@@ -36,7 +37,7 @@ if(isset($_POST['submitnotes'])){
 if(!empty($_POST['selectteam']) && !empty($_POST['notes'])) {
 	$teamselect=$_POST['selectteam'];
 	$notes=$_POST['notes'];	
-	include("db_connect.php");
+	
 	$query = "INSERT INTO note_entry (selectteam,notes) VALUES ('$teamselect','$notes')";
 	$result = $mysqli->query($query);
 	if($result) {
