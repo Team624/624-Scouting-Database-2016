@@ -33,8 +33,7 @@ include("api_connect.php");
 <br>
 <input type="submit" value="Search" class="subButton">
 </form>
-include("db_connect.php");
-mysqli_select_db($mysqli,"mynewdatabase3");
+
 
 <br>
 <br>

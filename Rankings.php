@@ -56,7 +56,7 @@ include("api_connect.php");
 		{
 			foreach ($rank as $team)
 			{
-				var_dump($team);
+				//var_dump($team);
 				$teamNumber = $team["teamNumber"];
 				$roast = $team["rank"];
 				$qualAverage = $team["qualAverage"];
@@ -71,7 +71,7 @@ include("api_connect.php");
 				$dq = $team["dq"];
 				$matchesPlayed = $team["matchesPlayed"];
 				
-				$sql="INSERT INTO teamatevents2(teamNumber,rank,qualAverage,autoPoints,containerPoints,coopertitionPoints,litterPoints,totePoints,wins,losses,ties)
+				/*$sql="INSERT INTO teamatevents2(teamNumber,rank,qualAverage,autoPoints,containerPoints,coopertitionPoints,litterPoints,totePoints,wins,losses,ties)
 				VALUES('$teamNumber','$roast','$qualAverage',$autoPoints,'$containerPoints',$coopertitionPoints,'$litterPoints','$totePoints','$wins','$losses','$ties')";
 				
 					$result=mysqli_query($mysqli,$sql);
@@ -79,7 +79,7 @@ include("api_connect.php");
 					echo 'Fail';
 				} else{
 					echo 'Sucess420';
-				}
+				}*/
 
 					
 				
