@@ -1,0 +1,70 @@
+body {
+	background-color: #1a1a1a;
+    background-image: url("../images/pixel_bg.png");
+}
+.title {
+	text-align: center;
+}
+.rankingsTable {
+	border-spacing: 0px 15px;
+	border-collapse: separate;
+	margin: 0 auto;
+	background-color: #313131;
+	background-image: url("../images/pixel_bg.png");
+	border-radius: 10px;
+	border: 2px solid black;
+	width: 80%;
+	text-align: left;
+	opacity: 0.9;
+	margin-top: 1%;
+	height: 400px;
+	overflow: scroll;
+
+}
+
+th {
+	color: black;
+	text-decoration: underline;
+	padding-left: 3%;
+	padding-right: 3%;
+}
+td {
+	padding-left: 3%;
+	padding-right: 3%;
+	text-align: center;
+}
+
+span {
+	color: #06f000;
+
+}
+.fixedHead {
+	border-spacing: 0px 15px;
+	z-index: 1000000;
+	margin: 0 auto;
+	background-color: #737373;
+	background-image: url("../images/pixel_bg.png");
+	border-radius: 10px;
+	border: 2px solid black;}
+#TeamRankings{
+	width: 55%;
+	text-align: left;
+
+	color: green;
+	padding-left:2em;
+	word-wrap: normal;
+	margin: 0 auto;
+	text-align:center;
+	
+	
+	
+	
+}
+
+
+#oneline{
+	
+	width:175px;
+	
+}
+
