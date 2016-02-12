@@ -34,6 +34,7 @@ if(isset($valid_user) && isset($user_type))
 	<h2><span>Drive Team Page</span></h2>
 	
 	<h2>Upcoming Matches</h2>
+	<pre>
 	<ul id="match_list">
 	<?php 
 		
@@ -67,7 +68,7 @@ if(isset($valid_user) && isset($user_type))
 				//echo $item['description'];
 	?>
 	</ul>
-	
+	</pre>
 </div>
 
 <?php

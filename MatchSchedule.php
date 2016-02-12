@@ -23,9 +23,9 @@ $response1 = file_get_contents($url1,false,$context);
 </div>
 <table class = "rankingsTable" >
 		<thead>
-			<th>startTime</th>
-			<th>matchNumber</th>
-			<th><span>TeamNumber</span></th>
+			<th>Start Time</th>
+			<th>Match Number</th>
+			<th><span>Team Number</span></th>
 			<th>station</th>
 		</thead>
 	
@@ -48,18 +48,19 @@ foreach($json1 as $match){
 		
 		?>
 		<tr>
-						
 						<td><?php echo $startTime; ?></td> 
 						<td><?php echo $matchNumber; ?></td> 
 						<td><?php echo $teamNumber1; ?></td> 
 						<td><?php echo $station; ?></td> 
 		</tr>
 		<?php	
-		
-		}
-		$sql1="INSERT INTO matchschedule(TeamNumber,startTime,matchNumber,station)
-		VALUES('$teamNumber1','$startTime','$matchNumber','$teamNumber1','$station')";
+		$sql1="INSERT INTO matchschedule(TeamNumber,station)
+		VALUES('$teamNumber1','$station')";
 		mysqli_query($mysqli,$sql1);
+		}
+		$sql2="INSERT INTO matchschedule(startTime,matchNumber)
+		VALUES('$startTime','$matchNumber')";
+		mysqli_query($mysqli,$sql2);
 	}
 
 }

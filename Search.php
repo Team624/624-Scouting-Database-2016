@@ -4,7 +4,7 @@ include("HeadTemplate.php");
 include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
-include("db_connect.php");
+//include("db_connect.php");
 include("api_connect.php");
 /*
 		//the url needs a change
@@ -33,6 +33,7 @@ include("api_connect.php");
 <br>
 <input type="submit" value="Search" class="subButton">
 </form>
+
 
 <br>
 <br>

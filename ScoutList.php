@@ -4,7 +4,7 @@ include("HeadTemplate.php");
 include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
-include("db_connect.php");
+//include("db_connect.php");
 ?>
 <br>
 <br>
@@ -26,9 +26,9 @@ include("db_connect.php");
 		</thead>
 		<?php
 			$query = "SELECT `id`,`name` FROM `scout2016`.`scouts`";
-			$result = $mysqli->query($query);
+			//$result = $mysqli->query($query);
 			
-			while($row = $result->fetch_array(MYSQLI_ASSOC))
+			//while($row = $result->fetch_array(MYSQLI_ASSOC))
 			{
 		?>
 			<tr>

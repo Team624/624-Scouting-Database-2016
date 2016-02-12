@@ -20,7 +20,7 @@ include("navbar.php");
 		<form class="datafield" method="post">
 		
 			<h2>Basic Data</h2>
-			<table class="red">
+			<table class="green">
 				<tr>
 					<td></td>
 					<td>Match #</td>
@@ -52,7 +52,7 @@ include("navbar.php");
 			<br>
 			
 			<h2>Autonomous</h2>
-			<table class="blue">
+			<table class="green">
 				<td>Autonomous stuff will go here one day!!!</td>
 			</table>
 			
@@ -97,7 +97,7 @@ include("navbar.php");
 			</div>
 			
 			<h2>Robot Issues</h2>
-			<table class="red">
+			<table class="green">
 				<tr>
 					<td>No Show</td>
 					<td><input type="checkbox" name="no_show"></input></td>
@@ -128,7 +128,7 @@ include("navbar.php");
 			<br>
 			
 			<h2>Comments</h2>
-			<table class="blue">
+			<table class="green">
 				<tr>
 					<td>Notes:</td>
 				</tr>

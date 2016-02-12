@@ -1,12 +1,18 @@
+
 div.form_container{
-	background-color: #1a1a1a;
-	padding:25px;
-	width:90%;
+	background-color: #313131;
+	background-image: url("../images/pixel_bg.png");
+	padding:5%;
+	width:80%;
 	margin:0 auto;
-	overflow:scroll;
+	opacity: 0.9;
+	border-radius: 15px;
 }
 .datafield {
 	color: white;
+	background-color: #313131;
+	background-image: url("../images/pixel_bg.png");
+	opacity: 0.9;
 }
 
 table{
@@ -14,14 +20,11 @@ table{
 	margin:0 auto;
 	border-radius: 5px;
 }
-table.red{
-	border: 1px red solid;
-}
-table.blue{
-	border: 1px blue solid;
-}
+
 table.green{
-	border: 1px #06F000 solid;
+	border: none;
+	background-color: black;
+
 }
 td {
 	padding:2px;
@@ -29,15 +32,18 @@ td {
 }
 input.small_num
 {
-	width:100px;
+	width:50%;
 }
 input[type="checkbox"]
 {
-	width:40px;
+	width:60px;
 }
 h2{
 	font-family:monospace;
 	margin-top: 10px;
-	color: #bfbfbf;
+	color: black;
 	size: 40px;
+}
+h1{
+	color:#06F000;
 }
