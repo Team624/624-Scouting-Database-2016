@@ -31,31 +31,23 @@ $response1 = file_get_contents($url1,false,$context);
 			<th class="table-top"><b>Blue 3</b></th>
 		</tr>
 <?php
-$json1 = json_decode($response1,true);
 
-	foreach($json1 as $match){
-		foreach($match as $move){
-		$matchNumber=$move["matchNumber"];
-		
-		
+	$query2 = "INSERT INTO schedule (match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
+	$result2 = $mysqli->query($query2);
+
+	foreach($json1 as $match){	
 ?>	
 		<tr>
-			<td class="side-bar"><b><?=$matchNumber; ?></b></td>
-			<?php
-				foreach($move[Teams] as $t){
-					$teamNumber1=$t['teamNumber'];
-			?>
-			<td><?=$teamNumber1?></td>
-			<?php
-				}
-			?>
+			<td class="side-bar"><b><?=$matchNumba?></b></td>
+			<td><?=$Red1?></td>
+			<td><?=$Red2?></td>
+			<td><?=$Red3?></td>
+			<td><?=$Blue1?></td>
+			<td><?=$Blue2?></td>
+			<td><?=$Blue3?></td>
 		</tr>
-<?php	
-		
-		}
-
-	}
-			
+<?php
+	}		
 ?>
 	</table>
 </div>
