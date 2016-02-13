@@ -38,16 +38,15 @@
 	
 	<h1> Qualification Match <?php echo $match; ?> </h1>
 	<?php
-	mysqli_select_db($mysqli,"testdatabase");
-	$match=$_POST['match'];
-	$result1=mysqli_query($mysqli,"SELECT * from match_schedule WHERE matchNumber='$match'");
+	mysqli_select_db($mysqli,$dbname);
+	$result1=mysqli_query($mysqli,"SELECT * from schedule WHERE match_number='$match'");
 	if ($result1->num_rows > 0) {
 		?>
-    <table id="TeamRankings" ><tr><th>Team Number</th><th>startTime</th><th id="oneline">matchNumber</th><th>Red1</th></tr>
+    <table id="TeamRankings" ><tr><th>Team Number</th><th>startTime</th><th id="oneline">matchNumber</th><th>Red1</th><th>Red2</th><th>Red3</th><th>Blue1</th><th>Blue2</th><th>Blue3</th></tr>
 	<?php
     // output data of each row
     while($row1 = $result1->fetch_assoc()) {
-        echo "<tr><td>".$row1["time"]."</td><td>".$row1["matchNumber"]."</td><td>".$row1["Red1"]."</td></tr>";
+        echo "<tr><td>".$row1["teamNumber"]."</td><td>".$row1["time"]."</td><td>".$row1["matchNumber"]."</td><td>".$row1["Red1"]."</td><td>".$row1["Red2"]."</td><td>".$row1["Red3"]."</td><td>".$row1["Blue1"]."</td><td>".$row1["Blue2"]."</td><td>".$row1["Blue3"]."</td></tr>";
     }
     echo "</table>";
 }

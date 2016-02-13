@@ -30,6 +30,7 @@ include("db_connect.php");
 	<input type="submit" value="Load Match Schedule!" class="subButton" name="loadSchedule">
 	</form>
 <?php
+
 if(isset($_POST['loadTeam'])){
 	if(!empty($_POST['eventCode'])){
 $eventCode = $_POST['eventCode'];

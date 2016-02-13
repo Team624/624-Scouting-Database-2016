@@ -34,9 +34,9 @@
 	
 	<?php
 	include("db_connect.php");
-	mysqli_select_db($mysqli,"mynewdatabase3");
+	mysqli_select_db($mysqli,$dbname);
 
-	$result=mysqli_query($mysqli,"SELECT * from teamatevents2 WHERE teamNumber='$team'");
+	$result=mysqli_query($mysqli,"SELECT * from teams WHERE teamNumber='$team'");
 	
 	if ($result->num_rows > 0) {
 		?>

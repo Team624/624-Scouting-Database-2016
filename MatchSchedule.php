@@ -33,7 +33,7 @@ $response1 = file_get_contents($url1,false,$context);
 
 <?php
 
-mysqli_select_db($mysqli,"mynewdatabase3");
+mysqli_select_db($mysqli,$dbname);
 $json1 = json_decode($response1,true);
 //echo json_encode($json1, JSON_PRETTY_PRINT);
 
@@ -54,13 +54,14 @@ foreach($json1 as $match){
 						<td><?php echo $station; ?></td> 
 		</tr>
 		<?php	
-		$sql1="INSERT INTO matchschedule(TeamNumber,station)
+		/*$sql1="INSERT INTO matchschedule(TeamNumber,station)
 		VALUES('$teamNumber1','$station')";
 		mysqli_query($mysqli,$sql1);
 		}
 		$sql2="INSERT INTO matchschedule(startTime,matchNumber)
 		VALUES('$startTime','$matchNumber')";
 		mysqli_query($mysqli,$sql2);
+		*/
 	}
 
 }
