@@ -4,12 +4,8 @@ include("HeadTemplate.php");
 include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
-include("api_connect.php");
 include("read_ini.php");
 include("db_connect.php");
-$url1="https://frc-api.firstinspires.org/v2.0/2015/schedule/TXHO?tournamentLevel=qual";
-
-$response1 = file_get_contents($url1,false,$context);
 ?>
 <head>	<link rel="stylesheet" type="text/css" href="css/DataCoverageStyle.css"> </head>
 <br>
@@ -32,22 +28,23 @@ $response1 = file_get_contents($url1,false,$context);
 		</tr>
 <?php
 
-	$query2 = "INSERT INTO schedule (match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
+	$query2 = "SELECT match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3 FROM schedule";
 	$result2 = $mysqli->query($query2);
-
-	foreach($json1 as $match){	
+	
+	foreach($result2 as $row)
+	{
 ?>	
 		<tr>
-			<td class="side-bar"><b><?=$matchNumba?></b></td>
-			<td><?=$Red1?></td>
-			<td><?=$Red2?></td>
-			<td><?=$Red3?></td>
-			<td><?=$Blue1?></td>
-			<td><?=$Blue2?></td>
-			<td><?=$Blue3?></td>
+			<td class="side-bar"><b><?=$row["match_number"];?></b></td>
+			<td class="<?=$row['has_red_1']?'found':'not-found'?>"><?=$row['red_1'];?></td>
+			<td class="<?=$row['has_red_2']?'found':'not-found'?>"><?=$row['red_2'];?></td>
+			<td class="<?=$row['has_red_3']?'found':'not-found'?>"><?=$row['red_3'];?></td>
+			<td class="<?=$row['has_blue_1']?'found':'not-found'?>"><?=$row['blue_1'];?></td>
+			<td class="<?=$row['has_blue_2']?'found':'not-found'?>"><?=$row['blue_2']?></td>
+			<td class="<?=$row['has_blue_3']?'found':'not-found'?>"><?=$row['blue_3']?></td>
 		</tr>
-<?php
-	}		
+<?php	
+	}
 ?>
 	</table>
 </div>
