@@ -72,6 +72,17 @@ input.subButton:hover{
 	cursor:pointer;
 	background-color: #39F934;
 }
+input.ObliterateButton {
+	background-color: red;
+	border-radius: 5px;
+	color: #000;
+	border:none;
+	font-weight: bold;
+}
+input.ObliterateButton:hover{
+	cursor:pointer;
+	background-color: #D00000;
+}
 
 h3{
 	font-family:monospace;

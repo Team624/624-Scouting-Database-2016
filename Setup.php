@@ -39,7 +39,7 @@ if(strcasecmp($eventCode,"TXHO")==0){
 	$json = json_decode($response, true);
 //var_dump($json[teams]);
 //echo json_encode($json[teams], JSON_PRETTY_PRINT);
-$query = "TRUNCATE TABLE teams";
+$query = "DELETE FROM teams";
 $result = $mysqli->query($query);
 		foreach ($json[teams] as $team)
 		{	
@@ -59,7 +59,7 @@ else if(strcasecmp($eventCode,"TXSA")==0){
 	$json = json_decode($response, true);
 //var_dump($json[teams]);
 //echo json_encode($json[teams], JSON_PRETTY_PRINT);
-$query = "TRUNCATE TABLE teams";
+$query = "DELETE FROM teams";
 $result = $mysqli->query($query);
 		foreach ($json[teams] as $team)
 		{	
@@ -78,7 +78,7 @@ else if(strcasecmp($eventCode,"ALHU")==0){
 	$json = json_decode($response, true);
 //var_dump($json[teams]);
 //echo json_encode($json[teams], JSON_PRETTY_PRINT);
-$query = "TRUNCATE TABLE teams";
+$query = "DELETE FROM teams";
 $result = $mysqli->query($query);
 		foreach ($json[teams] as $team)
 		{	
@@ -109,7 +109,7 @@ if(strcasecmp($eventCode,"TXHO")==0){
 	$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/TXHO?tournamentLevel=qual";
 	$response = file_get_contents($url,false,$context);
 	$json = json_decode($response, true);
-$query = "TRUNCATE TABLE schedule";
+$query = "DELETE FROM schedule";
 $result = $mysqli->query($query);
  //var_dump($json);
 //echo json_encode($json, JSON_PRETTY_PRINT);
@@ -147,7 +147,7 @@ else if(strcasecmp($eventCode,"TXSA")==0){
 	$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/TXSA?tournamentLevel=qual";
 	$response = file_get_contents($url,false,$context);
 	$json = json_decode($response, true);
-$query = "TRUNCATE TABLE schedule";
+$query = "DELETE FROM schedule";
 $result = $mysqli->query($query);
  //var_dump($json);
 //echo json_encode($json, JSON_PRETTY_PRINT);
@@ -185,7 +185,7 @@ else if(strcasecmp($eventCode,"ALHU")==0){
 $url = "https://frc-api.firstinspires.org/v2.0/2016/schedule/ALHU?tournamentLevel=qual";
 $response = file_get_contents($url,false,$context);
 $json = json_decode($response, true);
-$query = "TRUNCATE TABLE schedule";
+$query = "DELETE FROM schedule";
 $result = $mysqli->query($query);
  //var_dump($json);
 //echo json_encode($json, JSON_PRETTY_PRINT);
@@ -231,7 +231,30 @@ else{
 	</div>
 	<div>
 		<div class="setupdiv">
-			Put Delete Data (Password Confirm) DIV Here
+			Type in Obliteration Password:
+			
+	<form class="obliterate" method="post">
+	<input type="password" name="obliteratePassword"><br><br>
+	<input type="submit" value="Obliterate Data!" class="ObliterateButton" name="obliterateData">
+    </form>
+		<?php 
+	if(isset($_POST['obliterateData'])){
+		if(!empty($_POST['obliteratePassword'])){
+			$obliterationPassword = $_POST['obliteratePassword'];
+			if(strcmp($obliterationPassword,"ALLIDOISWIN!")==0){
+				
+				$query3 = "DELETE FROM teams";
+				$result3 = $mysqli->query($query3);
+				$query4 = "DELETE FROM schedule";
+				$result4 = $mysqli->query($query4);
+			}
+			else{
+				echo "Nope!";
+				
+			}
+		}
+	}
+	?>
 		</div>
 	</div>
 </div>
