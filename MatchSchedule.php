@@ -5,12 +5,8 @@ include("HeadTemplate.php");
 include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
-include("api_connect.php");
-include("read_ini.php");
 include("db_connect.php");
-$url1="https://frc-api.firstinspires.org/v2.0/2015/schedule/TXHO?tournamentLevel=qual";
 
-$response1 = file_get_contents($url1,false,$context);
 ?>
 <head>	<link rel="stylesheet" type="text/css" href="css/MatchScheduleStyle.css"> </head>
 <br>
@@ -18,55 +14,38 @@ $response1 = file_get_contents($url1,false,$context);
 <br>
 <br>
 <div class = "title" >
-	<h1> Match Schedule </h1>
-	
+	<h1> Match Schedule </h1>	
 </div>
-<table class = "rankingsTable" >
-		<thead>
-			<th>Start Time</th>
-			<th>Match Number</th>
-			<th><span>Team Number</span></th>
-			<th>station</th>
-		</thead>
-	
-		<tbody>
-
+<div class="page-container">
+	<table class="rankingsTable">
+		<tr class="top-bar">
+			<th class="table-top"><b>Match</b></th>
+			<th class="table-top"><b>Red 1</b></th>
+			<th class="table-top"><b>Red 2</b></th>
+			<th class="table-top"><b>Red 3</b></th>
+			<th class="table-top"><b>Blue 1</b></th>
+			<th class="table-top"><b>Blue 2</b></th>
+			<th class="table-top"><b>Blue 3</b></th>
+		</tr>
 <?php
 
-mysqli_select_db($mysqli,$dbname);
-$json1 = json_decode($response1,true);
-//echo json_encode($json1, JSON_PRETTY_PRINT);
-
-foreach($json1 as $match){
-	foreach($match as $move){
-		$startTime=$move["startTime"];
-		$matchNumber=$move["matchNumber"];
-		 foreach($move[Teams] as $t){
-			 $teamNumber1=$t['teamNumber'];
-			 $station=$t['station'];
-		
-		
-		?>
+	$query2 = "SELECT match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3 FROM schedule";
+	$result2 = $mysqli->query($query2);
+	
+	foreach($result2 as $row)
+	{
+?>	
 		<tr>
-						<td><?php echo $startTime; ?></td> 
-						<td><?php echo $matchNumber; ?></td> 
-						<td><?php echo $teamNumber1; ?></td> 
-						<td><?php echo $station; ?></td> 
+			<td class="side-bar"><b><?=$row["match_number"];?></b></td>
+			<td class="<?=$row['has_red_1']?'found':'not-found'?>"><?=$row['red_1'];?></td>
+			<td class="<?=$row['has_red_2']?'found':'not-found'?>"><?=$row['red_2'];?></td>
+			<td class="<?=$row['has_red_3']?'found':'not-found'?>"><?=$row['red_3'];?></td>
+			<td class="<?=$row['has_blue_1']?'found':'not-found'?>"><?=$row['blue_1'];?></td>
+			<td class="<?=$row['has_blue_2']?'found':'not-found'?>"><?=$row['blue_2']?></td>
+			<td class="<?=$row['has_blue_3']?'found':'not-found'?>"><?=$row['blue_3']?></td>
 		</tr>
-		<?php	
-		/*$sql1="INSERT INTO matchschedule(TeamNumber,station)
-		VALUES('$teamNumber1','$station')";
-		mysqli_query($mysqli,$sql1);
-		}
-		$sql2="INSERT INTO matchschedule(startTime,matchNumber)
-		VALUES('$startTime','$matchNumber')";
-		mysqli_query($mysqli,$sql2);
-		*/
+<?php	
 	}
-
-}
-			
-	?>
-</tbody>
+?>
 	</table>
-
+</div>
