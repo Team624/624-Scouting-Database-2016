@@ -5,8 +5,9 @@ body {
 .title {
 	text-align: center;
 }
-.rankingsTable {
-	border-spacing: 0px 15px;
+.rankingsTable 
+{
+	border-spacing: 2px 8px;
 	border-collapse: separate;
 	margin: 0 auto;
 	background-color: #313131;
@@ -14,39 +15,46 @@ body {
 	border-radius: 10px;
 	border: 2px solid black;
 	width: 80%;
-	text-align: left;
+	text-align: center;
 	opacity: 0.9;
 	margin-top: 1%;
 	height: 400px;
 	overflow: scroll;
-
 }
 
-th {
-	color: black;
-	text-decoration: underline;
-	padding-left: 3%;
-	padding-right: 3%;
-}
-td {
-	padding-left: 3%;
-	padding-right: 3%;
-	text-align: center;
-}
-
-span {
+.THead
+{
+	text-decoration: none;
+	background: #06f000;
 	color: #06f000;
-
+	text-align: center;
+	background-color: rgba(0, 0, 0, .2);
+	height: 70px;
 }
-.fixedHead {
+.body
+{
+	text-align: center;
+	background-color: rgba(128, 128, 128, .5);
+	padding-left: 2%;
+	padding-right: 2%;
+	
+}
+tr.bodyRow:nth-child(even) 
+{
+	background-color: rgba(153, 153, 153, .5);
+}
+.fixedHead 
+{
 	border-spacing: 0px 15px;
 	z-index: 1000000;
 	margin: 0 auto;
 	background-color: #737373;
 	background-image: url("../images/pixel_bg.png");
 	border-radius: 10px;
-	border: 2px solid black;}
-#TeamRankings{
+	border: 2px solid black;
+}
+#TeamRankings
+{
 	width: 55%;
 	text-align: left;
 
@@ -55,10 +63,6 @@ span {
 	word-wrap: normal;
 	margin: 0 auto;
 	text-align:center;
-	
-	
-	
-	
 }
 
 

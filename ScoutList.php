@@ -20,10 +20,10 @@ include("navbar.php");
 	<!-- Make this table look good -->
 
 	<table id="scoutTable">
-		<thead>
+		<th class="scoutTHead">
 			<th>ID</th>
 			<th>Name</th>
-		</thead>
+		</th>
 		<?php
 			$query = "SELECT `id`,`name` FROM `scout2016`.`scouts`";
 			//$result = $mysqli->query($query);
