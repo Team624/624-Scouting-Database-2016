@@ -34,7 +34,7 @@ include("db_connect.php");
 	foreach($result2 as $row)
 	{
 ?>	
-		<tr>
+		<tr class="zebra">
 			<td class="side-bar"><b><?=$row["match_number"];?></b></td>
 			<td class="<?=$row['has_red_1']?'found':'not-found'?>"><?=$row['red_1'];?></td>
 			<td class="<?=$row['has_red_2']?'found':'not-found'?>"><?=$row['red_2'];?></td>
@@ -46,5 +46,7 @@ include("db_connect.php");
 <?php	
 	}
 ?>
+
 	</table>
+	<br>
 </div>

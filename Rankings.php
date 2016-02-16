@@ -27,9 +27,9 @@ include("api_connect.php");
 <div class = "title" >
 	<h1> Rankings </h1>
 </div>
-	<table class = "fixedHead">
-		<thead>
-			<th><span>Rank</span></th>
+	<table class = "rankingsTable">
+		<tr class="THead">
+			<th>Rank</th>
 			<th>Team Number</th>
 			<th>Qual Average</th>
 			<th>Auto Points</th>
@@ -42,10 +42,7 @@ include("api_connect.php");
 			<th>Ties</th>
 			<th>DQ</th>
 			<th>Matches Played</th>
-		</thead>
-	</table>
-	<table class = "rankingsTable" >
-		<tbody>
+		</tr>
 <!--<pre>-->
 	<?php
 		//mysqli_select_db($mysqli,"mynewdatabase3");
@@ -85,26 +82,24 @@ include("api_connect.php");
 				
 	?>
 	<!--</pre>-->
-					<tr>
-						<td><?php echo $roast; ?></td> 
-						<td><?php echo $teamNumber; ?></td>
-						<td><?php echo $qualAverage; ?></td> 
-						<td><?php echo $autoPoints; ?></td> 
-						<td><?php echo $containerPoints; ?></td> 
-						<td><?php echo $coopertitionPoints; ?></td>
-						<td><?php echo $litterPoints; ?></td> 
-						<td><?php echo $totePoints; ?></td> 
-						<td><?php echo $wins; ?></td> 
-						<td><?php echo $losses; ?></td> 
-						<td><?php echo $ties; ?></td> 
-						<td><?php echo $dq; ?></td>
-						<td><?php echo $matchesPlayed; ?></td> 
+					<tr class="bodyRow">
+						<td class="body"><b><?php echo $roast; ?></b></td> 
+						<td class="body"><?php echo $teamNumber; ?></td>
+						<td class="body"><?php echo $qualAverage; ?></td> 
+						<td class="body"><?php echo $autoPoints; ?></td> 
+						<td class="body"><?php echo $containerPoints; ?></td> 
+						<td class="body"><?php echo $coopertitionPoints; ?></td>
+						<td class="body"><?php echo $litterPoints; ?></td> 
+						<td class="body"><?php echo $totePoints; ?></td> 
+						<td class="body"><?php echo $wins; ?></td> 
+						<td class="body"><?php echo $losses; ?></td> 
+						<td class="body"><?php echo $ties; ?></td> 
+						<td class="body"><?php echo $dq; ?></td>
+						<td class="body"><?php echo $matchesPlayed; ?></td> 
 					</tr>
-
-
 					<?php
 			}
 		}
 	?>
-	</tbody>
 	</table>
+<br>

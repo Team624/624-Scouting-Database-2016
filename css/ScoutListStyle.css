@@ -17,7 +17,7 @@ body {
 	padding: 1%;
 	border-radius: 10px;
 }
-th {
+th.scoutTHead {
 	text-decoration: underline;
 	color: #06f000;
 }
