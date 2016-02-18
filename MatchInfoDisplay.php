@@ -46,7 +46,7 @@
 	<?php
     // output data of each row
     while($row1 = $result1->fetch_assoc()) {
-        echo "<tr><td>".$row1["time"]."</td><td>".$row1["matchNumber"]."</td><td>".$row1["Red1"]."</td><td>".$row1["Red2"]."</td><td>".$row1["Red3"]."</td><td>".$row1["Blue1"]."</td><td>".$row1["Blue2"]."</td><td>".$row1["Blue3"]."</td></tr>";
+        echo "<tr><td>".$row1["time"]."</td><td>".$row1["match_number"]."</td><td>".$row1["red_1"]."</td><td>".$row1["red_2"]."</td><td>".$row1["red_3"]."</td><td>".$row1["blue_1"]."</td><td>".$row1["blue_2"]."</td><td>".$row1["blue_3"]."</td></tr>";
     }
     echo "</table>";
 }
