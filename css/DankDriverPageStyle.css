@@ -18,7 +18,7 @@ pre{
 
 li.slideli
 {
-	background-color: #000;
+	background-color: #777;
 	list-style-type: none;
 	width:100%;
 	margin: 0 auto;
@@ -29,7 +29,7 @@ li.slideli
 button.slidebutton
 {
 	transition: background-color .5s ease;
-	background-color: #000;
+	background-color: #777;
 	color: #FFF;
 	height:30px;
 	width:30px;
@@ -46,6 +46,15 @@ button.slidebutton:hover
 	font-size:18px;
 	border: transparent;
 	padding-top: 5;
+}
+
+li.slideli .active
+{
+	background-color: #00FF00;
+}
+button.slidebutton .active
+{
+	background-color: #00FF00;
 }
 
 div.slidediv
@@ -75,4 +84,3 @@ button:focus
 {
 	outline: 0;
 }
-	/*not much here for now, I just want this file to exist
