@@ -5,10 +5,10 @@
 
 	//if you ever want to access your own database instead, this is the place to do it.
 	//Just uncomment out and add in your own info.
-	//$dbhost = localhost /*$ini['dbhost']*/;
-	//$dbname =  testdatabase /*$ini['dbname']*/;
-	//$dbuser = anuragtest /*$ini['dbuser']*/;
-	//$dbpass = helloworld /*$ini['dbpass']*/; 
+	$dbhost = localhost /*$ini['dbhost']*/;
+	$dbname =  testdatabase /*$ini['dbname']*/;
+	$dbuser = anuragtest /*$ini['dbuser']*/;
+	$dbpass = helloworld /*$ini['dbpass']*/; 
 	
 
 	
