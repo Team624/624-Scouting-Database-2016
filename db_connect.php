@@ -13,9 +13,9 @@
 
 	
 /*this is if you want to connect to the team624 database
-	$dbhost = $ini['dbhost'];
-	$dbname = $ini['dbname'];
-	$dbuser = $ini['dbuser'];
+	//$dbhost = $ini['dbhost'];
+	//$dbname = $ini['dbname'];
+	//$dbuser = $ini['dbuser'];
 	$dbpass = $ini['dbpass'];*/
 	
 	$mysqli = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
