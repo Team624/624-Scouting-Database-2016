@@ -4,6 +4,7 @@ include("HeadTemplate.php");
 include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
+include("db_connect.php");
 ?>
 <head>	<link rel="stylesheet" type="text/css" href="css/mainpagestyle.css"> 
 		<link rel="stylesheet" type="text/css" href="css/dataform.css">
@@ -166,9 +167,18 @@ include("navbar.php");
 	//$fields = array($matchNum,$teamNum,$def_type_1,$def_type_2,$def_type_3,$def_type_4,$def_type_5,$drive_man,$notes);
 	//foreach($fields as $fieldname){
 	//if(!empty($fieldname)){
-	$query = "INSERT INTO match_data (match_number,team_number,scout_id,def_type_1,def_type_2,def_type_3,def_type_4,def_type_5,def_1,def_2,def_3,def_4,def_5,ball_shot,balls_scored,no_show,tipped,lost_comm,mech_fail,drive_rating,notes) VALUES ('$matchNum','$teamNum','$scoutID','$def_type_1','$def_type_2','$def_type_3','$def_type_4','$def_type_5','$def_1','$def_2','$def_3','$def_4','$def_5','$ball_shot','$balls_scored','$no_show','$tipped','$lost_comm','$mech_fail','$drive_man','$notes')";
+	//$query = "INSERT INTO match_data (match_number,team_number,scout_id,def_type_1,def_type_2,def_type_3,def_type_4,def_type_5,def_1,def_2,def_3,def_4,def_5,ball_shot,balls_scored,no_show,tipped,lost_comm,mech_fail,drive_rating,notes) VALUES ('$matchNum','$teamNum','$scoutID','$def_type_1','$def_type_2','$def_type_3','$def_type_4','$def_type_5','$def_1','$def_2','$def_3','$def_4','$def_5','$ball_shot','$balls_scored','$no_show','$tipped','$lost_comm','$mech_fail','$drive_man','$notes')";
+	//$result = $mysqli->query($query);
+	//$query = "INSERT INTO note_entry (selectteam,notes) VALUES ('$teamNum','$notes')";
+	//$result = $mysqli->query($query);
+	$query = "INSERT INTO match_data (match_number,team_number,scout_id,no_show,mech_fail,lost_comms,fouls,tech_fouls,drive_rating) VALUES ('$matchNum','$teamNum','$scoutID','$no_show','$mech_fail','$lost_comm','$ball_shot','$balls_scored','$drive_man')";
 	$result = $mysqli->query($query);
-	
+	if($result) {
+	echo"Successfully added info";	
+	}
+	else {
+	echo"NOPE!";	
+	}
 	//}	
 	//}	
 	}

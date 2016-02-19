@@ -40,8 +40,8 @@ if(strcasecmp($eventCode,"TXHO")==0){
 	$json = json_decode($response, true);
 //var_dump($json[teams]);
 //echo json_encode($json[teams], JSON_PRETTY_PRINT);
-$query = "TRUNCATE TABLE teams";
-$result = $mysqli->query($query);
+//$query = "TRUNCATE TABLE teams";
+//$result = $mysqli->query($query);
 		foreach ($json[teams] as $team)
 		{	
 			//var_dump($team);
@@ -60,8 +60,8 @@ else if(strcasecmp($eventCode,"TXSA")==0){
 	$json = json_decode($response, true);
 //var_dump($json[teams]);
 //echo json_encode($json[teams], JSON_PRETTY_PRINT);
-$query = "TRUNCATE TABLE teams";
-$result = $mysqli->query($query);
+//$query = "TRUNCATE TABLE teams";
+//$result = $mysqli->query($query);
 		foreach ($json[teams] as $team)
 		{	
 			//var_dump($team);
@@ -79,8 +79,8 @@ else if(strcasecmp($eventCode,"ALHU")==0){
 	$json = json_decode($response, true);
 //var_dump($json[teams]);
 //echo json_encode($json[teams], JSON_PRETTY_PRINT);
-$query = "TRUNCATE TABLE teams";
-$result = $mysqli->query($query);
+//$query = "TRUNCATE TABLE teams";
+//$result = $mysqli->query($query);
 		foreach ($json[teams] as $team)
 		{	
 			//var_dump($team);
@@ -110,7 +110,7 @@ if(strcasecmp($eventCode,"TXHO")==0){
 	$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/TXHO?tournamentLevel=qual";
 	$response = file_get_contents($url,false,$context);
 	$json = json_decode($response, true);
-$query = "TRUNCATE TABLE schedule";
+$query = "SET FOREIGN_KEY_CHECKS=1";
 $result = $mysqli->query($query);
  //var_dump($json);
 //echo json_encode($json, JSON_PRETTY_PRINT);
@@ -141,6 +141,8 @@ $result = $mysqli->query($query);
 						
 						$query2 = "INSERT INTO schedule (match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
 						$result2 = $mysqli->query($query2);
+						$query3 = "SET FOREIGN_KEY_CHECKS=1";
+						$result3 = $mysqli->query($query3);
 			}
 		}
 }
@@ -148,7 +150,9 @@ else if(strcasecmp($eventCode,"TXSA")==0){
 	$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/TXSA?tournamentLevel=qual";
 	$response = file_get_contents($url,false,$context);
 	$json = json_decode($response, true);
-$query = "TRUNCATE TABLE schedule";
+//$query = "TRUNCATE TABLE schedule";
+//$result = $mysqli->query($query);
+$query = "SET FOREIGN_KEY_CHECKS=1";
 $result = $mysqli->query($query);
  //var_dump($json);
 //echo json_encode($json, JSON_PRETTY_PRINT);
@@ -179,6 +183,8 @@ $result = $mysqli->query($query);
 						
 						$query2 = "INSERT INTO schedule (match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
 						$result2 = $mysqli->query($query2);
+						$query3 = "SET FOREIGN_KEY_CHECKS=1";
+						$result3 = $mysqli->query($query3);
 			}
 		} 
 }
@@ -186,7 +192,9 @@ else if(strcasecmp($eventCode,"ALHU")==0){
 $url = "https://frc-api.firstinspires.org/v2.0/2016/schedule/ALHU?tournamentLevel=qual";
 $response = file_get_contents($url,false,$context);
 $json = json_decode($response, true);
-$query = "TRUNCATE TABLE schedule";
+//$query = "TRUNCATE TABLE schedule";
+//$result = $mysqli->query($query);
+$query = "SET FOREIGN_KEY_CHECKS=1";
 $result = $mysqli->query($query);
  //var_dump($json);
 //echo json_encode($json, JSON_PRETTY_PRINT);
@@ -217,6 +225,8 @@ $result = $mysqli->query($query);
 						
 						$query2 = "INSERT INTO schedule (match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
 						$result2 = $mysqli->query($query2);
+						$query3 = "SET FOREIGN_KEY_CHECKS=1";
+						$result3 = $mysqli->query($query3);
 					}
 				} 
 			}
@@ -244,10 +254,14 @@ else{
 			$obliterationPassword = $_POST['obliteratePassword'];
 			if(strcmp($obliterationPassword,"ALLIDOISWIN!")==0){
 				
-				$query3 = "TRUNCATE TABLE teams";
-				$result3 = $mysqli->query($query3);
-				$query4 = "TRUNCATE TABLE schedule";
+				$query4 = "SET FOREIGN_KEY_CHECKS=0";
 				$result4 = $mysqli->query($query4);
+				$query5 = "TRUNCATE TABLE teams";
+				$result5 = $mysqli->query($query5);
+				$query6 = "TRUNCATE TABLE schedule";
+				$result6 = $mysqli->query($query6);
+				$query7 = "SET FOREIGN_KEY_CHECKS=1";
+				$result7 = $mysqli->query($query7);
 			}
 			else{
 				echo "Nope!";
