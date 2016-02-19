@@ -1,9 +1,8 @@
-/*
-h2{
-	color:green;
-	font-size:69px;
+
+h2.drivers{
+	color:#FFF;
 }
-*/
+
 .container{
 	text-align:center;
 }
@@ -14,6 +13,7 @@ p{
 pre{
 	text-align:left;
 }
+
 
 
 li.slideli
@@ -51,15 +51,20 @@ button.slidebutton:hover
 li.slideli .active
 {
 	background-color: #00FF00;
+	color:#000;
+	
 }
 button.slidebutton .active
 {
 	background-color: #00FF00;
+	color:#000;
+	font-size:18px;
+	height:30px;
+	width:30px;
 }
 
 div.slidediv
 {
-
 	background-color: #E4E4E4;
 	margin-bottom: 15px;
 	-webkit-transition:     height .8s ease;
@@ -71,7 +76,8 @@ div.slidediv
 	width:100%;
 	font-size:14px;
 	text-align:center;
-	/*margin: 0 auto;*/
+	margin: 0 auto;
+	color:#000;
 }
 span.collapseView
 {

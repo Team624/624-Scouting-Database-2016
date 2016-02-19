@@ -48,8 +48,8 @@ function expand(id)
 	{
 		var d = document.getElementById("slide_"+id);
 		
-		d.style.height = slideheights[id];
-		console.log(slideheights[id]);
+		d.setAttribute("style", "height:"+slideheights[id] + "px");
+		console.log(id + " " + slideheights[id]);
 		
 		var l = document.getElementById("slide_li_"+id);
 		
