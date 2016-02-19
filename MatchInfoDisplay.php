@@ -13,6 +13,7 @@
 	<link rel="stylesheet" type="text/css" href="css/NoteEntryStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/mainpagestyle.css">
 	<link rel="stylesheet" type="text/css" href="css/SearchStyle.css"> 
+	<link rel="stylesheet" type="text/css" href="css/DataCoverageStyle.css"> 
 </head>
 <div class="page_container">
 <br>
@@ -53,7 +54,7 @@
 	$result2=mysqli_query($mysqli,"SELECT * from match_data WHERE match_number='$match'");
 	if ($result2->num_rows > 0) {
 		?>
-    <table id="TeamRankings" ><tr><th>Match Number</th><th>Team Number</th><th>Scout ID</th><th>No Show</th><th>Mech Fail</th><th>Lost Comms</th><th>Fouls</th><th>Tech Fouls</th><th>Drive Rating</th></tr>
+    <table class="Schedule-table" ><tr><th>Match Number</th><th>Team Number</th><th>Scout ID</th><th>No Show</th><th>Mech Fail</th><th>Lost Comms</th><th>Fouls</th><th>Tech Fouls</th><th>Drive Rating</th></tr>
 	<?php
     // output data of each row
     while($row1 = $result1->fetch_assoc()) {

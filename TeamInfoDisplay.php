@@ -40,7 +40,7 @@
 	
 	if ($result->num_rows > 0) {
 		?>
-    <table id="TeamRankings" ><tr><th>Team Number</th><th>Name</th><th id="oneline">Qualification Average</th><th>Auto Points</th><th>Container Points</th><th>Coopertition Points</th><th>Litter Points</th><th>Tote Points</th><th>Wins</th><th>Losses</th><th>Ties</th></tr>
+    <table id="TeamRankings" ><tr><th>Team Number</th><th>Name</th><th>Qualification Average</th><th>Auto Points</th><th>Container Points</th><th>Coopertition Points</th><th>Litter Points</th><th>Tote Points</th><th>Wins</th><th>Losses</th><th>Ties</th></tr>
 	<?php
     // output data of each row
     while($row = $result->fetch_assoc()) {

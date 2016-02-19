@@ -53,7 +53,33 @@ include("navbar.php");
 			
 			<h2>Autonomous</h2>
 			<table class="green">
-				<td>Autonomous stuff will go here one day!!!</td>
+			<tr><td>Auto High Scored</td><td>Auto Low Scored</td><td>Auto High Miss</td><td>Auto Low Miss</td></tr>
+			
+			<tr>
+			<td><input type="number" name="auto_High_Scored" class="small_num"></td>
+			<td><input type="number" name="auto_Low_Scored" class="small_num"></td>
+			<td><input type="number" name="auto_High_Miss" class="small_num"></td>
+			<td><input type="number" name="auto_Low_Miss"class="small_num"></td>
+			
+			
+			
+			</tr>
+			<tr>
+			<td>Auto Defenses Reached Sucess</td><td>Auto Defenses Crossed Sucess</td><td>Auto Defenses Reached Failed</td><td>Auto Defenses Crossed Failed</td>
+			</tr>
+			<tr>
+			<td><input type="number" name="auto_Defenses_Reached_Sucess" class="small_num"></td>
+			<td><input type="number" name="auto_Defenses_Crossed_Sucess" class="small_num"></td>
+			<td><input type="number" name="auto_Defenses_Reached_Failed" class="small_num"></td>
+			<td><input type="number" name="auto_Defenses_Crossed_Failed"class="small_num"></td>
+			</tr>
+			<tr>
+			<td>Start Location</td><td>Start With Boulder?</td>
+			</tr>
+			<tr>
+			<td><input type="number" name="auto_Start_Location" class="small_num"></td>
+			<td><input type="checkbox" name="Auto_Boulder_Grab?" class="small_num"></td>
+			</tr>
 			</table>
 			
 			<br>
@@ -141,3 +167,9 @@ include("navbar.php");
 		</form>
 	</div>
 </div>
+<?php
+if(isset($_POST['dataSubmit'])){
+	
+	
+}
+	?>
