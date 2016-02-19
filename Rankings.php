@@ -5,7 +5,7 @@ include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
 include("read_ini.php");
-include("db_connect.php");
+//include("db_connect.php");
 include("api_connect.php");
 
 
