@@ -19,9 +19,10 @@ include("db_connect.php");
 	<h1> Match Schedule </h1>	
 </div>
 <div class="page-container">
-	<table class="rankingsTable">
-		<tr class="top-bar">
+	<table class="matchTable">
+		<tr class="top">
 			<th class="table-top"><b>Match</b></th>
+			<th class="table-top"><b>Timed</b></th>
 			<th class="table-top"><b>Red 1</b></th>
 			<th class="table-top"><b>Red 2</b></th>
 			<th class="table-top"><b>Red 3</b></th>
@@ -37,17 +38,19 @@ include("db_connect.php");
 	foreach($result2 as $row)
 	{
 ?>	
-		<tr>
+		<tr class="zebra">
 			<td class="side-bar"><b><?=$row["match_number"];?></b></td>
-			<td class="<?=$row['has_red_1']?'found':'not-found'?>"><?=$row['red_1'];?></td>
-			<td class="<?=$row['has_red_2']?'found':'not-found'?>"><?=$row['red_2'];?></td>
-			<td class="<?=$row['has_red_3']?'found':'not-found'?>"><?=$row['red_3'];?></td>
-			<td class="<?=$row['has_blue_1']?'found':'not-found'?>"><?=$row['blue_1'];?></td>
-			<td class="<?=$row['has_blue_2']?'found':'not-found'?>"><?=$row['blue_2']?></td>
-			<td class="<?=$row['has_blue_3']?'found':'not-found'?>"><?=$row['blue_3']?></td>
+			<td class="time"><b><?=$row['time'];?></b></td>
+			<td class="<?=$row['red_1']=="624"?'green':'red'?>"><?=$row['red_1'];?></td>
+			<td class="<?=$row['red_2']=="624"?'green':'red'?>"><?=$row['red_2'];?></td>
+			<td class="<?=$row['red_3']=="624"?'green':'red'?>"><?=$row['red_3'];?></td>
+			<td class="<?=$row['blue_1']=="624"?'green':'blue'?>"><?=$row['blue_1'];?></td>
+			<td class="<?=$row['blue_2']=="624"?'green':'blue'?>"><?=$row['blue_2']?></td>
+			<td class="<?=$row['blue_3']=="624"?'green':'blue'?>"><?=$row['blue_3']?></td>
 		</tr>
 <?php	
 	}
 ?>
 	</table>
+	<br>
 </div>
