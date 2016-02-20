@@ -36,7 +36,7 @@ include("db_connect.php");
 ?>	
 		<tr class="zebra">
 			<td class="side-bar"><b><?=$row["match_number"];?></b></td>
-			<td class="<?=$row['has_red_1']?'found':'not-found'?>"><?=$row['red_1'];?></td>
+			<td class="<?=$row['has_red_1']?'found':'found'?>"><?=$row['red_1'];?></td>
 			<td class="<?=$row['has_red_2']?'found':'not-found'?>"><?=$row['red_2'];?></td>
 			<td class="<?=$row['has_red_3']?'found':'not-found'?>"><?=$row['red_3'];?></td>
 			<td class="<?=$row['has_blue_1']?'found':'not-found'?>"><?=$row['blue_1'];?></td>

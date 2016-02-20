@@ -36,7 +36,7 @@ include("db_connect.php");
 	foreach($result2 as $row)
 	{
 ?>	
-		<tr class="zebra">
+		<tr class="scheduleZenbra">
 			<td class="side-bar"><b><?=$row["match_number"];?></b></td>
 			<td class="time"><b><?=$row['time'];?></b></td>
 			<td class="<?=$row['red_1']=="624"?'green':'red'?>"><?=$row['red_1'];?></td>
