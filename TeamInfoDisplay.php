@@ -40,7 +40,7 @@
 	
 	if ($result->num_rows > 0) {
 		?>
-    <table id="TeamRankings" ><tr><th>Team Number</th><th>Name</th><th id="oneline">Qualification Average</th><th>Auto Points</th><th>Container Points</th><th>Coopertition Points</th><th>Litter Points</th><th>Tote Points</th><th>Wins</th><th>Losses</th><th>Ties</th></tr>
+    <table id="TeamRankings" ><tr><th>Team Number</th><th>Name</th><th>Qualification Average</th><th>Auto Points</th><th>Container Points</th><th>Coopertition Points</th><th>Litter Points</th><th>Tote Points</th><th>Wins</th><th>Losses</th><th>Ties</th></tr>
 	<?php
     // output data of each row
     while($row = $result->fetch_assoc()) {
@@ -50,11 +50,11 @@
 } $result2=mysqli_query($mysqli,"SELECT * from match_data WHERE number='$team'");
 if ($result2->num_rows > 0) {
 		?>
-    <table id="TeamRankings" ><tr><th>Match Number</th>th>Team Number</th><th>Scout ID</th><th>No Show</th><th>Mech Fail</th><th>Lost Comms</th><th>Fouls</th><th>Tech Fouls</th><th>Drive Rating</th></</tr>
+    <table id="TeamRankings" ><tr><th>Scout ID</th></tr>
 	<?php
     // output data of each row
     while($row1 = $result1->fetch_assoc()) {
-        echo "<tr><td>".$row1["match_number"]."</td><td>".$row1["team_number"]."</td><td>".$row1["scout_id"]."</td><td>".$row1["no_show"]."</td><td>".$row1["mech_fail"]."</td><td>".$row1["lost_comms"]."</td><td>".$row1["fouls"]."</td><td>".$row1["tech_fouls"]."</td><td>".$row1["drive_rating"]."</td></tr>";
+        echo "<tr><td>".$row1["scout_ID"]."</td></tr>";
     }
     echo "</table>";
 }
