@@ -133,7 +133,7 @@ include("db_connect.php");
 			<br>
 			
 			<h2>Teleop</h2>
-			<div class="green">
+			
 			<table class="green">
 				<tr>
 					<td>
@@ -226,9 +226,9 @@ include("db_connect.php");
 					</td>
 				</tr>
 			</table>
-			</div>
+			
 			<h2>Climbing</h2>
-			<div class="green">
+			
 			<table  class="green">
 				<tr>
 					<td>
@@ -243,9 +243,9 @@ include("db_connect.php");
 					</td>
 				</tr>
 			</table>
-			</div>
+			
 			<h2>Defense Rating</h2>
-			<div  class="green">
+			
 			<table class="green">
 				<tr>
 					<td>Defense Rating</td>
@@ -261,7 +261,7 @@ include("db_connect.php");
 					</td>
 				</tr>
 			</table>
-			</div>
+			
 			<h2>Robot Issues</h2>
 			<table class="green">
 				<tr>
@@ -299,7 +299,7 @@ include("db_connect.php");
 			<br>
 			
 			<h2>Driver Data</h2>
-			<div class="green">
+			
 			<table class="green">
 				<tr>
 					<td>Driving/Maneuverability</td><td>Defense/Pushing</td><td>Ball Control</td><td>Pushing</td>
@@ -311,7 +311,7 @@ include("db_connect.php");
 					<td><input type="number" name="Ball_Control" class="small_num"></input></td>
 				</tr>
 			</table>
-			</div>
+			
 			<br>
 			
 			<h2>Comments</h2>
