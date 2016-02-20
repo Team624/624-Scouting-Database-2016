@@ -20,7 +20,7 @@ include("db_connect.php");
 <div class="page_container">
 <form class="NoteEntry" method="post">
 
-<span class="teamsearch">Search For Da Team:</span><input type="number" name="selectteam">
+<span class="teamsearch">Search For a Team:</span><input type="number" name="selectteam">
 <br>
 <br>
 <br>

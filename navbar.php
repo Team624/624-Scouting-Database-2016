@@ -59,6 +59,12 @@
 			<li class="navbar"><a class="navbar" href="NoteEntry.php">Note Entry</a></li>
 		<?php
 			}
+			if(strcmp($user_type,"driver")==0)
+			{
+		?>
+			<li class="navbar"><a class="navbar" href="matchManagement.php">Manage Matches</a></li>
+		<?php
+			}
 		?>
 			<li class="navbar"><a class="navbar" href="logout.php">Logout</a></li>
 	</ul>
