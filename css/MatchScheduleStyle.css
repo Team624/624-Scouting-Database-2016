@@ -52,11 +52,11 @@ body {
 	background: none;
 	color:white;
 }
-tr.zebra:nth-child(even) 
+tr.scheduleZenbra:nth-child(even) 
 {
 	background-color: rgba(38, 38, 38, .5);
 }
-tr.zebra:hover
+tr.scheduleZenbra:hover
 {
 	background-color: rgba(230, 230, 230, .2);
 }
