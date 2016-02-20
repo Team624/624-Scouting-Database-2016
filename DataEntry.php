@@ -95,38 +95,54 @@ include("db_connect.php");
 			
 			<h2>Autonomous</h2>
 			<table class="green">
-			<tr><td>Auto High Scored</td><td>Auto Low Scored</td><td>Auto High Miss</td><td>Auto Low Miss</td></tr>
-			
 			<tr>
-			<td><input type="number" name="auto_High_Scored" class="small_num"></td>
-			<td><input type="number" name="auto_Low_Scored" class="small_num"></td>
-			<td><input type="number" name="auto_High_Miss" class="small_num"></td>
-			<td><input type="number" name="auto_Low_Miss"class="small_num"></td>
-			
-			
-			
+				<td></td>
+				<td>Auto High</td>
+				<td>Auto Low</td>
 			</tr>
 			<tr>
-				<td>Auto Defenses Reached Sucess</td><td>Auto Defenses Crossed Sucess</td><td>Auto Defenses Reached Failed</td><td>Auto Defenses Crossed Failed</td>
+				<td>Scored</td>
+				<td><input type="number" name="auto_High_Scored" class="small_num"></td>
+				<td><input type="number" name="auto_Low_Scored" class="small_num"></td>
 			</tr>
 			<tr>
+				<td>Miss</td>
+				<td><input type="number" name="auto_High_Miss" class="small_num"></td>
+				<td><input type="number" name="auto_Low_Miss"class="small_num"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td>Auto Defenses Reached</td>
+				<td>Auto Defenses Crossed</td>
+			</tr>
+			<tr>
+				<td>Sucess</td>
 				<td><input type="number" name="auto_Defenses_Reached_Sucess" class="small_num"></td>
 				<td><input type="number" name="auto_Defenses_Crossed_Sucess" class="small_num"></td>
+			</tr>
+			<tr>
+				<td>Failed</td>
 				<td><input type="number" name="auto_Defenses_Reached_Failed" class="small_num"></td>
 				<td><input type="number" name="auto_Defenses_Crossed_Failed"class="small_num"></td>
 			</tr>
 			<tr>
-				<td>Start Location</td><td>Start With Boulder?</td>
+				<td></td>
+				<td>Start Location</td>
 			</tr>
 			<tr>
+				<td></td>
 				<td><input type="number" name="auto_Start_Location" class="small_num"></td>
-				<td><input type="checkbox" name="Auto_StartWithBoulder" class="small_num"></td>
+				
 			</tr>
 			<tr>
+				<td></td>
 				<td>Boulder Grab Sucess</td>
+				<td>Start With Boulder?</td>
 			</tr>
 			<tr>
+				<td></td> 
 				<td><input type="checkbox" name="Auto_Boulder_Grab?" class="small_num"></td>
+				<td><input type="checkbox" name="Auto_StartWithBoulder" class="small_num"></td>
 			</tr>
 			</table>
 			
@@ -136,124 +152,82 @@ include("db_connect.php");
 			
 			<table class="green">
 				<tr>
-					<td>
-						<table class="">
-							<tr>
-								<td></td>
-								<td>Defense 1</td>
-								<td>Defense 2</td>
-								<td>Defense 3</td>
-								<td>Defense 4</td>
-								<td>Defense 5</td>
-							</tr>
-							<tr>
-								<td>Category</td>
-								<td><input type="number" name="def_1" class="small_num"></td>
-								<td><input type="number" name="def_2" class="small_num"></td>
-								<td><input type="number" name="def_3" class="small_num"></td>
-								<td><input type="number" name="def_4" class="small_num"></td>
-								<td><input type="number" name="def_5" class="small_num"></td>
-							</tr>
-							<tr>
-								<td>Crossed</td>
-								<td><input type="number" name="def_1" class="small_num"></td>
-								<td><input type="number" name="def_2" class="small_num"></td>
-								<td><input type="number" name="def_3" class="small_num"></td>
-								<td><input type="number" name="def_4" class="small_num"></td>
-								<td><input type="number" name="def_5" class="small_num"></td>
-							</tr>
-							<tr>
-								<td><input type="number" name="def_1_crossed" class="small_num"></td>
-								<td><input type="number" name="def_2_crossed" class="small_num"></td>
-								<td><input type="number" name="def_3_crossed" class="small_num"></td>
-								<td><input type="number" name="def_4_crossed" class="small_num"></td>
-								<td><input type="number" name="def_5_crossed" class="small_num"></td>
-							</tr>
-							<tr>
-								<td>Speed</td>
-								<td><input type="number" name="def_1" class="small_num"></td>
-								<td><input type="number" name="def_2" class="small_num"></td>
-								<td><input type="number" name="def_3" class="small_num"></td>
-								<td><input type="number" name="def_4" class="small_num"></td>
-								<td><input type="number" name="def_5" class="small_num"></td>
-							</tr>
-							<tr>
-								<td>Ball (Y/N)</td>
-								<td><input type="checkbox" name="def_1" class="small_num"></td>
-								<td><input type="checkbox" name="def_2" class="small_num"></td>
-								<td><input type="checkbox" name="def_3" class="small_num"></td>
-								<td><input type="checkbox" name="def_4" class="small_num"></td>
-								<td><input type="checkbox" name="def_5" class="small_num"></td>
-							</tr>
-							<tr>
-								<td>Defense 1 Weakened</td>
-								<td>Defense 2 Weakened</td>
-								<td>Defense 3 Weakened</td>
-								<td>Defense 4 Weakened</td>
-								<td>Defense 5 Weakened</td>
-							</tr>
-							<tr>
-								<td><input type="number" name="def_1_weakened" class="small_num"></td>
-								<td><input type="number" name="def_2_weakened" class="small_num"></td>
-								<td><input type="number" name="def_3_weakened" class="small_num"></td>
-								<td><input type="number" name="def_4_weakened" class="small_num"></td>
-								<td><input type="number" name="def_5_weakened" class="small_num"></td>
-							</tr>
-							<tr>
-								<td>Defense 1 Speed</td>
-								<td>Defense 2 Speed</td>
-								<td>Defense 3 Speed</td>
-								<td>Defense 4 Speed</td>
-								<td>Defense 5 Speed</td>
-							</tr>
-							<tr>
-								<td><input type="number" name="def_1_speed" class="small_num"></td>
-								<td><input type="number" name="def_2_speed" class="small_num"></td>
-								<td><input type="number" name="def_3_speed" class="small_num"></td>
-								<td><input type="number" name="def_4_speed" class="small_num"></td>
-								<td><input type="number" name="def_5_speed" class="small_num"></td>
-							</tr>
-							<tr>
-								<td>Defense 1 Ball?</td>
-								<td>Defense 2 Ball?</td>
-								<td>Defense 3 Ball?</td>
-								<td>Defense 4 Ball?</td>
-								<td>Defense 5 Ball?</td>
-							</tr>
-							<tr>
-								<td><input type="checkbox" name="def_1_ball" class="small_num"></td>
-								<td><input type="checkbox" name="def_2_ball" class="small_num"></td>
-								<td><input type="checkbox" name="def_3_ball" class="small_num"></td>
-								<td><input type="checkbox" name="def_4_ball" class="small_num"></td>
-								<td><input type="checkbox" name="def_5_ball" class="small_num"></td>
-							</tr>
-					
-						</table>
-					</td>
+					<td></td>
+					<td>Defense 1</td>
+					<td>Defense 2</td>
+					<td>Defense 3</td>
+					<td>Defense 4</td>
+					<td>Defense 5</td>
 				</tr>
+				<tr>
+					<td>Crossed</td>
+					<td><input type="number" name="def_1_crossed" class="small_num"></td>
+					<td><input type="number" name="def_2_crossed" class="small_num"></td>
+					<td><input type="number" name="def_3_crossed" class="small_num"></td>
+					<td><input type="number" name="def_4_crossed" class="small_num"></td>
+					<td><input type="number" name="def_5_crossed" class="small_num"></td>
+				</tr>
+				<tr>
+					<td>Weakened</td>
+					<td><input type="number" name="def_1_weakened" class="small_num"></td>
+					<td><input type="number" name="def_2_weakened" class="small_num"></td>
+					<td><input type="number" name="def_3_weakened" class="small_num"></td>
+					<td><input type="number" name="def_4_weakened" class="small_num"></td>
+					<td><input type="number" name="def_5_weakened" class="small_num"></td>
+				</tr>
+				<tr>
+					<td>Speed</td>
+					<td><input type="number" name="def_1_speed" class="small_num"></td>
+					<td><input type="number" name="def_2_speed" class="small_num"></td>
+					<td><input type="number" name="def_3_speed" class="small_num"></td>
+					<td><input type="number" name="def_4_speed" class="small_num"></td>
+					<td><input type="number" name="def_5_speed" class="small_num"></td>
+				</tr>
+				<tr>
+					<td>Ball? (Y/N)</td>
+					<td><input type="checkbox" name="def_1_ball" class="small_num"></td>
+					<td><input type="checkbox" name="def_2_ball" class="small_num"></td>
+					<td><input type="checkbox" name="def_3_ball" class="small_num"></td>
+					<td><input type="checkbox" name="def_4_ball" class="small_num"></td>
+					<td><input type="checkbox" name="def_5_ball" class="small_num"></td>
+				</tr>
+					
+			</table>
+			<br>
 			</table>
 			<h2>Shooting</h2>
 			<table class="green">
 				<tr>
 					<td>
 						<table>
-							<tr>
-								<td>High Goal Scored</td><td>Low Goal Scored</td><td>High Goal Missed</td><td>Low Goal Missed</td>
+								<td></td>
+								<td>Batter High Goal</td>
+								<td>Batter Low Goal</td>
 							</tr>
 							<tr>
-								<td><input type="number" name="high_Scored" class="small_num"></td><td><input type="number" name="low_Scored" class="small_num"></td><td><input type="number" name="high_Miss" class="small_num"></td><td><input type="number" name="low_Miss" class="small_num"></td>
+								<td>Scored</td>
+								<td><input type="number" name="batter_high_Scored" class="small_num"></td>
+								<td><input type="number" name="batter_low_Scored" class="small_num"></td>
 							</tr>
 							<tr>
-								<td>Batter High Goal Scored</td><td>Batter Low Goal Scored</td><td>Batter High Goal Miss</td><td>Batter Low Goal Miss</td>
+								<td>Miss</td>
+								<td><input type="number" name="batter_high_Miss" class="small_num"></td>
+								<td><input type="number" name="batter_low_Miss" class="small_num"></td>
 							</tr>
 							<tr>
-								<td><input type="number" name="batter_high_Scored" class="small_num"></td><td><input type="number" name="batter_low_Scored" class="small_num"></td><td><input type="number" name="batter_high_Miss" class="small_num"></td><td><input type="number" name="batter_low_Miss" class="small_num"></td>
+								<td></td>
+								<td>Courtyard High Goal</td>
+								<td>Courtyard Low Goal</td>
 							</tr>
 							<tr>
-								<td>Courtyard High Goal Scored</td><td>Courtyard Low Goal Scored</td><td>Courtyard High Goal Miss</td><td>Courtyard Low Goal Miss</td>
+								<td>Scored</td>
+								<td><input type="number" name="courtyard_high_Scored" class="small_num"></td>
+								<td><input type="number" name="courtyard_low_Scored" class="small_num"></td>
 							</tr>
 							<tr>
-								<td><input type="number" name="courtyard_high_Scored" class="small_num"></td><td><input type="number" name="courtyard_low_Scored" class="small_num"></td><td><input type="number" name="courtyard_high_Miss" class="small_num"></td><td><input type="number" name="courtyard_low_Miss" class="small_num"></td>
+								<td>Miss</td>
+								<td><input type="number" name="courtyard_high_Miss" class="small_num"></td>
+								<td><input type="number" name="courtyard_low_Miss" class="small_num"></td>
 							</tr>
 						</table>
 					</td>
