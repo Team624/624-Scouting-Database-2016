@@ -83,7 +83,7 @@ include("db_connect.php");
 					<td>Defense 5</td>
 				</tr>
 				<tr>
-					<td><input type="number" name="def_type_1" class="small_num"></td>
+					<td>Lowbar</td>
 					<td><input type="number" name="def_type_2" class="small_num"></td>
 					<td><input type="number" name="def_type_3" class="small_num"></td>
 					<td><input type="number" name="def_type_4" class="small_num"></td>
