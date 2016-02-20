@@ -141,7 +141,7 @@ include("db_connect.php");
 			</tr>
 			<tr>
 				<td></td> 
-				<td><input type="checkbox" name="Auto_Boulder_Grab?" class="small_num"></td>
+				<td><input type="checkbox" name="Auto_Boulder_Grab" class="small_num"></td>
 				<td><input type="checkbox" name="Auto_StartWithBoulder" class="small_num"></td>
 			</tr>
 			</table>
@@ -339,23 +339,71 @@ include("db_connect.php");
 	$matchNum=$_POST['match_num'];
 	$teamNum=$_POST['team_num'];
 	$scoutID=$_POST['scoutID'];
-	$def_type_1=$_POST['def_type_1'];
-	$def_type_2=$_POST['def_type_2'];
-	$def_type_3=$_POST['def_type_3'];
-	$def_type_4=$_POST['def_type_4'];
-	$def_type_5=$_POST['def_type_5'];
-	$def_1=$_POST['def_1'];
-	$def_2=$_POST['def_2'];
-	$def_3=$_POST['def_3'];
-	$def_4=$_POST['def_4'];
-	$def_5=$_POST['def_5'];
+	//Auton
+	$auto_High_Scored=$_POST['auto_High_Scored'];
+	$auto_Low_Scored=$_POST['auto_Low_Scored'];
+	
+	$auto_High_Miss=$_POST['auto_High_Miss'];
+	$auto_Low_Miss=$_POST['auto_High_Miss'];
+	
+	
+	$auto_Defenses_Reached_Sucess=$_POST['auto_Defenses_Reached_Sucess'];
+	$auto_Defenses_Crossed_Sucess=$_POST['auto_Defenses_Crossed_Sucess'];
+	
+	$auto_Defenses_Reached_Failed=$_POST['auto_Defenses_Reached_Failed'];
+	$auto_Defenses_Crossed_Failed=$_POST['auto_Defenses_Crossed_Failed'];
+	
+	$auto_Start_Location=$_POST['auto_Start_Location'];
+
+	if($_POST['Auto_Boulder_Grab']=="on"){$Auto_Boulder_Grab=1;}
+	if($_POST['Auto_StartWithBoulder']=="on"){$Auto_StartWithBoulder=1;}
+	
+	
+	
+	
+	
+	
+	//Teleop
+	$def_crossed_1=$_POST['def_1_crossed'];
+	$def_crossed_2=$_POST['def_2_crossed'];
+	$def_crossed_3=$_POST['def_3_crossed'];
+	$def_crossed_4=$_POST['def_4_crossed'];
+	$def_crossed_5=$_POST['def_5_crossed'];
+	
+	$def_1_weakened=$_POST['def_1_weakened'];
+	$def_2_weakened=$_POST['def_2_weakened'];
+	$def_3_weakened=$_POST['def_3_weakened'];
+	$def_4_weakened=$_POST['def_4_weakened'];
+	$def_5_weakened=$_POST['def_5_weakened'];
+
+	$def_1_speed=$_POST['def_1_speed'];
+	$def_2_speed=$_POST['def_2_speed'];
+	$def_3_speed=$_POST['def_3_speed'];
+	$def_4_speed=$_POST['def_4_speed'];
+	$def_5_speed=$_POST['def_5_speed'];
+	
+	if($_POST['def_1_ball']== "on"){$def_1_ball=1;}
+	if($_POST['def_2_ball']== "on"){$def_2_ball=1;}
+	if($_POST['def_3_ball']== "on"){$def_3_ball=1;}
+	if($_POST['def_4_ball']== "on"){$def_4_ball=1;}
+	if($_POST['def_5_ball']== "on"){$def_5_ball=1;}
+	
+	
+	
 	$ball_shot=$_POST['ball_shot'];
 	$balls_scored=$_POST['balls_scored'];
+	//Bad Things
 	if($_POST['no_show']== "on"){$no_show=1;}
 	if($_POST['tipped']== "on"){$tipped=1;}
 	if($_POST['lost_comm']== "on"){$lost_comm=1;}
 	if($_POST['mech_fail']== "on"){$mech_fail=1;}
-	$drive_man=$_POST['drive_man'];
+	
+	//Driver Data
+	$drive_manuverability=$_POST['drive_manuverability'];
+	$pushing=$_POST['pushing'];
+	$Defense_Pushing=$_POST['Defense_Pushing'];
+	$Ball_Control=$_POST['Ball_Control'];
+	
 	$notes=$_POST['notes'];
 	//$fields = array($matchNum,$teamNum,$def_type_1,$def_type_2,$def_type_3,$def_type_4,$def_type_5,$drive_man,$notes);
 	//foreach($fields as $fieldname){
