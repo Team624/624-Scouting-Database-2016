@@ -1,4 +1,5 @@
-Variables for Match Data
+Variables for Match Data/Data Entry
+There are a lot of variables man! 59 to be exact! 
 
 
 
