@@ -13,7 +13,6 @@
 	<link rel="stylesheet" type="text/css" href="css/NoteEntryStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/mainpagestyle.css">
 	<link rel="stylesheet" type="text/css" href="css/SearchStyle.css"> 
-	<link rel="stylesheet" type="text/css" href="css/DataCoverageStyle.css"> 
 </head>
 <div class="page_container">
 <br>
