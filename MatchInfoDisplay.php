@@ -10,7 +10,7 @@
 ?>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="css/NoteEntryStyle.css">
+	<link rel="stylesheet" type="text/css" href="css/NoteEntryStyle.css">w
 	<link rel="stylesheet" type="text/css" href="css/mainpagestyle.css">
 	<link rel="stylesheet" type="text/css" href="css/SearchStyle.css"> 
 </head>
@@ -42,11 +42,21 @@
 	$result1=mysqli_query($mysqli,"SELECT * FROM schedule WHERE match_number='$match'");
 	if ($result1->num_rows > 0) {
 		?>
-    <table id="TeamRankings" ><tr><th>startTime</th><th id="oneline">matchNumber</th><th>Red1</th><th>Red2</th><th>Red3</th><th>Blue1</th><th>Blue2</th><th>Blue3</th></tr>
+    <table class="matchTable">
+		<tr class="topRow">
+			<th class="topTime">startTime</th>
+			<th id="oneline" class="topMatch">matchNumber</th>
+			<th class="TopRed">Red1</th>
+			<th class="TopRed">Red2</th>
+			<th class="TopRed">Red3</th>
+			<th class="TopBlue">Blue1</th>
+			<th class="TopBlue">Blue2</th>
+			<th class="TopBlue">Blue3</th>
+		</tr>
 	<?php
     // output data of each row
     while($row1 = $result1->fetch_assoc()) {
-        echo "<tr><td>".$row1["time"]."</td><td>".$row1["match_number"]."</td><td>".$row1["red_1"]."</td><td>".$row1["red_2"]."</td><td>".$row1["red_3"]."</td><td>".$row1["blue_1"]."</td><td>".$row1["blue_2"]."</td><td>".$row1["blue_3"]."</td></tr>";
+        echo "<tr><td class='tim'>".$row1["time"]."</td><td class='match'>".$row1["match_number"]."</td><td class='red'>".$row1["red_1"]."</td><td class='red'>".$row1["red_2"]."</td><td class='red'>".$row1["red_3"]."</td><td class='blue'>".$row1["blue_1"]."</td><td class='blue'>".$row1["blue_2"]."</td><td class='blue'>".$row1["blue_3"]."</td></tr>";
     }
     echo "</table>";
 }
