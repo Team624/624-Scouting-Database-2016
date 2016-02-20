@@ -64,20 +64,54 @@ include("db_connect.php");
 			<table class="green">
 				<tr>
 					<td>
-						<table>
+						<table class="">
 							<tr>
-								<td>Defense 1 Crosses</td>
-								<td>Defense 2 Crosses</td>
-								<td>Defense 3 Crosses</td>
-								<td>Defense 4 Crosses</td>
-								<td>Defense 5 Crosses</td>
+								<td></td>
+								<td>Defense 1</td>
+								<td>Defense 2</td>
+								<td>Defense 3</td>
+								<td>Defense 4</td>
+								<td>Defense 5</td>
 							</tr>
 							<tr>
+								<td>Category</td>
 								<td><input type="number" name="def_1" class="small_num"></td>
 								<td><input type="number" name="def_2" class="small_num"></td>
 								<td><input type="number" name="def_3" class="small_num"></td>
 								<td><input type="number" name="def_4" class="small_num"></td>
 								<td><input type="number" name="def_5" class="small_num"></td>
+							</tr>
+							<tr>
+								<td>Crossed</td>
+								<td><input type="number" name="def_1" class="small_num"></td>
+								<td><input type="number" name="def_2" class="small_num"></td>
+								<td><input type="number" name="def_3" class="small_num"></td>
+								<td><input type="number" name="def_4" class="small_num"></td>
+								<td><input type="number" name="def_5" class="small_num"></td>
+							</tr>
+							<tr>
+								<td>Weakened</td>
+								<td><input type="number" name="def_1" class="small_num"></td>
+								<td><input type="number" name="def_2" class="small_num"></td>
+								<td><input type="number" name="def_3" class="small_num"></td>
+								<td><input type="number" name="def_4" class="small_num"></td>
+								<td><input type="number" name="def_5" class="small_num"></td>
+							</tr>
+							<tr>
+								<td>Speed</td>
+								<td><input type="number" name="def_1" class="small_num"></td>
+								<td><input type="number" name="def_2" class="small_num"></td>
+								<td><input type="number" name="def_3" class="small_num"></td>
+								<td><input type="number" name="def_4" class="small_num"></td>
+								<td><input type="number" name="def_5" class="small_num"></td>
+							</tr>
+							<tr>
+								<td>Ball (Y/N)</td>
+								<td><input type="checkbox" name="def_1" class="small_num"></td>
+								<td><input type="checkbox" name="def_2" class="small_num"></td>
+								<td><input type="checkbox" name="def_3" class="small_num"></td>
+								<td><input type="checkbox" name="def_4" class="small_num"></td>
+								<td><input type="checkbox" name="def_5" class="small_num"></td>
 							</tr>
 						</table>
 					</td>

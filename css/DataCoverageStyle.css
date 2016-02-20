@@ -13,7 +13,7 @@ body
 }
 .Schedule-table
 {
-	background-color: white;
+	background-color: #1a1a1a;
 	background-image: url("../images/pixel_bg.png");
 	width: 75%;
 	margin: 0 auto;
@@ -28,18 +28,14 @@ body
 }
 tr.zebra:nth-child(even) 
 {
-	background-color: rgba(179, 179, 179, .5);
+	background-color: rgba(89, 89, 89, .5);
 }
 .top-bar
 {
 	color: #b3b3b3;
 	text-align: center;
 	letter-spacing: 3px;
-	background: #0d0d0d;
-	background: -webkit-radial-gradient(#333333 40%, #0d0d0d);
-	background: -o-radial-gradient(#333333 40%, #0d0d0d);
-	background: -moz-radial-gradient(#333333 40%, #0d0d0d);
-	background: radial-gradient(#333333 40%, #0d0d0d);
+	background-color: #0d0d0d;
 	border-style: none none solid;
 	border-width: 2px;
 	border-color: #000000;
@@ -52,11 +48,7 @@ tr.zebra:nth-child(even)
 	border-bottom-width: 2px;
 	border-right-width: 3px;
 	margin: 2px 2px 2px 2px;
-	background: #808080;
-    background: -webkit-linear-gradient(#595959, #808080 , #595959);
-    background: -o-linear-gradient(#595959, #808080  #595959);
-    background: -moz-linear-gradient(#595959, #808080  #595959);
-    background: linear-gradient(#595959, #808080 , #595959);
+	background-color: rgba(128, 128, 128, .5);
 	color:black;
 }
 th
@@ -66,11 +58,13 @@ th
 
 .found
 {
-	background-color: rgba(0, 255, 0, 0.6);
+	background-color: rgba(0, 204, 0, 0.5);
+	color:#82ff80;
 }
 .not-found
 {
-	background-color: rgba(255, 0, 0, 0.6);
+	background-color: rgba(204, 0, 0, 0.5);
+	color:#ff8080;
 }
 
 
