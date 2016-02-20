@@ -57,6 +57,7 @@ tr.zebra:nth-child(even)
     background: -o-linear-gradient(#595959, #808080  #595959);
     background: -moz-linear-gradient(#595959, #808080  #595959);
     background: linear-gradient(#595959, #808080 , #595959);
+	color:black;
 }
 th
 {
