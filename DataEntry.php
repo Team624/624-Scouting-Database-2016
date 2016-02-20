@@ -84,10 +84,10 @@ include("db_connect.php");
 				</tr>
 				<tr>
 					<td>Lowbar</td>
-					<td><input type="number" name="def_type_2" class="small_num"></td>
-					<td><input type="number" name="def_type_3" class="small_num"></td>
-					<td><input type="number" name="def_type_4" class="small_num"></td>
-					<td><input type="number" name="def_type_5" class="small_num"></td>
+					<td><input type="number" name="def_category_2" class="small_num"></td>
+					<td><input type="number" name="def_category_3" class="small_num"></td>
+					<td><input type="number" name="def_category_4" class="small_num"></td>
+					<td><input type="number" name="def_category_5" class="small_num"></td>
 				</tr>
 			</table>
 			
@@ -342,16 +342,17 @@ include("db_connect.php");
 	$teamNum=$_POST['team_num'];
 	$scoutID=$_POST['scoutID'];
 	
-	$def_type_2=$_POST['def_type_2'];
-	$def_type_3=$_POST['def_type_3'];
-	$def_type_4=$_POST['def_type_4'];
-	$def_type_5=$_POST['def_type_5'];
+	
+	$def_category_2=$_POST['def_category_2'];
+	$def_category_3=$_POST['def_category_3'];
+	$def_category_4=$_POST['def_category_4'];
+	$def_category_5=$_POST['def_category_5'];
 	//Auton
 	$auto_High_Scored=$_POST['auto_High_Scored'];
 	$auto_Low_Scored=$_POST['auto_Low_Scored'];
 	
 	$auto_High_Miss=$_POST['auto_High_Miss'];
-	$auto_Low_Miss=$_POST['auto_High_Miss'];
+	$auto_Low_Miss=$_POST['auto_Low_Miss'];
 	
 	
 	$auto_Defenses_Reached_Sucess=$_POST['auto_Defenses_Reached_Sucess'];
@@ -431,7 +432,6 @@ include("db_connect.php");
 	$Defense_Pushing=$_POST['Defense_Pushing'];
 	$Ball_Control=$_POST['Ball_Control'];
 	//Comments
-	
 	$notes=$_POST['notes'];
 	//$fields = array($matchNum,$teamNum,$def_type_1,$def_type_2,$def_type_3,$def_type_4,$def_type_5,$drive_man,$notes);
 	//foreach($fields as $fieldname){
