@@ -31,15 +31,15 @@ if(isset($valid_user) && isset($user_type))
 <div class="container">
 <br>
 <br><br>
-	<h2><span>Drive Team Page</span></h2>
+	<h2 class=drivers><span>Drive Team Page</span></h2>
 	
-	<h2>Upcoming Matches</h2>
-	<pre>
+	<h2 class=drivers>Upcoming Matches</h2>
+
 	<ul id="match_list">
 	<?php 
 		
 		$json = json_decode($response, true);
-		//echo json_encode($json, JSON_PRETTY_PRINT);
+		echo json_encode($json, JSON_PRETTY_PRINT);
 		$iter = 0;
 		
 		foreach($json as $schedule)
@@ -55,8 +55,19 @@ if(isset($valid_user) && isset($user_type))
 					</span>
 				</li>
 				<div id="slide_<?= $iter ?>" class="slidediv">
-					YOLOLOL
+					<?php
+						foreach($match["Teams"] as $teams)
+						{
+							echo $teams["teamNumber"];
+							?>
+							<br>
+							<br>
+							<?php
+						}
+					?>
+					
 				</div>
+				<br>
 				<?php
 				$iter++;
 			}
@@ -68,7 +79,7 @@ if(isset($valid_user) && isset($user_type))
 				//echo $item['description'];
 	?>
 	</ul>
-	</pre>
+	
 </div>
 
 <?php

@@ -8,7 +8,9 @@ include("navbar.php");
 include("db_connect.php");
 
 ?>
-<head>	<link rel="stylesheet" type="text/css" href="css/MatchScheduleStyle.css"> </head>
+<head>	<link rel="stylesheet" type="text/css" href="css/MatchScheduleStyle.css"> 
+		<link rel="stylesheet" type="text/css" href="css/DataCoverageStyle.css">
+</head>
 <br>
 <br>
 <br>

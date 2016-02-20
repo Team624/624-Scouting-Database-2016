@@ -15,7 +15,8 @@ body {
 	border-radius: 15px 15px 15px 15px;
 	overflow: hidden;
 	font-size: 120%;
-	width:70%;
+	width:65%;
+	padding: 0px 0px 0px 0px;
 }
 .top
 {
@@ -26,27 +27,23 @@ body {
 .red
 {
 	color:#ff9999;
-	text-shadow: 2px 2px 3px;
-	background-color: rgba(255, 0, 0, .4);
+	background-color: rgba(255, 0, 0, .2);
 }
 .blue
 {
 	color:#9999ff;
-	text-shadow: 2px 2px 3px;
-	background-color: rgba(0, 0, 255, .4);
+	background-color: rgba(0, 0, 255, .2);
 }
 .green
 {
 	color:#9bff99;
 	font-weight: bold;
-	text-shadow: 2px 2px 3px;
-	background-color: rgba(6, 240, 0, .4);
-	
+	background-color: rgba(6, 240, 0, .2);
 }
 .time
 {
 	color:#ffff99;
-	background-color: rgba(255, 255, 0, .3);
+	background-color: rgba(255, 255, 0, .2);
 }
 .side-bar
 {
@@ -59,9 +56,9 @@ tr.zebra:nth-child(even)
 {
 	background-color: rgba(38, 38, 38, .5);
 }
-tr.zebra
+tr.zebra:hover
 {
-	
+	background-color: rgba(230, 230, 230, .2);
 }
 
 
