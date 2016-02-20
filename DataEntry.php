@@ -136,7 +136,7 @@ include("db_connect.php");
 			</tr>
 			<tr>
 				<td></td>
-				<td>Boulder Grab Sucess</td>
+				<td>Boulder Grab Sucess?</td>
 				<td>Start With Boulder?</td>
 			</tr>
 			<tr>
@@ -244,7 +244,8 @@ include("db_connect.php");
 								<td>Challenge Sucess?</td><td>Scaled Sucess?</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="challenge_Sucess" class="small_num"></td><td><input type="checkbox" name="Scaled_Sucess" class="small_num"></td>
+								<td><input type="checkbox" name="challenge_Sucess" class="small_num"></td>
+								<td><input type="checkbox" name="Scaled_Sucess" class="small_num"></td>
 							</tr>
 						</table>
 					</td>
@@ -259,11 +260,11 @@ include("db_connect.php");
 				</tr>
 				<tr>
 					<td>
-						<select>
+						<select name="defense">
 							<option name="defending_0" value="0">0% Defense</option>
-							<option name="defending_25"value="25">25% Defense</option>
+							<option name="defending_25"value="25"><25% Defense</option>
 							<option name="defending_50"value="50">50% Defense</option>
-							<option name="defending_>75"value=">75">>75% Defense</option>
+							<option name="defending_>75"value="75">>75% Defense</option>
 						</select>
 					</td>
 				</tr>
@@ -336,9 +337,15 @@ include("db_connect.php");
 	</div>
 	<?php
 	if(isset($_POST['dataSubmit'])){
+	//Basic Data	
 	$matchNum=$_POST['match_num'];
 	$teamNum=$_POST['team_num'];
 	$scoutID=$_POST['scoutID'];
+	
+	$def_type_2=$_POST['def_type_2'];
+	$def_type_3=$_POST['def_type_3'];
+	$def_type_4=$_POST['def_type_4'];
+	$def_type_5=$_POST['def_type_5'];
 	//Auton
 	$auto_High_Scored=$_POST['auto_High_Scored'];
 	$auto_Low_Scored=$_POST['auto_Low_Scored'];
@@ -390,19 +397,40 @@ include("db_connect.php");
 	
 	
 	
-	$ball_shot=$_POST['ball_shot'];
-	$balls_scored=$_POST['balls_scored'];
-	//Bad Things
-	if($_POST['no_show']== "on"){$no_show=1;}
-	if($_POST['tipped']== "on"){$tipped=1;}
-	if($_POST['lost_comm']== "on"){$lost_comm=1;}
-	if($_POST['mech_fail']== "on"){$mech_fail=1;}
 	
+	
+	
+	//Shooting variables
+	$batter_high_Scored=$_POST['batter_high_Scored'];
+	$batter_low_Scored=$_POST['batter_low_Scored'];
+	$batter_high_Miss=$_POST['batter_high_Miss'];
+	$batter_low_Miss=$_POST['batter_low_Miss'];
+	$courtyard_high_Scored=$_POST['courtyard_high_Scored'];
+	$courtyard_low_Scored=$_POST['courtyard_low_Scored'];
+	$courtyard_high_Miss=$_POST['courtyard_high_Miss'];
+	$courtyard_low_Miss=$_POST['courtyard_low_Miss'];
+	//Climbing variables
+	if($_POST['challenge_Sucess']== "on"){$challenge_Sucess=1;}
+	if($_POST['Scaled_Sucess']== "on"){$Scaled_Sucess=1;}
+	//Defense Rating
+	if(($_POST['defense'] =='0')){$defense="0";}
+	elseif(($_POST['defense'] =='25')){$defense="<25";}
+	elseif(($_POST['defense'] =='50')){$defense="50";}
+	elseif(($_POST['defense'] =='75')){$defense=">75";}
+	//Robot Issues
+	if($_POST['no_show']== "on"){$no_show=1;}
+	if($_POST['mech_fail']== "on"){$mech_fail=1;}
+	if($_POST['lost_comm']== "on"){$lost_comm=1;}
+	if($_POST['stuck']== "on"){$stuck=1;}
+	if($_POST['tipped']== "on"){$tipped=1;}
+	$fouls=$_POST['fouls'];
+	$tech_fouls=$_POST['tech_fouls'];
 	//Driver Data
 	$drive_manuverability=$_POST['drive_manuverability'];
 	$pushing=$_POST['pushing'];
 	$Defense_Pushing=$_POST['Defense_Pushing'];
 	$Ball_Control=$_POST['Ball_Control'];
+	//Comments
 	
 	$notes=$_POST['notes'];
 	//$fields = array($matchNum,$teamNum,$def_type_1,$def_type_2,$def_type_3,$def_type_4,$def_type_5,$drive_man,$notes);
