@@ -29,7 +29,7 @@
 <br>
 <?php
 	$match = $_GET['match'];
-	$isPlayoff = $_GET['level'] == "on";
+	$isPlayoff = $_GET['playoffs'] == "on";
 	
 	if(!$isPlayoff)
 	{

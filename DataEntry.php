@@ -158,10 +158,10 @@ include("db_connect.php");
 	$def_5=$_POST['def_5'];
 	$ball_shot=$_POST['ball_shot'];
 	$balls_scored=$_POST['balls_scored'];
-	$no_show=$_POST['no_show'];
-	$tipped=$_POST['tipped'];
-	$lost_comm=$_POST['lost_comm'];
-	$mech_fail=$_POST['mech_fail'];
+	if($_POST['no_show']== "on"){$no_show=1;}
+	if($_POST['tipped']== "on"){$tipped=1;}
+	if($_POST['lost_comm']== "on"){$lost_comm=1;}
+	if($_POST['mech_fail']== "on"){$mech_fail=1;}
 	$drive_man=$_POST['drive_man'];
 	$notes=$_POST['notes'];
 	//$fields = array($matchNum,$teamNum,$def_type_1,$def_type_2,$def_type_3,$def_type_4,$def_type_5,$drive_man,$notes);
