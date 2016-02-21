@@ -28,7 +28,7 @@ include("db_connect.php");
 		</tr>
 <?php
 
-	$query2 = "SELECT match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3 FROM schedule";
+	$query2 = "SELECT * FROM schedule";
 	$result2 = $mysqli->query($query2);
 	
 	foreach($result2 as $row)
@@ -36,7 +36,7 @@ include("db_connect.php");
 ?>	
 		<tr class="zebra">
 			<td class="side-bar"><b><?=$row["match_number"];?></b></td>
-			<td class="<?=$row['has_red_1']?'found':'found'?>"><?=$row['red_1'];?></td>
+			<td class="<?=$row['has_red_1']?'found':'not-found'?>"><?=$row['red_1'];?></td>
 			<td class="<?=$row['has_red_2']?'found':'not-found'?>"><?=$row['red_2'];?></td>
 			<td class="<?=$row['has_red_3']?'found':'not-found'?>"><?=$row['red_3'];?></td>
 			<td class="<?=$row['has_blue_1']?'found':'not-found'?>"><?=$row['blue_1'];?></td>
