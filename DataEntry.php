@@ -21,7 +21,7 @@ include("db_connect.php");
 		<form class="datafield" method="post">
 			<table><tr>
 			<strong><h1 style="color:green">IN HONOR OF VIRAJ JOSHI</h1></strong>
-					<td>Fouls</td>
+					<td>Fouls(This dropdown isn't actually going to get entered into the database)</td>
 				</tr>
 				<tr>	
 					<td>  <!--you can suck it-->
