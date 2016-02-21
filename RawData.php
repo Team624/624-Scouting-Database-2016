@@ -90,7 +90,7 @@ include("db_connect.php");
 				foreach($result as $row)
 				{
 					?>
-					<tr>
+					<tr class="rawZebra">
 						<td class="rawBody"><?=$row["id"];?></td>
 						<td class="rawBody"><?=$row['match_number'];?></td>
 						<td class="rawBody"><?=$row['team_number'];?></td>
