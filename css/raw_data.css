@@ -1,9 +1,37 @@
 div.raw_data
 {
-	width:90%;
+	width:100%;
 	height: 500px;
 	margin:0 auto;
 	background-color:#1a1a1a;
 	overflow-x: scroll;
 	overflow-y: scroll;
+}
+.rawTop
+{
+	color:white;
+	overflow:visible;
+	border: 2px solid white;
+	padding:0px;
+	width:30px;
+}
+.rawP
+{
+	-ms-transform: rotate(-35deg);
+    -webkit-transform: rotate(-35deg);
+    transform: rotate(-35deg);
+	text-align: left;
+	vertical-align: bottom;
+	white-space: nowrap;
+	margin:0;
+	width:30px;
+}
+.rawBody
+{
+	color:white;
+}
+.rawTopRow
+{
+	height:75px;
+	margin-top:20px;
 }
