@@ -6,7 +6,6 @@
 	include("kick_intruders.php");
 	include("navbar.php");
 	include("db_connect.php");
-	
 	include("api_connect.php");
 ?>
 
@@ -36,7 +35,7 @@
 	include("db_connect.php");
 	mysqli_select_db($mysqli,$dbname);
 
-	$result=mysqli_query($mysqli,"SELECT * from teams WHERE number='$team'");
+	$result=mysqli_query($mysqli,"SELECT * FROM teams WHERE number='$team'");
 	
 	if ($result->num_rows > 0) {
 		?>
