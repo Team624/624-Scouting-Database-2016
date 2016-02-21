@@ -260,8 +260,8 @@ else{
 				$result5 = $mysqli->query($query5);
 				$query6 = "TRUNCATE TABLE schedule";
 				$result6 = $mysqli->query($query6);
-				//$query7 = "SET FOREIGN_KEY_CHECKS=1";
-				//$result7 = $mysqli->query($query7);
+				$query7 = "TRUNCATE TABLE match_data";
+				$result7 = $mysqli->query($query7);
 			}
 			else{
 				echo "Nope!";
