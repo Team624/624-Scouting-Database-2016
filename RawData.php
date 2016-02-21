@@ -18,7 +18,7 @@ include("db_connect.php");
 </div>
 <div class="page_container">
 	<div class="raw_data">
-		<table class="">
+		<table class="rawTable">
 			<tr class="rawTopRow">
 				<!-- Put Column Headers Here -->
 				<td class="rawTop"><p class="rawP">ID</P></td>
