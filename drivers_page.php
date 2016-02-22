@@ -1,3 +1,4 @@
+
 <?php
 //Check to make sure the drive team is logged in
 include("HeadTemplate.php");
@@ -13,7 +14,10 @@ if(isset($valid_user) && isset($user_type))
 		
 		$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/txho?tournamentLevel=Qualification&teamNumber=624";
 		$response = file_get_contents($url,false,$context);
+		
+		$teamsList = [];
 ?>	
+
 
 <!-- Make this page Tablet Friendly -->
 <body onload="load()">
@@ -39,8 +43,8 @@ if(isset($valid_user) && isset($user_type))
 	<?php 
 		
 		$json = json_decode($response, true);
-		echo json_encode($json, JSON_PRETTY_PRINT);
-		$iter = 0;
+		//echo json_encode($json, JSON_PRETTY_PRINT);
+		$it = 0;
 		
 		foreach($json as $schedule)
 		{
@@ -48,28 +52,188 @@ if(isset($valid_user) && isset($user_type))
 			{
 				$description = $match["description"];
 				?>
-				<li class="slideli" id="slide_li_<?= $iter ?>">
+				<li class="slideli" id="slide_li_<?= $it ?>">
 					<span class="collapseView">
-						<button class="slidebutton" id="slide_button_<?= $iter ?>" onclick="expand('<?= $iter ?>')" type="button">-</button>
+						<button class="slidebutton" id="slide_button_<?= $it ?>" onclick="expand('<?= $it ?>')" type="button">-</button>
 						<?php echo $description; ?>
 					</span>
 				</li>
-				<div id="slide_<?= $iter ?>" class="slidediv">
-					<?php
-						foreach($match["Teams"] as $teams)
+				<div id="slide_<?= $it ?>" class="slidediv">
+				
+				<?php
+					$iter = 1;
+					$red = true;
+					$teamsList = [];
+					
+					foreach($match["Teams"] as $teams)
+					{
+						$teamsList[] = $teams["teamNumber"];
+						
+						if($teams["teamNumber"] == 624)
 						{
-							echo $teams["teamNumber"];
-							?>
-							<br>
-							<br>
-							<?php
+							if($iter > 3)
+							{
+								$red=false;
+							}
 						}
+						
+						$iter++;
+					}
+					
+					//var_dump($teamsList);
+				?>
+				<h3> Our Alliance </h3>
+				<?php
+					if($red == true)
+					{
+						?>
+						<table>
+							<tr>		
+								<td></td>
+								<td class="red_text">Red 1</td>
+								<td class="red_text">Red 2</td>
+								<td class="red_text">Red 3</td>
+							</tr>
+						<?php
+						$iter=0;
+						$limit=2;
+					}
+					else
+					{
+						?>
+						
+						<table>
+							<tr>
+								<td></td>
+								<td class="blue_text">Blue 1</td>
+								<td class="blue_text">Blue 2</td>
+								<td class="blue_text">Blue 3</td>
+							</tr>
+						<?php
+						$iter=3;
+						$limit=5;
+					}
 					?>
+					<tr>
+					<td></td>
+					<?php
+					for(;$iter<=$limit;$iter++)
+					{
+						?>
+						<td><?=$teamsList[$iter]?></td>
+						<?php
+					}
+				?>
+					</tr>
+					<tr>
+						<td>Favorite Defense</td>
+					</tr>
+					<tr>
+						<td>Least Favorite Defense</td>
+					</tr>
+					<tr>
+						<td>Preferred Starting Position</td>
+					</tr>
+					<tr>
+						<td>Auto Reach %</td>
+					</tr>
+					<tr>
+						<td>Auto Cross %</td>
+					</tr>
+					<tr>
+						<td>Auto Low Goal %</td>
+					</tr>
+					<tr>
+						<td>Auto High Goal %</td>
+					</tr>
+					<tr>
+						<td>Teleop Low Goal %</td>
+					</tr>
+					<tr>
+						<td>Teleop High Goal %</td>
+					</tr>
+					<tr>
+						<td>Climb?</td>
+					</tr>
+					<tr>
+					<td>Fouls</td>
+					</tr>
+					<tr>
+						<td>Tech Fouls</td>
+					</tr>
+				</table>
+				<h3> Our Opposition </h3>
+				<?php
+					if($red == false)
+					{
+						?>
+						<table>
+							<tr>	
+								<td></td>
+								<td class="red_text">Red 1</td>
+								<td class="red_text">Red 2</td>
+								<td class="red_text">Red 3</td>
+							</tr>
+						<?php
+						$iter=0;
+						$limit=2;
+					}
+					else
+					{
+						?>
+						
+						<table>
+							<tr>
+								<td></td>
+								<td class="blue_text">Blue 1</td>
+								<td class="blue_text">Blue 2</td>
+								<td class="blue_text">Blue 3</td>
+							</tr>
+						<?php
+						$iter=3;
+						$limit=5;
+					}
+					?>
+					<tr>
+						<td></td>
+					<?php
+					for(;$iter<=$limit;$iter++)
+					{
+						?>
+						<td><?=$teamsList[$iter]?></td>
+						
+						<?php
+					}
+				?>
+				</tr>
+				<tr>
+					<td>Favorite Defense</td>
+				</tr>
+				<tr>
+					<td>Least Favorite Defense</td>
+				</tr>
+				<tr>
+					<td>Center Boulder Grab</td>
+				</tr>
+				<tr>
+					<td>Teleop Low Goal %</td>
+				</tr>
+				<tr>
+					<td>Teleop High Goal %</td>
+				</tr>
+				<tr>
+					<td>Fouls</td>
+				</tr>
+				<tr>
+					<td>Tech Fouls</td>
+				</tr>
+				</table>	
+					
 					
 				</div>
 				<br>
 				<?php
-				$iter++;
+				$it++;
 			}
 		}
 		
