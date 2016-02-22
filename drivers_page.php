@@ -39,8 +39,8 @@ if(isset($valid_user) && isset($user_type))
 	<?php 
 		
 		$json = json_decode($response, true);
-		echo json_encode($json, JSON_PRETTY_PRINT);
-		$iter = 0;
+		//echo json_encode($json, JSON_PRETTY_PRINT);
+		$it = 0;
 		
 		foreach($json as $schedule)
 		{
@@ -48,28 +48,51 @@ if(isset($valid_user) && isset($user_type))
 			{
 				$description = $match["description"];
 				?>
-				<li class="slideli" id="slide_li_<?= $iter ?>">
+				<li class="slideli" id="slide_li_<?= $it ?>">
 					<span class="collapseView">
-						<button class="slidebutton" id="slide_button_<?= $iter ?>" onclick="expand('<?= $iter ?>')" type="button">-</button>
+						<button class="slidebutton" id="slide_button_<?= $it ?>" onclick="expand('<?= $it ?>')" type="button">-</button>
 						<?php echo $description; ?>
 					</span>
 				</li>
-				<div id="slide_<?= $iter ?>" class="slidediv">
+				<div id="slide_<?= $it ?>" class="slidediv">
+				<table>
+					<tr>				
+						<td>Red 1</td>
+						<td>Red 2</td>
+						<td>Red 3</td>
+						<td> </td>
+						<td>Blue 1</td>
+						<td>Blue 2</td>
+						<td>Blue 3</td>
+					</tr>
+					<tr>
 					<?php
+					$iter = 1;
 						foreach($match["Teams"] as $teams)
 						{
-							echo $teams["teamNumber"];
+							if($teams["teamNumber"] == 624)
+							{
+								
+							}
 							?>
-							<br>
-							<br>
+							<td><?=$teams["teamNumber"]?></td>
+							
 							<?php
+							if($iter==3)
+							{
+								?>
+								<td></td>
+								<?php
+							}
+							
+							$iter++;
 						}
 					?>
-					
+				</table>	
 				</div>
 				<br>
 				<?php
-				$iter++;
+				$it++;
 			}
 		}
 		
