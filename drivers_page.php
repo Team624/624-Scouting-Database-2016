@@ -1,3 +1,4 @@
+
 <?php
 //Check to make sure the drive team is logged in
 include("HeadTemplate.php");
@@ -13,7 +14,10 @@ if(isset($valid_user) && isset($user_type))
 		
 		$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/txho?tournamentLevel=Qualification&teamNumber=624";
 		$response = file_get_contents($url,false,$context);
+		
+		$teamsList = [];
 ?>	
+
 
 <!-- Make this page Tablet Friendly -->
 <body onload="load()">
@@ -55,40 +59,177 @@ if(isset($valid_user) && isset($user_type))
 					</span>
 				</li>
 				<div id="slide_<?= $it ?>" class="slidediv">
-				<table>
-					<tr>				
-						<td>Red 1</td>
-						<td>Red 2</td>
-						<td>Red 3</td>
-						<td> </td>
-						<td>Blue 1</td>
-						<td>Blue 2</td>
-						<td>Blue 3</td>
+				
+				<?php
+					$iter = 1;
+					$red = true;
+					$teamsList = [];
+					
+					foreach($match["Teams"] as $teams)
+					{
+						$teamsList[] = $teams["teamNumber"];
+						
+						if($teams["teamNumber"] == 624)
+						{
+							if($iter > 3)
+							{
+								$red=false;
+							}
+						}
+						
+						$iter++;
+					}
+					
+					//var_dump($teamsList);
+				?>
+				<h3> Our Alliance </h3>
+				<?php
+					if($red == true)
+					{
+						?>
+						<table>
+							<tr>		
+								<td></td>
+								<td class="red_text">Red 1</td>
+								<td class="red_text">Red 2</td>
+								<td class="red_text">Red 3</td>
+							</tr>
+						<?php
+						$iter=0;
+						$limit=2;
+					}
+					else
+					{
+						?>
+						
+						<table>
+							<tr>
+								<td></td>
+								<td class="blue_text">Blue 1</td>
+								<td class="blue_text">Blue 2</td>
+								<td class="blue_text">Blue 3</td>
+							</tr>
+						<?php
+						$iter=3;
+						$limit=5;
+					}
+					?>
+					<tr>
+					<td></td>
+					<?php
+					for(;$iter<=$limit;$iter++)
+					{
+						?>
+						<td><?=$teamsList[$iter]?></td>
+						<?php
+					}
+				?>
 					</tr>
 					<tr>
-					<?php
-					$iter = 1;
-						foreach($match["Teams"] as $teams)
-						{
-							if($teams["teamNumber"] == 624)
-							{
-								
-							}
-							?>
-							<td><?=$teams["teamNumber"]?></td>
-							
-							<?php
-							if($iter==3)
-							{
-								?>
+						<td>Favorite Defense</td>
+					</tr>
+					<tr>
+						<td>Least Favorite Defense</td>
+					</tr>
+					<tr>
+						<td>Preferred Starting Position</td>
+					</tr>
+					<tr>
+						<td>Auto Reach %</td>
+					</tr>
+					<tr>
+						<td>Auto Cross %</td>
+					</tr>
+					<tr>
+						<td>Auto Low Goal %</td>
+					</tr>
+					<tr>
+						<td>Auto High Goal %</td>
+					</tr>
+					<tr>
+						<td>Teleop Low Goal %</td>
+					</tr>
+					<tr>
+						<td>Teleop High Goal %</td>
+					</tr>
+					<tr>
+						<td>Climb?</td>
+					</tr>
+					<tr>
+					<td>Fouls</td>
+					</tr>
+					<tr>
+						<td>Tech Fouls</td>
+					</tr>
+				</table>
+				<h3> Our Opposition </h3>
+				<?php
+					if($red == false)
+					{
+						?>
+						<table>
+							<tr>	
 								<td></td>
-								<?php
-							}
-							
-							$iter++;
-						}
+								<td class="red_text">Red 1</td>
+								<td class="red_text">Red 2</td>
+								<td class="red_text">Red 3</td>
+							</tr>
+						<?php
+						$iter=0;
+						$limit=2;
+					}
+					else
+					{
+						?>
+						
+						<table>
+							<tr>
+								<td></td>
+								<td class="blue_text">Blue 1</td>
+								<td class="blue_text">Blue 2</td>
+								<td class="blue_text">Blue 3</td>
+							</tr>
+						<?php
+						$iter=3;
+						$limit=5;
+					}
 					?>
+					<tr>
+						<td></td>
+					<?php
+					for(;$iter<=$limit;$iter++)
+					{
+						?>
+						<td><?=$teamsList[$iter]?></td>
+						
+						<?php
+					}
+				?>
+				</tr>
+				<tr>
+					<td>Favorite Defense</td>
+				</tr>
+				<tr>
+					<td>Least Favorite Defense</td>
+				</tr>
+				<tr>
+					<td>Center Boulder Grab</td>
+				</tr>
+				<tr>
+					<td>Teleop Low Goal %</td>
+				</tr>
+				<tr>
+					<td>Teleop High Goal %</td>
+				</tr>
+				<tr>
+					<td>Fouls</td>
+				</tr>
+				<tr>
+					<td>Tech Fouls</td>
+				</tr>
 				</table>	
+					
+					
 				</div>
 				<br>
 				<?php

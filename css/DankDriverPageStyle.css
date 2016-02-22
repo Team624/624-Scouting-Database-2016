@@ -1,3 +1,13 @@
+table{
+	border-spacing: 45px 0px;
+}
+
+.blue_text{
+	color:#0000FF;
+}
+.red_text{
+	color:#FF0000;
+}
 
 h2.drivers{
 	color:#FFF;
