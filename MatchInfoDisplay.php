@@ -46,84 +46,284 @@
 		?>
 		<?php 
 		// output data of each row
-    while($row1 = $result1->fetch_assoc()) {
+    while($row = $result1->fetch_assoc()) {
 		?>
 	<h1> Qualification Match <?php echo $match; ?> </h1>
 	
 <div class="matchDisplay">
     <table class="matchTable">
+	<thead>
 			<tr class="topRow">
 			<th class="topTime">startTime</th>
-			<td class='tim'><?php echo $row1["time"];?></td>
+			<td class='tim'><?php echo $row["time"];?></td>
+			<th class="topTime" rowspan = "3" colspan = "1">Name</th>
 			<th class="topTime" rowspan = "1" colspan = "4">Auto</th>
-			<th class="topTime" rowspan = "1" colspan = "29">Teleop Shooting</th>
+			<th class="topTime" rowspan = "1" colspan = "38">Teleop Shooting</th>
 			<th class="topTime" rowspan = "1" colspan = "1">Defense</th>
 			<th class="topTime" rowspan = "1" colspan = "2">Climbing</th>
 			<th class="topTime" rowspan = "1" colspan = "7">Robot Issues</th>
 			</tr>
 			<tr class="topRow">
-			<th id="oneline" class="topTime"rowspan = "1" colspan = "1">Alliance</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Team Number</th>
+			<th id="oneline" class="topTime"rowspan = "2" colspan = "1">Alliance</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Team Number</th>
 			<!--Auto-->
-			<th class='topTime'rowspan = "1" colspan = "1">High Goal%</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Low Goal%</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Reached</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
+			<th class='topTime'rowspan = "2" colspan = "1">High Goal%</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Low Goal%</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Reached</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Crossed</th>
 			<!--Teleop/Shooting-->
-			<th class='topTime'rowspan = "1" colspan = "3">Lowbar</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Portcullis</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Cheval de Frise</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Moat</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Ramparts</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Drawbridge</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Sally Port</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Rock Wall</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Rough Terrain</th>
-			<th class='topTime'>High Goal%</th>
-			<th class='topTime'>Low Goal%</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Lowbar</th>
+			
+			<th class='topTime'rowspan = "1" colspan = "4">Portcullis</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Cheval de Frise</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Moat</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Ramparts</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Drawbridge</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Sally Port</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Rock Wall</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Rough Terrain</th>
+			<th class='topTime'rowspan = "2" colspan = "1">High Goal%</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Low Goal%</th>
 			<!--Defense-->
-			<th class='topTime'>Defense Rating</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Defense Rating</th>
 			<!--Climbing-->
-			<th class='topTime'>Challenge Sucess?</th>
-			<th class='topTime'>Scaled Sucess?</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Challenge Sucess?</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Scaled Sucess?</th>
 			<!--Robot Issues-->
-			<th class='topTime'>No Show</th>
-			<th class='topTime'>Mech Fail</th>
-			<th class='topTime'>Lost Comms</th>
-			<th class='topTime'>Stuck</th>
-			<th class='topTime'>Tipped</th>
-			<th class='topTime'>Fouls</th>
-			<th class='topTime'>Tech Fouls</th>
-			</tr>
+			<th class='topTime'rowspan = "2" colspan = "1">No Show</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Mech Fail</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Lost Comms</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Stuck</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Tipped</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Fouls</th>
+	</tr>
+	<tr>
+		<!--Lowbar-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Weakened</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Ball?</th>
+		<!--Portcullis-->	
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Weakened</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Ball?</th>
+		<!--Cheval de Frise-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Weakened</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Ball?</th>
+		<!--Moat-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Weakened</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Ball?</th>
+		<!--Ramparts-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Weakened</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Ball?</th>
+		<!--Drawbridge-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Weakened</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Ball?</th>
+		<!--Sally Port-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Weakened</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Ball?</th>
+		<!--Rock Wall-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Weakened</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Ball?</th>
+		<!--Rough Terrain-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Weakened</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Ball?</th>
+	</tr>
+		</thead>
 			<tr class="topRow">
 			<th class="TopRed">Red1</th>
-			<td class='red'><?php echo $row1["red_1"];?></td>
-
+			<th class='red'><?php echo $red1=$row["red_1"];?></td>
+			<?php 
+	$query2 = "SELECT * FROM teams WHERE number='$red1'";
+	$result2 = $mysqli->query($query2);
+	
+	if ($result2->num_rows > 0){
+	
+	$query3 = "SELECT * FROM match_data WHERE match_number = '$match' AND team_number = '$red1'";
+	$result3 = $mysqli->query($query3);
+	
+	if ($result3->num_rows > 0){
+			?>
+			<?php 
+			// output data of each row
+    while($row1 = $result2->fetch_assoc()) {
+		
+		while($row2 = $result3->fetch_assoc()) {
+			?>
+			<th class='red'><?php echo $row1["name"];?></td>
+			<th class='red'><?php //echo $row2["name"];?></td>
+		<?php
+				}
+			}		
+		}
+	}
+		?>
 			</tr>
 			<tr class="topRow">
 			<th class="TopRed">Red2</th>
-			<td class='red'><?php echo $row1["red_2"];?></td>
+			<th class='red'><?php echo $red2=$row["red_2"];?></td>
+			<?php 
+	$query4 = "SELECT * FROM teams WHERE number='$red2'";
+	$result4 = $mysqli->query($query4);
+	
+	if ($result2->num_rows > 0){
+	
+	$query5 = "SELECT * FROM match_data WHERE match_number = '$match' AND team_number = '$red2'";
+	$result5 = $mysqli->query($query5);
+	
+	if ($result5->num_rows > 0){
+			?>
+			<?php 
+			// output data of each row
+    while($row3 = $result4->fetch_assoc()) {
+		
+		while($row4 = $result5->fetch_assoc()) {
+			?>
+			<th class='red'><?php echo $row3["name"];?></td>
+			<th class='red'><?php //echo $row4["name"];?></td>
+		<?php
+				}
+			}		
+		}
+	}
+		?>
 			</tr>
 			<tr class="topRow">
 			<th class="TopRed">Red3</th>
-			<td class='red'><?php echo $row1["red_3"];?></td>
+			<th class='red'><?php echo $red3=$row["red_3"];?></td>
+			<?php 
+	$query6 = "SELECT * FROM teams WHERE number='$red3'";
+	$result6 = $mysqli->query($query6);
+	
+	if ($result6->num_rows > 0){
+	
+	$query7 = "SELECT * FROM match_data WHERE match_number = '$match' AND team_number = '$red3'";
+	$result7 = $mysqli->query($query7);
+	
+	if ($result7->num_rows > 0){
+			?>
+			<?php 
+			// output data of each row
+    while($row5 = $result6->fetch_assoc()) {
+		
+		while($row6 = $result7->fetch_assoc()) {
+			?>
+			<th class='red'><?php echo $row5["name"];?></td>
+			<th class='red'><?php //echo $row6["name"];?></td>
+		<?php
+				}
+			}		
+		}
+	}
+		?>
 			</tr> 
 			<tr class="topRow">
 			<th class="TopBlue">Blue1</th>
-			<td class='blue'><?php echo $row1["blue_1"];?></td>
+			<th class='blue'><?php echo $blue1=$row["blue_1"];?></td>
+			<?php 
+	$query8 = "SELECT * FROM teams WHERE number='$blue1'";
+	$result8 = $mysqli->query($query8);
+	
+	if ($result8->num_rows > 0){
+	
+	$query9 = "SELECT * FROM match_data WHERE match_number = '$match' AND team_number = '$blue1'";
+	$result9 = $mysqli->query($query9);
+	
+	if ($result9->num_rows > 0){
+			?>
+			<?php 
+			// output data of each row
+    while($row7 = $result8->fetch_assoc()) {
+		
+		while($row8 = $result9->fetch_assoc()) {
+			?>
+			<th class='red'><?php echo $row7["name"];?></td>
+			<th class='red'><?php //echo $row8["name"];?></td>
+		<?php
+				}
+			}		
+		}
+	}
+		?>
 			</tr>
 			<tr class="topRow">
 			<th class="TopBlue">Blue2</th>
-			<td class='blue'><?php echo $row1["blue_2"];?></td>
+			<th class='blue'><?php echo $blue2=$row["blue_2"];?></td>
+			<?php 
+	$query10 = "SELECT * FROM teams WHERE number='$blue2'";
+	$result10 = $mysqli->query($query10);
+	
+	if ($result10->num_rows > 0){
+	
+	$query11 = "SELECT * FROM match_data WHERE match_number = '$match' AND team_number = '$blue2'";
+	$result11 = $mysqli->query($query11);
+	
+	if ($result11->num_rows > 0){
+			?>
+			<?php 
+			// output data of each row
+    while($row9 = $result10->fetch_assoc()) {
+		
+		while($row10 = $result11->fetch_assoc()) {
+			?>
+			<th class='red'><?php echo $row9["name"];?></td>
+			<th class='red'><?php //echo $row10["name"];?></td>
+		<?php
+				}
+			}		
+		}
+	}
+		?>
 			</tr>
 			<tr class="topRow">
 			<th class="TopBlue">Blue3</th>
-			<td class='blue'><?php echo $row1["blue_3"];?></td>
+			<th class='blue'><?php echo $blue3=$row["blue_3"];?></td>
+			<?php 
+	$query12 = "SELECT * FROM teams WHERE number='$blue3'";
+	$result12 = $mysqli->query($query12);
+	
+	if ($result12->num_rows > 0){
+	
+	$query13 = "SELECT * FROM match_data WHERE match_number = '$match' AND team_number = '$blue3'";
+	$result13 = $mysqli->query($query13);
+	
+	if ($result13->num_rows > 0){
+			?>
+			<?php 
+			// output data of each row
+    while($row11 = $result12->fetch_assoc()) {
+		
+		while($row12 = $result13->fetch_assoc()) {
+			?>
+			<th class='red'><?php echo $row11["name"];?></td>
+			<th class='red'><?php //echo $row12["name"];?></td>
+		<?php
+				}
+			}		
+		}
+	}
+		?>
 			</tr>
 	</table>
 </div>	
 	<?php
     }
+	
 }
 	$result2=mysqli_query($mysqli,"SELECT * FROM match_data WHERE match_number='$match'");
 	if ($result2->num_rows > 0) {
