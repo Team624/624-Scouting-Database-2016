@@ -58,8 +58,8 @@
 			<td class='tim'><?php echo $row["time"];?></td>
 			<th class="topTime" rowspan = "3" colspan = "1">Name</th>
 			<th class="topTime" rowspan = "1" colspan = "4">Auto</th>
-			<th class="topTime" rowspan = "1" colspan = "38">Teleop Shooting</th>
-			<th class="topTime" rowspan = "1" colspan = "1">Defense</th>
+			<th class="topTime" rowspan = "1" colspan = "2">Teleop Shooting</th>
+			<th class="topTime" rowspan = "1" colspan = "28">Defense</th>
 			<th class="topTime" rowspan = "1" colspan = "2">Climbing</th>
 			<th class="topTime" rowspan = "1" colspan = "7">Robot Issues</th>
 			</tr>
@@ -72,19 +72,18 @@
 			<th class='topTime'rowspan = "2" colspan = "1">Reached</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Crossed</th>
 			<!--Teleop/Shooting-->
-			<th class='topTime'rowspan = "1" colspan = "4">Lowbar</th>
-			
-			<th class='topTime'rowspan = "1" colspan = "4">Portcullis</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Cheval de Frise</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Moat</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Ramparts</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Drawbridge</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Sally Port</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Rock Wall</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Rough Terrain</th>
 			<th class='topTime'rowspan = "2" colspan = "1">High Goal%</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Low Goal%</th>
 			<!--Defense-->
+			<th class='topTime'rowspan = "1" colspan = "3">Lowbar</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Portcullis</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Cheval de Frise</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Moat</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Ramparts</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Drawbridge</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Sally Port</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Rock Wall</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Rough Terrain</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Defense Rating</th>
 			<!--Climbing-->
 			<th class='topTime'rowspan = "2" colspan = "1">Challenge Sucess?</th>
@@ -96,51 +95,43 @@
 			<th class='topTime'rowspan = "2" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Tipped</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Fouls</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Tech Fouls</th>
 	</tr>
 	<tr>
 		<!--Lowbar-->
 		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Weakened</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Ball?</th>
 		<!--Portcullis-->	
 		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Weakened</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Ball?</th>
 		<!--Cheval de Frise-->
 		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Weakened</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Ball?</th>
 		<!--Moat-->
 		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Weakened</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Ball?</th>
 		<!--Ramparts-->
 		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Weakened</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Ball?</th>
 		<!--Drawbridge-->
 		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Weakened</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Ball?</th>
 		<!--Sally Port-->
 		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Weakened</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Ball?</th>
 		<!--Rock Wall-->
 		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Weakened</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Ball?</th>
 		<!--Rough Terrain-->
 		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Weakened</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Ball?</th>
 	</tr>
