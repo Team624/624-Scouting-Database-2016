@@ -18,7 +18,25 @@ include("db_connect.php");
 		<div class="setupdiv">
 		
 			Put Some way of editing scouts here(or not supposedly)
-			
+				<form method="post">
+					First Name  <input type="text" name="firstname"><br><br>
+					Last Name  <input type="text" name="lastname"><br><br>
+					Scout ID  <input type="int" name="scoutid"><br><br>
+					<input type="submit" name="addscout">
+					<?php
+					$addscout=$_POST['firstname'];
+					$lastname=$_POST['lastname'];
+					$scoutid=$_POST['scoutid'];
+					$addscoutquery="INSERT INTO scouts (id,firstname,lastname) VALUES ('$scoutid','$firstname','$lastname')";
+					$addscoutresult = $mysqli->query($addscoutquery);
+					if($result) {
+						echo"Successfully added info";	
+								}
+					else {
+						echo "Nope!";	
+						}
+					?>
+				</form>
 		</div>
 	</div>
 	<div>

@@ -25,7 +25,7 @@ include("db_connect.php");
 			<th>Name</th>
 		</th>
 		<?php
-			$query = "SELECT `id`,`name`FROM`scouts`";
+			$query = "SELECT * FROM`scouts`";
 			$result = $mysqli->query($query);
 			
 			while($row = $result->fetch_array(MYSQLI_ASSOC))
