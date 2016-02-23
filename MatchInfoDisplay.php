@@ -56,7 +56,7 @@
 			<th class="topTime">startTime</th>
 			<td class='tim'><?php echo $row1["time"];?></td>
 			<th class="topTime" rowspan = "1" colspan = "4">Auto</th>
-			<th class="topTime" rowspan = "1" colspan = "31">Teleop Shooting</th>
+			<th class="topTime" rowspan = "1" colspan = "29">Teleop Shooting</th>
 			<th class="topTime" rowspan = "1" colspan = "1">Defense</th>
 			<th class="topTime" rowspan = "1" colspan = "2">Climbing</th>
 			<th class="topTime" rowspan = "1" colspan = "7">Robot Issues</th>
@@ -64,10 +64,12 @@
 			<tr class="topRow">
 			<th id="oneline" class="topTime"rowspan = "1" colspan = "1">Alliance</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Team Number</th>
-			<th class='topTime'rowspan = "1" colspan = "1">High%</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Low%</th>
+			<!--Auto-->
+			<th class='topTime'rowspan = "1" colspan = "1">High Goal%</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Low Goal%</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Reached</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
+			<!--Teleop/Shooting-->
 			<th class='topTime'rowspan = "1" colspan = "3">Lowbar</th>
 			<th class='topTime'rowspan = "1" colspan = "3">Portcullis</th>
 			<th class='topTime'rowspan = "1" colspan = "3">Cheval de Frise</th>
@@ -77,13 +79,14 @@
 			<th class='topTime'rowspan = "1" colspan = "3">Sally Port</th>
 			<th class='topTime'rowspan = "1" colspan = "3">Rock Wall</th>
 			<th class='topTime'rowspan = "1" colspan = "3">Rough Terrain</th>
-			<th class='topTime'>Batter High%</th>
-			<th class='topTime'>Batter Low%</th>
-			<th class='topTime'>Courtyard High%</th>
-			<th class='topTime'>Courtyard Low%</th>
-			<th class='topTime'>Defense</th>
+			<th class='topTime'>High Goal%</th>
+			<th class='topTime'>Low Goal%</th>
+			<!--Defense-->
+			<th class='topTime'>Defense Rating</th>
+			<!--Climbing-->
 			<th class='topTime'>Challenge Sucess?</th>
 			<th class='topTime'>Scaled Sucess?</th>
+			<!--Robot Issues-->
 			<th class='topTime'>No Show</th>
 			<th class='topTime'>Mech Fail</th>
 			<th class='topTime'>Lost Comms</th>

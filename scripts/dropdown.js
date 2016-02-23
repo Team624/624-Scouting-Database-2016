@@ -11,7 +11,7 @@ function load()
 		var l = document.getElementById("slide_li_"+i);
 		slideheights[i] = d.clientHeight;
 		
-		d.style.height="0px";
+		d.setAttribute("style", "height:0px;");
 		b.innerHTML = "+";
 		//l.setAttribute("style", "-webkit-border-bottom-right-radius: 5px;-moz-border-radius-bottomright: 5px;-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;margin-bottom:5px; font-size:18px;"); 
 		//b.setAttribute("style","-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;");
