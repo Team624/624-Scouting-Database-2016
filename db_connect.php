@@ -7,8 +7,8 @@
 	//Just uncomment out and add in your own info.
 	$dbhost = localhost /*$ini['dbhost']*/;
 	$dbname =  scout2016 /*$ini['dbname']*/;
-	$dbuser = SkaiCow   /*$ini['dbuser']*/;
-	$dbpass = clutchcode01   /*$ini['dbpass']*/; 
+	$dbuser = root   /*$ini['dbuser']*/;
+	$dbpass = ""   /*$ini['dbpass']*/; 
 	
 
 	
