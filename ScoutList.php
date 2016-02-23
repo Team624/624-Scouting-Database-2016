@@ -20,12 +20,13 @@ include("db_connect.php");
 	<!-- Make this table look good -->
 
 	<table id="scoutTable">
-		<th class="scoutTHead">
+		<tr class="scoutTHead">
 			<th>ID</th>
-			<th>Name</th>
-		</th>
+			<th>First</th>
+			<th>Last</th>
+		</tr>
 		<?php
-			$query = "SELECT `id`,`name`FROM`scouts`";
+			$query = "SELECT * FROM scouts";
 			$result = $mysqli->query($query);
 			
 			while($row = $result->fetch_array(MYSQLI_ASSOC))
@@ -33,7 +34,8 @@ include("db_connect.php");
 		?>
 			<tr>
 				<td><?php echo $row['id'];?></td>
-				<td><?php echo $row['name']; ?></td>
+				<td><?php echo $row['firstname']; ?></td>
+				<td><?php echo $row['lastname']; ?></td>
 			</tr>
 		<?php
 			}
