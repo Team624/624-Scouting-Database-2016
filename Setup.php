@@ -17,23 +17,40 @@ include("db_connect.php");
 	<div>
 		<div class="setupdiv">
 		
-			Put Some way of editing scouts here(or not supposedly)
+			
+				Add a scout here
 				<form method="post">
 					First Name  <input type="text" name="firstname"><br><br>
 					Last Name  <input type="text" name="lastname"><br><br>
-					Scout ID  <input type="int" name="scoutid"><br><br>
+					Scout ID   <input type="text" name="Aid"><br><br>
 					<input type="submit" name="addscout">
 					<?php
 					$addscout=$_POST['firstname'];
 					$lastname=$_POST['lastname'];
-					$scoutid=$_POST['scoutid'];
-					$addscoutquery="INSERT INTO scouts (id,firstname,lastname) VALUES ('$scoutid','$firstname','$lastname')";
+					$Aid=$_POST['Aid'];
+					$addscoutquery="INSERT INTO scouts (id,firstname,lastname) VALUES ('$Aid','$firstname','$lastname')";
 					$addscoutresult = $mysqli->query($addscoutquery);
 					if($result) {
 						echo"Successfully added info";	
 								}
 					else {
-						echo "Nope!";	
+						echo mysqli_error_list();	
+						}
+					?>
+				</form>
+				Remove a scout here
+				<form method="post">
+					Scout ID   <input type="text" name="Rid"><br><br>
+					<input type="submit" name="removescout">
+					<?php
+					$Rid=$_POST['Rid'];
+					$removescoutquery="DELETE FROM scouts WHERE id=('$Rid')";
+					$removescoutresult = $mysqli->query($removescoutquery);
+					if($result) {
+						echo"Successfully removed info";	
+								}
+					else {
+						echo mysqli_error_list();	
 						}
 					?>
 				</form>
