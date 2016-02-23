@@ -84,10 +84,23 @@ include("db_connect.php");
 				</tr>
 				<tr>
 					<td>Lowbar</td>
+					<!--<td>
+						<select name="def_category_2">
+							<option name="def_category_A1"value="1">Portcullis</option>
+							<option name="def_category_A2"value="2">Cheval de Frise</option>
+							<option name="def_category_B1"value="3">Moat</option>
+							<option name="def_category_B2"value="4">Ramparts</option>
+							<option name="def_category_C1"value="5">Drawbridge</option>
+							<option name="def_category_C2"value="6">Sally Port</option>
+							<option name="def_category_D1"value="7">Rock Wall</option>
+							<option name="def_category_D2"value="8">Rough Terrain</option>
+						</select>
+					</td>-->
 					<td><input type="number" name="def_category_2" class="small_num"></td>
 					<td><input type="number" name="def_category_3" class="small_num"></td>
 					<td><input type="number" name="def_category_4" class="small_num"></td>
 					<td><input type="number" name="def_category_5" class="small_num"></td>
+					
 				</tr>
 			</table>
 			

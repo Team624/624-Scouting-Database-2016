@@ -38,6 +38,10 @@
 	<?php
 	mysqli_select_db($mysqli,$dbname);
 	$result1=mysqli_query($mysqli,"SELECT * FROM schedule WHERE match_number='$match'");
+	
+	$query = "SELECT * FROM match_data";
+	$result = $mysqli->query($query);
+	
 	if ($result1->num_rows > 0) {
 		?>
 		<?php 
@@ -45,6 +49,8 @@
     while($row1 = $result1->fetch_assoc()) {
 		?>
 	<h1> Qualification Match <?php echo $match; ?> </h1>
+	
+<div class="matchDisplay">
     <table class="matchTable">
 			<tr class="topRow">
 			<th class="topTime">startTime</th>
@@ -56,7 +62,7 @@
 			<th class="topTime" rowspan = "1" colspan = "7">Robot Issues</th>
 			</tr>
 			<tr class="topRow">
-			<th id="oneline" class="topMatch"rowspan = "1" colspan = "1">Alliance</th>
+			<th id="oneline" class="topTime"rowspan = "1" colspan = "1">Alliance</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Team Number</th>
 			<th class='topTime'rowspan = "1" colspan = "1">High%</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Low%</th>
@@ -89,7 +95,7 @@
 			<tr class="topRow">
 			<th class="TopRed">Red1</th>
 			<td class='red'><?php echo $row1["red_1"];?></td>
-		
+
 			</tr>
 			<tr class="topRow">
 			<th class="TopRed">Red2</th>
@@ -112,14 +118,25 @@
 			<td class='blue'><?php echo $row1["blue_3"];?></td>
 			</tr>
 	</table>
-	
+</div>	
 	<?php
     }
 }
 	$result2=mysqli_query($mysqli,"SELECT * FROM match_data WHERE match_number='$match'");
 	if ($result2->num_rows > 0) {
 		?>
-    <table class="Schedule-table" ><tr><th>Match Number</th><th>Team Number</th><th>Scout ID</th><th>No Show</th><th>Mech Fail</th><th>Lost Comms</th><th>Fouls</th><th>Tech Fouls</th><th>Drive Rating</th></tr>
+    <table class="Schedule-table" >
+		<tr>
+			<th>Match Number</th>
+			<th>Team Number</th>
+			<th>Scout ID</th>
+			<th>No Show</th>
+			<th>Mech Fail</th>
+			<th>Lost Comms</th>
+			<th>Fouls</th>
+			<th>Tech Fouls</th>
+			<th>Drive Rating</th>
+		</tr>
 	<?php
     // output data of each row
     while($row2 = $result2->fetch_assoc()) {
