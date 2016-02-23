@@ -82,7 +82,7 @@ if(isset($valid_user) && isset($user_type))
 					
 					//var_dump($teamsList);
 				?>
-				<h3> Our Alliance </h3>
+				<h3 style="color:#000"> Our Alliance </h3>
 				<?php
 					if($red == true)
 					{
@@ -162,7 +162,7 @@ if(isset($valid_user) && isset($user_type))
 						<td>Tech Fouls</td>
 					</tr>
 				</table>
-				<h3> Our Opposition </h3>
+				<h3 style="color:#000"> Our Opposition </h3>
 				<?php
 					if($red == false)
 					{
