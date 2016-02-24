@@ -22,38 +22,45 @@ include("db_connect.php");
 				<form method="post">
 					First Name  <input type="text" name="firstname"><br><br>
 					Last Name  <input type="text" name="lastname"><br><br>
-					Scout ID   <input type="text" name="Aid"><br><br>
+					Scout ID   <input type="number" name="Aid"><br><br>
 					<input type="submit" name="addscout">
+					</form>
 					<?php
-					$addscout=$_POST['firstname'];
+					if(isset($_POST['addscout'])){
+					$firstname=$_POST['firstname'];
 					$lastname=$_POST['lastname'];
 					$Aid=$_POST['Aid'];
 					$addscoutquery="INSERT INTO scouts (id,firstname,lastname) VALUES ('$Aid','$firstname','$lastname')";
-					$addscoutresult = $mysqli->query($addscoutquery);
+					$result = $mysqli->query($addscoutquery);
+					
 					if($result) {
 						echo"Successfully added info";	
 								}
 					else {
-						echo mysqli_error_list();	
+						echo "Weed";	
 						}
+					}
 					?>
-				</form>
+				
 				Remove a scout here
 				<form method="post">
-					Scout ID   <input type="text" name="Rid"><br><br>
+					Scout ID   <input type="number" name="Rid"><br><br>
 					<input type="submit" name="removescout">
+					</form>
 					<?php
+					if(isset($_POST['removescout'])){
 					$Rid=$_POST['Rid'];
-					$removescoutquery="DELETE FROM scouts WHERE id=('$Rid')";
-					$removescoutresult = $mysqli->query($removescoutquery);
+					$removescoutquery="DELETE FROM scouts WHERE id='$Rid'";
+					$result = $mysqli->query($removescoutquery);
 					if($result) {
 						echo"Successfully removed info";	
 								}
 					else {
-						echo mysqli_error_list();	
+						echo "Sorry Snoop";	
 						}
+					}
 					?>
-				</form>
+				
 		</div>
 	</div>
 	<div>
