@@ -40,7 +40,7 @@ include("db_connect.php");
 				<td class="rawTop"><p class="rawP">Auto Defensed Crossed Failed</P></td>
 				<td class="rawTop"><p class="rawP">Auto Starting Location</P></td>
 				<td class="rawTop"><p class="rawP">Auto Start With Boulder</P></td>
-				
+				<td class="rawTop"><p class="rawP">Auto Boulder Grabbed</P></td>
 				<td class="rawTop"><p class="rawP">Defense Crossed 1</P></td>
 				<td class="rawTop"><p class="rawP">Defense Crossed 2</P></td>
 				<td class="rawTop"><p class="rawP">Defense Crossed 3</P></td>
@@ -80,7 +80,7 @@ include("db_connect.php");
 				<td class="rawTop"><p class="rawP">Fouls?</P></td>
 				<td class="rawTop"><p class="rawP">Tech Fouls?</P></td>
 				<td class="rawTop"><p class="rawP">Driving Manuverability</P></td>
-				<td class="rawTop"><p class="rawP">Defense Bullying</P></td>
+				<td class="rawTop"><p class="rawP">Defense Pushing</P></td>
 				<td class="rawTop"><p class="rawP">Ball Control</P></td>
 			</tr>
 			<?php
@@ -138,7 +138,7 @@ include("db_connect.php");
 						<td class="rawBody"><?=$row['batter_low_miss'];?></td>
 						<td class="rawBody"><?=$row['courtyard_high_Scored'];?></td>
 						<td class="rawBody"><?=$row['courtyard_low_Scored'];?></td>
-						<td class="rawBody"><?=$row['courtyard_high_miss'];?></td>
+						<td class="rawBody"><?=$row['courtyard_high_Miss'];?></td>
 						<td class="rawBody"><?=$row['courtyard_low_miss'];?></td>
 						<td class="rawBody"><?=$row['challenge_Sucess'];?></td>
 						<td class="rawBody"><?=$row['scaled_Sucess'];?></td>
@@ -151,8 +151,8 @@ include("db_connect.php");
 						<td class="rawBody"><?=$row['fouls'];?></td>
 						<td class="rawBody"><?=$row['tech_fouls'];?></td>
 						<td class="rawBody"><?=$row['drive_manuverability'];?></td>
-						<td class="rawBody"><?=$row['Defense_Bullying'];?></td>
-						<td class="rawBody"><?=$row['Ball Control'];?></td>
+						<td class="rawBody"><?=$row['Defense_Pushing'];?></td>
+						<td class="rawBody"><?=$row['Ball_Control'];?></td>
 					</tr>
 					<?php
 				}

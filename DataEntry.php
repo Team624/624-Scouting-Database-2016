@@ -19,12 +19,13 @@ include("db_connect.php");
 <div class="page_container">
 	<div class="form_container">
 		<form class="datafield" method="post">
-			<table><tr>
+			<!--<table><tr>
 			<strong><h1 style="color:green">IN HONOR OF VIRAJ JOSHI</h1></strong>
 					<td>Fouls(This dropdown isn't actually going to get entered into the database)</td>
 				</tr>
 				<tr>	
-					<td>  <!--you can suck it-->
+					<td>  you can suck it
+					
 						<select>
 							<option name="Tech Foul" value="0">Tech Foul</option>
 							<option name="G4"value="G4">G4(RED+YELLOW CARD)</option>
@@ -57,12 +58,13 @@ include("db_connect.php");
 							<option name="G44"value="G44">G44(FOUL+YELLOW CARD)</option>
 							<option name="G45"value="G45">G45(TECH FOUL per BOULDER)</option>
 							<option name="T10"value="T10">T10</option>
-						</select>				
+						</select>	
+										
 					</td> 
-				</tr></table>
-			<h2>Basic Data</h2>
-			<table class="green">
+				</tr></table>-->	
 			
+			<table class="green">
+			<h2 class="DataTitle">Basic Data</h2>
 				<tr>
 					<td></td>
 					<td>Match #</td>
@@ -106,8 +108,9 @@ include("db_connect.php");
 			
 			<br>
 			
-			<h2>Autonomous</h2>
+			
 			<table class="green">
+			<h2 class="DataTitle">Autonomous</h2>
 			<tr>
 				<td></td>
 				<td>Auto High</td>
@@ -161,9 +164,8 @@ include("db_connect.php");
 			
 			<br>
 			
-			<h2>Teleop</h2>
-			
 			<table class="green">
+			<h2 class="DataTitle">Teleop</h2>
 				<tr>
 					<td></td>
 					<td>Defense 1</td>
@@ -208,8 +210,9 @@ include("db_connect.php");
 			</table>
 			<br>
 			</table>
-			<h2>Shooting</h2>
+			
 			<table class="green">
+			<h2 class="DataTitle">Shooting</h2>
 				<tr>
 					<td>
 						<table>
@@ -247,9 +250,8 @@ include("db_connect.php");
 				</tr>
 			</table>
 			
-			<h2>Climbing</h2>
-			
 			<table  class="green">
+			<h2 class="DataTitle">Climbing</h2>
 				<tr>
 					<td>
 						<table>
@@ -265,9 +267,8 @@ include("db_connect.php");
 				</tr>
 			</table>
 			
-			<h2>Defense Rating</h2>
-			
 			<table class="green">
+			<h2 class="DataTitle">Defense Rating</h2>
 				<tr>
 					<td>Defense Rating</td>
 				</tr>
@@ -283,8 +284,9 @@ include("db_connect.php");
 				</tr>
 			</table>
 			
-			<h2>Robot Issues</h2>
+			
 			<table class="green">
+			<h2 class="DataTitle">Robot Issues</h2>
 				<tr>
 					<td>No Show</td>
 					<td><input type="checkbox" name="no_show"></input></td>
@@ -319,9 +321,8 @@ include("db_connect.php");
 			
 			<br>
 			
-			<h2>Driver Data</h2>
-			
 			<table class="green">
+			<h2 class="DataTitle">Driver Data</h2>
 				<tr>
 					<td>Driving/Maneuverability</td><td>Defense/Pushing</td><td>Ball Control</td><td>Pushing</td>
 				</tr>
@@ -335,8 +336,9 @@ include("db_connect.php");
 			
 			<br>
 			
-			<h2>Comments</h2>
+			
 			<table class="green">
+			<h2 class="DataTitle">Comments</h2>
 				<tr>
 					<td>Notes:</td>
 				</tr>
