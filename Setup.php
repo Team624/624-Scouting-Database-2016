@@ -41,7 +41,7 @@ include("db_connect.php");
 						}
 					}
 					?>
-				
+				<br><br>
 				Remove a scout here
 				<form method="post">
 					Scout ID   <input type="number" name="Rid"><br><br>
