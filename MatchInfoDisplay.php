@@ -164,12 +164,47 @@
 		
 		while($row2 = $result3->fetch_assoc()) {
 			?>
-			<th class='red'><?php echo $row1["name"];?></td>
+			<th class='red'><?php echo $row1["name"];?></th>
 			<th class='red'>
-			<?php  $auto_High_Scored=$row2["auto_High_Scored"];
-				   $auto_High_Miss=$row2["auto_High_Miss"];
+			<?php $auto_High_Scored=$row2["auto_High_Scored"];
+				 $auto_High_Miss=$row2["auto_High_Miss"];
+				 $totalattempts=$auto_High_Scored+$auto_High_Miss;
+				 echo $auto_High_Scored/$totalattempts*100;
 			?>
-			</td>
+			</th>
+			<th class='red'>
+			<?php $auto_Low_Scored=$row2["auto_Low_Scored"];
+				 $auto_Low_Miss=$row2["auto_Low_Miss"];
+				 $totalattempts1=$auto_Low_Scored+$auto_Low_Miss;
+				 echo $auto_Low_Scored/$totalattempts1*100;
+			?>
+			</th>
+			<th class='red'><?php echo $row2["auto_Defenses_Reached_Sucess"];?></th>
+			<th class='red'><?php echo $row2["auto_Defenses_Crossed_Sucess"];?></th>
+			<th class='red'>
+			<?php 
+				$batter_high_Scored=$row2["batter_high_Scored"];
+				$courtyard_high_Scored=$row2["courtyard_high_Scored"];
+				$batter_high_Miss=$row2["batter_high_Miss"];
+				$courtyard_high_Miss=$row2["courtyard_high_Miss"];
+				$scored=$batter_high_Scored+$courtyard_high_Scored;
+				$totalattempts2=$batter_high_Scored+$courtyard_high_Scored+$batter_high_Miss+$courtyard_high_Miss;
+				$highGoalPercent=$scored/$totalattempts2*100;
+				echo round($highGoalPercent,0);
+			?>
+			</th>
+			<th class='red'>
+			<?php 
+				$batter_low_Scored=$row2["batter_low_Scored"];
+				$courtyard_low_Scored=$row2["courtyard_low_Scored"];
+				$batter_low_Miss=$row2["batter_low_Miss"];
+				$courtyard_low_Miss=$row2["courtyard_low_Miss"];
+				$scored1=$batter_low_Scored+$courtyard_low_Scored;
+				$totalattempts3=$courtyard_low_Scored+$batter_low_Scored+$batter_low_Miss+$courtyard_low_Miss;
+				$lowGoalPercent=$scored1/$totalattempts3*100;
+				echo round($lowGoalPercent,0);
+			?>
+			</th>
 		<?php
 				}
 			}		
@@ -179,7 +214,7 @@
 			</tr>
 			<tr class="topRow">
 			<th class="TopRed">Red2</th>
-			<th class='red'><?php echo $red2=$row["red_2"];?></td>
+			<th class='red'><?php echo $red2=$row["red_2"];?></th>
 			<?php 
 	$query4 = "SELECT * FROM teams WHERE number='$red2'";
 	$result4 = $mysqli->query($query4);
@@ -197,8 +232,8 @@
 		
 		while($row4 = $result5->fetch_assoc()) {
 			?>
-			<th class='red'><?php echo $row3["name"];?></td>
-			<th class='red'><?php //echo $row4["name"];?></td>
+			<th class='red'><?php echo $row3["name"];?></th>
+			<th class='red'><?php //echo $row4["name"];?></th>
 		<?php
 				}
 			}		
@@ -208,7 +243,7 @@
 			</tr>
 			<tr class="topRow">
 			<th class="TopRed">Red3</th>
-			<th class='red'><?php echo $red3=$row["red_3"];?></td>
+			<th class='red'><?php echo $red3=$row["red_3"];?></th>
 			<?php 
 	$query6 = "SELECT * FROM teams WHERE number='$red3'";
 	$result6 = $mysqli->query($query6);
@@ -226,8 +261,8 @@
 		
 		while($row6 = $result7->fetch_assoc()) {
 			?>
-			<th class='red'><?php echo $row5["name"];?></td>
-			<th class='red'><?php //echo $row6["name"];?></td>
+			<th class='red'><?php echo $row5["name"];?></th>
+			<th class='red'><?php //echo $row6["name"];?></th>
 		<?php
 				}
 			}		
@@ -237,7 +272,7 @@
 			</tr> 
 			<tr class="topRow">
 			<th class="TopBlue">Blue1</th>
-			<th class='blue'><?php echo $blue1=$row["blue_1"];?></td>
+			<th class='blue'><?php echo $blue1=$row["blue_1"];?></th>
 			<?php 
 	$query8 = "SELECT * FROM teams WHERE number='$blue1'";
 	$result8 = $mysqli->query($query8);
@@ -255,8 +290,8 @@
 		
 		while($row8 = $result9->fetch_assoc()) {
 			?>
-			<th class='blue'><?php echo $row7["name"];?></td>
-			<th class='blue'><?php //echo $row8["name"];?></td>
+			<th class='blue'><?php echo $row7["name"];?></th>
+			<th class='blue'><?php //echo $row8["name"];?></th>
 		<?php
 				}
 			}		
@@ -266,7 +301,7 @@
 			</tr>
 			<tr class="topRow">
 			<th class="TopBlue">Blue2</th>
-			<th class='blue'><?php echo $blue2=$row["blue_2"];?></td>
+			<th class='blue'><?php echo $blue2=$row["blue_2"];?></th>
 			<?php 
 	$query10 = "SELECT * FROM teams WHERE number='$blue2'";
 	$result10 = $mysqli->query($query10);
@@ -284,8 +319,8 @@
 		
 		while($row10 = $result11->fetch_assoc()) {
 			?>
-			<th class='blue'><?php echo $row9["name"];?></td>
-			<th class='blue'><?php //echo $row10["name"];?></td>
+			<th class='blue'><?php echo $row9["name"];?></th>
+			<th class='blue'><?php //echo $row10["name"];?></th>
 		<?php
 				}
 			}		
@@ -295,7 +330,7 @@
 			</tr>
 			<tr class="topRow">
 			<th class="TopBlue">Blue3</th>
-			<th class='blue'><?php echo $blue3=$row["blue_3"];?></td>
+			<th class='blue'><?php echo $blue3=$row["blue_3"];?></th>
 			<?php 
 	$query12 = "SELECT * FROM teams WHERE number='$blue3'";
 	$result12 = $mysqli->query($query12);
@@ -313,8 +348,8 @@
 		
 		while($row12 = $result13->fetch_assoc()) {
 			?>
-			<th class='blue'><?php echo $row11["name"];?></td>
-			<th class='blue'><?php //echo $row12["name"];?></td>
+			<th class='blue'><?php echo $row11["name"];?></th>
+			<th class='blue'><?php //echo $row12["name"];?></th>
 		<?php
 				}
 			}		
