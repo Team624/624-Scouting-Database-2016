@@ -10,7 +10,7 @@
 ?>
 
 <head>
-	<link rel="stylesheet" type="text/css" href="css/NoteEntryStyle.css">w
+	<link rel="stylesheet" type="text/css" href="css/NoteEntryStyle.css">
 	<link rel="stylesheet" type="text/css" href="css/mainpagestyle.css">
 	<link rel="stylesheet" type="text/css" href="css/SearchStyle.css"> 
 </head>
@@ -59,9 +59,9 @@
 			<th class="topTime" rowspan = "3" colspan = "1">Name</th>
 			<th class="topTime" rowspan = "1" colspan = "4">Auto</th>
 			<th class="topTime" rowspan = "1" colspan = "2">Teleop Shooting</th>
-			<th class="topTime" rowspan = "1" colspan = "28">Defense</th>
+			<th class="topTime" rowspan = "1" colspan = "37">Defense</th>
 			<th class="topTime" rowspan = "1" colspan = "2">Climbing</th>
-			<th class="topTime" rowspan = "1" colspan = "7">Robot Issues</th>
+			<th class="topTime" rowspan = "1" colspan = "6">Robot Issues</th>
 			</tr>
 			<tr class="topRow">
 			<th id="oneline" class="topTime"rowspan = "2" colspan = "1">Alliance</th>
@@ -75,15 +75,15 @@
 			<th class='topTime'rowspan = "2" colspan = "1">High Goal%</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Low Goal%</th>
 			<!--Defense-->
-			<th class='topTime'rowspan = "1" colspan = "3">Lowbar</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Portcullis</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Cheval de Frise</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Moat</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Ramparts</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Drawbridge</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Sally Port</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Rock Wall</th>
-			<th class='topTime'rowspan = "1" colspan = "3">Rough Terrain</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Lowbar</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Portcullis</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Cheval de Frise</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Moat</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Ramparts</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Drawbridge</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Sally Port</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Rock Wall</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Rough Terrain</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Defense Rating</th>
 			<!--Climbing-->
 			<th class='topTime'rowspan = "2" colspan = "1">Challenge Sucess?</th>
@@ -92,7 +92,6 @@
 			<th class='topTime'rowspan = "2" colspan = "1">No Show</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Mech Fail</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Lost Comms</th>
-			<th class='topTime'rowspan = "2" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Tipped</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Fouls</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Tech Fouls</th>
@@ -101,38 +100,47 @@
 		<!--Lowbar-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
 		<!--Portcullis-->	
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
 		<!--Cheval de Frise-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
 		<!--Moat-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
 		<!--Ramparts-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
 		<!--Drawbridge-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
 		<!--Sally Port-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
 		<!--Rock Wall-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
 		<!--Rough Terrain-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
 	</tr>
 		</thead>
@@ -157,7 +165,11 @@
 		while($row2 = $result3->fetch_assoc()) {
 			?>
 			<th class='red'><?php echo $row1["name"];?></td>
-			<th class='red'><?php //echo $row2["name"];?></td>
+			<th class='red'>
+			<?php  $auto_High_Scored=$row2["auto_High_Scored"];
+				   $auto_High_Miss=$row2["auto_High_Miss"];
+			?>
+			</td>
 		<?php
 				}
 			}		
@@ -243,8 +255,8 @@
 		
 		while($row8 = $result9->fetch_assoc()) {
 			?>
-			<th class='red'><?php echo $row7["name"];?></td>
-			<th class='red'><?php //echo $row8["name"];?></td>
+			<th class='blue'><?php echo $row7["name"];?></td>
+			<th class='blue'><?php //echo $row8["name"];?></td>
 		<?php
 				}
 			}		
@@ -272,8 +284,8 @@
 		
 		while($row10 = $result11->fetch_assoc()) {
 			?>
-			<th class='red'><?php echo $row9["name"];?></td>
-			<th class='red'><?php //echo $row10["name"];?></td>
+			<th class='blue'><?php echo $row9["name"];?></td>
+			<th class='blue'><?php //echo $row10["name"];?></td>
 		<?php
 				}
 			}		
@@ -301,8 +313,8 @@
 		
 		while($row12 = $result13->fetch_assoc()) {
 			?>
-			<th class='red'><?php echo $row11["name"];?></td>
-			<th class='red'><?php //echo $row12["name"];?></td>
+			<th class='blue'><?php echo $row11["name"];?></td>
+			<th class='blue'><?php //echo $row12["name"];?></td>
 		<?php
 				}
 			}		
