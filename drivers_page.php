@@ -53,7 +53,7 @@ if(isset($valid_user) && isset($user_type))
 				$description = $match["description"];
 				?>
 				<li class="slideli" id="slide_li_<?= $it ?>">
-					<span class="collapseView">
+					<span class="collapseView" id="slide_span_<?= $it ?>">
 						<button class="slidebutton" id="slide_button_<?= $it ?>" onclick="expand('<?= $it ?>')" type="button">-</button>
 						<?php echo $description; ?>
 					</span>
