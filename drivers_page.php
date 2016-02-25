@@ -1,4 +1,17 @@
-
+<?php
+	function getTeamData($team_num)
+	{
+		$team_query = "SELECT * FROM `match_data` WHERE team_number = '$team_num'";//(`red1`='$team_num' OR `red2`='$team_num' OR `red3`='$team_num' OR `blue1`='$team_num' OR `blue2`='$team_num' OR `blue3`='$team_num')";
+		$result = $mysqli->query($team_query);
+		
+		$data = [];
+		
+		while($row = $result->fetch_array())
+		{
+			$data["high_made"] += 0; 
+		}		
+	}
+?>
 <?php
 //Check to make sure the drive team is logged in
 include("HeadTemplate.php");
@@ -11,11 +24,15 @@ if(isset($valid_user) && isset($user_type))
 	{
 		include("navbar.php");
 		include("api_connect.php");
-		
+		include("db_connect.php");
+		/*
 		$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/txho?tournamentLevel=Qualification&teamNumber=624";
 		$response = file_get_contents($url,false,$context);
-		
+		*/
 		$teamsList = [];
+		
+		$matches_query = "SELECT * FROM `schedule` WHERE (`red1`=624 OR `red2`=624 OR `red3`=624 OR `blue1`=624 OR `blue2`=624 OR `blue3`=624)";
+		$result = $mysqli->query($matches_query);
 ?>	
 
 
@@ -41,16 +58,22 @@ if(isset($valid_user) && isset($user_type))
 
 	<ul id="match_list">
 	<?php 
-		
+		/*
 		$json = json_decode($response, true);
 		//echo json_encode($json, JSON_PRETTY_PRINT);
-		$it = 0;
+		
 		
 		foreach($json as $schedule)
 		{
 			foreach($schedule as $match)
 			{
-				$description = $match["description"];
+				*/
+		$it = 0;
+		
+		while($row = $result->fetch_array())
+		{
+				
+				$description = "Qualification " . $row['match_number'];
 				?>
 				<li class="slideli" id="slide_li_<?= $it ?>">
 					<span class="collapseView" id="slide_span_<?= $it ?>">
@@ -64,12 +87,19 @@ if(isset($valid_user) && isset($user_type))
 					$iter = 1;
 					$red = true;
 					$teamsList = [];
-					
+					$teamsList[] = $row['red1'];
+					$teamsList[] = $row['red2'];
+					$teamsList[] = $row['red3'];
+					$teamsList[] = $row['blue1'];
+					$teamsList[] = $row['blue2'];
+					$teamsList[] = $row['blue3'];
+					/*
 					foreach($match["Teams"] as $teams)
-					{
-						$teamsList[] = $teams["teamNumber"];
+					{*/
+					foreach($teamsList as $teams)
+						//$teamsList[] = $teams["teamNumber"];
 						
-						if($teams["teamNumber"] == 624)
+						if($teams == 624)
 						{
 							if($iter > 3)
 							{
@@ -79,6 +109,7 @@ if(isset($valid_user) && isset($user_type))
 						
 						$iter++;
 					}
+					//}
 					
 					//var_dump($teamsList);
 				?>
@@ -124,6 +155,8 @@ if(isset($valid_user) && isset($user_type))
 						<?php
 					}
 				?>
+				
+				
 					</tr>
 					<tr>
 						<td>Favorite Defense</td>
@@ -234,8 +267,9 @@ if(isset($valid_user) && isset($user_type))
 				<br>
 				<?php
 				$it++;
-			}
 		}
+//			}
+//		}
 		
 		
 		//echo json_encode($match, JSON_PRETTY_PRINT);
