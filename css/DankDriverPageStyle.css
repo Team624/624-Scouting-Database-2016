@@ -64,7 +64,7 @@ li.dactive
 	color:#000;
 	
 }
-button.slidebutton .dactive
+button.dactive
 {
 	background-color: #00FF00;
 	color:#000;
@@ -96,7 +96,7 @@ span.collapseView
 	max-height:200em;
 	font-size:14px;
 }
-span.collapseView .dactive
+span.dactive
 {
 	color:#000;
 	height:30px;
