@@ -146,7 +146,7 @@
 		</thead>
 			<tr class="topRow">
 			<th class="TopRed">Red1</th>
-			<th class='red'><?php echo $red1=$row["red_1"];?></td>
+			<th class='red'><?php echo $red1=$row["red_1"];?></th>
 			<?php 
 	$query2 = "SELECT * FROM teams WHERE number='$red1'";
 	$result2 = $mysqli->query($query2);
@@ -270,6 +270,19 @@
 	}
 		?>
 			</tr> 
+			<thead>
+			<tr class="topRow">
+			<th class="topTime"rowspan = "1" colspan = "1">Alliance</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Team Number</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Name</th>
+			<th class="topTime" rowspan = "1" colspan = "1">High Goal%</th>
+			<th class="topTime" rowspan = "1" colspan = "1">Low Goal%</th>
+			<th class="topTime" rowspan = "1" colspan = "1">Reached</th>
+			<th class="topTime" rowspan = "1" colspan = "1">Crossed</th>
+			<th class="topTime" rowspan = "1" colspan = "1">High Goal%</th>
+			<th class="topTime" rowspan = "1" colspan = "1">Low Goal%</th>
+			</tr>
+			</thead>
 			<tr class="topRow">
 			<th class="TopBlue">Blue1</th>
 			<th class='blue'><?php echo $blue1=$row["blue_1"];?></th>
