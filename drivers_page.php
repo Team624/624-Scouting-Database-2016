@@ -1,17 +1,4 @@
-<?php
-	function getTeamData($team_num)
-	{
-		$team_query = "SELECT * FROM `match_data` WHERE team_number = '$team_num'";//(`red1`='$team_num' OR `red2`='$team_num' OR `red3`='$team_num' OR `blue1`='$team_num' OR `blue2`='$team_num' OR `blue3`='$team_num')";
-		$result = $mysqli->query($team_query);
-		
-		$data = [];
-		
-		while($row = $result->fetch_array())
-		{
-			$data["high_made"] += 0; 
-		}		
-	}
-?>
+
 <?php
 //Check to make sure the drive team is logged in
 include("HeadTemplate.php");
@@ -31,9 +18,28 @@ if(isset($valid_user) && isset($user_type))
 		*/
 		$teamsList = [];
 		
-		$matches_query = "SELECT * FROM `schedule` WHERE (`red1`=624 OR `red2`=624 OR `red3`=624 OR `blue1`=624 OR `blue2`=624 OR `blue3`=624)";
+		$matches_query = "SELECT * FROM `schedule` WHERE (`red_1`=624 OR `red_2`=624 OR `red_3`=624 OR `blue_1`=624 OR `blue_2`=624 OR `blue_3`=624)";
 		$result = $mysqli->query($matches_query);
 ?>	
+<?php
+	function getTeamData($mysqli,$team_num)
+	{
+		$team_query = "SELECT * FROM `match_data` WHERE team_number = '$team_num'";//(`red1`='$team_num' OR `red2`='$team_num' OR `red3`='$team_num' OR `blue1`='$team_num' OR `blue2`='$team_num' OR `blue3`='$team_num')";
+		$result = $mysqli->query($team_query);
+		
+		$data = [];
+		
+		while($row = $result->fetch_array(MYSQLI_ASSOC))
+		{
+			$data["auto_high"] += $row['auto_High_Scored']; 
+			$data["auto_high_total"] += $row['auto_High_Miss'] + $row['auto_High_Scored']; 
+			$data["auto_low"] += $row['auto_Low_Scored']; 
+			$data["auto_low_total"] += $row['auto_Low_Miss'] + $row['auto_Low_Scored']; 
+		}
+
+		return $data;		
+	}
+?>
 
 
 <!-- Make this page Tablet Friendly -->
@@ -70,7 +76,7 @@ if(isset($valid_user) && isset($user_type))
 				*/
 		$it = 0;
 		
-		while($row = $result->fetch_array())
+		while($row = $result->fetch_array(MYSQLI_ASSOC))
 		{
 				
 				$description = "Qualification " . $row['match_number'];
@@ -87,16 +93,17 @@ if(isset($valid_user) && isset($user_type))
 					$iter = 1;
 					$red = true;
 					$teamsList = [];
-					$teamsList[] = $row['red1'];
-					$teamsList[] = $row['red2'];
-					$teamsList[] = $row['red3'];
-					$teamsList[] = $row['blue1'];
-					$teamsList[] = $row['blue2'];
-					$teamsList[] = $row['blue3'];
+					$teamsList[] = $row['red_1'];
+					$teamsList[] = $row['red_2'];
+					$teamsList[] = $row['red_3'];
+					$teamsList[] = $row['blue_1'];
+					$teamsList[] = $row['blue_2'];
+					$teamsList[] = $row['blue_3'];
 					/*
 					foreach($match["Teams"] as $teams)
 					{*/
 					foreach($teamsList as $teams)
+					{
 						//$teamsList[] = $teams["teamNumber"];
 						
 						if($teams == 624)
@@ -148,18 +155,24 @@ if(isset($valid_user) && isset($user_type))
 					<tr>
 					<td></td>
 					<?php
+					
+					$data = [];
+					
 					for(;$iter<=$limit;$iter++)
 					{
+						$data[] = getTeamData($mysqli,$teamsList[$iter]);
 						?>
 						<td><?=$teamsList[$iter]?></td>
 						<?php
 					}
+					
 				?>
 				
 				
 					</tr>
 					<tr>
 						<td>Favorite Defense</td>
+						
 					</tr>
 					<tr>
 						<td>Least Favorite Defense</td>
@@ -168,22 +181,25 @@ if(isset($valid_user) && isset($user_type))
 						<td>Preferred Starting Position</td>
 					</tr>
 					<tr>
-						<td>Auto Reach %</td>
+						<td>Auto Reach</td>
 					</tr>
 					<tr>
-						<td>Auto Cross %</td>
+						<td>Auto Cross</td>
 					</tr>
 					<tr>
-						<td>Auto Low Goal %</td>
+						<td>Auto Low Goal</td>
 					</tr>
 					<tr>
-						<td>Auto High Goal %</td>
+						<td>Auto High Goal</td>
+						<td><?=$data[0]['auto_high']?> / <?=$data[0]['auto_high_total']?></td>
+						<td><?=$data[1]['auto_high']?> / <?=$data[1]['auto_high_total']?></td>
+						<td><?=$data[2]['auto_high']?> / <?=$data[2]['auto_high_total']?></td>
 					</tr>
 					<tr>
-						<td>Teleop Low Goal %</td>
+						<td>Teleop Low Goal</td>
 					</tr>
 					<tr>
-						<td>Teleop High Goal %</td>
+						<td>Teleop High Goal</td>
 					</tr>
 					<tr>
 						<td>Climb?</td>
