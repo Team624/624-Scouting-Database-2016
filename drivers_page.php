@@ -35,6 +35,12 @@ if(isset($valid_user) && isset($user_type))
 			$data["auto_high_total"] += $row['auto_High_Miss'] + $row['auto_High_Scored']; 
 			$data["auto_low"] += $row['auto_Low_Scored']; 
 			$data["auto_low_total"] += $row['auto_Low_Miss'] + $row['auto_Low_Scored']; 
+			
+			$data["auto_def_cross"] += $row['auto_Defenses_Crossed_Sucess'];
+			$data["auto_def_cross_total"] += $row['auto_Defenses_Crossed_Sucess'] + $row['auto_Defenses_Crossed_Failed'];
+			
+			$data["auto_def_reach"] += $row['auto_Defenses_Crossed_Sucess'];
+			$data["auto_def_reach_total"] += $row['auto_Defenses_Crossed_Sucess'] + $row['auto_Defenses_Crossed_Failed'];
 		}
 
 		return $data;		
@@ -182,9 +188,15 @@ if(isset($valid_user) && isset($user_type))
 					</tr>
 					<tr>
 						<td>Auto Reach</td>
+						<td><?=$data[0]['auto_def_reach']?> / <?=$data[0]['auto_def_reach_total']?></td>
+						<td><?=$data[1]['auto_def_reach']?> / <?=$data[1]['auto_def_reach_total']?></td>
+						<td><?=$data[2]['auto_def_reach']?> / <?=$data[2]['auto_def_reach_total']?></td>
 					</tr>
 					<tr>
 						<td>Auto Cross</td>
+						<td><?=$data[0]['auto_def_cross']?> / <?=$data[0]['auto_def_cross_total']?></td>
+						<td><?=$data[1]['auto_def_cross']?> / <?=$data[1]['auto_def_cross_total']?></td>
+						<td><?=$data[2]['auto_def_cross']?> / <?=$data[2]['auto_def_cross_total']?></td>
 					</tr>
 					<tr>
 						<td>Auto Low Goal</td>
