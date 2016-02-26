@@ -13,12 +13,14 @@ include("db_connect.php");
 <br>
 <br>
 <br>
-<div class="title">
-	<h1>Data Entry</h1>
-</div>
+
 <div class="page_container">
+<br>
+<br>
+
 	<div class="form_container">
 		<form class="datafield" method="post">
+	<h1 class="title">Data Entry</h1>	
 			<!--<table><tr>
 			<strong><h1 style="color:green">IN HONOR OF VIRAJ JOSHI</h1></strong>
 					<td>Fouls(This dropdown isn't actually going to get entered into the database)</td>
@@ -63,8 +65,9 @@ include("db_connect.php");
 					</td> 
 				</tr></table>-->	
 			
-			<table class="green">
+		<div class="blackBox">
 			<h2 class="DataTitle">Basic Data</h2>
+			<table class="green">
 				<tr>
 					<td></td>
 					<td>Match #</td>
@@ -77,6 +80,9 @@ include("db_connect.php");
 					<td><input type="number" name="team_num" class="small_num"></td>
 					<td><input type="number" name="scoutID" class="small_num"></td>
 				</tr>
+			</table>
+			<br>
+			<table class="green">
 				<tr>
 					<td>Defense 1</td>
 					<td>Defense 2</td>
@@ -105,10 +111,10 @@ include("db_connect.php");
 					
 				</tr>
 			</table>
-			
+		</div>
 			<br>
 			
-			
+		<div class="blackBox">
 			<table class="green">
 			<h2 class="DataTitle">Autonomous</h2>
 			<tr>
@@ -126,6 +132,9 @@ include("db_connect.php");
 				<td><input type="number" name="auto_High_Miss" class="small_num"></td>
 				<td><input type="number" name="auto_Low_Miss"class="small_num"></td>
 			</tr>
+			</table>
+			<br>
+			<table class="green">
 			<tr>
 				<td></td>
 				<td>Auto Defenses Reached</td>
@@ -141,6 +150,9 @@ include("db_connect.php");
 				<td><input type="number" name="auto_Defenses_Reached_Failed" class="small_num"></td>
 				<td><input type="number" name="auto_Defenses_Crossed_Failed"class="small_num"></td>
 			</tr>
+			</table>
+			<br>
+			<table class="green">
 			<tr>
 				<td></td>
 				<td>Start Location</td>
@@ -161,9 +173,9 @@ include("db_connect.php");
 				<td><input type="checkbox" name="Auto_StartWithBoulder" class="small_num"></td>
 			</tr>
 			</table>
-			
+		</div>
 			<br>
-			
+		<div class="blackBox">
 			<table class="green">
 			<h2 class="DataTitle">Teleop</h2>
 				<tr>
@@ -216,14 +228,14 @@ include("db_connect.php");
 				</tr>
 					
 			</table>
+		</div>
 			<br>
 			</table>
-			
-			<table class="green">
+		<div class="blackBox">
 			<h2 class="DataTitle">Shooting</h2>
 				<tr>
 					<td>
-						<table>
+						<table class="green">
 								<td></td>
 								<td>Batter High Goal</td>
 								<td>Batter Low Goal</td>
@@ -238,6 +250,9 @@ include("db_connect.php");
 								<td><input type="number" name="batter_high_Miss" class="small_num"></td>
 								<td><input type="number" name="batter_low_Miss" class="small_num"></td>
 							</tr>
+						</table>
+						<br>
+						<table class="green">
 							<tr>
 								<td></td>
 								<td>Courtyard High Goal</td>
@@ -257,7 +272,9 @@ include("db_connect.php");
 					</td>
 				</tr>
 			</table>
-			
+		</div>
+		<br>
+		<div class="blackBox">
 			<table  class="green">
 			<h2 class="DataTitle">Climbing</h2>
 				<tr>
@@ -274,7 +291,9 @@ include("db_connect.php");
 					</td>
 				</tr>
 			</table>
-			
+		</div>
+		<br>
+		<div class="blackBox">
 			<table class="green">
 			<h2 class="DataTitle">Defense Rating</h2>
 				<tr>
@@ -291,8 +310,9 @@ include("db_connect.php");
 					</td>
 				</tr>
 			</table>
-			
-			
+		</div>
+		<br>
+		<div class="blackBox">
 			<table class="green">
 			<h2 class="DataTitle">Robot Issues</h2>
 				<tr>
@@ -323,9 +343,9 @@ include("db_connect.php");
 				</tr>
 				
 			</table>
-			
+		</div>
 			<br>
-			
+		<div class="blackBox">
 			<table class="green">
 			<h2 class="DataTitle">Driver Data</h2>
 				<tr>
@@ -338,9 +358,9 @@ include("db_connect.php");
 					<td><input type="number" name="Ball_Control" class="small_num"></input></td>
 				</tr>
 			</table>
-			
+		</div>
 			<br>
-			
+		<div class="blackBox">
 			
 			<table class="green">
 			<h2 class="DataTitle">Comments</h2>
@@ -351,10 +371,12 @@ include("db_connect.php");
 					<td><textarea rows=5 cols=30 name="notes"></textarea></td>
 				</tr>
 			</table>
+		</div>
 			<br>
 			<input type="submit" class="subButton" name="dataSubmit"></input>
 		</form>
 	</div>
+	<br>
 	<?php
 	if(isset($_POST['dataSubmit'])){
 	//Basic Data	
