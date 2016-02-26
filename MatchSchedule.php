@@ -41,7 +41,7 @@ include("db_connect.php");
 		<tr class="scheduleZenbra">
 			<td class="side-bar"><b><?=$row["match_number"];?></b></td>
 			<td class="time"><b><?=$row['time'];?></b></td>
-			<td class="<?=$row['red_1']=="624"?'green':'red'?>"><?=$row['red_1'];?></td>
+			<td class="<?=$row['red_1']=="624"?'green':'red'?>"><a href="TeamInfoDisplay.php?team=<?=$row['red_1'];?>"><?=$row['red_1'];?></a></td>
 			<td class="<?=$row['red_2']=="624"?'green':'red'?>"><?=$row['red_2'];?></td>
 			<td class="<?=$row['red_3']=="624"?'green':'red'?>"><?=$row['red_3'];?></td>
 			<td class="<?=$row['blue_1']=="624"?'green':'blue'?>"><?=$row['blue_1'];?></td>

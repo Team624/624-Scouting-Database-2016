@@ -18,11 +18,11 @@ include("db_connect.php");
 		<div class="setupdiv">
 		
 			
-				Add a scout here
+				<p>Add a scout here</p>
 				<form method="post">
-					First Name  <input type="text" name="firstname"><br><br>
-					Last Name  <input type="text" name="lastname"><br><br>
-					Scout ID   <input type="number" name="Aid"><br><br>
+					<p>First Name</p>  <input type="text" name="firstname"><br><br>
+					<p>Last Name</p>  <input type="text" name="lastname"><br><br>
+					<p>Scout ID</p>   <input type="number" name="Aid"><br><br>
 					<input type="submit" name="addscout">
 					</form>
 					<?php
