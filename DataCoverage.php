@@ -33,15 +33,36 @@ include("db_connect.php");
 	
 	foreach($result2 as $row)
 	{
+		$teamsList = [];
+			$teamsList[] = $row['red_1'];
+			$teamsList[] = $row['red_2'];
+			$teamsList[] = $row['red_3'];
+			$teamsList[] = $row['blue_1'];
+			$teamsList[] = $row['blue_2'];
+			$teamsList[] = $row['blue_3'];
+			$match = $row["match_number"];
 ?>	
 		<tr class="zebra">
 			<td class="side-bar"><b><?=$row["match_number"];?></b></td>
-			<td class="<?=$row['has_red_1']?'found':'not-found'?>"><?=$row['red_1'];?></td>
-			<td class="<?=$row['has_red_2']?'found':'not-found'?>"><?=$row['red_2'];?></td>
-			<td class="<?=$row['has_red_3']?'found':'not-found'?>"><?=$row['red_3'];?></td>
-			<td class="<?=$row['has_blue_1']?'found':'not-found'?>"><?=$row['blue_1'];?></td>
-			<td class="<?=$row['has_blue_2']?'found':'not-found'?>"><?=$row['blue_2']?></td>
-			<td class="<?=$row['has_blue_3']?'found':'not-found'?>"><?=$row['blue_3']?></td>
+			<?php
+			foreach($teamsList as $team)
+			{
+				$query3 = "SELECT COUNT(*) FROM match_data WHERE team_number = $team AND match_number = $match";
+				$result3 = $mysqli->query($query3);
+				$row = $result3->fetch_array(MYSQLI_ASSOC);
+					if($row["COUNT(*)"] == 0)
+					{
+			?>
+			<td class="not-found"><?=$team;?></td>
+			<?php
+					}else
+					{
+			?>
+			<td class="found"><?=$team;?></td>
+			<?php
+					}
+			}
+			?>
 		</tr>
 <?php	
 	}
