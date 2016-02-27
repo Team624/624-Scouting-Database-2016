@@ -11,12 +11,41 @@ if(isset($valid_user) && isset($user_type))
 	{
 		include("navbar.php");
 		include("api_connect.php");
-		
+		include("db_connect.php");
+		/*
 		$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/txho?tournamentLevel=Qualification&teamNumber=624";
 		$response = file_get_contents($url,false,$context);
-		
+		*/
 		$teamsList = [];
+		
+		$matches_query = "SELECT * FROM `schedule` WHERE (`red_1`=624 OR `red_2`=624 OR `red_3`=624 OR `blue_1`=624 OR `blue_2`=624 OR `blue_3`=624)";
+		$result = $mysqli->query($matches_query);
 ?>	
+<?php
+	function getTeamData($mysqli,$team_num)
+	{
+		$team_query = "SELECT * FROM `match_data` WHERE team_number = '$team_num'";//(`red1`='$team_num' OR `red2`='$team_num' OR `red3`='$team_num' OR `blue1`='$team_num' OR `blue2`='$team_num' OR `blue3`='$team_num')";
+		$result = $mysqli->query($team_query);
+		
+		$data = [];
+		
+		while($row = $result->fetch_array(MYSQLI_ASSOC))
+		{
+			$data["auto_high"] += $row['auto_High_Scored']; 
+			$data["auto_high_total"] += $row['auto_High_Miss'] + $row['auto_High_Scored']; 
+			$data["auto_low"] += $row['auto_Low_Scored']; 
+			$data["auto_low_total"] += $row['auto_Low_Miss'] + $row['auto_Low_Scored']; 
+			
+			$data["auto_def_cross"] += $row['auto_Defenses_Crossed_Sucess'];
+			$data["auto_def_cross_total"] += $row['auto_Defenses_Crossed_Sucess'] + $row['auto_Defenses_Crossed_Failed'];
+			
+			$data["auto_def_reach"] += $row['auto_Defenses_Crossed_Sucess'];
+			$data["auto_def_reach_total"] += $row['auto_Defenses_Crossed_Sucess'] + $row['auto_Defenses_Crossed_Failed'];
+		}
+
+		return $data;		
+	}
+?>
 
 
 <!-- Make this page Tablet Friendly -->
@@ -41,19 +70,25 @@ if(isset($valid_user) && isset($user_type))
 
 	<ul id="match_list">
 	<?php 
-		
+		/*
 		$json = json_decode($response, true);
 		//echo json_encode($json, JSON_PRETTY_PRINT);
-		$it = 0;
+		
 		
 		foreach($json as $schedule)
 		{
 			foreach($schedule as $match)
 			{
-				$description = $match["description"];
+				*/
+		$it = 0;
+		
+		while($row = $result->fetch_array(MYSQLI_ASSOC))
+		{
+				
+				$description = "Qualification " . $row['match_number'];
 				?>
 				<li class="slideli" id="slide_li_<?= $it ?>">
-					<span class="collapseView">
+					<span class="collapseView" id="slide_span_<?= $it ?>">
 						<button class="slidebutton" id="slide_button_<?= $it ?>" onclick="expand('<?= $it ?>')" type="button">-</button>
 						<?php echo $description; ?>
 					</span>
@@ -64,12 +99,20 @@ if(isset($valid_user) && isset($user_type))
 					$iter = 1;
 					$red = true;
 					$teamsList = [];
-					
+					$teamsList[] = $row['red_1'];
+					$teamsList[] = $row['red_2'];
+					$teamsList[] = $row['red_3'];
+					$teamsList[] = $row['blue_1'];
+					$teamsList[] = $row['blue_2'];
+					$teamsList[] = $row['blue_3'];
+					/*
 					foreach($match["Teams"] as $teams)
+					{*/
+					foreach($teamsList as $teams)
 					{
-						$teamsList[] = $teams["teamNumber"];
+						//$teamsList[] = $teams["teamNumber"];
 						
-						if($teams["teamNumber"] == 624)
+						if($teams == 624)
 						{
 							if($iter > 3)
 							{
@@ -79,10 +122,11 @@ if(isset($valid_user) && isset($user_type))
 						
 						$iter++;
 					}
+					//}
 					
 					//var_dump($teamsList);
 				?>
-				<h3> Our Alliance </h3>
+				<h3 style="color:#000"> Our Alliance </h3>
 				<?php
 					if($red == true)
 					{
@@ -117,16 +161,24 @@ if(isset($valid_user) && isset($user_type))
 					<tr>
 					<td></td>
 					<?php
+					
+					$data = [];
+					
 					for(;$iter<=$limit;$iter++)
 					{
+						$data[] = getTeamData($mysqli,$teamsList[$iter]);
 						?>
 						<td><?=$teamsList[$iter]?></td>
 						<?php
 					}
+					
 				?>
+				
+				
 					</tr>
 					<tr>
 						<td>Favorite Defense</td>
+						
 					</tr>
 					<tr>
 						<td>Least Favorite Defense</td>
@@ -135,22 +187,31 @@ if(isset($valid_user) && isset($user_type))
 						<td>Preferred Starting Position</td>
 					</tr>
 					<tr>
-						<td>Auto Reach %</td>
+						<td>Auto Reach</td>
+						<td><?=$data[0]['auto_def_reach']?> / <?=$data[0]['auto_def_reach_total']?></td>
+						<td><?=$data[1]['auto_def_reach']?> / <?=$data[1]['auto_def_reach_total']?></td>
+						<td><?=$data[2]['auto_def_reach']?> / <?=$data[2]['auto_def_reach_total']?></td>
 					</tr>
 					<tr>
-						<td>Auto Cross %</td>
+						<td>Auto Cross</td>
+						<td><?=$data[0]['auto_def_cross']?> / <?=$data[0]['auto_def_cross_total']?></td>
+						<td><?=$data[1]['auto_def_cross']?> / <?=$data[1]['auto_def_cross_total']?></td>
+						<td><?=$data[2]['auto_def_cross']?> / <?=$data[2]['auto_def_cross_total']?></td>
 					</tr>
 					<tr>
-						<td>Auto Low Goal %</td>
+						<td>Auto Low Goal</td>
 					</tr>
 					<tr>
-						<td>Auto High Goal %</td>
+						<td>Auto High Goal</td>
+						<td><?=$data[0]['auto_high']?> / <?=$data[0]['auto_high_total']?></td>
+						<td><?=$data[1]['auto_high']?> / <?=$data[1]['auto_high_total']?></td>
+						<td><?=$data[2]['auto_high']?> / <?=$data[2]['auto_high_total']?></td>
 					</tr>
 					<tr>
-						<td>Teleop Low Goal %</td>
+						<td>Teleop Low Goal</td>
 					</tr>
 					<tr>
-						<td>Teleop High Goal %</td>
+						<td>Teleop High Goal</td>
 					</tr>
 					<tr>
 						<td>Climb?</td>
@@ -162,7 +223,7 @@ if(isset($valid_user) && isset($user_type))
 						<td>Tech Fouls</td>
 					</tr>
 				</table>
-				<h3> Our Opposition </h3>
+				<h3 style="color:#000"> Our Opposition </h3>
 				<?php
 					if($red == false)
 					{
@@ -234,8 +295,9 @@ if(isset($valid_user) && isset($user_type))
 				<br>
 				<?php
 				$it++;
-			}
 		}
+//			}
+//		}
 		
 		
 		//echo json_encode($match, JSON_PRETTY_PRINT);
