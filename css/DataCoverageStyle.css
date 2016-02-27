@@ -42,7 +42,7 @@ tr.zebra:nth-child(even)
 	height: 70px;
 	color: #06f000;
 }
-.side-bar
+td.side-bar
 {
 	border-style: none solid solid;
 	border-bottom-width: 2px;
@@ -51,19 +51,31 @@ tr.zebra:nth-child(even)
 	background-color: rgba(128, 128, 128, .5);
 	color:black;
 }
+a.side-bar
+{
+	color:black;
+}
 th
 {
 	text-decoration: none;
 }
 
-.found
+td.found
 {
 	background-color: rgba(0, 204, 0, 0.5);
 	color:#82ff80;
 }
-.not-found
+a.found
+{
+	color:#82ff80;
+}
+td.not-found
 {
 	background-color: rgba(204, 0, 0, 0.5);
+	color:#ff8080;
+}
+a.not-found
+{
 	color:#ff8080;
 }
 

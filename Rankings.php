@@ -5,12 +5,16 @@ include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
 include("read_ini.php");
-//include("db_connect.php");
+include("db_connect.php");
 include("api_connect.php");
 
+	$query2 = "SELECT * FROM teams";
+	$result2 = $mysqli->query($query2);
+	$reg = $query2['regional'];
 
 	//NEW API CALL FOR 2.0
-	$url = "https://frc-api.firstinspires.org/v2.0/2015/rankings/TXHO";
+	//$url = "https://frc-api.firstinspires.org/v2.0/2016/rankings/SCMB";
+	$url = "https://frc-api.firstinspires.org/v2.0/2016/rankings/SCMB";
 	$response = file_get_contents($url,false,$context);
 	
 	//hint: use json_decode to decode $response. Look it up.
@@ -27,16 +31,17 @@ include("api_connect.php");
 <div class = "title" >
 	<h1> Rankings </h1>
 </div>
+	
 	<table class = "rankingsTable">
+	<?=$reg?>
 		<tr class="THead">
 			<th>Rank</th>
 			<th>Team Number</th>
 			<th>Qual Average</th>
 			<th>Auto Points</th>
-			<th>Container Points</th>
-			<th>Coopertition Points</th>
-			<th>Litter Points</th>
-			<th>Tote Points</th>
+			<th>Defense Points</th>
+			<th>Low & high goal Points</th>
+			<th>scale & challenge Points</th>
 			<th>Wins</th>
 			<th>Losses</th>
 			<th>Ties</th>
@@ -54,14 +59,14 @@ include("api_connect.php");
 			foreach ($rank as $team)
 			{
 				//var_dump($team);
-				$teamNumber = $team["teamNumber"];
 				$roast = $team["rank"];
+				$teamNumber = $team["teamNumber"];
 				$qualAverage = $team["qualAverage"];
-				$autoPoints = $team["autoPoints"];
-				$containerPoints = $team["containerPoints"];
-				$coopertitionPoints = $team["coopertitionPoints"];
-				$litterPoints = $team["litterPoints"];
-				$totePoints = $team["totePoints"];
+				$rankScore = $team["sortOrder1"];
+				$autoPoints = $team["sortOrder2"];
+				$defensePoints = $team['sortOrder5'];
+				$goalPoints = $team["sortOrder4"];
+				$scalePoints = $team["sortOrder3"];
 				$wins = $team["wins"];
 				$losses = $team["losses"];
 				$ties = $team["ties"];
@@ -87,10 +92,9 @@ include("api_connect.php");
 						<td class="body"><?php echo $teamNumber; ?></td>
 						<td class="body"><?php echo $qualAverage; ?></td> 
 						<td class="body"><?php echo $autoPoints; ?></td> 
-						<td class="body"><?php echo $containerPoints; ?></td> 
-						<td class="body"><?php echo $coopertitionPoints; ?></td>
-						<td class="body"><?php echo $litterPoints; ?></td> 
-						<td class="body"><?php echo $totePoints; ?></td> 
+						<td class="body"><?php echo $defensePoints; ?></td> 
+						<td class="body"><?php echo $goalPoints; ?></td>
+						<td class="body"><?php echo $scalePoints; ?></td> 
 						<td class="body"><?php echo $wins; ?></td> 
 						<td class="body"><?php echo $losses; ?></td> 
 						<td class="body"><?php echo $ties; ?></td> 
