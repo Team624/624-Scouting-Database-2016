@@ -43,7 +43,7 @@ include("db_connect.php");
 			$match = $row["match_number"];
 ?>	
 		<tr class="zebra">
-			<td class="side-bar"><b><?=$row["match_number"];?></b></td>
+			<td class="side-bar"><a href="MatchInfoDisplay.php?match=<?=$row["match_number"];?>"><b><?=$row["match_number"];?></b></a></td>
 			<?php
 			foreach($teamsList as $team)
 			{
@@ -53,12 +53,12 @@ include("db_connect.php");
 					if($row["COUNT(*)"] == 0)
 					{
 			?>
-			<td class="not-found"><?=$team;?></td>
+			<td class="not-found"><a href="http://localhost/TeamInfoDisplay.php?team=<?=$team;?>"><?=$team;?></a></td>
 			<?php
 					}else
 					{
 			?>
-			<td class="found"><?=$team;?></td>
+			<td class="found"><a href="http://localhost/TeamInfoDisplay.php?team=<?=$team;?>"><?=$team;?></a></td>
 			<?php
 					}
 			}
