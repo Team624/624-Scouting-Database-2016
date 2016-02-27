@@ -39,15 +39,21 @@
 	mysqli_select_db($mysqli,$dbname);
 	$result1=mysqli_query($mysqli,"SELECT * FROM schedule WHERE match_number='$match'");
 	
-	$query = "SELECT * FROM match_data";
-	$result = $mysqli->query($query);
-	
 	if ($result1->num_rows > 0) {
+		
 		?>
 		<?php 
 		// output data of each row
     while($row = $result1->fetch_assoc()) {
+		$red1=$row["red_1"];
+		$red2=$row["red_2"];
+		$red3=$row["red_3"];
+		$blue1=$row["blue_1"];
+		$blue2=$row["blue_2"];
+		$blue3=$row["blue_3"];
+		
 		?>
+		
 	<h1> Qualification Match <?php echo $match; ?> </h1>
 	
 <div class="matchDisplay">
@@ -123,7 +129,7 @@
 		</thead>
 			<tr class="topRow">
 			<th class="TopRed">Red1</th>
-			<th class='red'><?php echo $red1=$row["red_1"];?></th>
+			<th class='red'><?php echo $red1;?></th>
 			<?php 
 	$query2 = "SELECT * FROM teams WHERE number='$red1'";
 	$result2 = $mysqli->query($query2);
@@ -201,7 +207,7 @@
 			</tr>
 			<tr class="topRow">
 			<th class="TopRed">Red2</th>
-			<th class='red'><?php echo $red2=$row["red_2"];?></th>
+			<th class='red'><?php echo $red2;?></th>
 			<?php 
 	$query4 = "SELECT * FROM teams WHERE number='$red2'";
 	$result4 = $mysqli->query($query4);
@@ -230,7 +236,7 @@
 			</tr>
 			<tr class="topRow">
 			<th class="TopRed">Red3</th>
-			<th class='red'><?php echo $red3=$row["red_3"];?></th>
+			<th class='red'><?php echo $red3;?></th>
 			<?php 
 	$query6 = "SELECT * FROM teams WHERE number='$red3'";
 	$result6 = $mysqli->query($query6);
@@ -319,7 +325,7 @@
 			</thead>
 			<tr class="topRow">
 			<th class="TopBlue">Blue1</th>
-			<th class='blue'><?php echo $blue1=$row["blue_1"];?></th>
+			<th class='blue'><?php echo $blue1;?></th>
 			<?php 
 	$query8 = "SELECT * FROM teams WHERE number='$blue1'";
 	$result8 = $mysqli->query($query8);
@@ -348,7 +354,7 @@
 			</tr>
 			<tr class="topRow">
 			<th class="TopBlue">Blue2</th>
-			<th class='blue'><?php echo $blue2=$row["blue_2"];?></th>
+			<th class='blue'><?php echo $blue2;?></th>
 			<?php 
 	$query10 = "SELECT * FROM teams WHERE number='$blue2'";
 	$result10 = $mysqli->query($query10);
@@ -377,7 +383,7 @@
 			</tr>
 			<tr class="topRow">
 			<th class="TopBlue">Blue3</th>
-			<th class='blue'><?php echo $blue3=$row["blue_3"];?></th>
+			<th class='blue'><?php echo $blue3;?></th>
 			<?php 
 	$query12 = "SELECT * FROM teams WHERE number='$blue3'";
 	$result12 = $mysqli->query($query12);
