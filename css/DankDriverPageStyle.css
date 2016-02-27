@@ -1,3 +1,13 @@
+table{
+	border-spacing: 45px 0px;
+}
+
+.blue_text{
+	color:#0000FF;
+}
+.red_text{
+	color:#FF0000;
+}
 
 h2.drivers{
 	color:#FFF;
@@ -48,13 +58,13 @@ button.slidebutton:hover
 	padding-top: 5;
 }
 
-li.slideli .active
+li.dactive
 {
 	background-color: #00FF00;
 	color:#000;
 	
 }
-button.slidebutton .active
+button.dactive
 {
 	background-color: #00FF00;
 	color:#000;
@@ -82,6 +92,13 @@ div.slidediv
 span.collapseView
 {
 	color:#ECECEC;
+	height:30px;
+	max-height:200em;
+	font-size:14px;
+}
+span.dactive
+{
+	color:#000;
 	height:30px;
 	max-height:200em;
 	font-size:14px;

@@ -9,9 +9,10 @@ function load()
 		var d = document.getElementById("slide_"+i);
 		var b = document.getElementById("slide_button_"+i);
 		var l = document.getElementById("slide_li_"+i);
+		var s = document.getElementById("slide_span_"+i);
 		slideheights[i] = d.clientHeight;
 		
-		d.style.height="0px";
+		d.setAttribute("style", "height:0px;");
 		b.innerHTML = "+";
 		//l.setAttribute("style", "-webkit-border-bottom-right-radius: 5px;-moz-border-radius-bottomright: 5px;-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;margin-bottom:5px; font-size:18px;"); 
 		//b.setAttribute("style","-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;");
@@ -33,8 +34,12 @@ function expand(id)
 		
 		var l = document.getElementById("slide_li_"+id);
 		
-		l.className = l.className.replace( /(?:^|\s)active(?!\S)/g , '' );
-		b.className = b.className.replace( /(?:^|\s)active(?!\S)/g , '' );
+		var s = document.getElementById("slide_span_"+id);
+		
+		
+		l.className = l.className.replace( /(?:^|\s)dactive(?!\S)/g , '' );
+		b.className = b.className.replace( /(?:^|\s)dactive(?!\S)/g , '' );
+		s.className = b.className.replace( /(?:^|\s)dactive(?!\S)/g , '' );
 	
 		step(1,function(){ 
 		if(d.style.height=="0px")
@@ -55,8 +60,11 @@ function expand(id)
 		
 		var b = document.getElementById("slide_button_"+id);
 		
-		l.className+=" active";
-		b.className+=" active";
+		var s = document.getElementById("slide_span_"+id);
+		
+		l.className+=" dactive";
+		b.className+=" dactive";
+		s.className+=" dactive";
 		
 		b.innerHTML = "-";
 		
