@@ -59,7 +59,7 @@
 			<th class="topTime" rowspan = "3" colspan = "1">Name</th>
 			<th class="topTime" rowspan = "1" colspan = "4">Auto</th>
 			<th class="topTime" rowspan = "1" colspan = "2">Teleop Shooting</th>
-			<th class="topTime" rowspan = "1" colspan = "37">Defense</th>
+			<th class="topTime" rowspan = "1" colspan = "21">Defense</th>
 			<th class="topTime" rowspan = "1" colspan = "2">Climbing</th>
 			<th class="topTime" rowspan = "1" colspan = "6">Robot Issues</th>
 			</tr>
@@ -75,15 +75,11 @@
 			<th class='topTime'rowspan = "2" colspan = "1">High Goal%</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Low Goal%</th>
 			<!--Defense-->
-			<th class='topTime'rowspan = "1" colspan = "4">Lowbar</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Portcullis</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Cheval de Frise</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Moat</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Ramparts</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Drawbridge</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Sally Port</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Rock Wall</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Rough Terrain</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Defense 1</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Defense 2</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Defense 3</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Defense 4</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Defense 5</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Defense Rating</th>
 			<!--Climbing-->
 			<th class='topTime'rowspan = "2" colspan = "1">Challenge Sucess?</th>
@@ -97,51 +93,32 @@
 			<th class='topTime'rowspan = "2" colspan = "1">Tech Fouls</th>
 	</tr>
 	<tr>
-		<!--Lowbar-->
+		<!--Defense 1-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
-		<!--Portcullis-->	
+		<!--Defense 2-->	
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
-		<!--Cheval de Frise-->
+		<!--Defense 3-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
-		<!--Moat-->
+		<!--Defense 4-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
-		<!--Ramparts-->
+		<!--Defense 5-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
-		<!--Drawbridge-->
-		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Speed</th>
-		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
-		<!--Sally Port-->
-		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Speed</th>
-		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
-		<!--Rock Wall-->
-		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Speed</th>
-		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
-		<!--Rough Terrain-->
-		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Speed</th>
-		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
+		
 	</tr>
 		</thead>
 			<tr class="topRow">
@@ -169,14 +146,17 @@
 			<?php $auto_High_Scored=$row2["auto_High_Scored"];
 				 $auto_High_Miss=$row2["auto_High_Miss"];
 				 $totalattempts=$auto_High_Scored+$auto_High_Miss;
-				 echo $auto_High_Scored/$totalattempts*100;
+				  if($totalattempts==0){echo 0;}
+				else{echo $auto_Low_Scored/$totalattempts*100;}
+				
 			?>
 			</th>
 			<th class='red'>
 			<?php $auto_Low_Scored=$row2["auto_Low_Scored"];
 				 $auto_Low_Miss=$row2["auto_Low_Miss"];
 				 $totalattempts1=$auto_Low_Scored+$auto_Low_Miss;
-				 echo $auto_Low_Scored/$totalattempts1*100;
+				 if($totalattempts1==0){echo 0;}
+				else{echo $auto_Low_Scored/$totalattempts1*100;}
 			?>
 			</th>
 			<th class='red'><?php echo $row2["auto_Defenses_Reached_Sucess"];?></th>
@@ -189,8 +169,11 @@
 				$courtyard_high_Miss=$row2["courtyard_high_Miss"];
 				$scored=$batter_high_Scored+$courtyard_high_Scored;
 				$totalattempts2=$batter_high_Scored+$courtyard_high_Scored+$batter_high_Miss+$courtyard_high_Miss;
+				 if($totalattempts2==0){echo 0;}
+				else{
 				$highGoalPercent=$scored/$totalattempts2*100;
 				echo round($highGoalPercent,0);
+				}
 			?>
 			</th>
 			<th class='red'>
@@ -201,8 +184,12 @@
 				$courtyard_low_Miss=$row2["courtyard_low_Miss"];
 				$scored1=$batter_low_Scored+$courtyard_low_Scored;
 				$totalattempts3=$courtyard_low_Scored+$batter_low_Scored+$batter_low_Miss+$courtyard_low_Miss;
-				$lowGoalPercent=$scored1/$totalattempts3*100;
+				if($totalattempts3==0){echo 0;}
+				else{
+				$highGoalPercent=$scored1/$totalattempts3*100;
 				echo round($lowGoalPercent,0);
+				}
+				
 			?>
 			</th>
 		<?php
@@ -272,16 +259,63 @@
 			</tr> 
 			<thead>
 			<tr class="topRow">
-			<th class="topTime"rowspan = "1" colspan = "1">Alliance</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Team Number</th>
-			<th class="topTime"rowspan = "1" colspan = "1">Name</th>
-			<th class="topTime" rowspan = "1" colspan = "1">High Goal%</th>
-			<th class="topTime" rowspan = "1" colspan = "1">Low Goal%</th>
-			<th class="topTime" rowspan = "1" colspan = "1">Reached</th>
-			<th class="topTime" rowspan = "1" colspan = "1">Crossed</th>
-			<th class="topTime" rowspan = "1" colspan = "1">High Goal%</th>
-			<th class="topTime" rowspan = "1" colspan = "1">Low Goal%</th>
+			<!--Basic Data-->
+			<th class="topTime"rowspan = "2" colspan = "1">Alliance</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Team Number</th>
+			<th class="topTime"rowspan = "2" colspan = "1">Name</th>
+			<!--Auto-->
+			<th class="topTime" rowspan = "2" colspan = "1">High Goal%</th>
+			<th class="topTime" rowspan = "2" colspan = "1">Low Goal%</th>
+			<th class="topTime" rowspan = "2" colspan = "1">Reached</th>
+			<th class="topTime" rowspan = "2" colspan = "1">Crossed</th>
+			<!--Teleop Shooting-->
+			<th class="topTime" rowspan = "2" colspan = "1">High Goal%</th>
+			<th class="topTime" rowspan = "2" colspan = "1">Low Goal%</th>
+			<!--Defense-->
+			<th class='topTime'rowspan = "1" colspan = "4">Defense 1</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Defense 2</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Defense 3</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Defense 4</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Defense 5</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Defense Rating</th>
+			<!--Climbing-->
+			<th class='topTime'rowspan = "2" colspan = "1">Challenge Sucess?</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Scaled Sucess?</th>
+			<!--Robot Issues-->
+			<th class='topTime'rowspan = "2" colspan = "1">No Show</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Mech Fail</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Lost Comms</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Tipped</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Fouls</th>
+			<th class='topTime'rowspan = "2" colspan = "1">Tech Fouls</th>
 			</tr>
+			<tr>
+		<!--Defense 1-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
+		<th class='topTime'>Ball?</th>
+		<!--Defense 2-->	
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
+		<th class='topTime'>Ball?</th>
+		<!--Defense 3-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
+		<th class='topTime'>Ball?</th>
+		<!--Defense 4-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
+		<th class='topTime'>Ball?</th>
+		<!--Defense 5-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
+		<th class='topTime'>Ball?</th>
+		</tr>
 			</thead>
 			<tr class="topRow">
 			<th class="TopBlue">Blue1</th>
