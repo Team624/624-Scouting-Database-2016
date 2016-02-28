@@ -24,7 +24,7 @@ include("db_connect.php");
 					<td>Fouls(This dropdown isn't actually going to get entered into the database)</td>
 				</tr>
 				<tr>	
-					<td>  <!--you can suck it-->
+					<td>  -->
 					
 						<select>
 							<option name="Tech Foul" value="0">Tech Foul</option>

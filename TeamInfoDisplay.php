@@ -120,6 +120,86 @@
 	{
 		array_push($Auto_StartWithBoulder,$row['Auto_StartWithBoulder']);
 	}
+    /***************************************************************************************************************************************************************************
+	TELEOP TELEOP TELEOP TELEOP TELEOP TELEOP TELEOP TELEOP TELEOP TELEOP TELEOP TELEOP TELEOP TELEOP TELEOP TELEOP TELEOP 
+	GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES
+	UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER 
+	HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE 
+	****************************************************************************************************************************************************************************/
+	$result12=mysqli_query($mysqli,"SELECT def_1_crossed FROM match_data WHERE team_number='$team'");
+	$def_1_crossed=array();
+	
+	$result13=mysqli_query($mysqli,"SELECT def_2_crossed FROM match_data WHERE team_number='$team'");
+	$def_2_crossed=array();
+	
+	$result14=mysqli_query($mysqli,"SELECT def_3_crossed FROM match_data WHERE team_number='$team'");
+	$def_3_crossed=array();
+	
+	$result15=mysqli_query($mysqli,"SELECT def_4_crossed FROM match_data WHERE team_number='$team'");
+	$def_4_crossed=array();
+	
+	$result16=mysqli_query($mysqli,"SELECT def_5_crossed FROM match_data WHERE team_number='$team'");
+	$def_5_crossed=array();
+	
+	$result17=mysqli_query($mysqli,"SELECT def_1_weakened FROM match_data WHERE team_number='$team'");
+	$def_1_weakened=array();
+	
+	$result18=mysqli_query($mysqli,"SELECT def_2_weakened FROM match_data WHERE team_number='$team'");
+	$def_2_weakened=array();
+	
+	$result19=mysqli_query($mysqli,"SELECT def_3_weakened FROM match_data WHERE team_number='$team'");
+	$def_3_weakened=array();
+	
+	$result20=mysqli_query($mysqli,"SELECT def_4_weakened FROM match_data WHERE team_number='$team'");
+	$def_4_weakened=array();
+	
+	$result21=mysqli_query($mysqli,"SELECT def_5_weakened FROM match_data WHERE team_number='$team'");
+	$def_5_weakened=array();
+	
+	$result22=mysqli_query($mysqli,"SELECT def_1_speed FROM match_data WHERE team_number='$team'");
+	$def_1_speed=array();
+	
+	$result23=mysqli_query($mysqli,"SELECT def_2_speed FROM match_data WHERE team_number='$team'");
+	$def_2_speed=array();
+			
+	$result24=mysqli_query($mysqli,"SELECT def_3_speed FROM match_data WHERE team_number='$team'");
+	$def_3_speed=array();
+			
+	$result25=mysqli_query($mysqli,"SELECT def_4_speed FROM match_data WHERE team_number='$team'");
+	$def_4_speed=array();
+			
+	$result26=mysqli_query($mysqli,"SELECT def_5_speed FROM match_data WHERE team_number='$team'");
+	$def_5_speed=array();	
+	
+	$result27=mysqli_query($mysqli,"SELECT def_1_ball FROM match_data WHERE team_number='$team'");
+	$def_1_ball=array();
+	
+	$result28=mysqli_query($mysqli,"SELECT def_2_ball FROM match_data WHERE team_number='$team'");
+	$def_2_ball=array();
+	
+	$result29=mysqli_query($mysqli,"SELECT def_3_ball FROM match_data WHERE team_number='$team'");
+	$def_3_ball=array();
+	
+	$result30=mysqli_query($mysqli,"SELECT def_4_ball FROM match_data WHERE team_number='$team'");
+	$def_4_ball=array();
+	
+	$result31=mysqli_query($mysqli,"SELECT def_5_ball FROM match_data WHERE team_number='$team'");
+	$def_5_ball=array();
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
 			
 			
 			?>
@@ -214,7 +294,7 @@
 					//Defenses Crossed
 					$c_total_defenses=array_sum($auto_Defenses_Crossed_Sucess);
 					$c_total_attempts=array_sum($auto_Defenses_Crossed_Failed)+array_sum($auto_Defenses_Crossed_Sucess);
-					$c_percentin=(c_total_defenses/c_total_attempts)*100;
+					//$c_percentin=(c_total_defenses/c_total_attempts)*100;
 					?>
 					<tr>
 						Autonomous
