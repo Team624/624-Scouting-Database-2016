@@ -5,18 +5,25 @@
 
 	//if you ever want to access your own database instead, this is the place to do it.
 	//Just uncomment out and add in your own info.
+<<<<<<< HEAD
 	$dbhost = localhost /*$ini['dbhost']*/;
 	$dbname =  scout2016   /*$ini['dbname']*/;
 	$dbuser = ViraJJ     /*$ini['dbuser']*/;
 	$dbpass = madara123     /*$ini['dbpass']*/; 
+=======
+	//$dbhost = localhost /*$ini['dbhost']*/;
+	//$dbname =  scout2016   /*$ini['dbname']*/;
+	//$dbuser = SkaiCow     /*$ini['dbuser']*/;
+	//$dbpass = clutchcode01     /*$ini['dbpass']*/; 
+>>>>>>> MatchInfoDisplay
 	
 
 	
 //this is if you want to connect to the team624 database
-	//$dbhost = $ini['dbhost'];
-	//$dbname = $ini['dbname'];
-	//$dbuser = $ini['dbuser'];
-//$dbpass = $ini['dbpass'];
+	$dbhost = $ini['dbhost'];
+	$dbname = $ini['dbname'];
+	$dbuser = $ini['dbuser'];
+	$dbpass = $ini['dbpass'];
 	
 	$mysqli = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
 	
@@ -26,10 +33,9 @@
 		exit();
 	}
 	//I might comment this out fo later if I have to.
-	/*elseif ($mysqli) {
+	elseif ($mysqli) {
 		echo"Connection Successful!";
 	}
-	*/
 	
 	
 ?>

@@ -43,8 +43,7 @@
 	$result = $mysqli->query($query);
 	
 	if ($result1->num_rows > 0) {
-		?>
-		<?php 
+
 		// output data of each row
     while($row = $result1->fetch_assoc()) {
 		?>
