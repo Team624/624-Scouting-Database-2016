@@ -43,11 +43,11 @@ if(isset($valid_user) && isset($user_type))
 			$data["auto_def_reach_total"] += $row['auto_Defenses_Crossed_Sucess'] + $row['auto_Defenses_Crossed_Failed'];
 			
 			$defenseList = [];
-			$defenseList = $row['def_category_1'];
-			$defenseList = $row['def_category_2'];
-			$defenseList = $row['def_category_3'];
-			$defenseList = $row['def_category_4'];
-			$defenseList = $row['def_category_5'];
+			$defenseList[] = $row['def_category_1'];
+			$defenseList[] = $row['def_category_2'];
+			$defenseList[] = $row['def_category_3'];
+			$defenseList[] = $row['def_category_4'];
+			$defenseList[] = $row['def_category_5'];
 			
 			$def = 1;
 			
@@ -285,7 +285,7 @@ if(isset($valid_user) && isset($user_type))
 					{
 						$data[] = getTeamData($mysqli,$teamsList[$iter]);
 						?>
-						<td><?=$teamsList[$iter]?></td>
+						<td><a href="TeamInfoDisplay.php?team=<?=$teamsList[$iter]?>"><?=$teamsList[$iter]?></td>
 						<?php
 					}
 					
