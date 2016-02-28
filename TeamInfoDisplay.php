@@ -266,6 +266,69 @@
 	{
 		array_push($def_5_ball,$row['def_5_ball']);
 	}
+	/*
+	SHOOTING SHOOTING SHOOTING SHOOTING SHOOTING SHOOTING SHOOTING SHOOTING SHOOTING SHOOTING SHOOTING SHOOTING 
+	GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES GOES 
+	UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER UNDER 
+	HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE HERE
+	*/
+	$result32=mysqli_query($mysqli,"SELECT batter_high_Scored FROM match_data WHERE team_number='$team'");
+	$batter_high_Scored=array();
+	
+	$result33=mysqli_query($mysqli,"SELECT batter_low_Scored FROM match_data WHERE team_number='$team'");
+	$batter_low_Scored=array();
+	
+	$result34=mysqli_query($mysqli,"SELECT batter_high_Miss FROM match_data WHERE team_number='$team'");
+	$batter_high_Miss=array();
+	
+	$result35=mysqli_query($mysqli,"SELECT batter_low_Miss FROM match_data WHERE team_number='$team'");
+	$batter_low_Miss=array();
+	
+	$result36=mysqli_query($mysqli,"SELECT courtyard_high_Scored FROM match_data WHERE team_number='$team'");
+	$courtyard_high_Scored=array();
+	
+	$result37=mysqli_query($mysqli,"SELECT courtyard_low_Scored FROM match_data WHERE team_number='$team'");
+	$courtyard_low_Scored=array();
+	
+	$result38=mysqli_query($mysqli,"SELECT courtyard_high_Miss FROM match_data WHERE team_number='$team'");
+	$courtyard_high_Miss=array();
+	
+	$result39=mysqli_query($mysqli,"SELECT courtyard_low_Miss FROM match_data WHERE team_number='$team'");
+	$courtyard_low_Miss=array();
+	
+	while($row = mysqli_fetch_assoc($result32)) //batter_high_Scored
+	{
+		array_push($batter_high_Scored,$row['batter_high_Scored']);
+	}
+	while($row = mysqli_fetch_assoc($result33)) //batter_low_Scored
+	{
+		array_push($batter_low_Scored,$row['batter_low_Scored']);
+	}
+	while($row = mysqli_fetch_assoc($result34)) //batter_high_Miss
+	{
+		array_push($batter_high_Miss,$row['batter_high_Miss']);
+	}
+	while($row = mysqli_fetch_assoc($result35)) //batter low  Miss
+	{
+		array_push($batter_low_Miss,$row['batter_low_Miss']);
+	}
+	while($row = mysqli_fetch_assoc($result36)) //courtyard_high_Scored
+	{
+		array_push($courtyard_high_Scored,$row['courtyard_high_Scored']);
+	}
+	while($row = mysqli_fetch_assoc($result37)) //courtyard_low_Scored
+	{
+		array_push($courtyard_low_Scored,$row['courtyard_low_Scored']);
+	}
+	while($row = mysqli_fetch_assoc($result38)) //courtyard_high_Miss
+	{
+		array_push($courtyard_high_Miss,$row['courtyard_high_Miss']);
+	}
+	while($row = mysqli_fetch_assoc($result39)) //\courtyard_low_Miss
+	{
+		array_push($courtyard_low_Miss,$row['courtyard_low_Miss']);
+	}
+	
 			?>
 		<table class="matchTable">
 			<thead class="THead">
@@ -342,7 +405,7 @@
 					$l_total_attempts=array_sum($auto_Low_Scored)+array_sum($auto_Low_Miss);
 					$l_percentin=($l_total_made/$l_total_attempts) *100;
 					
-					
+					//Teleop Defenses
 					
 					//total percent
 					$d_total_made=array_sum($auto_Defenses_Crossed_Sucess)+array_sum($auto_Defenses_Reached_Sucess);
@@ -359,12 +422,27 @@
 					$c_total_defenses=array_sum($auto_Defenses_Crossed_Sucess);
 					$c_total_attempts=array_sum($auto_Defenses_Crossed_Failed)+array_sum($auto_Defenses_Crossed_Sucess);
 					//$c_percentin=(c_total_defenses/c_total_attempts)*100;
+					
+					//Teleop Shooting
+					$t_balls_shot=array_sum($batter_high_Scored)+array_sum($batter_low_Scored)+array_sum($batter_high_Miss)+array_sum($batter_low_Miss)+array_sum($courtyard_high_Scored)+array_sum($courtyard_low_Scored)+array_sum($courtyard_high_Miss)+array_sum($courtyard_low_Miss);
+					//Batter Percent
+					$BA_total_made=array_sum($batter_high_Scored)+array_sum($batter_low_Scored);
+					$BA_total_attempts=array_sum($batter_high_Scored)+array_sum($batter_low_Scored)+array_sum($batter_high_Miss)+array_sum($batter_low_Miss);
+					if($BA_total_attempts>0)
+					$BA_percentin=($BA_total_made/$BA_total_attempts) *100;
+					
+					//Courtyard Percent
+					$CO_total_made=array_sum($courtyard_high_Scored)+array_sum($courtyard_low_Scored);
+					$CO_total_attempts=array_sum($courtyard_high_Scored)+array_sum($courtyard_low_Scored)+array_sum($courtyard_high_Miss)+array_sum($courtyard_low_Miss);
+					if($CO_total_attempts>0)
+					$CO_percentin=($CO_total_made/$CO_total_attempts) *100;
+					
 					?>
 					<tr>
 						Autonomous
 					</tr>
 					<tr>
-						<td>Total Balls Shot:</td><td><?php echo $balls_shot; ?></td>
+						<td>Total Auto Balls Shot:</td><td><?php echo $balls_shot; ?></td>
 					</tr>
 					<tr>
 						<td>Percent of All Balls In:</td><td><?php echo (ceil($percentin)."%"); ?></td>
@@ -388,6 +466,7 @@
 						<td>Percent of All Defenses Crossed:</td><td><?php echo (ceil($c_percentin)."%"); ?></td>
 					</tr>
 		</table>
+	
 		<table class="matchTable">
 			<thead class="THead">
 				<tr>
@@ -398,8 +477,10 @@
 				<td><td>
 					<?php 
 					$arrlength=count($match_numbers);
-					for($col=0;$col<$arrlength;$col++){?><td rowspan = "1" colspan = "1">Crossed</td><td rowspan = "1" colspan = "1">Weakened</td><td rowspan = "1" colspan = "1">Speed</td><td rowspan = "1" colspan = "1">Ball</td><?php }?>                           
+					for($col=0;$col<$arrlength;$col++){?><td rowspan = "1" colspan = "2">Batter</td><td rowspan = "1" colspan = "1">Courtyard</td><td rowspan = "1" colspan = "1">Speed</td><td rowspan = "1" colspan = "1">Ball</td><?php }?>                           
 				</tr>
+				</thead>
+				<tbody>
 				<tr>
 					<td >Defense 1</td>
 					<td><?php foreach($def_1_crossed as $c){?><td colspan="3"><?php echo $c; }?> </td>
@@ -410,22 +491,74 @@
 				</tr>
 				<tr>
 					<td>Defense 2</td>
+					<td><?php foreach($def_2_crossed as $c){?><td colspan="3"><?php echo $c; }?> </td>
+					<td><?php foreach($def_2_weakened as $c){?><td colspan="3"><?php echo $c; }?> </td>
+					<td><?php foreach($def_2_speed as $c){?><td colspan="3"><?php echo $c; }?> </td>
+					<td><?php foreach($def_2_ball as $c){?><td colspan="3"><?php echo $c; }?> </td>
 				</tr>
 				<tr>
 					<td>Defense 3</td>
+					<td><?php foreach($def_3_crossed as $c){?><td colspan="3"><?php echo $c; }?> </td>
+					<td><?php foreach($def_3_weakened as $c){?><td colspan="3"><?php echo $c; }?> </td>
+					<td><?php foreach($def_3_speed as $c){?><td colspan="3"><?php echo $c; }?> </td>
+					<td><?php foreach($def_3_ball as $c){?><td colspan="3"><?php echo $c; }?> </td>
 				</tr>
 				<tr>
 					<td>Defense 4</td>
+					<td><?php foreach($def_4_crossed as $c){?><td colspan="3"><?php echo $c; }?> </td>
+					<td><?php foreach($def_4_weakened as $c){?><td colspan="3"><?php echo $c; }?> </td>
+					<td><?php foreach($def_4_speed as $c){?><td colspan="3"><?php echo $c; }?> </td>
+					<td><?php foreach($def_4_ball as $c){?><td colspan="3"><?php echo $c; }?> </td>
 				</tr>
 				<tr>
 					<td>Defense 5</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td rowspan = "3" colspan = "1">><?php foreach($def_1_crossed as $c){echo "<td>".$c."</td>";}?></td>
+					<td><?php foreach($def_5_crossed as $c){?><td colspan="3"><?php echo $c; }?> </td>
+					<td><?php foreach($def_5_weakened as $c){?><td colspan="3"><?php echo $c; }?> </td>
+					<td><?php foreach($def_5_speed as $c){?><td colspan="3"><?php echo $c; }?> </td>
+					<td><?php foreach($def_5_ball as $c){?><td colspan="3"><?php echo $c; }?> </td>
 				</tr>
 			</tbody>
+		</table>
+		<table class="matchTable">
+			<thead class="THead">
+				<tr>
+					<td><strong>Matches:</strong></td>
+					<td><?php foreach($match_numbers as $r){?><td colspan="4"><?php echo $r; }?> </td>
+				</tr>
+				<tr>
+				<td><td>
+					<?php 
+					$arrlength=count($match_numbers);
+					for($col=0;$col<$arrlength;$col++){?><td rowspan = "1" colspan = "2">Batter</td><td rowspan = "1" colspan = "3">Courtyard</td><?php }?>
+					</tr>
+					<tr>
+					<td></td>
+					<?php
+					for($col=0;$col<$arrlength*2;$col++){?><td rowspan = "1" colspan = "1">High</td><td rowspan = "1" colspan = "1">Miss</td><?php }?>    					
+				</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td><?php foreach($batter_high_Scored as $c){?><td colspan="2"><?php echo $c; }?></td>
+						<td><?php foreach($batter_high_Miss as $c){?><td colspan="2"><?php echo $c; }?></td>
+					</tr>
+				</tbody>
+		
+		
+		</table>
+			<table class="matchTable">
+			<tr>
+				Shooting
+			</tr>
+			<tr>
+						<td>Total Teleop Balls Shot:</td><td><?php echo $t_balls_shot; ?></td>
+			</tr>
+			<tr>
+						<td>Percent of Balls Shot From Batter In:</td><td><?php echo (ceil($BA_percentin)."%"); ?></td>
+			</tr>
+			<tr>
+						<td>Percent of Balls Shot From Courtyard In:</td><td><?php echo (ceil($CO_percentin)."%"); ?></td>
+			</tr>
 		</table>
 		
 			
