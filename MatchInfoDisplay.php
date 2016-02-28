@@ -7,6 +7,7 @@
 	include("navbar.php");
 	include("db_connect.php");
 	include("api_connect.php");
+	include("GetTeamData.php");
 ?>
 
 <head>
@@ -165,7 +166,7 @@
 			<th class="topTime" rowspan = "3" colspan = "1">Name</th>
 			<th class="topTime" rowspan = "1" colspan = "4">Auto</th>
 			<th class="topTime" rowspan = "1" colspan = "2">Teleop Shooting</th>
-			<th class="topTime" rowspan = "1" colspan = "21">Defense</th>
+			<th class="topTime" rowspan = "1" colspan = "37">Defense</th>
 			<th class="topTime" rowspan = "1" colspan = "2">Climbing</th>
 			<th class="topTime" rowspan = "1" colspan = "6">Robot Issues</th>
 			</tr>
@@ -182,62 +183,14 @@
 			<th class='topTime'rowspan = "2" colspan = "1">Low Goal%</th>
 			<!--Defense-->
 			<th class='topTime'rowspan = "1" colspan = "4">Lowbar</th>
-			<th class='topTime'rowspan = "1" colspan = "4">
-			<?php 
-			$def_category_2=$row2["def_category_2"]; 
-			if($def_category_2==1){echo "Portcullis";}
-			elseif($def_category_2==2){echo "Cheval de Frise";}
-			elseif($def_category_2==3){echo "Moat";}
-			elseif($def_category_2==4){echo "Ramparts";}
-			elseif($def_category_2==5){echo "Drawbridge";}
-			elseif($def_category_2==6){echo "Sally Port";}
-			elseif($def_category_2==7){echo "Rock Wall";}
-			elseif($def_category_2==8){echo "Rough Terrain";}
-			else{echo "Defense 2";}
-			?>
-			</th>
-			<th class='topTime'rowspan = "1" colspan = "4">
-			<?php 
-			$def_category_3=$row2["def_category_3"]; 
-			if($def_category_3==1){echo "Portcullis";}
-			elseif($def_category_3==2){echo "Cheval de Frise";}
-			elseif($def_category_3==3){echo "Moat";}
-			elseif($def_category_3==4){echo "Ramparts";}
-			elseif($def_category_3==5){echo "Drawbridge";}
-			elseif($def_category_3==6){echo "Sally Port";}
-			elseif($def_category_3==7){echo "Rock Wall";}
-			elseif($def_category_3==8){echo "Rough Terrain";}
-			else{echo "Defense 3";}
-			?>
-			</th>
-			<th class='topTime'rowspan = "1" colspan = "4">
-			<?php 
-			$def_category_4=$row2["def_category_4"]; 
-			if($def_category_4==1){echo "Portcullis";}
-			elseif($def_category_4==2){echo "Cheval de Frise";}
-			elseif($def_category_4==3){echo "Moat";}
-			elseif($def_category_4==4){echo "Ramparts";}
-			elseif($def_category_4==5){echo "Drawbridge";}
-			elseif($def_category_4==6){echo "Sally Port";}
-			elseif($def_category_4==7){echo "Rock Wall";}
-			elseif($def_category_4==8){echo "Rough Terrain";}
-			else{echo "Defense 4";}
-			?>
-			</th>
-			<th class='topTime'rowspan = "1" colspan = "4">
-			<?php 
-			$def_category_5=$row2["def_category_5"]; 
-			if($def_category_5==1){echo "Portcullis";}
-			elseif($def_category_5==2){echo "Cheval de Frise";}
-			elseif($def_category_5==3){echo "Moat";}
-			elseif($def_category_5==4){echo "Ramparts";}
-			elseif($def_category_5==5){echo "Drawbridge";}
-			elseif($def_category_5==6){echo "Sally Port";}
-			elseif($def_category_5==7){echo "Rock Wall";}
-			elseif($def_category_5==8){echo "Rough Terrain";}
-			else{echo "Defense 5";}
-			?>
-			</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Portcullis</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Cheval de Frise</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Moat</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Ramparts</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Drawbridge</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Sally Port</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Rock Wall</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Rough Terrain</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Defense Rating</th>
 			<!--Climbing-->
 			<th class='topTime'rowspan = "2" colspan = "1">Challenge Sucess?</th>
@@ -251,27 +204,47 @@
 			<th class='topTime'rowspan = "2" colspan = "1">Tech Fouls</th>
 	</tr>
 	<tr>
-		<!--Defense 1-->
+		<!--Lowbar-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
-		<!--Defense 2-->	
+		<!--Portcullis-->	
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
-		<!--Defense 3-->
+		<!--Cheval de Frise-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
-		<!--Defense 4-->
+		<!--Moat-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
 		<th class='topTime'>Ball?</th>
-		<!--Defense 5-->
+		<!--Ramparts-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
+		<th class='topTime'>Ball?</th>
+		<!--Drawbridge-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
+		<th class='topTime'>Ball?</th>
+		<!--Sally Port-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
+		<th class='topTime'>Ball?</th>
+		<!--Rock Wall-->
+		<th class='topTime'>Crossed</th>
+		<th class='topTime'>Speed</th>
+		<th class='topTime'>Stuck</th>
+		<th class='topTime'>Ball?</th>
+		<!--Rough Terrain-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
@@ -332,7 +305,6 @@
 				
 			?>
 			</th>
-		
 			</tr>
 			<tr class="topRow">
 			<th class="TopRed">Red2</th>
@@ -349,79 +321,6 @@
 			<th class='red'><?php //echo $row6["name"];?></th>
 		
 			</tr> 
-			<thead>
-			<tr class="topRow">
-			<!--Basic Data-->
-			<th class="topTime"rowspan = "2" colspan = "1">Alliance</th>
-			<th class='topTime'rowspan = "2" colspan = "1">Team Number</th>
-			<th class="topTime"rowspan = "2" colspan = "1">Name</th>
-			<!--Auto-->
-			<th class="topTime" rowspan = "2" colspan = "1">High Goal%</th>
-			<th class="topTime" rowspan = "2" colspan = "1">Low Goal%</th>
-			<th class="topTime" rowspan = "2" colspan = "1">Reached</th>
-			<th class="topTime" rowspan = "2" colspan = "1">Crossed</th>
-			<!--Teleop Shooting-->
-			<th class="topTime" rowspan = "2" colspan = "1">High Goal%</th>
-			<th class="topTime" rowspan = "2" colspan = "1">Low Goal%</th>
-			<!--Defense-->
-			<th class='topTime'rowspan = "1" colspan = "4">Lowbar</th>
-			<th class='topTime'rowspan = "1" colspan = "4">
-			<?php 
-			$def_category_2_2=$row8["def_category_2"]; 
-			if($def_category_2_2==1){echo "Portcullis";}
-			elseif($def_category_2_2==2){echo "Cheval de Frise";}
-			elseif($def_category_2_2==3){echo "Moat";}
-			elseif($def_category_2_2==4){echo "Ramparts";}
-			elseif($def_category_2_2==5){echo "Drawbridge";}
-			elseif($def_category_2_2==6){echo "Sally Port";}
-			elseif($def_category_2_2==7){echo "Rock Wall";}
-			elseif($def_category_2_2==8){echo "Rough Terrain";}
-			else{echo "Defense 2";}
-			?>
-			</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Defense 3</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Defense 4</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Defense 5</th>
-			<th class='topTime'rowspan = "2" colspan = "1">Defense Rating</th>
-			<!--Climbing-->
-			<th class='topTime'rowspan = "2" colspan = "1">Challenge Sucess?</th>
-			<th class='topTime'rowspan = "2" colspan = "1">Scaled Sucess?</th>
-			<!--Robot Issues-->
-			<th class='topTime'rowspan = "2" colspan = "1">No Show</th>
-			<th class='topTime'rowspan = "2" colspan = "1">Mech Fail</th>
-			<th class='topTime'rowspan = "2" colspan = "1">Lost Comms</th>
-			<th class='topTime'rowspan = "2" colspan = "1">Tipped</th>
-			<th class='topTime'rowspan = "2" colspan = "1">Fouls</th>
-			<th class='topTime'rowspan = "2" colspan = "1">Tech Fouls</th>
-			</tr>
-			<tr>
-		<!--Defense 1-->
-		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Speed</th>
-		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
-		<!--Defense 2-->	
-		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Speed</th>
-		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
-		<!--Defense 3-->
-		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Speed</th>
-		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
-		<!--Defense 4-->
-		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Speed</th>
-		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
-		<!--Defense 5-->
-		<th class='topTime'>Crossed</th>
-		<th class='topTime'>Speed</th>
-		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
-		</tr>
-			</thead>
 			<tr class="topRow">
 			<th class="TopBlue">Blue1</th>
 			<th class='blue'><?php echo $blue1;?></th>
