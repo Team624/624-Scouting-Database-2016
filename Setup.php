@@ -8,6 +8,7 @@ include("api_connect.php");
 include("db_connect.php");
 
 ?>
+<head><link rel="stylesheet" type="text/css" href="css/SetupStyle.css"></head>
 <br><br>
 <br><br>
 <div class="title">
@@ -18,12 +19,12 @@ include("db_connect.php");
 		<div class="setupdiv">
 		
 			
-				<p>Add a scout here</p>
+				<p class="words">Add a scout here</p>
 				<form method="post">
-					<p>First Name</p>  <input type="text" name="firstname"><br><br>
-					<p>Last Name</p>  <input type="text" name="lastname"><br><br>
-					<p>Scout ID</p>   <input type="number" name="Aid"><br><br>
-					<input type="submit" name="addscout">
+					<input type="text" name="firstname" onfocus="if (this.value=='First Name') this.value = ''" value="First Name"><br><br>
+					<input type="text" name="lastname" onfocus="if (this.value=='Last Name') this.value = ''" value="Last Name"><br><br>
+					<input type="number" name="Aid"  onfocus="if (this.value=='0') this.value = ''" value="0"><br><br>
+					<input type="submit" name="addscout" class="subButton">
 					</form>
 					<?php
 					if(isset($_POST['addscout'])){
@@ -42,10 +43,13 @@ include("db_connect.php");
 					}
 					?>
 				<br><br>
-				Remove a scout here
+				<p class="words">Remove a scout here</p>
 				<form method="post">
-					Scout ID   <input type="number" name="Rid"><br><br>
-					<input type="submit" name="removescout">
+					
+					<input type="number" name="Rid" onfocus="if (this.value=='0') this.value = ''" value="0">
+					<br>
+					<br>
+					<input type="submit" name="removescout" class="subButton">
 					</form>
 					<?php
 					if(isset($_POST['removescout'])){
@@ -65,7 +69,7 @@ include("db_connect.php");
 	</div>
 	<div>
 		<div class="setupdiv">
-	Put in event code:
+	<p class="words">Put in event code:</p>
 	<form class="loadData" method="post">
 	<input type="text" name="eventCode"><br><br>
 	<input type="submit" value="Load Team List!" class="subButton" name="loadTeam"><br><br>
@@ -77,6 +81,9 @@ if(isset($_POST['loadTeam'])){
 	if(!empty($_POST['eventCode'])){
 $eventCode = $_POST['eventCode'];
 if(strcasecmp($eventCode,"TXHO")==0){
+	
+
+	
 	$url = "https://frc-api.firstinspires.org/v2.0/2015/teams?eventCode=TXHO&state=state";
 	$response = file_get_contents($url,false,$context);
 	$json = json_decode($response, true);
@@ -84,6 +91,9 @@ if(strcasecmp($eventCode,"TXHO")==0){
 //echo json_encode($json[teams], JSON_PRETTY_PRINT);
 $query = "TRUNCATE TABLE teams";
 $result = $mysqli->query($query);
+
+$query3 = "INSERT INTO teams (regional) VALUES ($eventCode)";
+$result3 = $mysqli->query($query);
 		foreach ($json[teams] as $team)
 		{	
 			//var_dump($team);
@@ -284,7 +294,7 @@ else{
 	</div>
 	<div>
 		<div class="setupdiv">
-			Type in Obliteration Password:
+			<p class="words">Type in Obliteration Password:</p>
 			
 	<form class="obliterate" method="post">
 	<input type="password" name="obliteratePassword"><br><br>
