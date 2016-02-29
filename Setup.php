@@ -38,7 +38,7 @@ include("db_connect.php");
 						echo"Successfully added info";	
 								}
 					else {
-						echo "Weed";	
+						echo "NOpe";	
 						}
 					}
 					?>
@@ -57,7 +57,7 @@ include("db_connect.php");
 					$removescoutquery="DELETE FROM scouts WHERE id='$Rid'";
 					$result = $mysqli->query($removescoutquery);
 					if($result) {
-						echo"Successfully removed info";	
+						echo"Successfully removed scout";	
 								}
 					else {
 						echo "Sorry Snoop";	

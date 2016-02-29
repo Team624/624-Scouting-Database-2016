@@ -58,102 +58,52 @@
 	$result2 = $mysqli->query($query2);
 	
 	if ($result2->num_rows > 0){
-	
-	$query3 = "SELECT * FROM match_data WHERE match_number = '$match' AND team_number = '$red1'";
-	$result3 = $mysqli->query($query3);
-	
-	if ($result3->num_rows > 0){
-			?>
-			<?php 
-			// output data of each row
+	// output data of each row
     while($row1 = $result2->fetch_assoc()) {
-		
-		while($row2 = $result3->fetch_assoc()) {
 			?>
 		<?php 
 	$query4 = "SELECT * FROM teams WHERE number='$red2'";
 	$result4 = $mysqli->query($query4);
 	
-	if ($result2->num_rows > 0){
-	
-	$query5 = "SELECT * FROM match_data WHERE match_number = '$match' AND team_number = '$red2'";
-	$result5 = $mysqli->query($query5);
-	
-	if ($result5->num_rows > 0){
-			?>
-			<?php 
-			// output data of each row
+	if ($result4->num_rows > 0){
+	// output data of each row
     while($row3 = $result4->fetch_assoc()) {
-		
-		while($row4 = $result5->fetch_assoc()) {
 			?>
 			<?php 
 	$query6 = "SELECT * FROM teams WHERE number='$red3'";
 	$result6 = $mysqli->query($query6);
 	
 	if ($result6->num_rows > 0){
-	
-	$query7 = "SELECT * FROM match_data WHERE match_number = '$match' AND team_number = '$red3'";
-	$result7 = $mysqli->query($query7);
-	
-	if ($result7->num_rows > 0){
-			?>
-			<?php 
-			// output data of each row
+	// output data of each row
     while($row5 = $result6->fetch_assoc()) {
-		
-		while($row6 = $result7->fetch_assoc()) {
 			?>
 			<?php 
 	$query8 = "SELECT * FROM teams WHERE number='$blue1'";
 	$result8 = $mysqli->query($query8);
 	
 	if ($result8->num_rows > 0){
-	
-	$query9 = "SELECT * FROM match_data WHERE match_number = '$match' AND team_number = '$blue1'";
-	$result9 = $mysqli->query($query9);
-	
-	if ($result9->num_rows > 0){
-			?>
-			<?php 
-			// output data of each row
+	// output data of each row
     while($row7 = $result8->fetch_assoc()) {
-		
-		while($row8 = $result9->fetch_assoc()) {
 			?>
 			<?php 
 	$query10 = "SELECT * FROM teams WHERE number='$blue2'";
 	$result10 = $mysqli->query($query10);
 	
 	if ($result10->num_rows > 0){
-	
-	$query11 = "SELECT * FROM match_data WHERE match_number = '$match' AND team_number = '$blue2'";
-	$result11 = $mysqli->query($query11);
-	
-	if ($result11->num_rows > 0){
-			?>
-			<?php 
-			// output data of each row
+	// output data of each row
     while($row9 = $result10->fetch_assoc()) {
-		
-		while($row10 = $result11->fetch_assoc()) {
 			?>
 			<?php 
 	$query12 = "SELECT * FROM teams WHERE number='$blue3'";
 	$result12 = $mysqli->query($query12);
 	
 	if ($result12->num_rows > 0){
-	
-	$query13 = "SELECT * FROM match_data WHERE match_number = '$match' AND team_number = '$blue3'";
-	$result13 = $mysqli->query($query13);
-	
-	if ($result13->num_rows > 0){
-			?>
-			<?php 
-			// output data of each row
+	// output data of each row
     while($row11 = $result12->fetch_assoc()) {
-		
-		while($row12 = $result13->fetch_assoc()) {
+			?>
+			<?php
+			$red1Info[] = getTeamData($mysqli,$red1);
+			var_dump($red1Info);
 			?>
 	<h1> Qualification Match <?php echo $match; ?> </h1>
 	
@@ -348,38 +298,38 @@
 	</table>
 </div>	
 <?php
-				}
-			}		
+				
+					
 		}
 	}
 		?>
 <?php
-				}
-			}		
+				
+					
 		}
 	}
 		?>
 <?php
-				}
-			}		
+				
+					
 		}
 	}
 		?>
 <?php
-				}
-			}		
+				
+					
 		}
 	}
 		?>
 <?php
-				}
-			}		
+				
+					
 		}
 	}
 		?>
 <?php
-				}
-			}		
+				
+					
 		}
 	}
 		?>
