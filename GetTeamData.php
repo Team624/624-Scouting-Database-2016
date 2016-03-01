@@ -87,8 +87,8 @@
 			$data["auto_def_cross"] += $row['auto_Defenses_Crossed_Sucess'];
 			$data["auto_def_cross_total"] += $row['auto_Defenses_Crossed_Sucess'] + $row['auto_Defenses_Crossed_Failed'];
 			
-			$data["auto_def_reach"] += $row['auto_Defenses_Crossed_Sucess'];
-			$data["auto_def_reach_total"] += $row['auto_Defenses_Crossed_Sucess'] + $row['auto_Defenses_Crossed_Failed'];
+			$data["auto_def_reach"] += $row['auto_Defenses_Reached_Sucess'];
+			$data["auto_def_reach_total"] += $row['auto_Defenses_Reached_Sucess'] + $row['auto_Defenses_Reached_Failed'];
 			
 			$data["batter_high"] += $row['batter_high_Scored'];
 			$data["batter_high_miss"] += $row['batter_high_Miss'];
@@ -109,6 +109,7 @@
 			$data["teleop_high_total"] += $row['courtyard_high_Scored'] +  $row['batter_high_Scored'] + $row['batter_high_Miss'] + $row['courtyard_high_Miss'];
 			$data["teleop_low_total"] += $row['courtyard_low_Scored'] +  $row['batter_low_Scored'] + $row['batter_low_Miss'] + $row['courtyard_low_Miss'];
 			
+			$data["challenge"] += $row['challenge_Sucess'];
 			$data["climbs"] += $row['scaled_Sucess'];
 			
 			$data["fouls"] += $row['fouls'];
@@ -119,6 +120,8 @@
 			$data["tipped"] += $row['tipped'];
 			
 			$data['boulder_grabs'] += $row['Auto_Boulder_Grab'];
+			
+			$data['defense'] = $row['defense'];
 			
 			$defenseList = [];
 			$defenseList[] = $row['def_category_1'];
