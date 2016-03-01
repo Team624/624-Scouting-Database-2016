@@ -338,6 +338,6 @@
 		
 </table>
 <?php
-	var_dump($dat);
+	//var_dump($dat);
 ?>
 </div>
