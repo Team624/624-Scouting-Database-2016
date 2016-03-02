@@ -9,7 +9,10 @@
 	include("api_connect.php");
 	include("GetTeamData.php");
 ?>
-
+<br>
+<br>
+<br>
+<br>
 <head>
 	<link rel="stylesheet" type="text/css" href="css/mainpagestyle.css">
 	<link rel="stylesheet" type="text/css" href="css/SearchStyle.css"> 
@@ -37,7 +40,51 @@
 <?php
 	$dat = getTeamData($mysqli, $team);
 	
+	$team_query = "SELECT `match_number`, `team_number` FROM `match_data` WHERE team_number = '$team'";
+	$result = $mysqli->query($team_query);
 ?>
+
+<table class="matchTable">
+	<thead>
+		<tr>
+			<th class="topTime" rowspan = "1" colspan = "6"></th>
+			<th class="topTime" rowspan = "1" colspan = "5">Defense Stats<br>,,,</th>
+		</tr>
+		<tr>
+			<th class="topTime"rowspan = "1" colspan = "1">Match #</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Position 1</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Position 2</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Position 3</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Position 4</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Position 5</th>
+			<th class="topTime"rowspan = "1" colspan = "1">1 Stats</th>
+			<th class="topTime"rowspan = "1" colspan = "1">2 Stats</th>
+			<th class="topTime"rowspan = "1" colspan = "1">3 Stats</th>
+			<th class="topTime"rowspan = "1" colspan = "1">4 Stats</th>
+			<th class="topTime"rowspan = "1" colspan = "1">5 Stats</th>
+		</tr>
+	</tbody>
+	<tbody>
+		<?php
+			while($row = $result->fetch_array(MYSQLI_ASSOC))
+			{
+				$playerMatch = $row["match_number"];
+				$match = getTeamMatchData($mysqli, $team, $playerMatch);
+		?>
+		<td><?=$playerMatch?></td>
+		<td><?=getDefenseName($match['def_pos_types'][0])?></td>
+		<td><?=getDefenseName($match['def_pos_types'][1])?></td>
+		<td><?=getDefenseName($match['def_pos_types'][2])?></td>
+		<td><?=getDefenseName($match['def_pos_types'][3])?></td>
+		<td><?=getDefenseName($match['def_pos_types'][4])?></td>
+		<td><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_ball']?></td>
+		<?php
+		echo strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_ball';
+			}
+		?>
+	</tbody>
+</table>
+<br>
 <table class="matchTable">
 	<thead>
 		
