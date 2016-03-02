@@ -124,6 +124,7 @@
 			$data["tipped"] += $row['tipped'];
 			
 			$data['boulder_grabs'] += $row['Auto_Boulder_Grab'];
+			$data['Auto_StartWithBoulder'] += $row['Auto_StartWithBoulder'];
 			
 			$data['defense'] = $row['defense'];
 			

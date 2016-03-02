@@ -42,7 +42,7 @@
 	<thead>
 		
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "10">Auto</th>
+			<th class='topTime'rowspan = "1" colspan = "12">Auto</th>
 		</tr>
 		<tr class="topRow">
 			<th class='topTime'rowspan = "1" colspan = "1">High Goals Made</th>
@@ -55,6 +55,8 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Defenses Crossed Failed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Defenses Reached Sucess</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Defenses Reached Failed</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Start With Boulder?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Boulder Grab Sucess?</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -70,6 +72,8 @@
 			<td><?=$dat['auto_Defenses_Crossed_Failed']?></td>
 			<td><?=$dat['auto_def_reach']?></td>
 			<td><?=$dat['auto_Defenses_Reached_Failed']?></td>
+			<td><?php if($dat['Auto_StartWithBoulder']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['boulder_grabs']==1){echo "Yes";} else{echo "No";}?></td>
 		</tr>
 	</tbody>
 		
@@ -114,7 +118,7 @@
 			<th class='topTime' rowspan = "1" colspan = "1">Fouls</th>
 			<th class='topTime' rowspan = "1" colspan = "1">Tech Fouls</th>
 			<th class='topTime' rowspan = "1" colspan = "1">No Shows</th>
-			<th class='topTime' rowspan = "1" colspan = "1">Mechanical Failues</th>
+			<th class='topTime' rowspan = "1" colspan = "1">Mechanical Failures</th>
 			<th class='topTime' rowspan = "1" colspan = "1">Lost Communication</th>
 			<th class='topTime' rowspan = "1" colspan = "1">Tipped</th>
 		</tr>
