@@ -126,6 +126,11 @@
 			$data['boulder_grabs'] += $row['Auto_Boulder_Grab'];
 			$data['Auto_StartWithBoulder'] += $row['Auto_StartWithBoulder'];
 			
+			$data['drive_manuverability'] += $row['drive_manuverability'];
+			$data['Defense_Pushing'] += $row['Defense_Pushing'];
+			$data['Ball_Control'] += $row['Ball_Control'];
+			$data['pushing'] += $row['pushing'];
+			
 			$data['defense'] = $row['defense'];
 			
 			$defenseList = [];

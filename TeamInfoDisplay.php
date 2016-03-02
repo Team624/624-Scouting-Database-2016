@@ -325,8 +325,66 @@
 	</tbody>
 		
 </table>
+<br><br>
+<table class="matchTable">
+	<thead>
+		
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "2">Climbing</th>
+		</tr>
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "1">Challenge Sucess?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Scaled Sucess?</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><?php if($dat['challenge']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['climbs']==1){echo "Yes";} else{echo "No";}?></td>
+		</tr>
+	</tbody>
+		
+</table>
+<br><br>
+<table class="matchTable">
+	<thead>
+		
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "4">Driver Data</th>
+		</tr>
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "1">Driving/Maneuverability</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Defense/Pushing</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Ball Control</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Pushing</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><?=$dat['drive_manuverability']?></td>
+			<td><?=$dat['Defense_Pushing']?></td>
+			<td><?=$dat['Ball_Control']?></td>
+			<td><?=$dat['pushing']?></td>
+		</tr>
+	</tbody>
+	
+</table>
+<br><br>
+<table class="matchTable">
+	<thead>
+		
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "4">Defense Rating</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><?=$dat['defense']?>%</td>
+		</tr>
+	</tbody>
+	
+</table>
 <br>
-
 <table class="matchTable">
 	<thead>
 		<tr class="topRow">
@@ -378,6 +436,31 @@
 	</tbody>
 		
 </table>
+<!--<br><br>
+<table class="matchTable">
+	<thead>
+		
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "4">Notes</th>
+		</tr>
+	</thead>
+	<tbody>
+<?php
+
+	//$query2 = "SELECT match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3 FROM schedule";
+	//$result2 = $mysqli->query($query2);
+	
+	//foreach($result2 as $row)
+	//{
+?>
+		<tr>
+			<td><?//=$dat['defense']?>%</td>
+		</tr>
+	</tbody>
+<?php	
+	//}
+?>
+</table>-->
 <?php
 	//var_dump($dat);
 ?>

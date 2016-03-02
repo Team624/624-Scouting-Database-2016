@@ -475,11 +475,12 @@ include("db_connect.php");
 	$query = "INSERT INTO match_data (match_number,team_number,scout_id,def_category_1,def_category_2,def_category_3,def_category_4,def_category_5,auto_High_Scored,auto_Low_Scored,auto_High_Miss,auto_Low_Miss,auto_Defenses_Reached_Sucess,auto_Defenses_Crossed_Sucess,auto_Defenses_Reached_Failed,auto_Defenses_Crossed_Failed,auto_Start_Location,Auto_Boulder_Grab,Auto_StartWithBoulder,def_1_crossed,def_2_crossed,def_3_crossed,def_4_crossed,def_5_crossed,def_1_weakened,def_2_weakened,def_3_weakened,def_4_weakened,def_5_weakened,def_1_speed,def_2_speed,def_3_speed,def_4_speed,def_5_speed,def_1_stuck,def_2_stuck,def_3_stuck,def_4_stuck,def_5_stuck,def_1_ball,def_2_ball,def_3_ball,def_4_ball,def_5_ball,batter_high_Scored,batter_low_Scored,batter_high_Miss,batter_low_Miss,courtyard_high_Scored,courtyard_low_Scored,courtyard_high_Miss,courtyard_low_Miss,challenge_Sucess,Scaled_Sucess,defense,no_show,mech_fail,lost_comms,tipped,fouls,tech_fouls,drive_manuverability,pushing,Defense_Pushing,Ball_Control,notes) 
 	                          VALUES ('$matchNum','$teamNum','$scoutID',0,'$def_category_2','$def_category_3','$def_category_4','$def_category_5','$auto_High_Scored','$auto_Low_Scored','$auto_High_Miss','$auto_Low_Miss','$auto_Defenses_Reached_Sucess','$auto_Defenses_Crossed_Sucess','$auto_Defenses_Reached_Failed','$auto_Defenses_Crossed_Failed','$auto_Start_Location','$Auto_Boulder_Grab','$Auto_StartWithBoulder','$def_crossed_1','$def_crossed_2','$def_crossed_3','$def_crossed_4','$def_crossed_5','$def_1_weakened','$def_2_weakened','$def_3_weakened','$def_4_weakened','$def_5_weakened','$def_1_speed','$def_2_speed','$def_3_speed','$def_4_speed','$def_5_speed','$def_1_stuck','$def_2_stuck','$def_3_stuck','$def_4_stuck','$def_5_stuck','$def_1_ball','$def_2_ball','$def_3_ball','$def_4_ball','$def_5_ball','$batter_high_Scored','$batter_low_Scored','$batter_high_Miss','$batter_low_Miss','$courtyard_high_Scored','$courtyard_low_Scored','$courtyard_high_Miss','$courtyard_low_Miss','$challenge_Sucess','$Scaled_Sucess','$defense','$no_show','$mech_fail','$lost_comms','$tipped','$fouls','$tech_fouls','$drive_manuverability','$pushing','$Defense_Pushing','$Ball_Control','$notes')";
 	$result = $mysqli->query($query);
-	//$query = "INSERT INTO note_entry (selectteam,notes) VALUES ('$teamNum','$notes')";
-	//$result = $mysqli->query($query);
+	
+	$query1 = "INSERT INTO notes (team,match_number,notes) VALUES ('$teamNum','$matchNum','$notes')";
+	$result1= $mysqli->query($query1);
 	//$query = "INSERT INTO match_data (match_number,team_number,scout_id,no_show,mech_fail,lost_comms,fouls,tech_fouls,drive_rating) VALUES ('$matchNum','$teamNum','$scoutID','$no_show','$mech_fail','$lost_comm','$ball_shot','$balls_scored','$drive_man')";
 	//$result = $mysqli->query($query);
-	if($result) {
+	if($result && $result1) {
 	echo"Successfully added info";	
 	}
 	else {
