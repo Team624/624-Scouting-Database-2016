@@ -36,10 +36,20 @@
 	{
 		
 ?>
+	<h1> Qualification Match <?php echo $match; ?> </h1>
 	<?php
-	mysqli_select_db($mysqli,$dbname);
-	$result1=mysqli_query($mysqli,"SELECT * FROM schedule WHERE match_number='$match'");
+	}
+	else
+	{
+?>
+	<h1> Elimination Match <?php echo $match; ?> </h1>
+<?php
+	}
+?>
+	<?php
 	
+	$query1 = "SELECT * FROM schedule WHERE match_number='$match'";
+	$result1 = $mysqli->query($query1);
 	if ($result1->num_rows > 0) {
 		
 		?>
@@ -111,7 +121,7 @@
 			$blue3Info = getTeamData($mysqli,$blue3);
 			//var_dump($red1Info);
 			?>
-	<h1> Qualification Match <?php echo $match; ?> </h1>
+	
 	
 <div class="matchDisplay">
     <table class="matchTable">
@@ -791,14 +801,4 @@
 	
 }
 	?>
-    
-<?php
-	}
-	else
-	{
-?>
-	<h1> Elimination Match <?php echo $match; ?> </h1>
-<?php
-	}
-?>
 <div>
