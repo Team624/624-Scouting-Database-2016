@@ -80,31 +80,35 @@
 		while($row = $result->fetch_array(MYSQLI_ASSOC))
 		{
 			$data["auto_high"] += $row['auto_High_Scored']; 
+			$data["auto_High_Miss"] += $row['auto_High_Miss']; 
 			$data["auto_high_total"] += $row['auto_High_Miss'] + $row['auto_High_Scored']; 
 			$data["auto_low"] += $row['auto_Low_Scored']; 
+			$data["auto_Low_Miss"] += $row['auto_Low_Miss']; 
 			$data["auto_low_total"] += $row['auto_Low_Miss'] + $row['auto_Low_Scored']; 
 			
 			$data["auto_def_cross"] += $row['auto_Defenses_Crossed_Sucess'];
+			$data["auto_Defenses_Crossed_Failed"] += $row['auto_Defenses_Crossed_Failed'];
 			$data["auto_def_cross_total"] += $row['auto_Defenses_Crossed_Sucess'] + $row['auto_Defenses_Crossed_Failed'];
 			
+			$data["auto_Defenses_Reached_Failed"] += $row['auto_Defenses_Reached_Failed'];
 			$data["auto_def_reach"] += $row['auto_Defenses_Reached_Sucess'];
 			$data["auto_def_reach_total"] += $row['auto_Defenses_Reached_Sucess'] + $row['auto_Defenses_Reached_Failed'];
 			
 			$data["batter_high"] += $row['batter_high_Scored'];
-			$data["batter_high_miss"] += $row['batter_high_Miss'];
+			$data["batter_high_miss"] += $row['batter_high_miss'];
 			$data["courtyard_high"] += $row['courtyard_high_Scored'];
 			$data["courtyard_high_miss"] += $row['courtyard_high_Miss'];
 			
 			$data["batter_low"] += $row['batter_low_Scored'];
-			$data["batter_low_miss"] += $row['batter_low_Miss'];
+			$data["batter_low_miss"] += $row['batter_low_miss'];
 			$data["courtyard_low"] += $row['courtyard_low_Scored'];
-			$data["courtyard_low_miss"] += $row['courtyard_low_Miss'];
+			$data["courtyard_low_miss"] += $row['courtyard_low_miss'];
 			
 			$data["teleop_high"] += $row['courtyard_high_Scored'] +  $row['batter_high_Scored'];
 			$data["teleop_low"] += $row['courtyard_low_Scored'] +  $row['batter_low_Scored'];
 			
-			$data["teleop_high_miss"] += $row['courtyard_high_Missed'] +  $row['batter_high_Missed'];
-			$data["teleop_low_miss"] += $row['courtyard_low_Missed'] +  $row['batter_low_Missed'];
+			$data["teleop_high_miss"] += $row['courtyard_high_Miss'] +  $row['batter_high_miss'];
+			$data["teleop_low_miss"] += $row['courtyard_low_miss'] +  $row['batter_low_Miss'];
 			
 			$data["teleop_high_total"] += $row['courtyard_high_Scored'] +  $row['batter_high_Scored'] + $row['batter_high_Miss'] + $row['courtyard_high_Miss'];
 			$data["teleop_low_total"] += $row['courtyard_low_Scored'] +  $row['batter_low_Scored'] + $row['batter_low_Miss'] + $row['courtyard_low_Miss'];

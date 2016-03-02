@@ -42,6 +42,43 @@
 	<thead>
 		
 		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "10">Auto</th>
+		</tr>
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "1">High Goals Made</th>
+			<th class='topTime'rowspan = "1" colspan = "1">High Goals Missed</th>
+			<th class='topTime'rowspan = "1" colspan = "1">High Goal Percent</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Low Goals Made</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Low Goals Missed</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Low Goals Percent</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Defenses Crossed Sucess</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Defenses Crossed Failed</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Defenses Reached Sucess</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Defenses Reached Failed</th>
+		</tr>
+	</thead>
+	<tbody>
+	<!--We need Auto info round here I suppose-->
+		<tr>
+			<td><?=$dat['auto_high']?></td>
+			<td><?=$dat['auto_High_Miss']?></td>
+			<td><?php if($dat['auto_high_total'] > 0){ echo round($dat['auto_high']/$dat['auto_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
+			<td><?=$dat['auto_low']?></td>
+			<td><?=$dat['auto_Low_Miss']?></td>
+			<td><?php if($dat['auto_low_total'] > 0){ echo round($dat['auto_low']/$dat['auto_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
+			<td><?=$dat['auto_def_cross']?></td>
+			<td><?=$dat['auto_Defenses_Crossed_Failed']?></td>
+			<td><?=$dat['auto_def_reach']?></td>
+			<td><?=$dat['auto_Defenses_Reached_Failed']?></td>
+		</tr>
+	</tbody>
+		
+</table>
+<br><br>
+<table class="matchTable">
+	<thead>
+		
+		<tr class="topRow">
 			<th class='topTime'rowspan = "1" colspan = "6">Shooting Statistics</th>
 		</tr>
 		<tr class="topRow">
@@ -84,12 +121,12 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><?=$dat['fouls']?></td>
-			<td><?=$dat['tech_fouls']?></td>
-			<td><?=$dat['no_show'] ?></td>
-			<td><?=$dat['mech_fail']?></td>
-			<td><?=$dat['lost_comms']?></td>
-			<td><?=$dat['tipped'] ?></td>
+			<td><?php if($dat['fouls']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['tech_fouls']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['no_show']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['mech_fail']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['lost_comms']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['tipped']==1){echo "Yes";} else{echo "No";}?></td>
 		</tr>
 	</tbody>
 		
@@ -105,7 +142,7 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 		</tr>
 	</thead>
@@ -115,7 +152,7 @@
 			<td><?=$dat['lowbar_cross']?></td>
 			<td><?=$dat['lowbar_speed']?></td>
 			<td><?=$dat['lowbar_stuck']?></td>
-			<td><?=$dat['lowbar_ball']?></td>
+			<td><?php if($dat['lowbar_ball']==1){echo "Yes";} else{echo "No";}?></td>
 		</tr>
 	</tbody>
 		
@@ -134,13 +171,13 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 			
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 		</tr>
 	</thead>
@@ -150,13 +187,13 @@
 			<td><?=$dat['portcullis_cross']?></td>
 			<td><?=$dat['portcullis_speed']?></td>
 			<td><?=$dat['portcullis_stuck']?></td>
-			<td><?=$dat['portcullis_ball']?></td>
+			<td><?php if($dat['portcullis_ball']==1){echo "Yes";} else{echo "No";}?></td>
 			
 			<td><?=$dat['chili_fries_faced']?></td>
 			<td><?=$dat['chili_fries_cross']?></td>
 			<td><?=$dat['chili_fries_speed']?></td>
 			<td><?=$dat['chili_fries_stuck']?></td>
-			<td><?=$dat['chili_fries_ball']?></td>
+			<td><?php if($dat['chili_fries_ball']==1){echo "Yes";} else{echo "No";}?></td>
 		</tr>
 	</tbody>
 		
@@ -175,13 +212,13 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 			
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 		</tr>
 	</thead>
@@ -191,13 +228,13 @@
 			<td><?=$dat['moat_cross']?></td>
 			<td><?=$dat['moat_speed']?></td>
 			<td><?=$dat['moat_stuck']?></td>
-			<td><?=$dat['moat_ball']?></td>
+			<td><?php if($dat['moat_ball']==1){echo "Yes";} else{echo "No";}?></td>
 			
 			<td><?=$dat['ramparts_faced']?></td>
 			<td><?=$dat['ramparts_cross']?></td>
 			<td><?=$dat['ramparts_speed']?></td>
 			<td><?=$dat['ramparts_stuck']?></td>
-			<td><?=$dat['ramparts_ball']?></td>
+			<td><?php if($dat['ramparts_ball']==1){echo "Yes";} else{echo "No";}?></td>
 		</tr>
 	</tbody>
 		
@@ -216,13 +253,13 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 			
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 		</tr>
 	</thead>
@@ -232,13 +269,13 @@
 			<td><?=$dat['drawbridge_cross']?></td>
 			<td><?=$dat['drawbridge_speed']?></td>
 			<td><?=$dat['drawbridge_stuck']?></td>
-			<td><?=$dat['drawbridge_ball']?></td>
+			<td><?php if($dat['drawbridge_ball']==1){echo "Yes";} else{echo "No";}?></td>
 			
 			<td><?=$dat['sally_port_faced']?></td>
 			<td><?=$dat['sally_port_cross']?></td>
 			<td><?=$dat['sally_port_speed']?></td>
 			<td><?=$dat['sally_port_stuck']?></td>
-			<td><?=$dat['sally_port_ball']?></td>
+			<td><?php if($dat['sally_port_ball']==1){echo "Yes";} else{echo "No";}?></td>
 		</tr>
 	</tbody>
 		
@@ -257,13 +294,13 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 			
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 		</tr>
 	</thead>
@@ -273,13 +310,13 @@
 			<td><?=$dat['rough_terrain_cross']?></td>
 			<td><?=$dat['rough_terrain_speed']?></td>
 			<td><?=$dat['rough_terrain_stuck']?></td>
-			<td><?=$dat['rough_terrain_ball']?></td>
+			<td><?php if($dat['rough_terrain_ball']==1){echo "Yes";} else{echo "No";}?></td>
 			
 			<td><?=$dat['rockwall_faced']?></td>
 			<td><?=$dat['rockwall_cross']?></td>
 			<td><?=$dat['rockwall_speed']?></td>
 			<td><?=$dat['rockwall_stuck']?></td>
-			<td><?=$dat['rockwall_ball']?></td>
+			<td><?php if($dat['rockwall_ball']==1){echo "Yes";} else{echo "No";}?></td>
 		</tr>
 	</tbody>
 		
