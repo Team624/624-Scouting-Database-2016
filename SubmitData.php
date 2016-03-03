@@ -91,10 +91,13 @@ include("db_connect.php");
 	if((int)$_POST['challenge_Sucess']== "on"){$challenge_Sucess=1;}
 	if((int)$_POST['Scaled_Sucess']== "on"){$Scaled_Sucess=1;}
 	//Defense Rating
+	/*
 	if(($_POST['defense'] =='0')){$defense="0";}
 	elseif(($_POST['defense'] =='25')){$defense="<25";}
 	elseif(($_POST['defense'] =='50')){$defense="50";}
-	elseif(($_POST['defense'] =='75')){$defense=">75";}
+	elseif(($_POST['defense'] =='75')){$defense=">75";}*/
+	$defense = $_POST['defense'];
+	
 	//Robot Issues
 	if((int)$_POST['no_show']== "on"){$no_show=1;}
 	if((int)$_POST['mech_fail']== "on"){$mech_fail=1;}

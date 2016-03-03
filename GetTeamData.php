@@ -95,20 +95,20 @@
 			$data["auto_def_reach_total"] += $row['auto_Defenses_Reached_Sucess'] + $row['auto_Defenses_Reached_Failed'];
 			
 			$data["batter_high"] += $row['batter_high_Scored'];
-			$data["batter_high_miss"] += $row['batter_high_miss'];
+			$data["batter_high_miss"] += $row['batter_high_Miss'];
 			$data["courtyard_high"] += $row['courtyard_high_Scored'];
 			$data["courtyard_high_miss"] += $row['courtyard_high_Miss'];
 			
 			$data["batter_low"] += $row['batter_low_Scored'];
-			$data["batter_low_miss"] += $row['batter_low_miss'];
+			$data["batter_low_miss"] += $row['batter_low_Miss'];
 			$data["courtyard_low"] += $row['courtyard_low_Scored'];
-			$data["courtyard_low_miss"] += $row['courtyard_low_miss'];
+			$data["courtyard_low_miss"] += $row['courtyard_low_Miss'];
 			
 			$data["teleop_high"] += $row['courtyard_high_Scored'] +  $row['batter_high_Scored'];
 			$data["teleop_low"] += $row['courtyard_low_Scored'] +  $row['batter_low_Scored'];
 			
-			$data["teleop_high_miss"] += $row['courtyard_high_Miss'] +  $row['batter_high_miss'];
-			$data["teleop_low_miss"] += $row['courtyard_low_miss'] +  $row['batter_low_Miss'];
+			$data["teleop_high_miss"] += $row['courtyard_high_Miss'] +  $row['batter_high_Miss'];
+			$data["teleop_low_miss"] += $row['courtyard_low_Miss'] +  $row['batter_low_Miss'];
 			
 			$data["teleop_high_total"] += $row['courtyard_high_Scored'] +  $row['batter_high_Scored'] + $row['batter_high_Miss'] + $row['courtyard_high_Miss'];
 			$data["teleop_low_total"] += $row['courtyard_low_Scored'] +  $row['batter_low_Scored'] + $row['batter_low_Miss'] + $row['courtyard_low_Miss'];
@@ -298,6 +298,8 @@
 			
 			$match++;
 		}
+		
+		$data["played"] = $match - 1;
 		
 		$favoritism = [];
 		

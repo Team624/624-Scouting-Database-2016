@@ -10,9 +10,9 @@
 	//$dbuser = SkaiCow       /*$ini['dbuser']*/;
 	//$dbpass = clutchcode01       /*$ini['dbpass']*/; 
 	
-	//$dbname =  testdatabase2     /*$ini['dbname']*/;
-	//$dbuser = anuragtest       /*$ini['dbuser']*/;
-	//$dbpass = helloworld       /*$ini['dbpass']*/; 
+	$dbname =  testdatabase2     /*$ini['dbname']*/;
+	$dbuser = anuragtest       /*$ini['dbuser']*/;
+	$dbpass = helloworld       /*$ini['dbpass']*/; 
  
 	
 

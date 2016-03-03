@@ -52,7 +52,7 @@
 	$team_query = "SELECT `match_number`, `team_number` FROM `match_data` WHERE team_number = '$team'";
 	$result = $mysqli->query($team_query);
 ?>
-
+<h1>Match-By-Match</h1>
 <table class="matchTable">
 	<thead>
 		<tr>
@@ -99,6 +99,7 @@
 	</tbody>
 </table>
 <br>
+<h1>Scoring</h1>
 <table class="matchTable">
 	<thead>
 		
@@ -112,12 +113,12 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Low Goals Made</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Low Goals Missed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Low Goals Percent</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Defenses Crossed Sucess</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Defenses Crossed Success</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Defenses Crossed Failed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Defenses Reached Sucess</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Defenses Reached Failed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Start With Boulder?</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Boulder Grab Sucess?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Boulder Grab Success?</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -133,13 +134,14 @@
 			<td><?=$dat['auto_Defenses_Crossed_Failed']?></td>
 			<td><?=$dat['auto_def_reach']?></td>
 			<td><?=$dat['auto_Defenses_Reached_Failed']?></td>
-			<td><?php if($dat['Auto_StartWithBoulder']==1){echo "Yes";} else{echo "No";}?></td>
-			<td><?php if($dat['boulder_grabs']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?=$dat['Auto_StartWithBoulder']?></td>
+			<td><?=$dat['boulder_grabs']?></td>
 		</tr>
 	</tbody>
 		
 </table>
 <br><br>
+
 <table class="matchTable">
 	<thead>
 		
@@ -156,7 +158,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	<!--We need Auto info round here I suppose-->
+	
 		<tr>
 			<td><?=$dat['teleop_high']?></td>
 			<td><?=$dat['teleop_high_miss']?></td>
@@ -173,30 +175,23 @@
 	<thead>
 		
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "6">Alerts</th>
+			<th class='topTime'rowspan = "1" colspan = "2">Climbing Averages</th>
 		</tr>
 		<tr class="topRow">
-			<th class='topTime' rowspan = "1" colspan = "1">Fouls</th>
-			<th class='topTime' rowspan = "1" colspan = "1">Tech Fouls</th>
-			<th class='topTime' rowspan = "1" colspan = "1">No Shows</th>
-			<th class='topTime' rowspan = "1" colspan = "1">Mechanical Failures</th>
-			<th class='topTime' rowspan = "1" colspan = "1">Lost Communication</th>
-			<th class='topTime' rowspan = "1" colspan = "1">Tipped</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Challenge Success?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Scaled Success?</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td><?php if($dat['fouls']==1){echo "Yes";} else{echo "No";}?></td>
-			<td><?php if($dat['tech_fouls']==1){echo "Yes";} else{echo "No";}?></td>
-			<td><?php if($dat['no_show']==1){echo "Yes";} else{echo "No";}?></td>
-			<td><?php if($dat['mech_fail']==1){echo "Yes";} else{echo "No";}?></td>
-			<td><?php if($dat['lost_comms']==1){echo "Yes";} else{echo "No";}?></td>
-			<td><?php if($dat['tipped']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?=$dat['challenge']?></td>
+			<td><?=$dat['climbs']?></td>
 		</tr>
 	</tbody>
 		
 </table>
-<br><br>
+<br>
+<h1>Outer Works Averages</h1>
 <table class="matchTable">
 	<thead>
 		
@@ -214,10 +209,26 @@
 	<tbody>
 		<tr>
 			<td><?=$dat['lowbar_faced']?></td>
-			<td><?=$dat['lowbar_cross']?></td>
-			<td><?=$dat['lowbar_speed']?></td>
-			<td><?=$dat['lowbar_stuck']?></td>
-			<td><?php if($dat['lowbar_ball']==1){echo "Yes";} else{echo "No";}?></td>
+			<?php
+			if($dat['lowbar_faced']>0)
+			{
+			?>
+			<td><?=$dat['lowbar_cross'] / $dat['lowbar_faced']?></td>
+			<td><?=$dat['lowbar_speed'] / $dat['lowbar_faced']?></td>
+			<td><?=$dat['lowbar_stuck'] / $dat['lowbar_faced']?></td>
+			<td><?=$dat['lowbar_ball'] / $dat['lowbar_faced']?></td>
+			<?php
+				}
+				else{
+					?>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+					<?php
+				}
+			?>
+			
 		</tr>
 	</tbody>
 		
@@ -237,28 +248,60 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Balls</th>
 			
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Balls</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
+		<?php
+			if($dat['portcullis_faced']>0)
+			{
+		?>
 			<td><?=$dat['portcullis_faced']?></td>
-			<td><?=$dat['portcullis_cross']?></td>
-			<td><?=$dat['portcullis_speed']?></td>
-			<td><?=$dat['portcullis_stuck']?></td>
-			<td><?php if($dat['portcullis_ball']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?=$dat['portcullis_cross'] / $dat['portcullis_faced']?></td>
+			<td><?=$dat['portcullis_speed'] / $dat['portcullis_faced']?></td>
+			<td><?=$dat['portcullis_stuck'] / $dat['portcullis_faced']?></td>
+			<td><?=$dat['portcullis_ball'] / $dat['portcullis_faced']?></td>
+			<?php
+				}
+				else{
+					?>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+					<?php
+				}
+			?>
 			
+			<?php
+				if($dat['chili_fries_faced']>0)
+				{
+			?>
 			<td><?=$dat['chili_fries_faced']?></td>
-			<td><?=$dat['chili_fries_cross']?></td>
-			<td><?=$dat['chili_fries_speed']?></td>
-			<td><?=$dat['chili_fries_stuck']?></td>
-			<td><?php if($dat['chili_fries_ball']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?=$dat['chili_fries_cross'] / $dat['chili_fries_faced']?></td>
+			<td><?=$dat['chili_fries_speed'] / $dat['chili_fries_faced']?></td>
+			<td><?=$dat['chili_fries_stuck'] / $dat['chili_fries_faced']?></td>
+			<td><?=$dat['chili_fries_ball'] / $dat['chili_fries_faced']?></td>
+			<?php
+				}
+				else{
+					?>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+					<?php
+				}
+			?>
 		</tr>
 	</tbody>
 		
@@ -289,17 +332,49 @@
 	</thead>
 	<tbody>
 		<tr>
+			<?php
+				if($dat['moat_faced']>0)
+				{
+			?>
 			<td><?=$dat['moat_faced']?></td>
-			<td><?=$dat['moat_cross']?></td>
-			<td><?=$dat['moat_speed']?></td>
-			<td><?=$dat['moat_stuck']?></td>
-			<td><?php if($dat['moat_ball']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?=$dat['moat_cross'] / $dat['moat_faced']?></td>
+			<td><?=$dat['moat_speed']/ $dat['moat_faced']?></td>
+			<td><?=$dat['moat_stuck']/ $dat['moat_faced']?></td>
+			<td><?=$dat['moat_ball']/ $dat['moat_faced']?></td>
+			<?php
+				}
+				else{
+					?>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+					<?php
+				}
+			?>
 			
+			<?php
+				if($dat['ramparts_faced']>0)
+				{
+			?>
 			<td><?=$dat['ramparts_faced']?></td>
-			<td><?=$dat['ramparts_cross']?></td>
-			<td><?=$dat['ramparts_speed']?></td>
-			<td><?=$dat['ramparts_stuck']?></td>
-			<td><?php if($dat['ramparts_ball']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?=$dat['ramparts_cross'] / $dat['ramparts_faced']?></td>
+			<td><?=$dat['ramparts_speed'] / $dat['ramparts_faced']?></td>
+			<td><?=$dat['ramparts_stuck'] / $dat['ramparts_faced']?></td>
+			<td><?=$dat['ramparts_ball'] / $dat['ramparts_faced']?></td>
+			<?php
+				}
+				else{
+					?>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+					<?php
+				}
+			?>
 		</tr>
 	</tbody>
 		
@@ -330,17 +405,49 @@
 	</thead>
 	<tbody>
 		<tr>
+			<?php
+				if($dat['drawbridge_faced']>0)
+				{
+			?>
 			<td><?=$dat['drawbridge_faced']?></td>
-			<td><?=$dat['drawbridge_cross']?></td>
-			<td><?=$dat['drawbridge_speed']?></td>
-			<td><?=$dat['drawbridge_stuck']?></td>
-			<td><?php if($dat['drawbridge_ball']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?=$dat['drawbridge_cross'] / $dat['drawbridge_faced']?></td>
+			<td><?=$dat['drawbridge_speed'] / $dat['drawbridge_faced']?></td>
+			<td><?=$dat['drawbridge_stuck'] / $dat['drawbridge_faced']?></td>
+			<td><?=$dat['drawbridge_ball'] / $dat['drawbridge_faced']?></td>
+			<?php
+				}
+				else{
+					?>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+					<?php
+				}
+			?>
 			
+			<?php
+				if($dat['sally_port_faced']>0)
+				{
+			?>
 			<td><?=$dat['sally_port_faced']?></td>
-			<td><?=$dat['sally_port_cross']?></td>
-			<td><?=$dat['sally_port_speed']?></td>
-			<td><?=$dat['sally_port_stuck']?></td>
-			<td><?php if($dat['sally_port_ball']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?=$dat['sally_port_cross'] / $dat['sally_port_faced']?></td>
+			<td><?=$dat['sally_port_speed'] / $dat['sally_port_faced']?></td>
+			<td><?=$dat['sally_port_stuck'] / $dat['sally_port_faced']?></td>
+			<td><?=$dat['sally_port_ball'] / $dat['sally_port_faced']?></td>
+			<?php
+				}
+				else{
+					?>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+					<?php
+				}
+			?>
 		</tr>
 	</tbody>
 		
@@ -371,37 +478,79 @@
 	</thead>
 	<tbody>
 		<tr>
+			<?php
+				if($dat['rough_terrain_faced']>0)
+				{
+			?>
 			<td><?=$dat['rough_terrain_faced']?></td>
-			<td><?=$dat['rough_terrain_cross']?></td>
-			<td><?=$dat['rough_terrain_speed']?></td>
-			<td><?=$dat['rough_terrain_stuck']?></td>
-			<td><?php if($dat['rough_terrain_ball']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?=$dat['rough_terrain_cross'] / $dat['rough_terrain_faced']?></td>
+			<td><?=$dat['rough_terrain_speed'] / $dat['rough_terrain_faced']?></td>
+			<td><?=$dat['rough_terrain_stuck'] / $dat['rough_terrain_faced']?></td>
+			<td><?=$dat['rough_terrain_ball'] / $dat['rough_terrain_faced']?></td>
+			<?php
+				}
+				else{
+					?>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+					<?php
+				}
+			?>
 			
+			<?php
+				if($dat['rockwall_faced']>0)
+				{
+			?>
 			<td><?=$dat['rockwall_faced']?></td>
-			<td><?=$dat['rockwall_cross']?></td>
-			<td><?=$dat['rockwall_speed']?></td>
-			<td><?=$dat['rockwall_stuck']?></td>
-			<td><?php if($dat['rockwall_ball']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?=$dat['rockwall_cross'] / $dat['rockwall_faced']?></td>
+			<td><?=$dat['rockwall_speed'] / $dat['rockwall_faced']?></td>
+			<td><?=$dat['rockwall_stuck'] / $dat['rockwall_faced']?></td>
+			<td><?=$dat['rockwall_ball']  / $dat['rockwall_faced']?></td>
+			<?php
+				}
+				else{
+					?>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+					<?php
+				}
+			?>
 		</tr>
 	</tbody>
 		
 </table>
+
 <br><br>
+<h1>Other</h1>
 <table class="matchTable">
 	<thead>
 		
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "2">Climbing</th>
+			<th class='topTime'rowspan = "1" colspan = "6">Alerts</th>
 		</tr>
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "1">Challenge Sucess?</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Scaled Sucess?</th>
+			<th class='topTime' rowspan = "1" colspan = "1">Fouls</th>
+			<th class='topTime' rowspan = "1" colspan = "1">Tech Fouls</th>
+			<th class='topTime' rowspan = "1" colspan = "1">No Shows</th>
+			<th class='topTime' rowspan = "1" colspan = "1">Mechanical Failures</th>
+			<th class='topTime' rowspan = "1" colspan = "1">Lost Communication</th>
+			<th class='topTime' rowspan = "1" colspan = "1">Tipped</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td><?php if($dat['challenge']==1){echo "Yes";} else{echo "No";}?></td>
-			<td><?php if($dat['climbs']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?=$dat['fouls']?></td>
+			<td><?=$dat['tech_fouls']?></td>
+			<td><?=$dat['no_show']?></td>
+			<td><?=$dat['mech_fail']?></td>
+			<td><?=$dat['lost_comms']?></td>
+			<td><?=$dat['tipped']?></td>
 		</tr>
 	</tbody>
 		
@@ -411,7 +560,7 @@
 	<thead>
 		
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "4">Driver Data</th>
+			<th class='topTime'rowspan = "1" colspan = "4">Driver Data Averages</th>
 		</tr>
 		<tr class="topRow">
 			<th class='topTime'rowspan = "1" colspan = "1">Driving/Maneuverability</th>
@@ -422,10 +571,10 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><?=$dat['drive_manuverability']?></td>
-			<td><?=$dat['Defense_Pushing']?></td>
-			<td><?=$dat['Ball_Control']?></td>
-			<td><?=$dat['pushing']?></td>
+			<td><?=$dat['drive_manuverability'] / $dat["played"]?></td>
+			<td><?=$dat['Defense_Pushing'] / $dat["played"]?></td>
+			<td><?=$dat['Ball_Control'] / $dat["played"]?></td>
+			<td><?=$dat['pushing'] / $dat["played"]?></td>
 		</tr>
 	</tbody>
 	
@@ -435,12 +584,12 @@
 	<thead>
 		
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "4">Defense Rating</th>
+			<th class='topTime'rowspan = "1" colspan = "4"> Average Defense Rating</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td><?=$dat['defense']?>%</td>
+			<td><?=$dat['defense'] / $dat["played"]?>%</td>
 		</tr>
 	</tbody>
 	
@@ -497,7 +646,9 @@
 	</tbody>
 		
 </table>
-<!--<br><br>
+<br>
+
+<br><br>
 <table class="matchTable">
 	<thead>
 		

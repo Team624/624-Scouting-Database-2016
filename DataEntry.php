@@ -295,18 +295,21 @@ include("db_connect.php");
 		<br>
 		<div class="blackBox">
 			<table class="green">
-			<h2 class="DataTitle">Defense Rating</h2>
+			<h2 class="DataTitle">Defense Commitment</h2>
 				<tr>
-					<td>Defense Rating</td>
+					<td>% Time Spent Defending</td>
 				</tr>
 				<tr>
 					<td>
+					<!--
 						<select name="defense" required>
 							<option name="defending_0" value="0">0% Defense</option>
 							<option name="defending_25"value="25"><25% Defense</option>
 							<option name="defending_50"value="50">50% Defense</option>
 							<option name="defending_>75"value="75">>75% Defense</option>
 						</select>
+						-->
+						<input type="number" maximum=100 minimum=0 name="defense" class="small_num" required></input>
 					</td>
 				</tr>
 			</table>
@@ -349,13 +352,16 @@ include("db_connect.php");
 			<table class="green">
 			<h2 class="DataTitle">Driver Data</h2>
 				<tr>
-					<td>Driving/Maneuverability</td><td>Defense/Pushing</td><td>Ball Control</td><td>Pushing</td>
+					<td>Driving</td>
+					<td>Defense/Bullying</td>
+					<td>Ball Control</td>
+					<td>Pushing</td>
 				</tr>
 				<tr>
-					<td><input type="number" name="drive_manuverability" class="small_num" required></input></td>
-					<td><input type="number" name="pushing" class="small_num" required></input></td>
-					<td><input type="number" name="Defense_Pushing" class="small_num" required></input></td>
-					<td><input type="number" name="Ball_Control" class="small_num" required></input></td>
+					<td><input type="number" name="drive_manuverability" class="small_num" style="width:100%;" min=0 max=9></input></td>
+					<td><input type="number" name="pushing" style="width:100%;" class="small_num" min=0 max=9></input></td>
+					<td><input type="number" name="Defense_Pushing" style="width:100%;" class="small_num" min=0 max=9></input></td>
+					<td><input type="number" name="Ball_Control" style="width:100%;" class="small_num" min=0 max=9></input></td>
 				</tr>
 			</table>
 		</div>
