@@ -20,6 +20,14 @@
 
 <?php
 	$team = $_GET['team'];
+	
+	$query2 = "SELECT * FROM teams WHERE number='$team'";
+	$result2 = $mysqli->query($query2);
+	
+	if ($result2->num_rows > 0){
+	// output data of each row
+    while($row1 = $result2->fetch_assoc()) {
+		$teamname=$row1["name"];
 ?>
 <div class="page_container">
 <br>
@@ -33,10 +41,11 @@
 
 <br>
 
-	<h1><?php echo "Team " . $team; ?></h1>
-	
-	
-
+	<h1><?php echo "Team " . $team. "-".$teamname; ?></h1>
+	<?php
+		}
+	}
+	?>
 <?php
 	$dat = getTeamData($mysqli, $team);
 	
@@ -71,6 +80,7 @@
 				$playerMatch = $row["match_number"];
 				$match = getTeamMatchData($mysqli, $team, $playerMatch);
 		?>
+		<tr>
 		<td><?=$playerMatch?></td>
 		<td><?=getDefenseName($match['def_pos_types'][0])?></td>
 		<td><?=getDefenseName($match['def_pos_types'][1])?></td>
@@ -78,6 +88,7 @@
 		<td><?=getDefenseName($match['def_pos_types'][3])?></td>
 		<td><?=getDefenseName($match['def_pos_types'][4])?></td>
 		<td><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_ball']?></td>
+		</tr>
 		<?php
 		echo strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_ball';
 			}
