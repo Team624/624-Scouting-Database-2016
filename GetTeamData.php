@@ -432,13 +432,13 @@
 				*/
 				if($t==0)
 				{
-					$data['lowbar_cross'] += (int)$row['def_'.$def.'_crossed'];
-					$data['lowbar_stuck'] += (int)$row['def_'.$def.'_stuck'];
-					$data['lowbar_weak'] += (int)$row['def_'.$def.'_weakened'];
-					$data['lowbar_speed'] += (int)$row['def_'.$def.'_speed'];
-					$data['lowbar_ball'] += (int)$row['def_'.$def.'_ball'];
-					$data['lowbar_pos'][] = $def;
-					$data['lowbar_faced']++;
+					$data['low_bar_cross'] += (int)$row['def_'.$def.'_crossed'];
+					$data['low_bar_stuck'] += (int)$row['def_'.$def.'_stuck'];
+					$data['low_bar_weak'] += (int)$row['def_'.$def.'_weakened'];
+					$data['low_bar_speed'] += (int)$row['def_'.$def.'_speed'];
+					$data['low_bar_ball'] += (int)$row['def_'.$def.'_ball'];
+					$data['low_bar_pos'][] = $def;
+					$data['low_bar_faced']++;
 				}
 				else if($t==1)
 				{
@@ -502,13 +502,13 @@
 				}
 				else if($t==7)
 				{
-					$data['rockwall_cross'] += (int)$row['def_'.$def.'_crossed'];
-					$data['rockwall_stuck'] += (int)$row['def_'.$def.'_stuck'];
-					$data['rockwall_weak'] += (int)$row['def_'.$def.'_weakened'];
-					$data['rockwall_speed'] += (int)$row['def_'.$def.'_speed'];
-					$data['rockwall_ball'] += (int)$row['def_'.$def.'_ball'];
-					$data['rockwall_pos'][] = $def;
-					$data['rockwall_faced']++;
+					$data['rock_wall_cross'] += (int)$row['def_'.$def.'_crossed'];
+					$data['rock_wall_stuck'] += (int)$row['def_'.$def.'_stuck'];
+					$data['rock_wall_weak'] += (int)$row['def_'.$def.'_weakened'];
+					$data['rock_wall_speed'] += (int)$row['def_'.$def.'_speed'];
+					$data['rock_wall_ball'] += (int)$row['def_'.$def.'_ball'];
+					$data['rock_wall_pos'][] = $def;
+					$data['rock_wall_faced']++;
 				}
 				else if($t==8)
 				{
