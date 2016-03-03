@@ -9,7 +9,10 @@
 	include("api_connect.php");
 	include("GetTeamData.php");
 ?>
-
+<br>
+<br>
+<br>
+<br>
 <head>
 	<link rel="stylesheet" type="text/css" href="css/mainpagestyle.css">
 	<link rel="stylesheet" type="text/css" href="css/SearchStyle.css"> 
@@ -17,6 +20,14 @@
 
 <?php
 	$team = $_GET['team'];
+	
+	$query2 = "SELECT * FROM teams WHERE number='$team'";
+	$result2 = $mysqli->query($query2);
+	
+	if ($result2->num_rows > 0){
+	// output data of each row
+    while($row1 = $result2->fetch_assoc()) {
+		$teamname=$row1["name"];
 ?>
 <div class="page_container">
 <br>
@@ -30,14 +41,105 @@
 
 <br>
 
-	<h1><?php echo "Team " . $team; ?></h1>
-	
-	
-
+	<h1><?php echo "Team " . $team. "-".$teamname; ?></h1>
+	<?php
+		}
+	}
+	?>
 <?php
 	$dat = getTeamData($mysqli, $team);
 	
+	$team_query = "SELECT `match_number`, `team_number` FROM `match_data` WHERE team_number = '$team'";
+	$result = $mysqli->query($team_query);
 ?>
+
+<table class="matchTable">
+	<thead>
+		<tr>
+			<th class="topTime" rowspan = "1" colspan = "6"></th>
+			<th class="topTime" rowspan = "1" colspan = "5">Defense Stats<br>Ball,Crossed,Speed,Stuck</th>
+		</tr>
+		<tr>
+			<th class="topTime"rowspan = "1" colspan = "1">Match #</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Position 1</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Position 2</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Position 3</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Position 4</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Position 5</th>
+			<th class="topTime"rowspan = "1" colspan = "1">1 Stats</th>
+			<th class="topTime"rowspan = "1" colspan = "1">2 Stats</th>
+			<th class="topTime"rowspan = "1" colspan = "1">3 Stats</th>
+			<th class="topTime"rowspan = "1" colspan = "1">4 Stats</th>
+			<th class="topTime"rowspan = "1" colspan = "1">5 Stats</th>
+		</tr>
+	</tbody>
+	<tbody>
+		<?php
+			while($row = $result->fetch_array(MYSQLI_ASSOC))
+			{
+				$playerMatch = $row["match_number"];
+				$match = getTeamMatchData($mysqli, $team, $playerMatch);
+		?>
+		<tr>
+			<td class="TBody"><?=$playerMatch?></td>
+			<td class="TBody"><?=getDefenseName($match['def_pos_types'][0])?></td>
+			<td class="TBody"><?=getDefenseName($match['def_pos_types'][1])?></td>
+			<td class="TBody"><?=getDefenseName($match['def_pos_types'][2])?></td>
+			<td class="TBody"><?=getDefenseName($match['def_pos_types'][3])?></td>
+			<td class="TBody"><?=getDefenseName($match['def_pos_types'][4])?></td>
+			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_stuck']?></td>
+			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_stuck']?></td>
+			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_stuck']?></td>
+			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_stuck']?></td>
+			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_stuck']?></td>
+		</tr>
+		<?php
+			}
+		?>
+	</tbody>
+</table>
+<br>
+<table class="matchTable">
+	<thead>
+		
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "12">Auto</th>
+		</tr>
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "1">High Goals Made</th>
+			<th class='topTime'rowspan = "1" colspan = "1">High Goals Missed</th>
+			<th class='topTime'rowspan = "1" colspan = "1">High Goal Percent</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Low Goals Made</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Low Goals Missed</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Low Goals Percent</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Defenses Crossed Sucess</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Defenses Crossed Failed</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Defenses Reached Sucess</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Defenses Reached Failed</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Start With Boulder?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Boulder Grab Sucess?</th>
+		</tr>
+	</thead>
+	<tbody>
+	<!--We need Auto info round here I suppose-->
+		<tr>
+			<td><?=$dat['auto_high']?></td>
+			<td><?=$dat['auto_High_Miss']?></td>
+			<td><?php if($dat['auto_high_total'] > 0){ echo round($dat['auto_high']/$dat['auto_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
+			<td><?=$dat['auto_low']?></td>
+			<td><?=$dat['auto_Low_Miss']?></td>
+			<td><?php if($dat['auto_low_total'] > 0){ echo round($dat['auto_low']/$dat['auto_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
+			<td><?=$dat['auto_def_cross']?></td>
+			<td><?=$dat['auto_Defenses_Crossed_Failed']?></td>
+			<td><?=$dat['auto_def_reach']?></td>
+			<td><?=$dat['auto_Defenses_Reached_Failed']?></td>
+			<td><?php if($dat['Auto_StartWithBoulder']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['boulder_grabs']==1){echo "Yes";} else{echo "No";}?></td>
+		</tr>
+	</tbody>
+		
+</table>
+<br><br>
 <table class="matchTable">
 	<thead>
 		
@@ -77,19 +179,19 @@
 			<th class='topTime' rowspan = "1" colspan = "1">Fouls</th>
 			<th class='topTime' rowspan = "1" colspan = "1">Tech Fouls</th>
 			<th class='topTime' rowspan = "1" colspan = "1">No Shows</th>
-			<th class='topTime' rowspan = "1" colspan = "1">Mechanical Failues</th>
+			<th class='topTime' rowspan = "1" colspan = "1">Mechanical Failures</th>
 			<th class='topTime' rowspan = "1" colspan = "1">Lost Communication</th>
 			<th class='topTime' rowspan = "1" colspan = "1">Tipped</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr>
-			<td><?=$dat['fouls']?></td>
-			<td><?=$dat['tech_fouls']?></td>
-			<td><?=$dat['no_show'] ?></td>
-			<td><?=$dat['mech_fail']?></td>
-			<td><?=$dat['lost_comms']?></td>
-			<td><?=$dat['tipped'] ?></td>
+			<td><?php if($dat['fouls']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['tech_fouls']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['no_show']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['mech_fail']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['lost_comms']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['tipped']==1){echo "Yes";} else{echo "No";}?></td>
 		</tr>
 	</tbody>
 		
@@ -105,7 +207,7 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 		</tr>
 	</thead>
@@ -115,7 +217,7 @@
 			<td><?=$dat['lowbar_cross']?></td>
 			<td><?=$dat['lowbar_speed']?></td>
 			<td><?=$dat['lowbar_stuck']?></td>
-			<td><?=$dat['lowbar_ball']?></td>
+			<td><?php if($dat['lowbar_ball']==1){echo "Yes";} else{echo "No";}?></td>
 		</tr>
 	</tbody>
 		
@@ -134,13 +236,13 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 			
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 		</tr>
 	</thead>
@@ -150,13 +252,13 @@
 			<td><?=$dat['portcullis_cross']?></td>
 			<td><?=$dat['portcullis_speed']?></td>
 			<td><?=$dat['portcullis_stuck']?></td>
-			<td><?=$dat['portcullis_ball']?></td>
+			<td><?php if($dat['portcullis_ball']==1){echo "Yes";} else{echo "No";}?></td>
 			
 			<td><?=$dat['chili_fries_faced']?></td>
 			<td><?=$dat['chili_fries_cross']?></td>
 			<td><?=$dat['chili_fries_speed']?></td>
 			<td><?=$dat['chili_fries_stuck']?></td>
-			<td><?=$dat['chili_fries_ball']?></td>
+			<td><?php if($dat['chili_fries_ball']==1){echo "Yes";} else{echo "No";}?></td>
 		</tr>
 	</tbody>
 		
@@ -175,13 +277,13 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 			
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 		</tr>
 	</thead>
@@ -191,13 +293,13 @@
 			<td><?=$dat['moat_cross']?></td>
 			<td><?=$dat['moat_speed']?></td>
 			<td><?=$dat['moat_stuck']?></td>
-			<td><?=$dat['moat_ball']?></td>
+			<td><?php if($dat['moat_ball']==1){echo "Yes";} else{echo "No";}?></td>
 			
 			<td><?=$dat['ramparts_faced']?></td>
 			<td><?=$dat['ramparts_cross']?></td>
 			<td><?=$dat['ramparts_speed']?></td>
 			<td><?=$dat['ramparts_stuck']?></td>
-			<td><?=$dat['ramparts_ball']?></td>
+			<td><?php if($dat['ramparts_ball']==1){echo "Yes";} else{echo "No";}?></td>
 		</tr>
 	</tbody>
 		
@@ -216,13 +318,13 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 			
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 		</tr>
 	</thead>
@@ -232,13 +334,13 @@
 			<td><?=$dat['drawbridge_cross']?></td>
 			<td><?=$dat['drawbridge_speed']?></td>
 			<td><?=$dat['drawbridge_stuck']?></td>
-			<td><?=$dat['drawbridge_ball']?></td>
+			<td><?php if($dat['drawbridge_ball']==1){echo "Yes";} else{echo "No";}?></td>
 			
 			<td><?=$dat['sally_port_faced']?></td>
 			<td><?=$dat['sally_port_cross']?></td>
 			<td><?=$dat['sally_port_speed']?></td>
 			<td><?=$dat['sally_port_stuck']?></td>
-			<td><?=$dat['sally_port_ball']?></td>
+			<td><?php if($dat['sally_port_ball']==1){echo "Yes";} else{echo "No";}?></td>
 		</tr>
 	</tbody>
 		
@@ -257,13 +359,13 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 			
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Speed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Stuck?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Ball?</th>
 		</tr>
 	</thead>
@@ -273,19 +375,77 @@
 			<td><?=$dat['rough_terrain_cross']?></td>
 			<td><?=$dat['rough_terrain_speed']?></td>
 			<td><?=$dat['rough_terrain_stuck']?></td>
-			<td><?=$dat['rough_terrain_ball']?></td>
+			<td><?php if($dat['rough_terrain_ball']==1){echo "Yes";} else{echo "No";}?></td>
 			
 			<td><?=$dat['rockwall_faced']?></td>
 			<td><?=$dat['rockwall_cross']?></td>
 			<td><?=$dat['rockwall_speed']?></td>
 			<td><?=$dat['rockwall_stuck']?></td>
-			<td><?=$dat['rockwall_ball']?></td>
+			<td><?php if($dat['rockwall_ball']==1){echo "Yes";} else{echo "No";}?></td>
 		</tr>
 	</tbody>
 		
 </table>
+<br><br>
+<table class="matchTable">
+	<thead>
+		
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "2">Climbing</th>
+		</tr>
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "1">Challenge Sucess?</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Scaled Sucess?</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><?php if($dat['challenge']==1){echo "Yes";} else{echo "No";}?></td>
+			<td><?php if($dat['climbs']==1){echo "Yes";} else{echo "No";}?></td>
+		</tr>
+	</tbody>
+		
+</table>
+<br><br>
+<table class="matchTable">
+	<thead>
+		
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "4">Driver Data</th>
+		</tr>
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "1">Driving/Maneuverability</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Defense/Pushing</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Ball Control</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Pushing</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><?=$dat['drive_manuverability']?></td>
+			<td><?=$dat['Defense_Pushing']?></td>
+			<td><?=$dat['Ball_Control']?></td>
+			<td><?=$dat['pushing']?></td>
+		</tr>
+	</tbody>
+	
+</table>
+<br><br>
+<table class="matchTable">
+	<thead>
+		
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "4">Defense Rating</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><?=$dat['defense']?>%</td>
+		</tr>
+	</tbody>
+	
+</table>
 <br>
-
 <table class="matchTable">
 	<thead>
 		<tr class="topRow">
@@ -337,6 +497,31 @@
 	</tbody>
 		
 </table>
+<!--<br><br>
+<table class="matchTable">
+	<thead>
+		
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "4">Notes</th>
+		</tr>
+	</thead>
+	<tbody>
+<?php
+
+	//$query2 = "SELECT match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3 FROM schedule";
+	//$result2 = $mysqli->query($query2);
+	
+	//foreach($result2 as $row)
+	//{
+?>
+		<tr>
+			<td><?//=$dat['defense']?>%</td>
+		</tr>
+	</tbody>
+<?php	
+	//}
+?>
+</table>-->
 <?php
 	//var_dump($dat);
 ?>

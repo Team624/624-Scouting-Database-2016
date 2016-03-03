@@ -1,6 +1,6 @@
 <?php
 
-//Put Match Schedule Stuff Below. This requires the Events API
+//Put Match Schedule Stuff Below. This requires the Events API...NOPE!!!
 include("HeadTemplate.php");
 include("UserVerification.php");
 include("kick_intruders.php");
