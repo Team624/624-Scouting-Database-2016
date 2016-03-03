@@ -220,7 +220,7 @@
 		</thead>
 			<tr class="topRow">
 			<th class="TopRed">Red1</th>
-			<th class='red'><?php echo $red1;?></th>
+			<th class='red'><a href="TeamInfoDisplay.php?team=<?=$red1;?>"><?php echo $red1;?></a></th>
 			<th class='red'><?php echo $row1["name"];?></th>
 			<th class='red'>
 			<!--Auto-->
@@ -310,7 +310,7 @@
 			</tr>
 			<tr class="topRow">
 			<th class="TopRed">Red2</th>
-			<th class='red'><?php echo $red2;?></th>
+			<th class='red'><a href="TeamInfoDisplay.php?team=<?=$red2;?>"><?php echo $red2;?></a></th>
 			<th class='red'><?php echo $row3["name"];?></th>
 			<th class='red'>
 			<!--Auto-->
@@ -400,7 +400,7 @@
 			</tr>
 			<tr class="topRow">
 			<th class="TopRed">Red3</th>
-			<th class='red'><?php echo $red3;?></th>
+			<th class='red'><a href="TeamInfoDisplay.php?team=<?=$red3;?>"><?php echo $red3;?></a></th>
 			<th class='red'><?php echo $row5["name"];?></th>
 			<th class='red'>
 			<!--Auto-->
@@ -490,7 +490,7 @@
 			</tr> 
 			<tr class="topRow">
 			<th class="TopBlue">Blue1</th>
-			<th class='blue'><?php echo $blue1;?></th>
+			<th class='blue'><a href="TeamInfoDisplay.php?team=<?=$blue1;?>"><?php echo $blue1;?></a></th>
 			<th class='blue'><?php echo $row7["name"];?></th>
 			<th class='blue'>
 			<!--Auto-->
@@ -580,7 +580,7 @@
 			</tr>
 			<tr class="topRow">
 			<th class="TopBlue">Blue2</th>
-			<th class='blue'><?php echo $blue2;?></th>
+			<th class='blue'><a href="TeamInfoDisplay.php?team=<?=$blue2;?>"><?php echo $blue2;?></a></th>
 			<th class='blue'><?php echo $row9["name"];?></th>
 			<th class='blue'>
 			<!--Auto-->
@@ -670,7 +670,7 @@
 			</tr>
 			<tr class="topRow">
 			<th class="TopBlue">Blue3</th>
-			<th class='blue'><?php echo $blue3;?></th>
+			<th class='blue'><a href="TeamInfoDisplay.php?team=<?=$blue3;?>"><?php echo $blue3;?></a></th>
 			<th class='blue'><?php echo $row11["name"];?></th>
 			<th class='blue'>
 			<!--Auto-->
