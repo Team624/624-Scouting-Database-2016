@@ -254,59 +254,59 @@
 			<th class='red'><?=$red1Info['lowbar_cross']?></th>
 			<th class='red'><?=$red1Info['lowbar_speed']?></th>
 			<th class='red'><?=$red1Info['lowbar_stuck']?></th>
-			<th class='red'><?php if($red1Info['lowbar_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red1Info['lowbar_ball']?></th>
 			<!--Portcullis-->
 			<th class='red'><?=$red1Info['portcullis_cross']?></th>
 			<th class='red'><?=$red1Info['portcullis_speed']?></th>
 			<th class='red'><?=$red1Info['portcullis_stuck']?></th>
-			<th class='red'><?php if($red1Info['portcullis_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red1Info['portcullis_ball']?></th>
 			<!--Cheval de Frise-->
 			<th class='red'><?=$red1Info['chili_fries_cross']?></th>
 			<th class='red'><?=$red1Info['chili_fries_speed']?></th>
 			<th class='red'><?=$red1Info['chili_fries_stuck']?></th>
-			<th class='red'><?php if($red1Info['chili_fries_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red1Info['chili_fries_ball']?></th>
 			<!--Moat-->
 			<th class='red'><?=$red1Info['moat_cross']?></th>
 			<th class='red'><?=$red1Info['moat_speed']?></th>
 			<th class='red'><?=$red1Info['moat_stuck']?></th>
-			<th class='red'><?php if($red1Info['moat_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red1Info['moat_ball']?></th>
 			<!--Ramparts-->
 			<th class='red'><?=$red1Info['ramparts_cross']?></th>
 			<th class='red'><?=$red1Info['ramparts_speed']?></th>
 			<th class='red'><?=$red1Info['ramparts_stuck']?></th>
-			<th class='red'><?php if($red1Info['ramparts_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red1Info['ramparts_ball']?></th>
 			<!--Drawbridge-->
 			<th class='red'><?=$red1Info['drawbridge_cross']?></th>
 			<th class='red'><?=$red1Info['drawbridge_speed']?></th>
 			<th class='red'><?=$red1Info['drawbridge_stuck']?></th>
-			<th class='red'><?php if($red1Info['drawbridge_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red1Info['drawbridge_ball']?></th>
 			<!--Sally Port-->
 			<th class='red'><?=$red1Info['sally_port_cross']?></th>
 			<th class='red'><?=$red1Info['sally_port_speed']?></th>
 			<th class='red'><?=$red1Info['sally_port_stuck']?></th>
-			<th class='red'><?php if($red1Info['sally_port_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red1Info['sally_port_ball']?></th>
 			<!--Rock Wall-->
 			<th class='red'><?=$red1Info['rockwall_cross']?></th>
 			<th class='red'><?=$red1Info['rockwall_speed']?></th>
 			<th class='red'><?=$red1Info['rockwall_stuck']?></th>
-			<th class='red'><?php if($red1Info['rockwall_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red1Info['rockwall_ball']?></th>
 			<!--Rough Terrain-->
 			<th class='red'><?=$red1Info['rough_terrain_cross']?></th>
 			<th class='red'><?=$red1Info['rough_terrain_speed']?></th>
 			<th class='red'><?=$red1Info['rough_terrain_stuck']?></th>
-			<th class='red'><?php if($red1Info['rough_terrain_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red1Info['rough_terrain_ball']?></th>
 			<!--Defense Rating-->
 			<th class='red'><?=$red1Info['defense']?></th>
 			<!--Climbing-->
-			<th class='red'><?php if($red1Info['challenge']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red1Info['climbs']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red1Info['challenge']?></th>
+			<th class='red'><?=$red1Info['climbs']?></th>
 			<!--Robot Issues-->
-			<th class='red'><?php if($red1Info['no_show']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red1Info['mech_fail']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red1Info['lost_comms']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red1Info['tipped']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red1Info['fouls']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red1Info['tech_fouls']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red1Info['no_show']?></th>
+			<th class='red'><?=$red1Info['mech_fail']?></th>
+			<th class='red'><?=$red1Info['lost_comms']?></th>
+			<th class='red'><?=$red1Info['tipped']?></th>
+			<th class='red'><?=$red1Info['fouls']?></th>
+			<th class='red'><?=$red1Info['tech_fouls']?></th>
 			</tr>
 			<tr class="topRow">
 			<th class="TopRed">Red2</th>
@@ -344,59 +344,59 @@
 			<th class='red'><?=$red2Info['lowbar_cross']?></th>
 			<th class='red'><?=$red2Info['lowbar_speed']?></th>
 			<th class='red'><?=$red2Info['lowbar_stuck']?></th>
-			<th class='red'><?php if($red2Info['lowbar_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red2Info['lowbar_ball']?></th>
 			<!--Portcullis-->
 			<th class='red'><?=$red2Info['portcullis_cross']?></th>
 			<th class='red'><?=$red2Info['portcullis_speed']?></th>
 			<th class='red'><?=$red2Info['portcullis_stuck']?></th>
-			<th class='red'><?php if($red2Info['portcullis_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red2Info['portcullis_ball']?></th>
 			<!--Cheval de Frise-->
 			<th class='red'><?=$red2Info['chili_fries_cross']?></th>
 			<th class='red'><?=$red2Info['chili_fries_speed']?></th>
 			<th class='red'><?=$red2Info['chili_fries_stuck']?></th>
-			<th class='red'><?php if($red2Info['chili_fries_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red2Info['chili_fries_ball']?></th>
 			<!--Moat-->
 			<th class='red'><?=$red2Info['moat_cross']?></th>
 			<th class='red'><?=$red2Info['moat_speed']?></th>
 			<th class='red'><?=$red2Info['moat_stuck']?></th>
-			<th class='red'><?php if($red2Info['moat_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red2Info['moat_ball']?></th>
 			<!--Ramparts-->
 			<th class='red'><?=$red2Info['ramparts_cross']?></th>
 			<th class='red'><?=$red2Info['ramparts_speed']?></th>
 			<th class='red'><?=$red2Info['ramparts_stuck']?></th>
-			<th class='red'><?php if($red2Info['ramparts_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red2Info['ramparts_ball']?></th>
 			<!--Drawbridge-->
 			<th class='red'><?=$red2Info['drawbridge_cross']?></th>
 			<th class='red'><?=$red2Info['drawbridge_speed']?></th>
 			<th class='red'><?=$red2Info['drawbridge_stuck']?></th>
-			<th class='red'><?php if($red2Info['drawbridge_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red2Info['drawbridge_ball']?></th>
 			<!--Sally Port-->
 			<th class='red'><?=$red2Info['sally_port_cross']?></th>
 			<th class='red'><?=$red2Info['sally_port_speed']?></th>
 			<th class='red'><?=$red2Info['sally_port_stuck']?></th>
-			<th class='red'><?php if($red2Info['sally_port_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red2Info['sally_port_ball']?></th>
 			<!--Rock Wall-->
 			<th class='red'><?=$red2Info['rockwall_cross']?></th>
 			<th class='red'><?=$red2Info['rockwall_speed']?></th>
 			<th class='red'><?=$red2Info['rockwall_stuck']?></th>
-			<th class='red'><?php if($red2Info['rockwall_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red2Info['rockwall_ball']?></th>
 			<!--Rough Terrain-->
 			<th class='red'><?=$red2Info['rough_terrain_cross']?></th>
 			<th class='red'><?=$red2Info['rough_terrain_speed']?></th>
 			<th class='red'><?=$red2Info['rough_terrain_stuck']?></th>
-			<th class='red'><?php if($red2Info['rough_terrain_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red2Info['rough_terrain_ball']?></th>
 			<!--Defense Rating-->
 			<th class='red'><?=$red2Info['defense']?></th>
 			<!--Climbing-->
-			<th class='red'><?php if($red2Info['challenge']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red2Info['climbs']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red2Info['challenge']?></th>
+			<th class='red'><?=$red2Info['climbs']?></th>
 			<!--Robot Issues-->
-			<th class='red'><?php if($red2Info['no_show']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red2Info['mech_fail']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red2Info['lost_comms']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red2Info['tipped']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red2Info['fouls']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red2Info['tech_fouls']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red2Info['no_show']?></th>
+			<th class='red'><?=$red2Info['mech_fail']?></th>
+			<th class='red'><?=$red2Info['lost_comms']?></th>
+			<th class='red'><?=$red2Info['tipped']?></th>
+			<th class='red'><?=$red2Info['fouls']?></th>
+			<th class='red'><?=$red2Info['tech_fouls']?></th>
 			</tr>
 			<tr class="topRow">
 			<th class="TopRed">Red3</th>
@@ -434,59 +434,59 @@
 			<th class='red'><?=$red3Info['lowbar_cross']?></th>
 			<th class='red'><?=$red3Info['lowbar_speed']?></th>
 			<th class='red'><?=$red3Info['lowbar_stuck']?></th>
-			<th class='red'><?php if($red3Info['lowbar_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red3Info['lowbar_ball']?></th>
 			<!--Portcullis-->
 			<th class='red'><?=$red3Info['portcullis_cross']?></th>
 			<th class='red'><?=$red3Info['portcullis_speed']?></th>
 			<th class='red'><?=$red3Info['portcullis_stuck']?></th>
-			<th class='red'><?php if($red3Info['portcullis_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red3Info['portcullis_ball']?></th>
 			<!--Cheval de Frise-->
 			<th class='red'><?=$red3Info['chili_fries_cross']?></th>
 			<th class='red'><?=$red3Info['chili_fries_speed']?></th>
 			<th class='red'><?=$red3Info['chili_fries_stuck']?></th>
-			<th class='red'><?php if($red3Info['chili_fries_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red3Info['chili_fries_ball']?></th>
 			<!--Moat-->
 			<th class='red'><?=$red3Info['moat_cross']?></th>
 			<th class='red'><?=$red3Info['moat_speed']?></th>
 			<th class='red'><?=$red3Info['moat_stuck']?></th>
-			<th class='red'><?php if($red3Info['moat_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red3Info['moat_ball']?></th>
 			<!--Ramparts-->
 			<th class='red'><?=$red3Info['ramparts_cross']?></th>
 			<th class='red'><?=$red3Info['ramparts_speed']?></th>
 			<th class='red'><?=$red3Info['ramparts_stuck']?></th>
-			<th class='red'><?php if($red3Info['ramparts_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red3Info['ramparts_ball']?></th>
 			<!--Drawbridge-->
 			<th class='red'><?=$red3Info['drawbridge_cross']?></th>
 			<th class='red'><?=$red3Info['drawbridge_speed']?></th>
 			<th class='red'><?=$red3Info['drawbridge_stuck']?></th>
-			<th class='red'><?php if($red3Info['drawbridge_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red3Info['drawbridge_ball']?></th>
 			<!--Sally Port-->
 			<th class='red'><?=$red3Info['sally_port_cross']?></th>
 			<th class='red'><?=$red3Info['sally_port_speed']?></th>
 			<th class='red'><?=$red3Info['sally_port_stuck']?></th>
-			<th class='red'><?php if($red3Info['sally_port_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red3Info['sally_port_ball']?></th>
 			<!--Rock Wall-->
 			<th class='red'><?=$red3Info['rockwall_cross']?></th>
 			<th class='red'><?=$red3Info['rockwall_speed']?></th>
 			<th class='red'><?=$red3Info['rockwall_stuck']?></th>
-			<th class='red'><?php if($red3Info['rockwall_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red3Info['rockwall_ball']?></th>
 			<!--Rough Terrain-->
 			<th class='red'><?=$red3Info['rough_terrain_cross']?></th>
 			<th class='red'><?=$red3Info['rough_terrain_speed']?></th>
 			<th class='red'><?=$red3Info['rough_terrain_stuck']?></th>
-			<th class='red'><?php if($red3Info['rough_terrain_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red3Info['rough_terrain_ball']?></th>
 			<!--Defense Rating-->
 			<th class='red'><?=$red3Info['defense']?></th>
 			<!--Climbing-->
-			<th class='red'><?php if($red3Info['challenge']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red3Info['climbs']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red3Info['challenge']?></th>
+			<th class='red'><?=$red3Info['climbs']?></th>
 			<!--Robot Issues-->
-			<th class='red'><?php if($red3Info['no_show']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red3Info['mech_fail']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red3Info['lost_comms']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red3Info['tipped']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red3Info['fouls']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='red'><?php if($red3Info['tech_fouls']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='red'><?=$red3Info['no_show']?></th>
+			<th class='red'><?=$red3Info['mech_fail']?></th>
+			<th class='red'><?=$red3Info['lost_comms']?></th>
+			<th class='red'><?=$red3Info['tipped']?></th>
+			<th class='red'><?=$red3Info['fouls']?></th>
+			<th class='red'><?=$red3Info['tech_fouls']?></th>
 			</tr> 
 			<tr class="topRow">
 			<th class="TopBlue">Blue1</th>
@@ -524,59 +524,59 @@
 			<th class='blue'><?=$blue1Info['lowbar_cross']?></th>
 			<th class='blue'><?=$blue1Info['lowbar_speed']?></th>
 			<th class='blue'><?=$blue1Info['lowbar_stuck']?></th>
-			<th class='blue'><?php if($blue1Info['lowbar_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue1Info['lowbar_ball']?></th>
 			<!--Portcullis-->
 			<th class='blue'><?=$blue1Info['portcullis_cross']?></th>
 			<th class='blue'><?=$blue1Info['portcullis_speed']?></th>
 			<th class='blue'><?=$blue1Info['portcullis_stuck']?></th>
-			<th class='blue'><?php if($blue1Info['portcullis_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue1Info['portcullis_ball']?></th>
 			<!--Cheval de Frise-->
 			<th class='blue'><?=$blue1Info['chili_fries_cross']?></th>
 			<th class='blue'><?=$blue1Info['chili_fries_speed']?></th>
 			<th class='blue'><?=$blue1Info['chili_fries_stuck']?></th>
-			<th class='blue'><?php if($blue1Info['chili_fries_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue1Info['chili_fries_ball']?></th>
 			<!--Moat-->
 			<th class='blue'><?=$blue1Info['moat_cross']?></th>
 			<th class='blue'><?=$blue1Info['moat_speed']?></th>
 			<th class='blue'><?=$blue1Info['moat_stuck']?></th>
-			<th class='blue'><?php if($blue1Info['moat_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue1Info['moat_ball']?></th>
 			<!--Ramparts-->
 			<th class='blue'><?=$blue1Info['ramparts_cross']?></th>
 			<th class='blue'><?=$blue1Info['ramparts_speed']?></th>
 			<th class='blue'><?=$blue1Info['ramparts_stuck']?></th>
-			<th class='blue'><?php if($blue1Info['ramparts_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue1Info['ramparts_ball']?></th>
 			<!--Drawbridge-->
 			<th class='blue'><?=$blue1Info['drawbridge_cross']?></th>
 			<th class='blue'><?=$blue1Info['drawbridge_speed']?></th>
 			<th class='blue'><?=$blue1Info['drawbridge_stuck']?></th>
-			<th class='blue'><?php if($blue1Info['drawbridge_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue1Info['drawbridge_ball']?></th>
 			<!--Sally Port-->
 			<th class='blue'><?=$blue1Info['sally_port_cross']?></th>
 			<th class='blue'><?=$blue1Info['sally_port_speed']?></th>
 			<th class='blue'><?=$blue1Info['sally_port_stuck']?></th>
-			<th class='blue'><?php if($blue1Info['sally_port_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue1Info['sally_port_ball']?></th>
 			<!--Rock Wall-->
 			<th class='blue'><?=$blue1Info['rockwall_cross']?></th>
 			<th class='blue'><?=$blue1Info['rockwall_speed']?></th>
 			<th class='blue'><?=$blue1Info['rockwall_stuck']?></th>
-			<th class='blue'><?php if($blue1Info['rockwall_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue1Info['rockwall_ball']?></th>
 			<!--Rough Terrain-->
 			<th class='blue'><?=$blue1Info['rough_terrain_cross']?></th>
 			<th class='blue'><?=$blue1Info['rough_terrain_speed']?></th>
 			<th class='blue'><?=$blue1Info['rough_terrain_stuck']?></th>
-			<th class='blue'><?php if($blue1Info['rough_terrain_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue1Info['rough_terrain_ball']?></th>
 			<!--Defense Rating-->
 			<th class='blue'><?=$blue1Info['defense']?></th>
 			<!--Climbing-->
-			<th class='blue'><?php if($blue1Info['challenge']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue1Info['climbs']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue1Info['challenge']?></th>
+			<th class='blue'><?=$blue1Info['climbs']?></th>
 			<!--Robot Issues-->
-			<th class='blue'><?php if($blue1Info['no_show']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue1Info['mech_fail']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue1Info['lost_comms']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue1Info['tipped']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue1Info['fouls']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue1Info['tech_fouls']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue1Info['no_show']?></th>
+			<th class='blue'><?=$blue1Info['mech_fail']?></th>
+			<th class='blue'><?=$blue1Info['lost_comms']?></th>
+			<th class='blue'><?=$blue1Info['tipped']?></th>
+			<th class='blue'><?=$blue1Info['fouls']?></th>
+			<th class='blue'><?=$blue1Info['tech_fouls']?></th>
 			</tr>
 			<tr class="topRow">
 			<th class="TopBlue">Blue2</th>
@@ -614,59 +614,59 @@
 			<th class='blue'><?=$blue2Info['lowbar_cross']?></th>
 			<th class='blue'><?=$blue2Info['lowbar_speed']?></th>
 			<th class='blue'><?=$blue2Info['lowbar_stuck']?></th>
-			<th class='blue'><?php if($blue2Info['lowbar_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue2Info['lowbar_ball']?></th>
 			<!--Portcullis-->
 			<th class='blue'><?=$blue2Info['portcullis_cross']?></th>
 			<th class='blue'><?=$blue2Info['portcullis_speed']?></th>
 			<th class='blue'><?=$blue2Info['portcullis_stuck']?></th>
-			<th class='blue'><?php if($blue2Info['portcullis_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue2Info['portcullis_ball']?></th>
 			<!--Cheval de Frise-->
 			<th class='blue'><?=$blue2Info['chili_fries_cross']?></th>
 			<th class='blue'><?=$blue2Info['chili_fries_speed']?></th>
 			<th class='blue'><?=$blue2Info['chili_fries_stuck']?></th>
-			<th class='blue'><?php if($blue2Info['chili_fries_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue2Info['chili_fries_ball']?></th>
 			<!--Moat-->
 			<th class='blue'><?=$blue2Info['moat_cross']?></th>
 			<th class='blue'><?=$blue2Info['moat_speed']?></th>
 			<th class='blue'><?=$blue2Info['moat_stuck']?></th>
-			<th class='blue'><?php if($blue2Info['moat_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue2Info['moat_ball']?></th>
 			<!--Ramparts-->
 			<th class='blue'><?=$blue2Info['ramparts_cross']?></th>
 			<th class='blue'><?=$blue2Info['ramparts_speed']?></th>
 			<th class='blue'><?=$blue2Info['ramparts_stuck']?></th>
-			<th class='blue'><?php if($blue2Info['ramparts_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue2Info['ramparts_ball']?></th>
 			<!--Drawbridge-->
 			<th class='blue'><?=$blue2Info['drawbridge_cross']?></th>
 			<th class='blue'><?=$blue2Info['drawbridge_speed']?></th>
 			<th class='blue'><?=$blue2Info['drawbridge_stuck']?></th>
-			<th class='blue'><?php if($blue2Info['drawbridge_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue2Info['drawbridge_ball']?></th>
 			<!--Sally Port-->
 			<th class='blue'><?=$blue2Info['sally_port_cross']?></th>
 			<th class='blue'><?=$blue2Info['sally_port_speed']?></th>
 			<th class='blue'><?=$blue2Info['sally_port_stuck']?></th>
-			<th class='blue'><?php if($blue2Info['sally_port_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue2Info['sally_port_ball']?></th>
 			<!--Rock Wall-->
 			<th class='blue'><?=$blue2Info['rockwall_cross']?></th>
 			<th class='blue'><?=$blue2Info['rockwall_speed']?></th>
 			<th class='blue'><?=$blue2Info['rockwall_stuck']?></th>
-			<th class='blue'><?php if($blue2Info['rockwall_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue2Info['rockwall_ball']?></th>
 			<!--Rough Terrain-->
 			<th class='blue'><?=$blue2Info['rough_terrain_cross']?></th>
 			<th class='blue'><?=$blue2Info['rough_terrain_speed']?></th>
 			<th class='blue'><?=$blue2Info['rough_terrain_stuck']?></th>
-			<th class='blue'><?php if($blue2Info['rough_terrain_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue2Info['rough_terrain_ball']?></th>
 			<!--Defense Rating-->
 			<th class='blue'><?=$blue2Info['defense']?></th>
 			<!--Climbing-->
-			<th class='blue'><?php if($blue2Info['challenge']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue2Info['climbs']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue2Info['challenge']?></th>
+			<th class='blue'><?=$blue2Info['climbs']?></th>
 			<!--Robot Issues-->
-			<th class='blue'><?php if($blue2Info['no_show']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue2Info['mech_fail']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue2Info['lost_comms']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue2Info['tipped']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue2Info['fouls']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue2Info['tech_fouls']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue2Info['no_show']?></th>
+			<th class='blue'><?=$blue2Info['mech_fail']?></th>
+			<th class='blue'><?=$blue2Info['lost_comms']?></th>
+			<th class='blue'><?=$blue2Info['tipped']?></th>
+			<th class='blue'><?=$blue2Info['fouls']?></th>
+			<th class='blue'><?=$blue2Info['tech_fouls']?></th>
 			</tr>
 			<tr class="topRow">
 			<th class="TopBlue">Blue3</th>
@@ -704,59 +704,59 @@
 			<th class='blue'><?=$blue3Info['lowbar_cross']?></th>
 			<th class='blue'><?=$blue3Info['lowbar_speed']?></th>
 			<th class='blue'><?=$blue3Info['lowbar_stuck']?></th>
-			<th class='blue'><?php if($blue3Info['lowbar_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue3Info['lowbar_ball']?></th>
 			<!--Portcullis-->
 			<th class='blue'><?=$blue3Info['portcullis_cross']?></th>
 			<th class='blue'><?=$blue3Info['portcullis_speed']?></th>
 			<th class='blue'><?=$blue3Info['portcullis_stuck']?></th>
-			<th class='blue'><?php if($blue3Info['portcullis_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue3Info['portcullis_ball']?></th>
 			<!--Cheval de Frise-->
 			<th class='blue'><?=$blue3Info['chili_fries_cross']?></th>
 			<th class='blue'><?=$blue3Info['chili_fries_speed']?></th>
 			<th class='blue'><?=$blue3Info['chili_fries_stuck']?></th>
-			<th class='blue'><?php if($blue3Info['chili_fries_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue3Info['chili_fries_ball']?></th>
 			<!--Moat-->
 			<th class='blue'><?=$blue3Info['moat_cross']?></th>
 			<th class='blue'><?=$blue3Info['moat_speed']?></th>
 			<th class='blue'><?=$blue3Info['moat_stuck']?></th>
-			<th class='blue'><?php if($blue3Info['moat_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue3Info['moat_ball']?></th>
 			<!--Ramparts-->
 			<th class='blue'><?=$blue3Info['ramparts_cross']?></th>
 			<th class='blue'><?=$blue3Info['ramparts_speed']?></th>
 			<th class='blue'><?=$blue3Info['ramparts_stuck']?></th>
-			<th class='blue'><?php if($blue3Info['ramparts_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue3Info['ramparts_ball']?></th>
 			<!--Drawbridge-->
 			<th class='blue'><?=$blue3Info['drawbridge_cross']?></th>
 			<th class='blue'><?=$blue3Info['drawbridge_speed']?></th>
 			<th class='blue'><?=$blue3Info['drawbridge_stuck']?></th>
-			<th class='blue'><?php if($blue3Info['drawbridge_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue3Info['drawbridge_ball']?></th>
 			<!--Sally Port-->
 			<th class='blue'><?=$blue3Info['sally_port_cross']?></th>
 			<th class='blue'><?=$blue3Info['sally_port_speed']?></th>
 			<th class='blue'><?=$blue3Info['sally_port_stuck']?></th>
-			<th class='blue'><?php if($blue3Info['sally_port_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue3Info['sally_port_ball']?></th>
 			<!--Rock Wall-->
 			<th class='blue'><?=$blue3Info['rockwall_cross']?></th>
 			<th class='blue'><?=$blue3Info['rockwall_speed']?></th>
 			<th class='blue'><?=$blue3Info['rockwall_stuck']?></th>
-			<th class='blue'><?php if($blue3Info['rockwall_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue3Info['rockwall_ball']?></th>
 			<!--Rough Terrain-->
 			<th class='blue'><?=$blue3Info['rough_terrain_cross']?></th>
 			<th class='blue'><?=$blue3Info['rough_terrain_speed']?></th>
 			<th class='blue'><?=$blue3Info['rough_terrain_stuck']?></th>
-			<th class='blue'><?php if($blue3Info['rough_terrain_ball']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue3Info['rough_terrain_ball']?></th>
 			<!--Defense Rating-->
 			<th class='blue'><?=$blue3Info['defense']?></th>
 			<!--Climbing-->
-			<th class='blue'><?php if($blue3Info['challenge']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue3Info['climbs']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue3Info['challenge']?></th>
+			<th class='blue'><?=$blue3Info['climbs']?></th>
 			<!--Robot Issues-->
-			<th class='blue'><?php if($blue3Info['no_show']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue3Info['mech_fail']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue3Info['lost_comms']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue3Info['tipped']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue3Info['fouls']==1){echo "Yes";} else{echo "No";}?></th>
-			<th class='blue'><?php if($blue3Info['tech_fouls']==1){echo "Yes";} else{echo "No";}?></th>
+			<th class='blue'><?=$blue3Info['no_show']?></th>
+			<th class='blue'><?=$blue3Info['mech_fail']?></th>
+			<th class='blue'><?=$blue3Info['lost_comms']?></th>
+			<th class='blue'><?=$blue3Info['tipped']?></th>
+			<th class='blue'><?=$blue3Info['fouls']?></th>
+			<th class='blue'><?=$blue3Info['tech_fouls']?></th>
 			</tr>
 	</table>
 </div>	

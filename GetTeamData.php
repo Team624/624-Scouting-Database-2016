@@ -116,12 +116,13 @@
 			$data["challenge"] += $row['challenge_Sucess'];
 			$data["climbs"] += $row['scaled_Sucess'];
 			
-			$data["fouls"] += $row['fouls'];
-			$data["tech_fouls"] += $row['tech_fouls'];
+			
 			$data["no_show"] += $row['no_show'];
 			$data["mech_fail"] += $row['mech_fail'];
 			$data["lost_comms"] += $row['lost_comms'];
 			$data["tipped"] += $row['tipped'];
+			$data["fouls"] += $row['fouls'];
+			$data["tech_fouls"] += $row['tech_fouls'];
 			
 			$data['boulder_grabs'] += $row['Auto_Boulder_Grab'];
 			$data['Auto_StartWithBoulder'] += $row['Auto_StartWithBoulder'];

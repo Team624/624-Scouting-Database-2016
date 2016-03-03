@@ -314,6 +314,12 @@ else{
 				$result6 = $mysqli->query($query6);
 				$query7 = "TRUNCATE TABLE match_data";
 				$result7 = $mysqli->query($query7);
+				$query8 = "TRUNCATE TABLE notes";
+				$result8 = $mysqli->query($query8);
+				$query9 = "TRUNCATE TABLE note_entry";
+				$result9 = $mysqli->query($query9);
+				$query10 = "TRUNCATE TABLE scouts";
+				$result10 = $mysqli->query($query10);
 			}
 			else{
 				echo "Nope!";
