@@ -44,8 +44,8 @@
 		$score = 0;
 		
 		$score += ($ball * 5);
-		$score += ($cross * 5);
-		$score += ($speed * 5);
+		$score += ($cross * 10);
+		$score += ($speed * 7.5);
 		$score -= ($stuck * 10);
 		
 		if($faced > 0)
