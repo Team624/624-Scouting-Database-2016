@@ -57,7 +57,7 @@
 	<thead>
 		<tr>
 			<th class="topTime" rowspan = "1" colspan = "6"></th>
-			<th class="topTime" rowspan = "1" colspan = "5">Defense Stats<br>,,,</th>
+			<th class="topTime" rowspan = "1" colspan = "5">Defense Stats<br>Ball,Crossed,Speed,Stuck</th>
 		</tr>
 		<tr>
 			<th class="topTime"rowspan = "1" colspan = "1">Match #</th>
@@ -81,16 +81,19 @@
 				$match = getTeamMatchData($mysqli, $team, $playerMatch);
 		?>
 		<tr>
-		<td><?=$playerMatch?></td>
-		<td><?=getDefenseName($match['def_pos_types'][0])?></td>
-		<td><?=getDefenseName($match['def_pos_types'][1])?></td>
-		<td><?=getDefenseName($match['def_pos_types'][2])?></td>
-		<td><?=getDefenseName($match['def_pos_types'][3])?></td>
-		<td><?=getDefenseName($match['def_pos_types'][4])?></td>
-		<td><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_ball']?></td>
+			<td class="TBody"><?=$playerMatch?></td>
+			<td class="TBody"><?=getDefenseName($match['def_pos_types'][0])?></td>
+			<td class="TBody"><?=getDefenseName($match['def_pos_types'][1])?></td>
+			<td class="TBody"><?=getDefenseName($match['def_pos_types'][2])?></td>
+			<td class="TBody"><?=getDefenseName($match['def_pos_types'][3])?></td>
+			<td class="TBody"><?=getDefenseName($match['def_pos_types'][4])?></td>
+			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_stuck']?></td>
+			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_stuck']?></td>
+			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_stuck']?></td>
+			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_stuck']?></td>
+			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_stuck']?></td>
 		</tr>
 		<?php
-		echo strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_ball';
 			}
 		?>
 	</tbody>
