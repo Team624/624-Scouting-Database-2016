@@ -56,7 +56,7 @@
 <table class="matchTable">
 	<thead>
 		<tr>
-			<th class="topTime" rowspan = "1" colspan = "6"></th>
+			<th class="topTime" rowspan = "1" colspan = "6">Match Defence Statistics</th>
 			<th class="topTime" rowspan = "1" colspan = "5">Defense Stats<br>Ball,Crossed,Speed,Stuck</th>
 		</tr>
 		<tr>
@@ -92,6 +92,96 @@
 			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_stuck']?></td>
 			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_stuck']?></td>
 			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_stuck']?></td>
+		</tr>
+		<?php
+			}
+		?>
+	</tbody>
+</table>
+<br>
+<?php
+
+	$result2 = $mysqli->query($team_query);
+
+?>
+<table class="matchTable">
+	<thead>
+		<tr>
+			<th class="topTime" rowspan = "1" colspan = "9">Match Shooting Statistics</th>
+		</tr>
+		<tr>
+			<th class="topTime"rowspan = "1" colspan = "1">Match #</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Auto high %</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Auto Low %</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Teleop High %</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Teleop Low %</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Batter High %</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Batter Low %</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Court High %</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Court Low %</th>
+		</tr>
+	</tbody>
+	<tbody>
+		<?php
+			while($row = $result2->fetch_array(MYSQLI_ASSOC))
+			{
+				$playerMatch = $row["match_number"];
+				$match = getTeamMatchData($mysqli, $team, $playerMatch);
+		?>
+		<tr>
+			<td class="TBody"><?=$playerMatch?></td>
+			<td class="TBody"><?php if($match['auto_high_total'] > 0){ echo round($match['auto_high']/$match['auto_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="TBody"><?php if($match['auto_low_total'] > 0){ echo round($match['auto_low']/$match['auto_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="TBody"><?php if($match['teleop_high_total'] > 0){ echo round($match['teleop_high']/$match['teleop_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="TBody"><?php if($match['teleop_low_total'] > 0){ echo round($match['teleop_low']/$match['teleop_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="TBody"><?php if($match['batter_high_total'] > 0){ echo round($match['batter_high']/$match['batter_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="TBody"><?php if($match['batter_low_total'] > 0){ echo round($match['batter_low']/$match['batter_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="TBody"><?php if($match['court_high_total'] > 0){ echo round($match['court_high']/$match['court_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="TBody"><?php if($match['court_low_total'] > 0){ echo round($match['court_low']/$match['court_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+
+
+		</tr>
+		<?php
+			}
+		?>
+	</tbody>
+</table>
+<br>
+<?php
+
+	$result3 = $mysqli->query($team_query);
+
+?>
+<table class="matchTable">
+	<thead>
+		<tr>
+			<th class="topTime" rowspan = "1" colspan = "9">Match Foul Statistics</th>
+		</tr>
+		<tr>
+			<th class="topTime"rowspan = "1" colspan = "1">Match #</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Fouls</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Tech Fouls</th>
+			<th class="topTime"rowspan = "1" colspan = "1">No Show</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Mech Fail</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Lost Comm</th>
+			<th class="topTime"rowspan = "1" colspan = "1">Tipped</th>
+		</tr>
+	</tbody>
+	<tbody>
+		<?php
+			while($row = $result3->fetch_array(MYSQLI_ASSOC))
+			{
+				$playerMatch = $row["match_number"];
+				$match = getTeamMatchData($mysqli, $team, $playerMatch);
+		?>
+		<tr>
+			<td class="TBody"><?=$playerMatch?></td>
+			<td class="TBody"><?=$match['fouls']?></td>
+			<td class="TBody"><?=$match['tech_fouls']?></td>
+			<td class="TBody"><?=$match['no_show']?></td>
+			<td class="TBody"><?=$match['mech_fail']?></td>
+			<td class="TBody"><?=$match['lost_comms']?></td>
+			<td class="TBody"><?=$match['tipped']?></td>
 		</tr>
 		<?php
 			}
