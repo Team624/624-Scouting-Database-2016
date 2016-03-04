@@ -406,7 +406,7 @@
 			
 			$data['boulder_grabs'] += $row['Auto_Boulder_Grab'];
 			
-			$data['defense'] = $row['defense'];
+			$data['defense'] += $row['defense'];
 			
 			$defenseList = [];
 			$defenseList[] = $row['def_category_1'];

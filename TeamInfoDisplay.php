@@ -661,10 +661,25 @@
 	</thead>
 	<tbody>
 		<tr>
+		<?php
+		if($dat['played']>0)
+		{
+			?>
 			<td><?=$dat['drive_manuverability'] / $dat["played"]?></td>
 			<td><?=$dat['Defense_Pushing'] / $dat["played"]?></td>
 			<td><?=$dat['Ball_Control'] / $dat["played"]?></td>
 			<td><?=$dat['pushing'] / $dat["played"]?></td>
+			<?php
+				}
+				else{
+					?>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+			<td>0</td>
+					<?php
+				}
+			?>
 		</tr>
 	</tbody>
 	
@@ -679,7 +694,7 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><?=$dat['defense'] / $dat["played"]?>%</td>
+			<td><?php if($dat['played']>0){$dat['defense'] / $dat["played"];}else{echo"0";}?>%</td>
 		</tr>
 	</tbody>
 	

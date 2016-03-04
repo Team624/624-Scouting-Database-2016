@@ -5,6 +5,7 @@ include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
 include("db_connect.php");
+
 ?>
 <head>	<link rel="stylesheet" type="text/css" href="css/mainpagestyle.css"> 
 		<link rel="stylesheet" type="text/css" href="css/dataform.css">
@@ -96,7 +97,7 @@ include("db_connect.php");
 	elseif(($_POST['defense'] =='25')){$defense="<25";}
 	elseif(($_POST['defense'] =='50')){$defense="50";}
 	elseif(($_POST['defense'] =='75')){$defense=">75";}*/
-	$defense = $_POST['defense'];
+	$defense = (int)$_POST['defense'];
 	
 	//Robot Issues
 	if((int)$_POST['no_show']== "on"){$no_show=1;}
