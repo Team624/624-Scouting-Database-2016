@@ -19,7 +19,7 @@ include("db_connect.php");
 <br>
 
 	<div class="form_container">
-		<form class="datafield" method="post" onsubmit="return validate_data_entry()" id="data_form" action="SubmitData.php">
+		<form class="datafield" method="post" id="data_form" action="SubmitData.php">
 	<h1 class="title">Data Entry</h1>	
 			<!--<table><tr>
 			<strong><h1 style="color:green">IN HONOR OF VIRAJ JOSHI</h1></strong>

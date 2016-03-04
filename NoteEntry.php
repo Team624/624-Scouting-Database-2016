@@ -24,9 +24,7 @@ include("db_connect.php");
 <br>
 <br>
 <br>
-<textarea rows="7" cols="50" name="notes">
-Type notes in here!
-</textarea>
+<textarea rows="7" cols="50" name="notes" placeholder="Type notes here!!!"></textarea>
 <br>
 <br>
 <input type="submit" value="Enter!" class="subButton" name="submitnotes">
@@ -34,19 +32,19 @@ Type notes in here!
 </div>
 <?php
 if(isset($_POST['submitnotes'])){
-if(!empty($_POST['selectteam']) && !empty($_POST['notes'])) {
+if(isset($_POST['selectteam']) && isset($_POST['notes'])) {
 	$teamselect=$_POST['selectteam'];
 	$notes=$_POST['notes'];	
 	
 	$query = "INSERT INTO note_entry (selectteam,notes) VALUES ('$teamselect','$notes')";
 	$result = $mysqli->query($query);
 	if($result) {
-	echo"Successfully added notes";	
+		echo"Successfully added notes";	
 	}
 	else {
-	echo"NOPE!";	
+		echo"NOPE!<br>";	
+		printf("Errormessage: %s\n", $mysqli->error);
 	}
-	
 }
 }
 ?>
