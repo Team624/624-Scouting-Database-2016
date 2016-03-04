@@ -17,9 +17,9 @@ include("db_connect.php");
 <div class="page_container">
 <br>
 <br>
-
+<!--onsubmit="return validate_data_entry()"-->
 	<div class="form_container">
-		<form class="datafield" method="post" onsubmit="return validate_data_entry()" id="data_form" action="SubmitData.php">
+		<form class="datafield" method="post" id="data_form" action="SubmitData.php">
 	<h1 class="title">Data Entry</h1>	
 			<!--<table><tr>
 			<strong><h1 style="color:green">IN HONOR OF VIRAJ JOSHI</h1></strong>
@@ -169,8 +169,8 @@ include("db_connect.php");
 			</tr>
 			<tr>
 				<td></td> 
-				<td><input type="checkbox" name="Auto_Boulder_Grab" class="small_num" required></td>
-				<td><input type="checkbox" name="Auto_StartWithBoulder" class="small_num" required></td>
+				<td><input type="checkbox" name="Auto_Boulder_Grab" class="small_num" ></td>
+				<td><input type="checkbox" name="Auto_StartWithBoulder" class="small_num" ></td>
 			</tr>
 			</table>
 		</div>
@@ -221,10 +221,10 @@ include("db_connect.php");
 				<tr>
 					<td>Ball? (Y/N)</td>
 					<td><input type="checkbox" name="def_1_ball" class="small_num" required></td>
-					<td><input type="checkbox" name="def_2_ball" class="small_num" required></td>
-					<td><input type="checkbox" name="def_3_ball" class="small_num" required></td>
-					<td><input type="checkbox" name="def_4_ball" class="small_num" required></td>
-					<td><input type="checkbox" name="def_5_ball" class="small_num" required></td>
+					<td><input type="checkbox" name="def_2_ball" class="small_num" ></td>
+					<td><input type="checkbox" name="def_3_ball" class="small_num" ></td>
+					<td><input type="checkbox" name="def_4_ball" class="small_num" ></td>
+					<td><input type="checkbox" name="def_5_ball" class="small_num" ></td>
 				</tr>
 					
 			</table>
@@ -284,8 +284,8 @@ include("db_connect.php");
 								<td>Challenge Sucess?</td><td>Scaled Sucess?</td>
 							</tr>
 							<tr>
-								<td><input type="checkbox" name="challenge_Sucess" class="small_num" required></td>
-								<td><input type="checkbox" name="Scaled_Sucess" class="small_num" required></td>
+								<td><input type="checkbox" name="challenge_Sucess" class="small_num" ></td>
+								<td><input type="checkbox" name="Scaled_Sucess" class="small_num" ></td>
 							</tr>
 						</table>
 					</td>
