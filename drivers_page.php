@@ -1,4 +1,3 @@
-
 <?php
 //Check to make sure the drive team is logged in
 include("HeadTemplate.php");
@@ -12,6 +11,7 @@ if(isset($valid_user) && isset($user_type))
 		include("navbar.php");
 		include("api_connect.php");
 		include("db_connect.php");
+		include("GetTeamData.php");
 		/*
 		$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/txho?tournamentLevel=Qualification&teamNumber=624";
 		$response = file_get_contents($url,false,$context);
@@ -21,31 +21,7 @@ if(isset($valid_user) && isset($user_type))
 		$matches_query = "SELECT * FROM `schedule` WHERE (`red_1`=624 OR `red_2`=624 OR `red_3`=624 OR `blue_1`=624 OR `blue_2`=624 OR `blue_3`=624)";
 		$result = $mysqli->query($matches_query);
 ?>	
-<?php
-	function getTeamData($mysqli,$team_num)
-	{
-		$team_query = "SELECT * FROM `match_data` WHERE team_number = '$team_num'";//(`red1`='$team_num' OR `red2`='$team_num' OR `red3`='$team_num' OR `blue1`='$team_num' OR `blue2`='$team_num' OR `blue3`='$team_num')";
-		$result = $mysqli->query($team_query);
-		
-		$data = [];
-		
-		while($row = $result->fetch_array(MYSQLI_ASSOC))
-		{
-			$data["auto_high"] += $row['auto_High_Scored']; 
-			$data["auto_high_total"] += $row['auto_High_Miss'] + $row['auto_High_Scored']; 
-			$data["auto_low"] += $row['auto_Low_Scored']; 
-			$data["auto_low_total"] += $row['auto_Low_Miss'] + $row['auto_Low_Scored']; 
-			
-			$data["auto_def_cross"] += $row['auto_Defenses_Crossed_Sucess'];
-			$data["auto_def_cross_total"] += $row['auto_Defenses_Crossed_Sucess'] + $row['auto_Defenses_Crossed_Failed'];
-			
-			$data["auto_def_reach"] += $row['auto_Defenses_Crossed_Sucess'];
-			$data["auto_def_reach_total"] += $row['auto_Defenses_Crossed_Sucess'] + $row['auto_Defenses_Crossed_Failed'];
-		}
 
-		return $data;		
-	}
-?>
 
 
 <!-- Make this page Tablet Friendly -->
@@ -168,7 +144,7 @@ if(isset($valid_user) && isset($user_type))
 					{
 						$data[] = getTeamData($mysqli,$teamsList[$iter]);
 						?>
-						<td><?=$teamsList[$iter]?></td>
+						<td><a href="TeamInfoDisplay.php?team=<?=$teamsList[$iter]?>"><?=$teamsList[$iter]?></a></td>
 						<?php
 					}
 					
@@ -178,10 +154,15 @@ if(isset($valid_user) && isset($user_type))
 					</tr>
 					<tr>
 						<td>Favorite Defense</td>
-						
+						<td><?= $data[0]['favorite_defense_name']?></td>
+						<td><?= $data[1]['favorite_defense_name']?></td>
+						<td><?= $data[2]['favorite_defense_name']?></td>
 					</tr>
 					<tr>
 						<td>Least Favorite Defense</td>
+						<td><?= $data[0]['hated_defense_name']?></td>
+						<td><?= $data[1]['hated_defense_name']?></td>
+						<td><?= $data[2]['hated_defense_name']?></td>
 					</tr>
 					<tr>
 						<td>Preferred Starting Position</td>
@@ -200,6 +181,9 @@ if(isset($valid_user) && isset($user_type))
 					</tr>
 					<tr>
 						<td>Auto Low Goal</td>
+						<td><?=$data[0]['auto_low']?> / <?=$data[0]['auto_low_total']?></td>
+						<td><?=$data[1]['auto_low']?> / <?=$data[1]['auto_low_total']?></td>
+						<td><?=$data[2]['auto_low']?> / <?=$data[2]['auto_low_total']?></td>
 					</tr>
 					<tr>
 						<td>Auto High Goal</td>
@@ -208,19 +192,34 @@ if(isset($valid_user) && isset($user_type))
 						<td><?=$data[2]['auto_high']?> / <?=$data[2]['auto_high_total']?></td>
 					</tr>
 					<tr>
-						<td>Teleop Low Goal</td>
-					</tr>
-					<tr>
 						<td>Teleop High Goal</td>
+						<td><?=$data[0]['teleop_high']?> / <?=$data[0]['teleop_high_total']?></td>
+						<td><?=$data[1]['teleop_high']?> / <?=$data[1]['teleop_high_total']?></td>
+						<td><?=$data[2]['teleop_high']?> / <?=$data[2]['teleop_high_total']?></td>
 					</tr>
 					<tr>
-						<td>Climb?</td>
+						<td>Teleop Low Goal</td>
+						<td><?=$data[0]['teleop_low']?> / <?=$data[0]['teleop_low_total']?></td>
+						<td><?=$data[1]['teleop_low']?> / <?=$data[1]['teleop_low_total']?></td>
+						<td><?=$data[2]['teleop_low']?> / <?=$data[2]['teleop_low_total']?></td>
 					</tr>
 					<tr>
-					<td>Fouls</td>
+						<td>Climb Amounts</td>
+						<td><?=$data[0]['climbs']?></td>
+						<td><?=$data[1]['climbs']?></td>
+						<td><?=$data[2]['climbs']?></td>
+					</tr>
+					<tr>
+						<td>Fouls</td>
+						<td><?=$data[0]['fouls']?></td>
+						<td><?=$data[1]['fouls']?></td>
+						<td><?=$data[2]['fouls']?></td>
 					</tr>
 					<tr>
 						<td>Tech Fouls</td>
+						<td><?=$data[0]['tech_fouls']?></td>
+						<td><?=$data[1]['tech_fouls']?></td>
+						<td><?=$data[2]['tech_fouls']?></td>
 					</tr>
 				</table>
 				<h3 style="color:#000"> Our Opposition </h3>
@@ -258,10 +257,14 @@ if(isset($valid_user) && isset($user_type))
 					<tr>
 						<td></td>
 					<?php
+					$data = [];
+					
 					for(;$iter<=$limit;$iter++)
 					{
+						$data[] = getTeamData($mysqli,$teamsList[$iter]);
 						?>
-						<td><?=$teamsList[$iter]?></td>
+						
+						<td><a href="TeamInfoDisplay.php?team=<?=$teamsList[$iter]?>"><?=$teamsList[$iter]?></a></td>
 						
 						<?php
 					}
@@ -269,24 +272,45 @@ if(isset($valid_user) && isset($user_type))
 				</tr>
 				<tr>
 					<td>Favorite Defense</td>
+					<td><?= $data[0]['favorite_defense_name']?></td>
+					<td><?= $data[1]['favorite_defense_name']?></td>
+					<td><?= $data[2]['favorite_defense_name']?></td>
 				</tr>
 				<tr>
 					<td>Least Favorite Defense</td>
+					<td><?= $data[0]['hated_defense_name']?></td>
+					<td><?= $data[1]['hated_defense_name']?></td>
+					<td><?= $data[2]['hated_defense_name']?></td>
 				</tr>
 				<tr>
-					<td>Center Boulder Grab</td>
+					<td>Center Boulder Grabs</td>
+					<td><?=$data[0]['boulder_grabs']?></td>
+					<td><?=$data[1]['boulder_grabs']?></td>
+					<td><?=$data[2]['boulder_grabs']?></td>
 				</tr>
 				<tr>
-					<td>Teleop Low Goal %</td>
+					<td>Teleop High Goal</td>
+					<td><?=$data[0]['teleop_high']?> / <?=$data[0]['teleop_high_total']?></td>
+					<td><?=$data[1]['teleop_high']?> / <?=$data[1]['teleop_high_total']?></td>
+					<td><?=$data[2]['teleop_high']?> / <?=$data[2]['teleop_high_total']?></td>
 				</tr>
 				<tr>
-					<td>Teleop High Goal %</td>
+					<td>Teleop Low Goal</td>
+					<td><?=$data[0]['teleop_low']?> / <?=$data[0]['teleop_low_total']?></td>
+					<td><?=$data[1]['teleop_low']?> / <?=$data[1]['teleop_low_total']?></td>
+					<td><?=$data[2]['teleop_low']?> / <?=$data[2]['teleop_low_total']?></td>
 				</tr>
 				<tr>
 					<td>Fouls</td>
+					<td><?=$data[0]['fouls']?></td>
+					<td><?=$data[1]['fouls']?></td>
+					<td><?=$data[2]['fouls']?></td>
 				</tr>
 				<tr>
 					<td>Tech Fouls</td>
+					<td><?=$data[0]['tech_fouls']?></td>
+					<td><?=$data[1]['tech_fouls']?></td>
+					<td><?=$data[2]['tech_fouls']?></td>
 				</tr>
 				</table>	
 					

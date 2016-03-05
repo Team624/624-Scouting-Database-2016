@@ -23,6 +23,9 @@
 		<link rel="stylesheet" type="text/css" href="css/ScoutListStyle.css">
 		<link rel="stylesheet" type="text/css" href="css/SetupStyle.css">
 		
+		<!-- Javascript References -->
+		<script src="./scripts/dropdown.js"></script>
+		<script src="./scripts/validateForm.js"></script>
 	
 	</head>
 

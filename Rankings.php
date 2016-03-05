@@ -33,7 +33,7 @@ include("api_connect.php");
 </div>
 	
 	<table class = "rankingsTable">
-	<?=$reg?>
+
 		<tr class="THead">
 			<th>Rank</th>
 			<th>Team Number</th>

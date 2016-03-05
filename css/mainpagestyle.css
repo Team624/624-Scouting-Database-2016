@@ -14,6 +14,7 @@ div.quickLinks{
 	text-align: center;
 	padding: 1%;
 	border-radius: 10px;
+	color:#000;
 }
 .page_container {
 	text-align: center;
@@ -26,4 +27,12 @@ a,a:visited
 a:hover, a:focus
 {
 	color:#3CFF37;
+}
+.classy
+{
+	background-color: green;
+	background-image: url("../images/pixel_bg.png");
+	width:200px;
+	margin:0 auto;
+	padding:10px 0px 10px;
 }

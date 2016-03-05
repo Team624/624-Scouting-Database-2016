@@ -57,6 +57,7 @@
 			<li class="navbar"><a class="navbar" href="Setup.php">Setup</a></li>
 			<li class="navbar"><a class="navbar" href="RawData.php">Raw Data</a></li>
 			<li class="navbar"><a class="navbar" href="NoteEntry.php">Note Entry</a></li>
+<!--			<li class="navbar"><a class="navbar" href="picture_upload.php">Images</a></li> -->
 		<?php
 			}
 			if(strcmp($user_type,"driver")==0)

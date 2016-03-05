@@ -12,7 +12,7 @@ function load()
 		var s = document.getElementById("slide_span_"+i);
 		slideheights[i] = d.clientHeight;
 		
-		d.setAttribute("style", "height:0px;");
+		d.setAttribute("style", "height:0px; padding-bottom: 0px;");
 		b.innerHTML = "+";
 		//l.setAttribute("style", "-webkit-border-bottom-right-radius: 5px;-moz-border-radius-bottomright: 5px;-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;margin-bottom:5px; font-size:18px;"); 
 		//b.setAttribute("style","-webkit-border-bottom-left-radius: 5px;-moz-border-radius-bottomleft: 5px;");
@@ -27,7 +27,8 @@ function expand(id)
 	if(document.getElementById("slide_button_"+id).innerHTML!="+")
 	{
 		var d = document.getElementById("slide_"+id);
-		d.style.height = '0px';
+		d.setAttribute("style", "height: 0px;padding-bottom: 0px;");
+		//d.style.height = '0px';
 		
 		var b = document.getElementById("slide_button_"+id);
 		b.innerHTML = "+";
@@ -53,7 +54,7 @@ function expand(id)
 	{
 		var d = document.getElementById("slide_"+id);
 		
-		d.setAttribute("style", "height:"+slideheights[id] + "px");
+		d.setAttribute("style", "height:"+slideheights[id] + "px;padding-bottom: 10px;");
 		console.log(id + " " + slideheights[id]);
 		
 		var l = document.getElementById("slide_li_"+id);
