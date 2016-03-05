@@ -132,13 +132,13 @@
 		<tr>
 			<td class="TBody"><?=$playerMatch?></td>
 			<td class="TBody"><?php if($match['auto_high_total'] > 0){ echo round($match['auto_high']/$match['auto_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="TBody"><?php if($match['auto_low_total'] > 0){ echo round($match['auto_low']/$match['auto_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="TBody"><?php if($match['auto_low_total'] > 0){ echo round($match['auto_low']/$match['auto_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
 			<td class="TBody"><?php if($match['teleop_high_total'] > 0){ echo round($match['teleop_high']/$match['teleop_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
 			<td class="TBody"><?php if($match['teleop_low_total'] > 0){ echo round($match['teleop_low']/$match['teleop_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
 			<td class="TBody"><?php if($match['batter_high_total'] > 0){ echo round($match['batter_high']/$match['batter_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
 			<td class="TBody"><?php if($match['batter_low_total'] > 0){ echo round($match['batter_low']/$match['batter_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="TBody"><?php if($match['court_high_total'] > 0){ echo round($match['court_high']/$match['court_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="TBody"><?php if($match['court_low_total'] > 0){ echo round($match['court_low']/$match['court_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="TBody"><?php if($match['court_high_total'] > 0){ echo round($match['courtyard_high']/$match['court_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="TBody"><?php if($match['court_low_total'] > 0){ echo round($match['courtyard_low']/$match['court_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
 
 
 		</tr>
