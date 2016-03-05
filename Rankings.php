@@ -14,7 +14,7 @@ include("api_connect.php");
 
 	//NEW API CALL FOR 2.0
 	//$url = "https://frc-api.firstinspires.org/v2.0/2016/rankings/SCMB";
-	$url = "https://frc-api.firstinspires.org/v2.0/2016/rankings/SCMB";
+	$url = "https://frc-api.firstinspires.org/v2.0/2016/rankings/TXSA";
 	$response = file_get_contents($url,false,$context);
 	
 	//hint: use json_decode to decode $response. Look it up.
