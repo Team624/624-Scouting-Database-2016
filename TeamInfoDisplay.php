@@ -52,6 +52,7 @@
 	$team_query = "SELECT `match_number`, `team_number` FROM `match_data` WHERE team_number = '$team'";
 	$result = $mysqli->query($team_query);
 ?>
+<h3>Matches Played: <?=$dat["played"]?></h3>
 <h1>Match-By-Match</h1>
 <table class="matchTable">
 	<thead>
@@ -662,7 +663,7 @@
 	<tbody>
 		<tr>
 		<?php
-		if($dat['played']>0)
+		if($dat["played"] > 0)
 		{
 			?>
 			<td><?=$dat['drive_manuverability'] / $dat["played"]?></td>
@@ -670,15 +671,16 @@
 			<td><?=$dat['Ball_Control'] / $dat["played"]?></td>
 			<td><?=$dat['pushing'] / $dat["played"]?></td>
 			<?php
-				}
-				else{
-					?>
+		}
+		else
+		{
+			?>
 			<td>0</td>
 			<td>0</td>
 			<td>0</td>
 			<td>0</td>
-					<?php
-				}
+			<?php
+		}
 			?>
 		</tr>
 	</tbody>
@@ -694,7 +696,19 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td><?php if($dat['played']>0){$dat['defense'] / $dat["played"];}else{echo"0";}?>%</td>
+		<?php
+		if($dat["played"] > 0)
+		{
+			?>
+		<?php
+		}
+		else
+		{
+			?>
+			<td>Data Unavailable</td>
+			<?php
+		}
+			?>
 		</tr>
 	</tbody>
 	
@@ -752,33 +766,71 @@
 		
 </table>
 <br>
-
+<h1>Match Notes</h1>
 <br><br>
 <table class="matchTable">
 	<thead>
 		
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "4">Notes</th>
+			<th class='topTime' rowspan = "1" colspan = "1">Match #</th>
+			<th class='topTime' rowspan = "1" colspan = "4">Notes</th>
 		</tr>
 	</thead>
-	<tbody>
-<?php
-
-	//$query2 = "SELECT match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3 FROM schedule";
-	//$result2 = $mysqli->query($query2);
-	
-	//foreach($result2 as $row)
-	//{
-?>
-		<tr>
-			<td><?//=$dat['defense']?>%</td>
-		</tr>
+	<tbody>	
+		<?php
+			$note_query = "SELECT * FROM `notes` WHERE team='$team' ORDER BY `match_number` ASC";
+			$notes = $mysqli->query($note_query);
+			
+			while($row = $notes->fetch_array(MYSQLI_ASSOC))
+			{
+				?>
+				<tr>
+					<td><?=$row["match_number"]?></td>
+					<td><?=$row["notes"]?></td>
+				</tr>
+				<?php
+			}
+		?>
 	</tbody>
-<?php	
-	//}
-?>
-</table>-->
+</table>
+<br>
+<br>
+
+<h1>Other Notes</h1>
+<br><br>
+<table class="matchTable">
+	<thead>
+		
+		<tr class="topRow">
+			<th class='topTime' rowspan = "1" colspan = "4">Note</th>
+		</tr>
+	</thead>
+	<tbody>	
+		<?php
+			$note_query = "SELECT * FROM `note_entry` WHERE selectteam='$team' ORDER BY `id` ASC";
+			$notes = $mysqli->query($note_query);
+			
+			if($notes===FALSE)
+			{
+				//NOPE
+			}
+			else
+			{
+				while($row = $notes->fetch_array(MYSQLI_ASSOC))
+				{
+					?>
+					<tr>
+						<td><?=$row["notes"]?></td>
+					</tr>
+					<?php
+				}
+			}
+		?>
+	</tbody>
+</table>
 <?php
 	//var_dump($dat);
 ?>
+<br>
+<br>
 </div>
