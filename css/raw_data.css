@@ -4,8 +4,7 @@ div.raw_data
 	height: 500px;
 	margin:0 auto;
 	background-color:#1a1a1a;
-	overflow-x: scroll;
-	overflow-y: scroll;
+	
 }
 .rawTop
 {
@@ -50,6 +49,7 @@ div.raw_data
 {
 	border-collapse: collapse;
 	background-image: url("../images/pixel_bg.png");
+	overflow-x: scroll;
 }
 .rawZebra:nth-child(even)
 {
