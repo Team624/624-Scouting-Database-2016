@@ -54,7 +54,7 @@
 ?>
 <h3>Matches Played: <?=$dat["played"]?></h3>
 <h1>Match-By-Match</h1>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		<tr>
 			<th class="topTime" rowspan = "1" colspan = "6">Match Defence Statistics</th>
@@ -81,18 +81,18 @@
 				$playerMatch = $row["match_number"];
 				$match = getTeamMatchData($mysqli, $team, $playerMatch);
 		?>
-		<tr>
-			<td class="TBody"><?=$playerMatch?></td>
-			<td class="TBody"><?=getDefenseName($match['def_pos_types'][0])?></td>
-			<td class="TBody"><?=getDefenseName($match['def_pos_types'][1])?></td>
-			<td class="TBody"><?=getDefenseName($match['def_pos_types'][2])?></td>
-			<td class="TBody"><?=getDefenseName($match['def_pos_types'][3])?></td>
-			<td class="TBody"><?=getDefenseName($match['def_pos_types'][4])?></td>
-			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_stuck']?></td>
-			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_stuck']?></td>
-			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_stuck']?></td>
-			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_stuck']?></td>
-			<td class="TBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_stuck']?></td>
+		<tr class="teamRow">
+			<td class="teamTBody"><?=$playerMatch?></td>
+			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][0])?></td>
+			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][1])?></td>
+			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][2])?></td>
+			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][3])?></td>
+			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][4])?></td>
+			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_stuck']?></td>
+			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_stuck']?></td>
+			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_stuck']?></td>
+			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_stuck']?></td>
+			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_stuck']?></td>
 		</tr>
 		<?php
 			}
@@ -105,7 +105,7 @@
 	$result2 = $mysqli->query($team_query);
 
 ?>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		<tr>
 			<th class="topTime" rowspan = "1" colspan = "9">Match Shooting Statistics</th>
@@ -153,7 +153,7 @@
 	$result3 = $mysqli->query($team_query);
 
 ?>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		<tr>
 			<th class="topTime" rowspan = "1" colspan = "9">Match Foul Statistics</th>
@@ -191,7 +191,7 @@
 </table>
 <br>
 <h1>Scoring</h1>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		
 		<tr class="topRow">
@@ -233,7 +233,7 @@
 </table>
 <br><br>
 
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		
 		<tr class="topRow">
@@ -262,7 +262,7 @@
 		
 </table>
 <br><br>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		
 		<tr class="topRow">
@@ -283,7 +283,7 @@
 </table>
 <br>
 <h1>Outer Works Averages</h1>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		
 		<tr class="topRow">
@@ -325,7 +325,7 @@
 		
 </table>
 <br>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		<tr class="topRow">
 			<th class='topTime'rowspan = "1" colspan = "10">Category A</th>
@@ -398,7 +398,7 @@
 		
 </table>
 <br>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		<tr class="topRow">
 			<th class='topTime'rowspan = "1" colspan = "10">Category B</th>
@@ -471,7 +471,7 @@
 		
 </table>
 <br>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		<tr class="topRow">
 			<th class='topTime'rowspan = "1" colspan = "10">Category C</th>
@@ -544,7 +544,7 @@
 		
 </table>
 <br>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		<tr class="topRow">
 			<th class='topTime'rowspan = "1" colspan = "10">Category D</th>
@@ -619,7 +619,7 @@
 
 <br><br>
 <h1>Other</h1>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		
 		<tr class="topRow">
@@ -647,7 +647,7 @@
 		
 </table>
 <br><br>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		
 		<tr class="topRow">
@@ -687,7 +687,7 @@
 	
 </table>
 <br><br>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		
 		<tr class="topRow">
@@ -714,7 +714,7 @@
 	
 </table>
 <br>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		<tr class="topRow">
 			<th class='topTime'rowspan = "1" colspan = "2">Outer Works Scores</th>
@@ -768,7 +768,7 @@
 <br>
 <h1>Match Notes</h1>
 <br><br>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		
 		<tr class="topRow">
@@ -798,7 +798,7 @@
 
 <h1>Other Notes</h1>
 <br><br>
-<table class="matchTable">
+<table class="teamTable">
 	<thead>
 		
 		<tr class="topRow">
