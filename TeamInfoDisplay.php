@@ -57,7 +57,7 @@
 <table class="teamTable">
 	<thead>
 		<tr>
-			<th class="topTime" rowspan = "1" colspan = "6">Match Defence Statistics</th>
+			<th class="topTime" rowspan = "1" colspan = "6">Match Defense Statistics</th>
 			<th class="topTime" rowspan = "1" colspan = "5">Defense Stats<br>Ball,Crossed,Speed,Stuck</th>
 		</tr>
 		<tr>
@@ -232,24 +232,22 @@
 		
 </table>
 <br><br>
-
 <table class="teamTable">
 	<thead>
 		
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "10">Shooting Statistics</th>
+			<th class='topTime'rowspan = "1" colspan = "18">Shooting Statistics High</th>
 		</tr>
 		<tr class="topRow">
 			<th class='topTime'rowspan = "1" colspan = "1">Teleop High Goals Made</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Teleop High Goals Missed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Teleop High Goal %</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Teleop Low Goals Made</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Teleop Low Goals Missed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Teleop Low Goals %</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Batter High Goals Made</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Batter High Goals Missed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Batter High %</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Batter Low %</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Court High Goals Made</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Court High Goals Missed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Court High %</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Court Low %</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -257,14 +255,48 @@
 		<tr>
 			<td><?=$dat['teleop_high']?></td>
 			<td><?=$dat['teleop_high_miss']?></td>
-			<td><?php if($dat['teleop_high_total'] > 0){ echo round($dat['teleop_high']/$dat['teleop_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
+			<td><?php if($dat['teleop_high_total'] > 0){echo round($dat['teleop_high']/$dat['teleop_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
+			<td><?=$dat['batter_high']?></td>
+			<td><?=$dat['batter_high_miss']?></td>
+			<td><?php if($dat['batter_high_total'] > 0){echo round($dat['batter_high']/$dat['batter_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
+			<td><?=$dat['courtyard_high']?></td>
+			<td><?=$dat['courtyard_high_miss']?></td>
+			<td><?php if($dat['court_high_total'] > 0){echo round($dat['courtyard_high']/$dat['court_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
+		</tr>
+	</tbody>
+		
+</table>
+<br><br>
+<table class="teamTable">
+	<thead>
+		
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "18">Shooting Statistics Low</th>
+		</tr>
+		<tr class="topRow">
+			<th class='topTime'rowspan = "1" colspan = "1">Teleop Low Goals Made</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Teleop Low Goals Missed</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Teleop Low Goals %</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Batter Low Goals Made</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Batter Low Goals Missed</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Batter Low %</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Court Low Goals Made</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Court Low Goals Missed</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Court Low %</th>
+		</tr>
+	</thead>
+	<tbody>
+	
+		<tr>
 			<td><?=$dat['teleop_low']?></td>
 			<td><?=$dat['teleop_low_miss']?></td>
-			<td><?php if($dat['teleop_low_total'] > 0){ echo round($dat['teleop_low']/$dat['teleop_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
-			<td><?php if($dat['batter_high_total'] > 0){ echo round($dat['batter_high']/$dat['batter_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
-			<td><?php if($dat['batter_low_total'] > 0){ echo round($dat['batter_low']/$dat['batter_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
-			<td><?php if($dat['court_high_total'] > 0){ echo round($dat['courtyard_high']/$dat['court_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
-			<td><?php if($dat['court_low_total'] > 0){ echo round($dat['courtyard_low']/$dat['court_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
+			<td><?php if($dat['teleop_low_total'] > 0){echo round($dat['teleop_low']/$dat['teleop_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
+			<td><?=$dat['batter_low']?></td>
+			<td><?=$dat['batter_low_miss']?></td>
+			<td><?php if($dat['batter_low_total'] > 0){echo round($dat['batter_low']/$dat['batter_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
+			<td><?=$dat['courtyard_low']?></td>
+			<td><?=$dat['courtyard_low_miss']?></td>
+			<td><?php if($dat['court_low_total'] > 0){echo round($dat['courtyard_low']/$dat['court_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
 		</tr>
 	</tbody>
 		
@@ -699,7 +731,7 @@
 	<thead>
 		
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "4"> Average Defense Rating</th>
+			<th class='topTime'rowspan = "1" colspan = "4"> Average Defense Time%</th>
 		</tr>
 	</thead>
 	<tbody>

@@ -220,7 +220,7 @@ include("db_connect.php");
 				</tr>
 				<tr>
 					<td>Ball? (Y/N)</td>
-					<td><input type="checkbox" name="def_1_ball" class="small_num" required></td>
+					<td><input type="checkbox" name="def_1_ball" class="small_num" ></td>
 					<td><input type="checkbox" name="def_2_ball" class="small_num" ></td>
 					<td><input type="checkbox" name="def_3_ball" class="small_num" ></td>
 					<td><input type="checkbox" name="def_4_ball" class="small_num" ></td>

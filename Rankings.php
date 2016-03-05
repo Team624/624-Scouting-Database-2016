@@ -8,9 +8,9 @@ include("read_ini.php");
 include("db_connect.php");
 include("api_connect.php");
 
-	$query2 = "SELECT * FROM teams";
-	$result2 = $mysqli->query($query2);
-	$reg = $query2['regional'];
+	//$query2 = "SELECT * FROM teams";
+	//$result2 = $mysqli->query($query2);
+	//$reg = $query2['regional'];
 
 	//NEW API CALL FOR 2.0
 	//$url = "https://frc-api.firstinspires.org/v2.0/2016/rankings/SCMB";
