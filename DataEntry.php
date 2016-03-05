@@ -372,9 +372,11 @@ include("db_connect.php");
 			<h2 class="DataTitle">Comments</h2>
 				<tr>
 					<td>Notes:</td>
+					<td>Shooting Location:</td>
 				</tr>
 				<tr>
 					<td><textarea rows=5 cols=30 name="notes"></textarea></td>
+					<td><textarea rows=5 cols=20 name="shooting_location"></textarea></td>
 				</tr>
 			</table>
 		</div>
