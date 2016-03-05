@@ -56,6 +56,11 @@ include("db_connect.php");
 				<td class="rawTop"><p class="rawP">Defense Speed 3</P></td>
 				<td class="rawTop"><p class="rawP">Defense Speed 4</P></td>
 				<td class="rawTop"><p class="rawP">Defense Speed 5</P></td>
+				<td class="rawTop"><p class="rawP">Defense Stuck 1</P></td>
+				<td class="rawTop"><p class="rawP">Defense Stuck 2</P></td>
+				<td class="rawTop"><p class="rawP">Defense Stuck 3</P></td>
+				<td class="rawTop"><p class="rawP">Defense Stuck 4</P></td>
+				<td class="rawTop"><p class="rawP">Defense Stuck 5</P></td>
 				<td class="rawTop"><p class="rawP">Defense With Ball 1</P></td>
 				<td class="rawTop"><p class="rawP">Defense With Ball 2</P></td>
 				<td class="rawTop"><p class="rawP">Defense With Ball 3</P></td>
@@ -75,7 +80,6 @@ include("db_connect.php");
 				<td class="rawTop"><p class="rawP">No Show?</P></td>
 				<td class="rawTop"><p class="rawP">Mechanical Failure?</P></td>
 				<td class="rawTop"><p class="rawP">Lost Comms?</P></td>
-				<td class="rawTop"><p class="rawP">Got Stuck</P></td>
 				<td class="rawTop"><p class="rawP">Got Tipped Over</P></td>
 				<td class="rawTop"><p class="rawP">Fouls?</P></td>
 				<td class="rawTop"><p class="rawP">Tech Fouls?</P></td>
@@ -127,6 +131,11 @@ include("db_connect.php");
 						<td class="rawBody"><?=$row['def_3_speed'];?></td>
 						<td class="rawBody"><?=$row['def_4_speed'];?></td>
 						<td class="rawBody"><?=$row['def_5_speed'];?></td>
+						<td class="rawBody"><?=$row['def_1_stuck'];?></td>
+						<td class="rawBody"><?=$row['def_2_stuck'];?></td>
+						<td class="rawBody"><?=$row['def_3_stuck'];?></td>
+						<td class="rawBody"><?=$row['def_4_stuck'];?></td>
+						<td class="rawBody"><?=$row['def_5_stuck'];?></td>
 						<td class="rawBody"><?=$row['def_1_ball'];?></td>
 						<td class="rawBody"><?=$row['def_2_ball'];?></td>
 						<td class="rawBody"><?=$row['def_3_ball'];?></td>
@@ -146,7 +155,6 @@ include("db_connect.php");
 						<td class="rawBody"><?=$row['no_show'];?></td>
 						<td class="rawBody"><?=$row['mech_fail'];?></td>
 						<td class="rawBody"><?=$row['lost_comms'];?></td>
-						<td class="rawBody"><?=$row['stuck'];?></td>
 						<td class="rawBody"><?=$row['tipped'];?></td>
 						<td class="rawBody"><?=$row['fouls'];?></td>
 						<td class="rawBody"><?=$row['tech_fouls'];?></td>
