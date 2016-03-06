@@ -46,8 +46,8 @@ include("db_connect.php");
 	
 	$auto_Start_Location=(int)$_POST['auto_Start_Location'];
 
-	if((int)$_POST['Auto_Boulder_Grab']=="on"){$Auto_Boulder_Grab=1;}
-	if((int)$_POST['Auto_StartWithBoulder']=="on"){$Auto_StartWithBoulder=1;}
+	if($_POST['Auto_Boulder_Grab']=="on"){$Auto_Boulder_Grab=1;}
+	if($_POST['Auto_StartWithBoulder']=="on"){$Auto_StartWithBoulder=1;}
 	//Teleop
 	$def_crossed_1=(int)$_POST['def_1_crossed'];
 	$def_crossed_2=(int)$_POST['def_2_crossed'];
@@ -89,8 +89,8 @@ include("db_connect.php");
 	$courtyard_high_Miss=(int)$_POST['courtyard_high_Miss'];
 	$courtyard_low_Miss=(int)$_POST['courtyard_low_Miss'];
 	//Climbing variables
-	if((int)$_POST['challenge_Sucess']== "on"){$challenge_Sucess=1;}
-	if((int)$_POST['Scaled_Sucess']== "on"){$Scaled_Sucess=1;}
+	if($_POST['challenge_Sucess']== "on"){$challenge_Sucess=1;}
+	if($_POST['Scaled_Sucess']== "on"){$Scaled_Sucess=1;}
 	//Defense Rating
 	/*
 	if(($_POST['defense'] =='0')){$defense="0";}
@@ -100,11 +100,11 @@ include("db_connect.php");
 	$defense = (int)$_POST['defense'];
 	
 	//Robot Issues
-	if((int)$_POST['no_show']== "on"){$no_show=1;}
-	if((int)$_POST['mech_fail']== "on"){$mech_fail=1;}
-	if((int)$_POST['lost_comm']== "on"){$lost_comms=1;}
+	if($_POST['no_show']== "on"){$no_show=1;}
+	if($_POST['mech_fail']== "on"){$mech_fail=1;}
+	if($_POST['lost_comm']== "on"){$lost_comms=1;}
 	
-	if((int)$_POST['tipped']== "on"){$tipped=1;}
+	if($_POST['tipped']== "on"){$tipped=1;}
 	$fouls=(int)$_POST['fouls'];
 	$tech_fouls=(int)$_POST['tech_fouls'];
 	//Driver Data
