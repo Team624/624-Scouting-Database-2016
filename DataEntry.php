@@ -104,10 +104,10 @@ include("db_connect.php");
 							<option name="def_category_D2"value="8">Rough Terrain</option>
 						</select>
 					</td>-->
-					<td><input type="number" name="def_category_2" class="small_num" required></td>
-					<td><input type="number" name="def_category_3" class="small_num" required></td>
-					<td><input type="number" name="def_category_4" class="small_num" required></td>
-					<td><input type="number" name="def_category_5" class="small_num" required></td>
+					<td><input type="number" name="def_category_2" class="small_num" min=1 max=8 required></td>
+					<td><input type="number" name="def_category_3" class="small_num" min=1 max=8 required></td>
+					<td><input type="number" name="def_category_4" class="small_num" min=1 max=8 required></td>
+					<td><input type="number" name="def_category_5" class="small_num" min=1 max=8 required></td>
 					
 				</tr>
 			</table>
@@ -159,7 +159,7 @@ include("db_connect.php");
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="number" name="auto_Start_Location" class="small_num" required></td>
+				<td><input type="number" name="auto_Start_Location" class="small_num" min=1 max=5 required></td>
 				
 			</tr>
 			<tr>
@@ -309,7 +309,7 @@ include("db_connect.php");
 							<option name="defending_>75"value="75">>75% Defense</option>
 						</select>
 						-->
-						<input type="number" maximum=100 minimum=0 name="defense" class="small_num" required></input>
+						<input type="number"   name="defense" class="small_num"  min=0 max=100 required></input>
 					</td>
 				</tr>
 			</table>
