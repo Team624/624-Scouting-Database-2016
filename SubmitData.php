@@ -125,7 +125,7 @@ include("DatabaseVerification.php");
 	$result = $mysqli->query($query);
 	$query2 = "INSERT INTO notes (team,match_number,notes) VALUES ('$teamNum','$matchNum','$notes')";
 	$result2 = $mysqli->query($query2);
-	
+	//there are 68 columns in match_data!
 	if($result&&$result2) {
 	echo"Successfully added info";
 ?>
@@ -143,7 +143,7 @@ include("DatabaseVerification.php");
 	}
 	}
 	else{
-		echo"Sorry,Try Again.";
+		echo"Entry Failed Validation,Try Again.";
 ?>
 	<a href="DataEntry.php">Go back to Entering Data</a>
 	<br>

@@ -36,7 +36,7 @@ include("db_connect.php");
 	$result2 = $mysqli->query($query2);
 	
 	foreach($result2 as $row)
-	{
+	{ 
 ?>	
 		<tr class="scheduleZenbra">
 			<td class="side-bar"><a href="MatchInfoDisplay.php?match=<?=$row["match_number"];?>" class="side-bar-a"><b><?=$row["match_number"];?></b></a></td>

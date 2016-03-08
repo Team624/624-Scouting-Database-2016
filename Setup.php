@@ -6,7 +6,7 @@ include("kick_intruders.php");
 include("navbar.php");
 include("api_connect.php");
 include("db_connect.php");
-
+include("TeamPerformanceRankingData.php");
 ?>
 <head><link rel="stylesheet" type="text/css" href="css/SetupStyle.css"></head>
 <br><br>
@@ -320,6 +320,8 @@ else{
 				$result9 = $mysqli->query($query9);
 				$query10 = "TRUNCATE TABLE scouts";
 				$result10 = $mysqli->query($query10);
+				$query11 = "TRUNCATE TABLE regional";
+				$result11 = $mysqli->query($query11);
 			}
 			else{
 				echo "Nope!";
@@ -329,5 +331,69 @@ else{
 	}
 	?>
 		</div>
+		<table id="scoutTable">
+		<tr class="scoutTHead">
+			<th>Team Ranking</th><!--this should probably be an id auto incrementing column -->
+			<!--Scoring-->
+			<th>Points Contributed Total</th>
+			<th>Points Contributed High</th>
+			<th>Points Contributed Avg.</th>
+			<th>Auto Points Contributed Total</th>
+			<th>Auto Points Contributed High</th>
+			<th>Auto Points Contributed Avg.</th>
+			<!--Climbing-->
+			<th>% of Games Challenged</th>
+			<th>% of Games Scaled</th>
+			<!--Defense-->
+			<th>Defenses Crossed Total</th>
+			<th>Low Bar Crossed Total</th>
+			<th>Portcullis Crossed Total</th>
+			<th>Chili Fries Crossed Total</th>
+			<th>Moat Crossed Total</th>
+			<th>Ramparts Crossed Total</th>
+			<th>Drawbridge Crossed Total</th>
+			<th>Sally Port Crossed Total</th>
+			<th>Rock Wall Crossed Total</th>
+			<th>Rough Terrain Crossed Total</th>
+			<!--High Goal Score-->
+			<th>High Goals Scored Total</th>
+			<th>High Goals Scored High</th>
+			<th>High Goals Scored Avg.</th>
+			<th>High Goals Scored % Total</th>
+			<th>High Goals Scored % High</th>
+			<th>High Goals Scored % Avg.</th>
+			<!--Low Goal Score-->
+			<th>Low Goals Scored Total</th>
+			<th>Low Goals Scored High</th>
+			<th>Low Goals Scored Avg.</th>
+			<th>Low Goals Scored % Total</th>
+			<th>Low Goals Scored % High</th>
+			<th>Low Goals Scored % Avg.</th>
+			<!--Total Goal Score-->
+			<th>Goals Scored Total</th>
+			<!--Bad Things-->
+			<th>Fouls</th>
+			<th>Stuck</th>
+			<!--Time Defending%-->
+			<th>Avg. Defense Rating%</th>
+		</tr>
+		<?php
+			$query = "SELECT * FROM scouts";
+			$result = $mysqli->query($query);
+			
+			while($row = $result->fetch_array(MYSQLI_ASSOC))
+			{
+		?>
+			<tr>
+				<td><?php echo $row['id'];?></td>
+				<td><?php echo $row['firstname']; ?></td>
+				<td><?php echo $row['lastname']; ?></td>
+			</tr>
+		<?php
+			}
+			$teamRanking=teamPerformance($mysqli);
+			var_dump($teamRanking);
+		?>
+	</table>
 	</div>
 </div>

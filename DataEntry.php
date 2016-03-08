@@ -159,7 +159,7 @@ include("db_connect.php");
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="number" name="auto_Start_Location" class="small_num" min=1 max=5 required></td>
+				<td><input type="number" name="auto_Start_Location" class="small_num" min=1 max=6 required></td>
 				
 			</tr>
 			<tr>

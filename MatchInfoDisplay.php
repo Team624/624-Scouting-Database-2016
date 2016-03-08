@@ -112,7 +112,7 @@
     while($row11 = $result12->fetch_assoc()) {
 			?>
 			<?php
-			//I just realized that since this is MatchInfoDisplay, the data needs to be slightly more specific to the match instead of being a teams overall data.Or maybe I can insert test data for another match team 624 has.
+			
 			$red1Info = getTeamData($mysqli,$red1);
 			$red2Info = getTeamData($mysqli,$red2);
 			$red3Info = getTeamData($mysqli,$red3);
