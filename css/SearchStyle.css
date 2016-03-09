@@ -92,6 +92,40 @@ div.matchDisplay
 	text-align:center;
 }
 
+/*Team info tables*/
+
+.teamTable
+{
+	border-spacing: 0px 0px;
+	background-image: url("../images/pixel_bg.png");
+	background-color: rgb(7, 7, 7);
+	margin: 0 auto;
+	text-align: center;
+	border-radius: 0px 0px 15px 15px;
+	/*overflow: hidden;*/
+	font-size: 120%;
+	width:65%;
+	padding: 10px 14px 0px 10px;
+	color:green;
+	border-collapse: collapse;
+	overflow:hidden;
+}
+.teamTBody
+{
+	padding:2px;
+	margin:2px;
+	text-align:center;
+	border-left: 2px solid black;
+	height:50px;
+	color:#66ff66;
+}
+tr.teamRw:nth-child(even)
+{
+	background-color: rgba(153, 153, 153, .5);
+}
+
+
+
 
 
 

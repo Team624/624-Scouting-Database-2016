@@ -8,8 +8,8 @@ include("read_ini.php");
 include("db_connect.php");
 include("api_connect.php");
 
-	$query2 = "SELECT * FROM teams";
-	$result2 = $mysqli->query($query2);
+	//$query2 = "SELECT * FROM teams";
+	//$result2 = $mysqli->query($query2);
 	//$reg = $query2['regional'];
 	
 	$reg_code = $mysqli->query("SELECT * FROM `regional` LIMIT 1");
@@ -38,7 +38,7 @@ include("api_connect.php");
 </div>
 	
 	<table class = "rankingsTable">
-	<?=$reg?>
+
 		<tr class="THead">
 			<th>Rank</th>
 			<th>Team Number</th>

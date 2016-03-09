@@ -154,7 +154,7 @@ if(strcasecmp($eventCode,"TXHO")==0){
 	
 
 	
-	$url = "https://frc-api.firstinspires.org/v2.0/2015/teams?eventCode=TXHO&state=state";
+	$url = "https://frc-api.firstinspires.org/v2.0/2016/teams?eventCode=TXHO&state=state";
 	$response = file_get_contents($url,false,$context);
 	$json = json_decode($response, true);
 //var_dump($json[teams]);
@@ -177,7 +177,7 @@ $result3 = $mysqli->query($query);
 
 }
 else if(strcasecmp($eventCode,"TXSA")==0){
-	$url = "https://frc-api.firstinspires.org/v2.0/2015/teams?eventCode=TXSA&state=state";
+	$url = "https://frc-api.firstinspires.org/v2.0/2016/teams?eventCode=TXSA&state=state";
 	$response = file_get_contents($url,false,$context);
 	$json = json_decode($response, true);
 //var_dump($json[teams]);
@@ -196,7 +196,7 @@ $result = $mysqli->query($query);
 		}
 }
 else if(strcasecmp($eventCode,"ALHU")==0){
-	$url = "https://frc-api.firstinspires.org/v2.0/2015/teams?eventCode=ALHU&state=state";
+	$url = "https://frc-api.firstinspires.org/v2.0/2016/teams?eventCode=ALHU&state=state";
 	$response = file_get_contents($url,false,$context);
 	$json = json_decode($response, true);
 //var_dump($json[teams]);
@@ -273,7 +273,7 @@ $result = $mysqli->query($query);
 		/*
 }
 else if(strcasecmp($eventCode,"TXSA")==0){
-	$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/TXSA?tournamentLevel=qual";
+	$url = "https://frc-api.firstinspires.org/v2.0/2016/schedule/TXSA?tournamentLevel=qual";
 	$response = file_get_contents($url,false,$context);
 	$json = json_decode($response, true);
 $query = "TRUNCATE TABLE schedule";
