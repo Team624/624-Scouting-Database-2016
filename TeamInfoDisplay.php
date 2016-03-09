@@ -16,6 +16,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="css/mainpagestyle.css">
 	<link rel="stylesheet" type="text/css" href="css/SearchStyle.css"> 
+	<!--<link rel="stylesheet" type="text/css" href="css/MatchScheduleStyle.css">-->
 </head>
 
 <?php

@@ -381,8 +381,6 @@ else{
 			$obliterationPassword = $_POST['obliteratePassword'];
 			if(strcmp($obliterationPassword,"ALLIDOISWIN!")==0){
 				
-				//$query4 = "SET FOREIGN_KEY_CHECKS=0";
-				//$result4 = $mysqli->query($query4);
 				$query5 = "TRUNCATE TABLE teams";
 				$result5 = $mysqli->query($query5);
 				$query6 = "TRUNCATE TABLE schedule";
@@ -397,6 +395,8 @@ else{
 				$result10 = $mysqli->query($query10);
 				$query11 = "TRUNCATE TABLE regional";
 				$result11 = $mysqli->query($query11);
+				$query21 = "TRUNCATE TABLE team_performance";
+				$result21 = $mysqli->query($query21);
 			}
 			else{
 				echo "Nope!";
