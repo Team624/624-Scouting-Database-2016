@@ -72,11 +72,81 @@ include("db_connect.php");
 	<p class="words">Put in event code:</p>
 	<form class="loadData" method="post">
 	<input type="text" name="eventCode"><br><br>
-	<input type="submit" value="Load Team List!" class="subButton" name="loadTeam"><br><br>
-	<input type="submit" value="Load Match Schedule!" class="subButton" name="loadSchedule">
+	<input type="submit" value="Load Data!" class="subButton" name="loadData">
+	<!--<input type="submit" value="Load Team List!" class="subButton" name="loadTeam"><br><br>
+	<input type="submit" value="Load Match Schedule!" class="subButton" name="loadSchedule">-->
 	</form>
 <?php
 
+/*JUSTIN'S CODE THAT ISN'T DUMB*/
+if(isset($_POST['loadData']))
+{
+	if(!empty($_POST['eventCode']))
+	{
+		$eventCode = $_POST['eventCode'];
+		
+		$mysqli->query("Truncate Table regional");
+		$mysqli->query("INSERT INTO regional (`eventCode`) VALUES ('$eventCode')");
+		
+		$url = "https://frc-api.firstinspires.org/v2.0/2016/teams?eventCode=". $eventCode . "&state=state";
+		$response = file_get_contents($url,false,$context);
+		$json = json_decode($response, true);
+		//var_dump($json[teams]);
+		//echo json_encode($json[teams], JSON_PRETTY_PRINT);
+		$query = "TRUNCATE TABLE teams";
+		$result = $mysqli->query($query);
+			foreach ($json[teams] as $team)
+			{	
+				//var_dump($team);
+					$teamName = $team["nameShort"];
+					$teamNumber = $team["teamNumber"];
+				
+					
+					$query2 = "INSERT INTO teams (number,name) VALUES ('$teamNumber','$teamName')";
+					$result2 = $mysqli->query($query2);
+			}
+	
+		$url = "https://frc-api.firstinspires.org/v2.0/2016/schedule/".$eventCode."?tournamentLevel=qualification";
+		$response = file_get_contents($url,false,$context);
+		$json = json_decode($response, true);
+		$query = "TRUNCATE TABLE schedule";
+		$result = $mysqli->query($query);
+		//var_dump($json);
+		//echo json_encode($json, JSON_PRETTY_PRINT);
+		foreach ($json as $schedule)
+		{	
+			//var_dump($schedule);
+			
+			foreach ($schedule as $match)
+			{ 
+			$alliances = $match["Teams"];
+			//var_dump($alliances);
+			$red1Teams=  $alliances[0];
+			$red2Teams=  $alliances[1];
+			$red3Teams=  $alliances[2];
+			$blue1Teams= $alliances[3];
+			$blue2Teams= $alliances[4];
+			$blue3Teams= $alliances[5];
+							
+			$matchNumba = $match["matchNumber"];
+			$time = $match["startTime"];
+			
+			$Red1 = $red1Teams["teamNumber"];
+			$Red2 = $red2Teams["teamNumber"];
+			$Red3 = $red3Teams["teamNumber"];
+			$Blue1 = $blue1Teams["teamNumber"];
+			$Blue2 = $blue2Teams["teamNumber"];
+			$Blue3 = $blue3Teams["teamNumber"];
+			
+			$query2 = "INSERT INTO schedule (match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
+			$result2 = $mysqli->query($query2);
+			//$query3 = "SET FOREIGN_KEY_CHECKS=1";
+			//$result3 = $mysqli->query($query3);
+			}
+		}
+	}
+}
+/*
 if(isset($_POST['loadTeam'])){
 	if(!empty($_POST['eventCode'])){
 $eventCode = $_POST['eventCode'];
@@ -151,15 +221,18 @@ else {
 
 	}
 }
-?>
+
+*/?>
 			
 	
 <?php
 if(isset($_POST['loadSchedule'])){
 	if(!empty($_POST['eventCode'])){
 $eventCode = $_POST['eventCode'];
+/*
 if(strcasecmp($eventCode,"TXHO")==0){
-	$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/TXHO?tournamentLevel=qual";
+	*/
+	$url = "https://frc-api.firstinspires.org/v2.0/2016/schedule/".$eventCode."?tournamentLevel=qualification";
 	$response = file_get_contents($url,false,$context);
 	$json = json_decode($response, true);
 $query = "TRUNCATE TABLE schedule";
@@ -197,6 +270,7 @@ $result = $mysqli->query($query);
 						//$result3 = $mysqli->query($query3);
 			}
 		}
+		/*
 }
 else if(strcasecmp($eventCode,"TXSA")==0){
 	$url = "https://frc-api.firstinspires.org/v2.0/2015/schedule/TXSA?tournamentLevel=qual";
@@ -285,6 +359,7 @@ $result = $mysqli->query($query);
 else{
 	echo"Sorry Snoop";
 		}
+		*/
 	}
 }					
 						
@@ -320,6 +395,8 @@ else{
 				$result9 = $mysqli->query($query9);
 				$query10 = "TRUNCATE TABLE scouts";
 				$result10 = $mysqli->query($query10);
+				$query11 = "TRUNCATE TABLE regional";
+				$result11 = $mysqli->query($query11);
 			}
 			else{
 				echo "Nope!";

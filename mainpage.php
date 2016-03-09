@@ -3,7 +3,11 @@ include("HeadTemplate.php");
 include("UserVerification.php");
 include("kick_intruders.php");
 include("navbar.php");
+include("db_connect.php");
 //Check to make sure the user is logged in
+
+	$result=$mysqli->query("SELECT * FROM regional LIMIT 1");
+	$row = $result->fetch_array(MYSQLI_ASSOC);
 ?>
 <head>	<link rel="stylesheet" type="text/css" href="css/mainpagestyle.css"> </head>
 <br>
@@ -11,7 +15,7 @@ include("navbar.php");
 <br>
 <br>
 <div class="page_container">
-	<h1> 624 Scouting Main Page</h1>
+	<h1> 624 Scouting Main Page - <?=$row['eventCode']?></h1>
 	
 	<div class="quickLinks">
 		Greetings, 
