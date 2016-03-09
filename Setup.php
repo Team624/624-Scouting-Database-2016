@@ -32,9 +32,9 @@ include("db_connect.php");
 					$lastname=$_POST['lastname'];
 					$Aid=$_POST['Aid'];
 					$addscoutquery="INSERT INTO scouts (id,firstname,lastname) VALUES ('$Aid','$firstname','$lastname')";
-					$result = $mysqli->query($addscoutquery);
+					$result22 = $mysqli->query($addscoutquery);
 					
-					if($result) {
+					if($result22) {
 						echo"Successfully added info";	
 								}
 					else {
@@ -55,8 +55,8 @@ include("db_connect.php");
 					if(isset($_POST['removescout'])){
 					$Rid=$_POST['Rid'];
 					$removescoutquery="DELETE FROM scouts WHERE id='$Rid'";
-					$result = $mysqli->query($removescoutquery);
-					if($result) {
+					$result222 = $mysqli->query($removescoutquery);
+					if($result222) {
 						echo"Successfully removed scout";	
 								}
 					else {
@@ -403,6 +403,41 @@ else{
 				
 			}
 		}
+	}
+	?>
+		</div>
+	</div>
+	<div>
+		<div class="setupdiv">
+			
+	<form class="loadData" method="post">
+	<input type="submit" value="Load Team Performance CSV" class="subButton" name="team_performance">
+    </form>
+		<?php 
+	if(isset($_POST['team_performance'])){
+$query12 = "SELECT * FROM team_performance";
+$result = $mysqli->query($query12);
+$num_column = $result->field_count;		
+$a=array('team_ranking','Points_Contributed_Total','Points_Contributed_High','Points_Contributed_Avg','Auto_Points_Contributed_Total','Auto_Points_Contributed_High','Auto_Points_Contributed_Avg','Percent_Games_Challenged','Percent_Games_Scaled','Defenses_Crossed_Total','Lowbar_Crossed_Total','Portcullis_Crossed_Total','Chili_Fries_Crossed_Total','Moat_Crossed_Total','Ramparts_Crossed_Total','Drawbridge_Crossed_Total','Sally_Port_Crossed_Total','Rock_Wall_Crossed_Total','Rough_Terrain_Crossed_Total','High_Goals_Scored_Total','High_Goals_Scored_High','High_Goals_Scored_Avg','High_Goals_Scored_PercentTotal','High_Goals_Scored_PercentHigh','High_Goals_Scored_PercentAvg','Low_Goals_Scored_Total','Low_Goals_Scored_High','Low_Goals_Scored_Avg','Low_Goals_Scored_PercentTotal','Low_Goals_Scored_PercentHigh','Low_Goals_Scored_PercentAvg','Goals_Scored_Total','Fouls','Stuck','Avg_Defense_RatingPercent');
+$csv_header = '';
+for($i=0;$i<$num_column;$i++) {
+	$csv_header .= '"' . $a[$i] . '",';
+}	
+$csv_header .= "\n";
+
+$csv_row ='';
+while($row = $result->fetch_row()) {
+	for($i=0;$i<$num_column;$i++) {
+		$csv_row .= '"' . $row[$i] . '",';
+	}
+	$csv_row .= "\n";
+}
+/* Download as CSV File */
+header('Content-type: application/csv');
+header('Content-Disposition: attachment; filename=team_performance.csv');
+echo $csv_header . $csv_row;
+exit;
+
 	}
 	?>
 		</div>
