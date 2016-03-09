@@ -32,9 +32,9 @@ include("TeamPerformanceRankingData.php");
 					$lastname=$_POST['lastname'];
 					$Aid=$_POST['Aid'];
 					$addscoutquery="INSERT INTO scouts (id,firstname,lastname) VALUES ('$Aid','$firstname','$lastname')";
-					$result = $mysqli->query($addscoutquery);
+					$result22 = $mysqli->query($addscoutquery);
 					
-					if($result) {
+					if($result22) {
 						echo"Successfully added info";	
 								}
 					else {
@@ -55,8 +55,8 @@ include("TeamPerformanceRankingData.php");
 					if(isset($_POST['removescout'])){
 					$Rid=$_POST['Rid'];
 					$removescoutquery="DELETE FROM scouts WHERE id='$Rid'";
-					$result = $mysqli->query($removescoutquery);
-					if($result) {
+					$result222 = $mysqli->query($removescoutquery);
+					if($result222) {
 						echo"Successfully removed scout";	
 								}
 					else {
@@ -72,11 +72,81 @@ include("TeamPerformanceRankingData.php");
 	<p class="words">Put in event code:</p>
 	<form class="loadData" method="post">
 	<input type="text" name="eventCode"><br><br>
-	<input type="submit" value="Load Team List!" class="subButton" name="loadTeam"><br><br>
-	<input type="submit" value="Load Match Schedule!" class="subButton" name="loadSchedule">
+	<input type="submit" value="Load Data!" class="subButton" name="loadData">
+	<!--<input type="submit" value="Load Team List!" class="subButton" name="loadTeam"><br><br>
+	<input type="submit" value="Load Match Schedule!" class="subButton" name="loadSchedule">-->
 	</form>
 <?php
 
+/*JUSTIN'S CODE THAT ISN'T DUMB*/
+if(isset($_POST['loadData']))
+{
+	if(!empty($_POST['eventCode']))
+	{
+		$eventCode = $_POST['eventCode'];
+		
+		$mysqli->query("Truncate Table regional");
+		$mysqli->query("INSERT INTO regional (`eventCode`) VALUES ('$eventCode')");
+		
+		$url = "https://frc-api.firstinspires.org/v2.0/2016/teams?eventCode=". $eventCode . "&state=state";
+		$response = file_get_contents($url,false,$context);
+		$json = json_decode($response, true);
+		//var_dump($json[teams]);
+		//echo json_encode($json[teams], JSON_PRETTY_PRINT);
+		$query = "TRUNCATE TABLE teams";
+		$result = $mysqli->query($query);
+			foreach ($json[teams] as $team)
+			{	
+				//var_dump($team);
+					$teamName = $team["nameShort"];
+					$teamNumber = $team["teamNumber"];
+				
+					
+					$query2 = "INSERT INTO teams (number,name) VALUES ('$teamNumber','$teamName')";
+					$result2 = $mysqli->query($query2);
+			}
+	
+		$url = "https://frc-api.firstinspires.org/v2.0/2016/schedule/".$eventCode."?tournamentLevel=qualification";
+		$response = file_get_contents($url,false,$context);
+		$json = json_decode($response, true);
+		$query = "TRUNCATE TABLE schedule";
+		$result = $mysqli->query($query);
+		//var_dump($json);
+		//echo json_encode($json, JSON_PRETTY_PRINT);
+		foreach ($json as $schedule)
+		{	
+			//var_dump($schedule);
+			
+			foreach ($schedule as $match)
+			{ 
+			$alliances = $match["Teams"];
+			//var_dump($alliances);
+			$red1Teams=  $alliances[0];
+			$red2Teams=  $alliances[1];
+			$red3Teams=  $alliances[2];
+			$blue1Teams= $alliances[3];
+			$blue2Teams= $alliances[4];
+			$blue3Teams= $alliances[5];
+							
+			$matchNumba = $match["matchNumber"];
+			$time = $match["startTime"];
+			
+			$Red1 = $red1Teams["teamNumber"];
+			$Red2 = $red2Teams["teamNumber"];
+			$Red3 = $red3Teams["teamNumber"];
+			$Blue1 = $blue1Teams["teamNumber"];
+			$Blue2 = $blue2Teams["teamNumber"];
+			$Blue3 = $blue3Teams["teamNumber"];
+			
+			$query2 = "INSERT INTO schedule (match_number,time,red_1,red_2,red_3,blue_1,blue_2,blue_3) VALUES ('$matchNumba','$time','$Red1','$Red2','$Red3','$Blue1','$Blue2','$Blue3')";
+			$result2 = $mysqli->query($query2);
+			//$query3 = "SET FOREIGN_KEY_CHECKS=1";
+			//$result3 = $mysqli->query($query3);
+			}
+		}
+	}
+}
+/*
 if(isset($_POST['loadTeam'])){
 	if(!empty($_POST['eventCode'])){
 $eventCode = $_POST['eventCode'];
@@ -151,15 +221,18 @@ else {
 
 	}
 }
-?>
+
+*/?>
 			
 	
 <?php
 if(isset($_POST['loadSchedule'])){
 	if(!empty($_POST['eventCode'])){
 $eventCode = $_POST['eventCode'];
+/*
 if(strcasecmp($eventCode,"TXHO")==0){
-	$url = "https://frc-api.firstinspires.org/v2.0/2016/schedule/TXHO?tournamentLevel=qual";
+	*/
+	$url = "https://frc-api.firstinspires.org/v2.0/2016/schedule/".$eventCode."?tournamentLevel=qualification";
 	$response = file_get_contents($url,false,$context);
 	$json = json_decode($response, true);
 $query = "TRUNCATE TABLE schedule";
@@ -197,6 +270,7 @@ $result = $mysqli->query($query);
 						//$result3 = $mysqli->query($query3);
 			}
 		}
+		/*
 }
 else if(strcasecmp($eventCode,"TXSA")==0){
 	$url = "https://frc-api.firstinspires.org/v2.0/2016/schedule/TXSA?tournamentLevel=qual";
@@ -285,6 +359,7 @@ $result = $mysqli->query($query);
 else{
 	echo"Sorry Snoop";
 		}
+		*/
 	}
 }					
 						
@@ -395,5 +470,40 @@ else{
 			var_dump($teamRanking);
 		?>
 	</table>
+	</div>
+	<div>
+		<div class="setupdiv">
+			
+	<form class="loadData" method="post">
+	<input type="submit" value="Load Team Performance CSV" class="subButton" name="team_performance">
+    </form>
+		<?php 
+	if(isset($_POST['team_performance'])){
+$query12 = "SELECT * FROM team_performance";
+$result = $mysqli->query($query12);
+$num_column = $result->field_count;		
+$a=array('team_ranking','Points_Contributed_Total','Points_Contributed_High','Points_Contributed_Avg','Auto_Points_Contributed_Total','Auto_Points_Contributed_High','Auto_Points_Contributed_Avg','Percent_Games_Challenged','Percent_Games_Scaled','Defenses_Crossed_Total','Lowbar_Crossed_Total','Portcullis_Crossed_Total','Chili_Fries_Crossed_Total','Moat_Crossed_Total','Ramparts_Crossed_Total','Drawbridge_Crossed_Total','Sally_Port_Crossed_Total','Rock_Wall_Crossed_Total','Rough_Terrain_Crossed_Total','High_Goals_Scored_Total','High_Goals_Scored_High','High_Goals_Scored_Avg','High_Goals_Scored_PercentTotal','High_Goals_Scored_PercentHigh','High_Goals_Scored_PercentAvg','Low_Goals_Scored_Total','Low_Goals_Scored_High','Low_Goals_Scored_Avg','Low_Goals_Scored_PercentTotal','Low_Goals_Scored_PercentHigh','Low_Goals_Scored_PercentAvg','Goals_Scored_Total','Fouls','Stuck','Avg_Defense_RatingPercent');
+$csv_header = '';
+for($i=0;$i<$num_column;$i++) {
+	$csv_header .= '"' . $a[$i] . '",';
+}	
+$csv_header .= "\n";
+
+$csv_row ='';
+while($row = $result->fetch_row()) {
+	for($i=0;$i<$num_column;$i++) {
+		$csv_row .= '"' . $row[$i] . '",';
+	}
+	$csv_row .= "\n";
+}
+/* Download as CSV File */
+header('Content-type: application/csv');
+header('Content-Disposition: attachment; filename=team_performance.csv');
+echo $csv_header . $csv_row;
+exit;
+
+	}
+	?>
+		</div>
 	</div>
 </div>

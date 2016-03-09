@@ -46,7 +46,8 @@
 			}
 		?>
 			<li class="navbar"><a class="navbar" href="MatchSchedule.php">Match Schedule</a></li>
-			<li class="navbar"><a class="navbar" href="Search.php">Search Teams and Matches</a></li>
+			<li class="navbar"><a class="navbar" href="Search.php">Search</a></li>
+			<li class="navbar"><a class="navbar" href="TeamList.php">Team List</a></li>
 			<li class="navbar"><a class="navbar" href="DataCoverage.php">Data Coverage</a></li>
 			<li class="navbar"><a class="navbar" href="Rankings.php">Rankings</a></li>
 			<li class="navbar"><a class="navbar" href="ScoutList.php">Scout List</a></li>

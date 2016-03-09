@@ -11,10 +11,15 @@ include("api_connect.php");
 	//$query2 = "SELECT * FROM teams";
 	//$result2 = $mysqli->query($query2);
 	//$reg = $query2['regional'];
+	
+	$reg_code = $mysqli->query("SELECT * FROM `regional` LIMIT 1");
+	$row = $reg_code->fetch_array(MYSQLI_ASSOC);
+	
+	$key = $row["eventCode"];
 
 	//NEW API CALL FOR 2.0
 	//$url = "https://frc-api.firstinspires.org/v2.0/2016/rankings/SCMB";
-	$url = "https://frc-api.firstinspires.org/v2.0/2016/rankings/TXSA";
+	$url = "https://frc-api.firstinspires.org/v2.0/2016/rankings/" . $key;
 	$response = file_get_contents($url,false,$context);
 	
 	//hint: use json_decode to decode $response. Look it up.

@@ -38,10 +38,10 @@
 	<input type="number" name="team">
 	<input type="submit" value="Search" class="subButton">
 </form>
-
+	<img src="/team_pics/<?=$team?>.png" width=400 height=400></img>
 <br>
 
-	<h1><?php echo "Team " . $team. "-".$teamname; ?></h1>
+	<h1><?php echo "Team " . $team. " - ".$teamname; ?></h1>
 	<?php
 		}
 	}
