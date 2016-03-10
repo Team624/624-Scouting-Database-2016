@@ -109,6 +109,7 @@ div.matchDisplay
 	color:green;
 	border-collapse: collapse;
 	overflow:hidden;
+	border-bottom: 5px solid black;
 }
 
 .teamTBody
@@ -136,12 +137,23 @@ div.matchDisplay
 }
 /*tr.teamRow:nth-child(even)
 {
-	background-color: rgba(153, 153, 153, .5);
+	background-color: rgba(51, 51, 51, .5);
 }*/
 tr.teamRow:hover
 {
 	background-color: rgba(230, 230, 230, .2);
 }
+tr.teamRow:nth-child(odd)
+{
+	background-color: rgba(13, 13, 13, .5);
+}
+.image
+{
+	height:350px;
+	width:400px;
+	box-shadow: 0 0 10px #00e600, 0 0 35px #00ff00, 0 0 50px #ffffff;
+}
+
 
 
 
