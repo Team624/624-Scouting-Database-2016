@@ -21,7 +21,7 @@
 $dbhost = $ini['dbhost'];
 	$dbname = $ini['dbname'];
 	$dbuser = $ini['dbuser'];
-	$dbpass = $ini['dbpass'];*/
+	$dbpass = $ini['dbpass'];
 	
 	$mysqli = new mysqli($dbhost,$dbuser,$dbpass,$dbname);
 	
