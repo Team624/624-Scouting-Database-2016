@@ -134,18 +134,7 @@ div.matchDisplay
 	color:#66ff66;
 	background-color: rgba(230, 230, 230, .2);
 }
-.teamTBody-a
-{
-	/*background-image: url("../images/pixel_bg.png");*/
-	padding:2px;
-	margin:2px;
-	text-align:center;
-	border-left: 2px solid black;
-	border-bottom: 2px solid black;
-	height:50px;
-	color:#66ff66;
-	background-color: rgb(18, 18, 18);
-}
+
 .teamTBody-a:hover
 {
 	/*background-image: url("../images/pixel_bg.png");*/
