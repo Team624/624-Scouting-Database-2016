@@ -5,10 +5,17 @@
 
 	//if you ever want to access your own database instead, this is the place to do it.
 	//Just uncomment out and add in your own info.
+<<<<<<< HEAD
 //	$dbhost = localhost /*$ini['dbhost']*/;
+	//$dbname =  scout2016     /*$ini['dbname']*/;
+	//$dbuser = SkaiCow       /*$ini['dbuser']*/;
+   // $dbpass = clutchcode01       /*$ini['dbpass']*/; 
+=======
+	//$dbhost = localhost /*$ini['dbhost']*/;
 		//$dbname =  scout2016     /*$ini['dbname']*/;
 		//$dbuser = SkaiCow       /*$ini['dbuser']*/;
-   // $dbpass = clutchcode01       /*$ini['dbpass']*/; 
+     	//$dbpass = clutchcode01       /*$ini['dbpass']*/; 
+>>>>>>> parent of 88a387e... Merge branch 'master' of https://github.com/Team624/624-Scouting-Database-2016
 	
 	//$dbname =  testdatabase2     /*$ini['dbname']*/;
 	//$dbuser = anuragtest       /*$ini['dbuser']*/;

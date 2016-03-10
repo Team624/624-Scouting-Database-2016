@@ -39,9 +39,7 @@
 	<input type="number" name="team">
 	<input type="submit" value="Search" class="subButton">
 </form>
-<br>
-<br>
-	<img src="/team_pics/<?=$team?>.png" width=400 height=400 class="image"></img>
+	<img src="/team_pics/<?=$team?>.png" width=400 height=400></img>
 <br>
 
 	<h1><?php echo "Team " . $team. " - ".$teamname; ?></h1>
@@ -86,15 +84,15 @@
 		?>
 		<tr class="teamRow">
 			<td class="teamTBody"><?=$playerMatch?></td>
-			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][0])?></td>
+			<td class="teamTBody-a"><?=getDefenseName($match['def_pos_types'][0])?></td>
 			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][1])?></td>
-			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][2])?></td>
+			<td class="teamTBody-a"><?=getDefenseName($match['def_pos_types'][2])?></td>
 			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][3])?></td>
-			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][4])?></td>
+			<td class="teamTBody-a"><?=getDefenseName($match['def_pos_types'][4])?></td>
 			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_stuck']?></td>
-			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_stuck']?></td>
+			<td class="teamTBody-a"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_stuck']?></td>
 			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_stuck']?></td>
-			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_stuck']?></td>
+			<td class="teamTBody-a"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_stuck']?></td>
 			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_stuck']?></td>
 		</tr>
 		<?php
@@ -135,15 +133,15 @@
 		?>
 		<tr class="teamRow">
 			<td class="teamTBody"><?=$playerMatch;?></td>
-			<td class="teamTBody"><?php if($match['auto_high_total'] > 0){ echo round($match['auto_high']/$match['auto_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="teamTBody-a"><?php if($match['auto_high_total'] > 0){ echo round($match['auto_high']/$match['auto_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
 			<td class="teamTBody"><?php if($match['auto_low_total'] > 0){ echo round($match['auto_low']/$match['auto_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody"><?php if($match['teleop_high_total'] > 0){ echo round($match['teleop_high']/$match['teleop_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="teamTBody-a"><?php if($match['teleop_high_total'] > 0){ echo round($match['teleop_high']/$match['teleop_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
 			<td class="teamTBody"><?php if($match['teleop_low_total'] > 0){ echo round($match['teleop_low']/$match['teleop_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody"><?php if($match['batter_high_total'] > 0){ echo round($match['batter_high']/$match['batter_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="teamTBody-a"><?php if($match['batter_high_total'] > 0){ echo round($match['batter_high']/$match['batter_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
 			<td class="teamTBody"><?php if($match['batter_low_total'] > 0){ echo round($match['batter_low']/$match['batter_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody"><?php if($match['court_high_total'] > 0){ echo round($match['courtyard_high']/$match['court_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="teamTBody-a"><?php if($match['court_high_total'] > 0){ echo round($match['courtyard_high']/$match['court_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
 			<td class="teamTBody"><?php if($match['court_low_total'] > 0){ echo round($match['courtyard_low']/$match['court_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody"><?=$match['shooting_location']?></td>
+			<td class="teamTBody-a"><?=$match['shooting_location']?></td>
 		</tr>
 		<?php
 			}
@@ -180,11 +178,11 @@
 		?>
 		<tr class="teamRow">
 			<td class="teamTBody"><?=$playerMatch?></td>
-			<td class="teamTBody"><?=$match['fouls']?></td>
+			<td class="teamTBody-a"><?=$match['fouls']?></td>
 			<td class="teamTBody"><?=$match['tech_fouls']?></td>
-			<td class="teamTBody"><?=$match['no_show']?></td>
+			<td class="teamTBody-a"><?=$match['no_show']?></td>
 			<td class="teamTBody"><?=$match['mech_fail']?></td>
-			<td class="teamTBody"><?=$match['lost_comms']?></td>
+			<td class="teamTBody-a"><?=$match['lost_comms']?></td>
 			<td class="teamTBody"><?=$match['tipped']?></td>
 		</tr>
 		<?php
@@ -218,17 +216,17 @@
 	<tbody>
 		<tr class="teamRow">
 			<td class="teamTBody"><?=$dat['auto_high']?></td>
-			<td class="teamTBody"><?=$dat['auto_High_Miss']?></td>
+			<td class="teamTBody-a"><?=$dat['auto_High_Miss']?></td>
 			<td class="teamTBody"><?php if($dat['auto_high_total'] > 0){ echo round($dat['auto_high']/$dat['auto_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
-			<td class="teamTBody"><?=$dat['auto_low']?></td>
+			<td class="teamTBody-a"><?=$dat['auto_low']?></td>
 			<td class="teamTBody"><?=$dat['auto_Low_Miss']?></td>
-			<td class="teamTBody"><?php if($dat['auto_low_total'] > 0){ echo round($dat['auto_low']/$dat['auto_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
+			<td class="teamTBody-a"><?php if($dat['auto_low_total'] > 0){ echo round($dat['auto_low']/$dat['auto_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
 			<td class="teamTBody"><?=$dat['auto_def_cross']?></td>
-			<td class="teamTBody"><?=$dat['auto_Defenses_Crossed_Failed']?></td>
+			<td class="teamTBody-a"><?=$dat['auto_Defenses_Crossed_Failed']?></td>
 			<td class="teamTBody"><?=$dat['auto_def_reach']?></td>
-			<td class="teamTBody"><?=$dat['auto_Defenses_Reached_Failed']?></td>
+			<td class="teamTBody-a"><?=$dat['auto_Defenses_Reached_Failed']?></td>
 			<td class="teamTBody"><?=$dat['Auto_StartWithBoulder']?></td>
-			<td class="teamTBody"><?=$dat['boulder_grabs']?></td>
+			<td class="teamTBody-a"><?=$dat['boulder_grabs']?></td>
 		</tr>
 	</tbody>
 		
@@ -256,13 +254,13 @@
 	
 		<tr class="teamRow">
 			<td class="teamTBody"><?=$dat['teleop_high']?></td>
-			<td class="teamTBody"><?=$dat['teleop_high_miss']?></td>
+			<td class="teamTBody-a"><?=$dat['teleop_high_miss']?></td>
 			<td class="teamTBody"><?php if($dat['teleop_high_total'] > 0){echo round($dat['teleop_high']/$dat['teleop_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
-			<td class="teamTBody"><?=$dat['batter_high']?></td>
+			<td class="teamTBody-a"><?=$dat['batter_high']?></td>
 			<td class="teamTBody"><?=$dat['batter_high_miss']?></td>
-			<td class="teamTBody"><?php if($dat['batter_high_total'] > 0){echo round($dat['batter_high']/$dat['batter_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
+			<td class="teamTBody-a"><?php if($dat['batter_high_total'] > 0){echo round($dat['batter_high']/$dat['batter_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
 			<td class="teamTBody"><?=$dat['courtyard_high']?></td>
-			<td class="teamTBody"><?=$dat['courtyard_high_miss']?></td>
+			<td class="teamTBody-a"><?=$dat['courtyard_high_miss']?></td>
 			<td class="teamTBody"><?php if($dat['court_high_total'] > 0){echo round($dat['courtyard_high']/$dat['court_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
 		</tr>
 	</tbody>
@@ -289,15 +287,15 @@
 	</thead>
 	<tbody>
 	
-		<tr>
+		<tr class="teamRow">
 			<td class="teamTBody"><?=$dat['teleop_low']?></td>
-			<td class="teamTBody"><?=$dat['teleop_low_miss']?></td>
+			<td class="teamTBody-a"><?=$dat['teleop_low_miss']?></td>
 			<td class="teamTBody"><?php if($dat['teleop_low_total'] > 0){echo round($dat['teleop_low']/$dat['teleop_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
-			<td class="teamTBody"><?=$dat['batter_low']?></td>
+			<td class="teamTBody-a"><?=$dat['batter_low']?></td>
 			<td class="teamTBody"><?=$dat['batter_low_miss']?></td>
-			<td class="teamTBody"><?php if($dat['batter_low_total'] > 0){echo round($dat['batter_low']/$dat['batter_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
+			<td class="teamTBody-a"><?php if($dat['batter_low_total'] > 0){echo round($dat['batter_low']/$dat['batter_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
 			<td class="teamTBody"><?=$dat['courtyard_low']?></td>
-			<td class="teamTBody"><?=$dat['courtyard_low_miss']?></td>
+			<td class="teamTBody-a"><?=$dat['courtyard_low_miss']?></td>
 			<td class="teamTBody"><?php if($dat['court_low_total'] > 0){echo round($dat['courtyard_low']/$dat['court_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
 		</tr>
 	</tbody>
@@ -318,7 +316,7 @@
 	<tbody>
 		<tr class="teamRow">
 			<td class="teamTBody"><?=$dat['challenge']?></td>
-			<td class="teamTBody"><?=$dat['climbs']?></td>
+			<td class="teamTBody-a"><?=$dat['climbs']?></td>
 		</tr>
 	</tbody>
 		
@@ -346,9 +344,9 @@
 			if($dat['lowbar_faced']>0)
 			{
 			?>
-			<td class="teamTBody"><?=$dat['lowbar_cross'] /*/ $dat['lowbar_faced']*/?></td>
+			<td class="teamTBody-a"><?=$dat['lowbar_cross'] /*/ $dat['lowbar_faced']*/?></td>
 			<td class="teamTBody"><?=$dat['lowbar_speed'] / $dat['lowbar_faced']?></td>
-			<td class="teamTBody"><?=$dat['lowbar_stuck'] /*/ $dat['lowbar_faced']*/?></td>
+			<td class="teamTBody-a"><?=$dat['lowbar_stuck'] /*/ $dat['lowbar_faced']*/?></td>
 			<td class="teamTBody"><?=$dat['lowbar_ball'] /*/ $dat['lowbar_faced']*/?></td>
 			<?php
 				}
@@ -397,18 +395,18 @@
 			{
 		?>
 			<td class="teamTBody"><?=$dat['portcullis_faced']?></td>
-			<td class="teamTBody"><?=$dat['portcullis_cross'] /*/ $dat['portcullis_faced']*/?></td>
+			<td class="teamTBody-a"><?=$dat['portcullis_cross'] /*/ $dat['portcullis_faced']*/?></td>
 			<td class="teamTBody"><?=$dat['portcullis_speed'] / $dat['portcullis_faced']?></td>
-			<td class="teamTBody"><?=$dat['portcullis_stuck'] // $dat['portcullis_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['portcullis_stuck'] // $dat['portcullis_faced']?></td>
 			<td class="teamTBody"><?=$dat['portcullis_ball'] /*/ $dat['portcullis_faced']*/?></td>
 			<?php
 				}
 				else{
 					?>
 			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
 					<?php
 				}
@@ -418,11 +416,11 @@
 				if($dat['chili_fries_faced']>0)
 				{
 			?>
-			<td class="teamTBody"><?=$dat['chili_fries_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['chili_fries_faced']?></td>
 			<td class="teamTBody"><?=$dat['chili_fries_cross'] /*/ $dat['chili_fries_faced']*/?></td>
-			<td class="teamTBody"><?=$dat['chili_fries_speed'] / $dat['chili_fries_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['chili_fries_speed'] / $dat['chili_fries_faced']?></td>
 			<td class="teamTBody"><?=$dat['chili_fries_stuck'] // $dat['chili_fries_faced']?></td>
-			<td class="teamTBody"><?=$dat['chili_fries_ball'] /*/ $dat['chili_fries_faced']*/?></td>
+			<td class="teamTBody-a"><?=$dat['chili_fries_ball'] /*/ $dat['chili_fries_faced']*/?></td>
 			<?php
 				}
 				else{
@@ -470,18 +468,18 @@
 				{
 			?>
 			<td class="teamTBody"><?=$dat['moat_faced']?></td>
-			<td class="teamTBody"><?=$dat['moat_cross'] /*/ $dat['moat_faced']*/?></td>
+			<td class="teamTBody-a"><?=$dat['moat_cross'] /*/ $dat['moat_faced']*/?></td>
 			<td class="teamTBody"><?=$dat['moat_speed'] / $dat['moat_faced']?></td>
-			<td class="teamTBody"><?=$dat['moat_stuck']//$dat['moat_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['moat_stuck']//$dat['moat_faced']?></td>
 			<td class="teamTBody"><?=$dat['moat_ball'] /*/ $dat['moat_faced']*/?></td>
 			<?php
 				}
 				else{
 					?>
 			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
 					<?php
 				}
@@ -491,20 +489,20 @@
 				if($dat['ramparts_faced']>0)
 				{
 			?>
-			<td class="teamTBody"><?=$dat['ramparts_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['ramparts_faced']?></td>
 			<td class="teamTBody"><?=$dat['ramparts_cross'] /*/ $dat['ramparts_faced']*/?></td>
-			<td class="teamTBody"><?=$dat['ramparts_speed'] / $dat['ramparts_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['ramparts_speed'] / $dat['ramparts_faced']?></td>
 			<td class="teamTBody"><?=$dat['ramparts_stuck'] // $dat['ramparts_faced']?></td>
-			<td class="teamTBody"><?=$dat['ramparts_ball'] // $dat['ramparts_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['ramparts_ball'] // $dat['ramparts_faced']?></td>
 			<?php
 				}
 				else{
 					?>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 					<?php
 				}
 			?>
@@ -543,18 +541,18 @@
 				{
 			?>
 			<td class="teamTBody"><?=$dat['drawbridge_faced']?></td>
-			<td class="teamTBody"><?=$dat['drawbridge_cross'] // $dat['drawbridge_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['drawbridge_cross'] // $dat['drawbridge_faced']?></td>
 			<td class="teamTBody"><?=$dat['drawbridge_speed'] / $dat['drawbridge_faced']?></td>
-			<td class="teamTBody"><?=$dat['drawbridge_stuck'] // $dat['drawbridge_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['drawbridge_stuck'] // $dat['drawbridge_faced']?></td>
 			<td class="teamTBody"><?=$dat['drawbridge_ball'] // $dat['drawbridge_faced']?></td>
 			<?php
 				}
 				else{
 					?>
 			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
 					<?php
 				}
@@ -564,20 +562,20 @@
 				if($dat['sally_port_faced']>0)
 				{
 			?>
-			<td class="teamTBody"><?=$dat['sally_port_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['sally_port_faced']?></td>
 			<td class="teamTBody"><?=$dat['sally_port_cross'] // $dat['sally_port_faced']?></td>
-			<td class="teamTBody"><?=$dat['sally_port_speed'] / $dat['sally_port_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['sally_port_speed'] / $dat['sally_port_faced']?></td>
 			<td class="teamTBody"><?=$dat['sally_port_stuck'] // $dat['sally_port_faced']?></td>
-			<td class="teamTBody"><?=$dat['sally_port_ball'] // $dat['sally_port_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['sally_port_ball'] // $dat['sally_port_faced']?></td>
 			<?php
 				}
 				else{
 					?>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 					<?php
 				}
 			?>
@@ -616,18 +614,18 @@
 				{
 			?>
 			<td class="teamTBody"><?=$dat['rough_terrain_faced']?></td>
-			<td class="teamTBody"><?=$dat['rough_terrain_cross'] // $dat['rough_terrain_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['rough_terrain_cross'] // $dat['rough_terrain_faced']?></td>
 			<td class="teamTBody"><?=$dat['rough_terrain_speed'] / $dat['rough_terrain_faced']?></td>
-			<td class="teamTBody"><?=$dat['rough_terrain_stuck'] // $dat['rough_terrain_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['rough_terrain_stuck'] // $dat['rough_terrain_faced']?></td>
 			<td class="teamTBody"><?=$dat['rough_terrain_ball'] // $dat['rough_terrain_faced']?></td>
 			<?php
 				}
 				else{
 					?>
 			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
 					<?php
 				}
@@ -637,20 +635,20 @@
 				if($dat['rockwall_faced']>0)
 				{
 			?>
-			<td class="teamTBody"><?=$dat['rockwall_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['rockwall_faced']?></td>
 			<td class="teamTBody"><?=$dat['rockwall_cross'] // $dat['rockwall_faced']?></td>
-			<td class="teamTBody"><?=$dat['rockwall_speed'] / $dat['rockwall_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['rockwall_speed'] / $dat['rockwall_faced']?></td>
 			<td class="teamTBody"><?=$dat['rockwall_stuck'] // $dat['rockwall_faced']?></td>
-			<td class="teamTBody"><?=$dat['rockwall_ball']  // $dat['rockwall_faced']?></td>
+			<td class="teamTBody-a"><?=$dat['rockwall_ball']  // $dat['rockwall_faced']?></td>
 			<?php
 				}
 				else{
 					?>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 					<?php
 				}
 			?>
@@ -679,11 +677,11 @@
 	<tbody>
 		<tr class="teamRow">
 			<td class="teamTBody"><?=$dat['fouls']?></td>
-			<td class="teamTBody"><?=$dat['tech_fouls']?></td>
+			<td class="teamTBody-a"><?=$dat['tech_fouls']?></td>
 			<td class="teamTBody"><?=$dat['no_show']?></td>
-			<td class="teamTBody"><?=$dat['mech_fail']?></td>
+			<td class="teamTBody-a"><?=$dat['mech_fail']?></td>
 			<td class="teamTBody"><?=$dat['lost_comms']?></td>
-			<td class="teamTBody"><?=$dat['tipped']?></td>
+			<td class="teamTBody-a"><?=$dat['tipped']?></td>
 		</tr>
 	</tbody>
 		
@@ -709,18 +707,18 @@
 		{
 			?>
 			<td class="teamTBody"><?=$dat['drive_manuverability'] / $dat["played"]?></td>
-			<td class="teamTBody"><?=$dat['Defense_Pushing'] / $dat["played"]?></td>
+			<td class="teamTBody-a"><?=$dat['Defense_Pushing'] / $dat["played"]?></td>
 			<td class="teamTBody"><?=$dat['Ball_Control'] / $dat["played"]?></td>
-			<td class="teamTBody"><?=$dat['pushing'] / $dat["played"]?></td>
+			<td class="teamTBody-a"><?=$dat['pushing'] / $dat["played"]?></td>
 			<?php
 		}
 		else
 		{
 			?>
 			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
-			<td class="teamTBody">0</td>
+			<td class="teamTBody-a">0</td>
 			<?php
 		}
 			?>
@@ -737,7 +735,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr>
+		<tr class="teamRow">
 		<?php
 		if($dat["played"] > 0)
 		{
@@ -827,7 +825,7 @@
 			while($row = $notes->fetch_array(MYSQLI_ASSOC))
 			{
 				?>
-				<tr>
+				<tr class="teamRow">
 					<td class="teamTBody"><?=$row["match_number"]?></td>
 					<td class="teamTBody"><?=$row["notes"]?></td>
 				</tr>
@@ -862,7 +860,7 @@
 				while($row = $notes->fetch_array(MYSQLI_ASSOC))
 				{
 					?>
-					<tr>
+					<tr class="teamRow">
 						<td class="teamTBody"><?=$row["notes"]?></td>
 					</tr>
 					<?php
