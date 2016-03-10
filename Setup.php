@@ -17,6 +17,11 @@ include("db_connect.php");
 <div class="page_container">
 	<div>
 		<div class="setupdiv">
+			<form method="post" action="csv_export.php">
+				<input type="submit" name="exportCSV" class="subButton" value="Export CSV Data">
+			</form>
+		</div>
+		<div class="setupdiv">
 		
 			
 				<p class="words">Add a scout here</p>

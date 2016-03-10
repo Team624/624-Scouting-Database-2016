@@ -135,6 +135,24 @@ div.matchDisplay
 	background-color: rgb(18, 18, 18);
 }
 /*tr.teamRow:nth-child(even)
+}*/
+tr.teamRow:hover
+{
+	background-color: rgba(230, 230, 230, .2);
+}
+.teamTBody-a
+{
+	/*background-image: url("../images/pixel_bg.png");*/
+	padding:2px;
+	margin:2px;
+	text-align:center;
+	border-left: 2px solid black;
+	border-bottom: 2px solid black;
+	height:50px;
+	color:#66ff66;
+	background-color: rgb(18, 18, 18);
+}
+/*tr.teamRow:nth-child(even)
 {
 	background-color: rgba(153, 153, 153, .5);
 }*/
