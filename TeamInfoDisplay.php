@@ -818,7 +818,7 @@
 	</thead>
 	<tbody>	
 		<?php
-			$note_query = "SELECT * FROM `notes` WHERE team='$team' ORDER BY `match_number` ASC";
+			$note_query = "SELECT `match_number`,`notes`,`team_number` FROM `match_data` WHERE team_number='$team' ORDER BY `match_number` ASC";
 			$notes = $mysqli->query($note_query);
 			
 			while($row = $notes->fetch_array(MYSQLI_ASSOC))
