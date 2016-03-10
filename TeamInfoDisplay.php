@@ -39,7 +39,9 @@
 	<input type="number" name="team">
 	<input type="submit" value="Search" class="subButton">
 </form>
-	<img src="/team_pics/<?=$team?>.png" width=400 height=400></img>
+<br>
+<br>
+	<img src="/team_pics/<?=$team?>.png" width=400 height=400 class="image"></img>
 <br>
 
 	<h1><?php echo "Team " . $team. " - ".$teamname; ?></h1>
@@ -84,15 +86,15 @@
 		?>
 		<tr class="teamRow">
 			<td class="teamTBody"><?=$playerMatch?></td>
-			<td class="teamTBody-a"><?=getDefenseName($match['def_pos_types'][0])?></td>
+			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][0])?></td>
 			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][1])?></td>
-			<td class="teamTBody-a"><?=getDefenseName($match['def_pos_types'][2])?></td>
+			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][2])?></td>
 			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][3])?></td>
-			<td class="teamTBody-a"><?=getDefenseName($match['def_pos_types'][4])?></td>
+			<td class="teamTBody"><?=getDefenseName($match['def_pos_types'][4])?></td>
 			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][0]))).'_stuck']?></td>
-			<td class="teamTBody-a"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_stuck']?></td>
+			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][1]))).'_stuck']?></td>
 			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][2]))).'_stuck']?></td>
-			<td class="teamTBody-a"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_stuck']?></td>
+			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][3]))).'_stuck']?></td>
 			<td class="teamTBody"><?=$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_ball'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_cross'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_speed'].','.$match[strtolower(str_replace(' ','_',getDefenseName($match['def_pos_types'][4]))).'_stuck']?></td>
 		</tr>
 		<?php
@@ -133,15 +135,15 @@
 		?>
 		<tr class="teamRow">
 			<td class="teamTBody"><?=$playerMatch;?></td>
-			<td class="teamTBody-a"><?php if($match['auto_high_total'] > 0){ echo round($match['auto_high']/$match['auto_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="teamTBody"><?php if($match['auto_high_total'] > 0){ echo round($match['auto_high']/$match['auto_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
 			<td class="teamTBody"><?php if($match['auto_low_total'] > 0){ echo round($match['auto_low']/$match['auto_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody-a"><?php if($match['teleop_high_total'] > 0){ echo round($match['teleop_high']/$match['teleop_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="teamTBody"><?php if($match['teleop_high_total'] > 0){ echo round($match['teleop_high']/$match['teleop_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
 			<td class="teamTBody"><?php if($match['teleop_low_total'] > 0){ echo round($match['teleop_low']/$match['teleop_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody-a"><?php if($match['batter_high_total'] > 0){ echo round($match['batter_high']/$match['batter_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="teamTBody"><?php if($match['batter_high_total'] > 0){ echo round($match['batter_high']/$match['batter_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
 			<td class="teamTBody"><?php if($match['batter_low_total'] > 0){ echo round($match['batter_low']/$match['batter_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody-a"><?php if($match['court_high_total'] > 0){ echo round($match['courtyard_high']/$match['court_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="teamTBody"><?php if($match['court_high_total'] > 0){ echo round($match['courtyard_high']/$match['court_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
 			<td class="teamTBody"><?php if($match['court_low_total'] > 0){ echo round($match['courtyard_low']/$match['court_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody-a"><?=$match['shooting_location']?></td>
+			<td class="teamTBody"><?=$match['shooting_location']?></td>
 		</tr>
 		<?php
 			}
@@ -178,11 +180,11 @@
 		?>
 		<tr class="teamRow">
 			<td class="teamTBody"><?=$playerMatch?></td>
-			<td class="teamTBody-a"><?=$match['fouls']?></td>
+			<td class="teamTBody"><?=$match['fouls']?></td>
 			<td class="teamTBody"><?=$match['tech_fouls']?></td>
-			<td class="teamTBody-a"><?=$match['no_show']?></td>
+			<td class="teamTBody"><?=$match['no_show']?></td>
 			<td class="teamTBody"><?=$match['mech_fail']?></td>
-			<td class="teamTBody-a"><?=$match['lost_comms']?></td>
+			<td class="teamTBody"><?=$match['lost_comms']?></td>
 			<td class="teamTBody"><?=$match['tipped']?></td>
 		</tr>
 		<?php
@@ -214,7 +216,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="teamRow">
+		<tr class="Row">
 			<td class="teamTBody"><?=$dat['auto_high']?></td>
 			<td class="teamTBody-a"><?=$dat['auto_High_Miss']?></td>
 			<td class="teamTBody"><?php if($dat['auto_high_total'] > 0){ echo round($dat['auto_high']/$dat['auto_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
@@ -252,7 +254,7 @@
 	</thead>
 	<tbody>
 	
-		<tr class="teamRow">
+		<tr class="Row">
 			<td class="teamTBody"><?=$dat['teleop_high']?></td>
 			<td class="teamTBody-a"><?=$dat['teleop_high_miss']?></td>
 			<td class="teamTBody"><?php if($dat['teleop_high_total'] > 0){echo round($dat['teleop_high']/$dat['teleop_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
@@ -287,7 +289,7 @@
 	</thead>
 	<tbody>
 	
-		<tr class="teamRow">
+		<tr class="Row">
 			<td class="teamTBody"><?=$dat['teleop_low']?></td>
 			<td class="teamTBody-a"><?=$dat['teleop_low_miss']?></td>
 			<td class="teamTBody"><?php if($dat['teleop_low_total'] > 0){echo round($dat['teleop_low']/$dat['teleop_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
@@ -314,9 +316,9 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="teamRow">
+		<tr class="Row">
 			<td class="teamTBody"><?=$dat['challenge']?></td>
-			<td class="teamTBody-a"><?=$dat['climbs']?></td>
+			<td class="teamTBody"><?=$dat['climbs']?></td>
 		</tr>
 	</tbody>
 		
@@ -338,7 +340,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="teamRow">
+		<tr class="Row">
 			<td class="teamTBody"><?=$dat['lowbar_faced']?></td>
 			<?php
 			if($dat['lowbar_faced']>0)
@@ -389,7 +391,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="teamRow">
+		<tr class="Row">
 		<?php
 			if($dat['portcullis_faced']>0)
 			{
@@ -462,7 +464,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="teamRow">
+		<tr class="Row">
 			<?php
 				if($dat['moat_faced']>0)
 				{
@@ -535,7 +537,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="teamRow">
+		<tr class="Row">
 			<?php
 				if($dat['drawbridge_faced']>0)
 				{
@@ -608,7 +610,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="teamRow">
+		<tr class="Row">
 			<?php
 				if($dat['rough_terrain_faced']>0)
 				{
@@ -675,7 +677,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="teamRow">
+		<tr class="Row">
 			<td class="teamTBody"><?=$dat['fouls']?></td>
 			<td class="teamTBody-a"><?=$dat['tech_fouls']?></td>
 			<td class="teamTBody"><?=$dat['no_show']?></td>
@@ -701,7 +703,7 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr class="teamRow">
+		<tr class="Row">
 		<?php
 		if($dat["played"] > 0)
 		{
