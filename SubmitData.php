@@ -143,7 +143,7 @@ include("DatabaseVerification.php");
 	}
 	}
 	else{
-		echo"Sorry,Try Again.";
+		echo"Entry Failed Validation,Try Again.";
 ?>
 	<a href="DataEntry.php">Go back to Entering Data</a>
 	<br>
