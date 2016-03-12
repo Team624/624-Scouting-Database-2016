@@ -24,7 +24,7 @@ include("db_connect.php");
 			{
 				echo "Drive Team Member. The fact that you have gotten here is surprising. I congratulate thee, but please go back to your"; 
 				?>
-					<a href="drivers_page.php" class="classy">designated page.</a>
+					<a href="drivers_page.php">designated page.</a>
 				<?php
 			}
 			else if($user_type == "admin")
@@ -40,14 +40,14 @@ include("db_connect.php");
 			{
 				echo "Data Entry. These pages might be of interest to you:<br><br>"; 
 				?>
-					<a href="DataEntry.php" class="classy">Data Entry</a><br>
+					<a href="DataEntry.php">Data Entry</a><br>
 				<?php
 			}
 			else if($user_type == "scout")
 			{
 				echo "Scout. These pages might be of interest to you:<br><br>"; 
 				?>
-					<a href="Search.php" class="classy">Search For Teams/Matches</a>
+					<a href="Search.php">Search For Teams/Matches</a>
 					<br>
 				<?php
 			}
