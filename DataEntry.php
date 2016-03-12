@@ -124,13 +124,13 @@ include("db_connect.php");
 			</tr>
 			<tr>
 				<td>Scored</td>
-				<td><input type="number" name="auto_High_Scored" class="small_num" required></td>
-				<td><input type="number" name="auto_Low_Scored" class="small_num" required></td>
+				<td><input type="number" name="auto_High_Scored" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
+				<td><input type="number" name="auto_Low_Scored" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
 			</tr>
 			<tr>
 				<td>Miss</td>
-				<td><input type="number" name="auto_High_Miss" class="small_num" required></td>
-				<td><input type="number" name="auto_Low_Miss"class="small_num" required></td>
+				<td><input type="number" name="auto_High_Miss" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
+				<td><input type="number" name="auto_Low_Miss"class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
 			</tr>
 			</table>
 			<br>
@@ -142,13 +142,13 @@ include("db_connect.php");
 			</tr>
 			<tr>
 				<td>Sucess</td>
-				<td><input type="number" name="auto_Defenses_Reached_Sucess" class="small_num" required></td>
-				<td><input type="number" name="auto_Defenses_Crossed_Sucess" class="small_num" required></td>
+				<td><input type="number" name="auto_Defenses_Reached_Sucess" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
+				<td><input type="number" name="auto_Defenses_Crossed_Sucess" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
 			</tr>
 			<tr>
 				<td>Failed</td>
-				<td><input type="number" name="auto_Defenses_Reached_Failed" class="small_num" required></td>
-				<td><input type="number" name="auto_Defenses_Crossed_Failed"class="small_num" required></td>
+				<td><input type="number" name="auto_Defenses_Reached_Failed" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+				<td><input type="number" name="auto_Defenses_Crossed_Failed"class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
 			</tr>
 			</table>
 			<br>
@@ -159,7 +159,7 @@ include("db_connect.php");
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="number" name="auto_Start_Location" class="small_num" min=1 max=6 required></td>
+				<td><input type="number" name="auto_Start_Location" class="small_num" min=0 max=6  value="0" onfocus="if (this.value=='0') this.value = ''" required></td>
 				
 			</tr>
 			<tr>
@@ -188,35 +188,35 @@ include("db_connect.php");
 				</tr>
 				<tr>
 					<td>Crossed</td>
-					<td><input type="number" name="def_1_crossed" class="small_num" required></td>
-					<td><input type="number" name="def_2_crossed" class="small_num" required></td>
-					<td><input type="number" name="def_3_crossed" class="small_num" required></td>
-					<td><input type="number" name="def_4_crossed" class="small_num" required></td>
-					<td><input type="number" name="def_5_crossed" class="small_num" required></td>
+					<td><input type="number" name="def_1_crossed" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
+					<td><input type="number" name="def_2_crossed" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_3_crossed" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_4_crossed" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_5_crossed" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
 				</tr>
 				<tr>
 					<td>Weakened</td>
-					<td><input type="number" name="def_1_weakened" class="small_num" required></td>
-					<td><input type="number" name="def_2_weakened" class="small_num" required></td>
-					<td><input type="number" name="def_3_weakened" class="small_num" required></td>
-					<td><input type="number" name="def_4_weakened" class="small_num" required></td>
-					<td><input type="number" name="def_5_weakened" class="small_num" required></td>
+					<td><input type="number" name="def_1_weakened" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_2_weakened" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_3_weakened" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_4_weakened" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_5_weakened" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
 				</tr>
 				<tr>
 					<td>Speed</td>
-					<td><input type="number" name="def_1_speed" class="small_num" required></td>
-					<td><input type="number" name="def_2_speed" class="small_num" required></td>
-					<td><input type="number" name="def_3_speed" class="small_num" required></td>
-					<td><input type="number" name="def_4_speed" class="small_num" required></td>
-					<td><input type="number" name="def_5_speed" class="small_num" required></td>
+					<td><input type="number" name="def_1_speed" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
+					<td><input type="number" name="def_2_speed" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_3_speed" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_4_speed" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_5_speed" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
 				</tr>
 				<tr>
 					<td>Stuck</td>
-					<td><input type="number" name="def_1_stuck" class="small_num" required></td>
-					<td><input type="number" name="def_2_stuck" class="small_num" required></td>
-					<td><input type="number" name="def_3_stuck" class="small_num" required></td>
-					<td><input type="number" name="def_4_stuck" class="small_num" required></td>
-					<td><input type="number" name="def_5_stuck" class="small_num" required></td>
+					<td><input type="number" name="def_1_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_2_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_3_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_4_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_5_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
 				</tr>
 				<tr>
 					<td>Ball? (Y/N)</td>
@@ -242,13 +242,13 @@ include("db_connect.php");
 							</tr>
 							<tr>
 								<td>Scored</td>
-								<td><input type="number" name="batter_high_Scored" class="small_num" required></td>
-								<td><input type="number" name="batter_low_Scored" class="small_num" required></td>
+								<td><input type="number" name="batter_high_Scored" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
+								<td><input type="number" name="batter_low_Scored" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
 							</tr>
 							<tr>
 								<td>Miss</td>
-								<td><input type="number" name="batter_high_Miss" class="small_num" required></td>
-								<td><input type="number" name="batter_low_Miss" class="small_num" required></td>
+								<td><input type="number" name="batter_high_Miss" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
+								<td><input type="number" name="batter_low_Miss" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
 							</tr>
 						</table>
 						<br>
@@ -260,13 +260,13 @@ include("db_connect.php");
 							</tr>
 							<tr>
 								<td>Scored</td>
-								<td><input type="number" name="courtyard_high_Scored" class="small_num" required></td>
-								<td><input type="number" name="courtyard_low_Scored" class="small_num" required></td>
+								<td><input type="number" name="courtyard_high_Scored" class="small_num"onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
+								<td><input type="number" name="courtyard_low_Scored" class="small_num"onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
 							</tr>
 							<tr>
 								<td>Miss</td>
-								<td><input type="number" name="courtyard_high_Miss" class="small_num" required></td>
-								<td><input type="number" name="courtyard_low_Miss" class="small_num" required></td>
+								<td><input type="number" name="courtyard_high_Miss" class="small_num"onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
+								<td><input type="number" name="courtyard_low_Miss" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
 							</tr>
 						</table>
 					</td>
@@ -309,7 +309,7 @@ include("db_connect.php");
 							<option name="defending_>75"value="75">>75% Defense</option>
 						</select>
 						-->
-						<input type="number"   name="defense" class="small_num"  min=0 max=100 required></input>
+						<input type="number"   name="defense" class="small_num"  min=0 max=100 onfocus="if (this.value=='0') this.value = ''" value="0" required></input>
 					</td>
 				</tr>
 			</table>
@@ -358,10 +358,10 @@ include("db_connect.php");
 					<td>Pushing</td>
 				</tr>
 				<tr>
-					<td><input type="number" name="drive_manuverability" class="small_num" style="width:100%;" min=0 max=9></input></td>
-					<td><input type="number" name="pushing" style="width:100%;" class="small_num" min=0 max=9></input></td>
-					<td><input type="number" name="Defense_Pushing" style="width:100%;" class="small_num" min=0 max=9></input></td>
-					<td><input type="number" name="Ball_Control" style="width:100%;" class="small_num" min=0 max=9></input></td>
+					<td><input type="number" name="drive_manuverability" class="small_num" style="width:100%;" min=0 max=9 onfocus="if (this.value=='0') this.value = ''" value="0"></input></td>
+					<td><input type="number" name="pushing" style="width:100%;" class="small_num" min=0 max=9 onfocus="if (this.value=='0') this.value = ''" value="0"></input></td>
+					<td><input type="number" name="Defense_Pushing" style="width:100%;" class="small_num" min=0 max=9 onfocus="if (this.value=='0') this.value = ''" value="0"></input></td>
+					<td><input type="number" name="Ball_Control" style="width:100%;" class="small_num" min=0 max=9 onfocus="if (this.value=='0') this.value = ''" value="0"></input></td>
 				</tr>
 			</table>
 		</div>
