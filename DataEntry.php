@@ -119,17 +119,17 @@ include("db_connect.php");
 			<h2 class="DataTitle">Autonomous</h2>
 			<tr>
 				<td></td>
-				<td>Auto High</td>
-				<td>Auto Low</td>
-			</tr>
-			<tr>
 				<td>Scored</td>
-				<td><input type="number" name="auto_High_Scored" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
-				<td><input type="number" name="auto_Low_Scored" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
+				<td>Miss</td>
 			</tr>
 			<tr>
-				<td>Miss</td>
+				<td>Auto High</td>
+				<td><input type="number" name="auto_High_Scored" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
 				<td><input type="number" name="auto_High_Miss" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
+			</tr>
+			<tr>
+				<td>Auto Low</td>
+				<td><input type="number" name="auto_Low_Scored" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
 				<td><input type="number" name="auto_Low_Miss"class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
 			</tr>
 			</table>
