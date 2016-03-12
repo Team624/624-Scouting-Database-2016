@@ -243,11 +243,11 @@ include("db_connect.php");
 							<tr>
 								<td>Batter High Goal</td>
 								<td><input type="number" name="batter_high_Scored" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
-								<td><input type="number" name="batter_high_Miss" class="small_num" required></td>
+								<td><input type="number" name="batter_high_Miss" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
 							</tr>
 							<tr>
 								<td>Batter Low Goal</td>
-								<td><input type="number" name="batter_low_Scored" class="small_num" required></td>
+								<td><input type="number" name="batter_low_Scored" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
 								<td><input type="number" name="batter_low_Miss" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
 								
 							</tr>
@@ -262,11 +262,11 @@ include("db_connect.php");
 							<tr>
 								<td>Courtyard High Goal</td>
 								<td><input type="number" name="courtyard_high_Scored" class="small_num"onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
-								<td><input type="number" name="courtyard_high_Miss" class="small_num" required></td>
+								<td><input type="number" name="courtyard_high_Miss" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
 							</tr>
 							<tr>
 								<td>Courtyard Low Goal</td>
-								<td><input type="number" name="courtyard_low_Scored" class="small_num" required></td>
+								<td><input type="number" name="courtyard_low_Scored" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0" required></td>
 								<td><input type="number" name="courtyard_low_Miss" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
 							</tr>
 						</table>
