@@ -342,8 +342,8 @@ include("db_connect.php");
 				</tr>
 				<tr>
 				
-					<td><input type="number" name="fouls"></input></td>
-					<td><input type="number" name="tech_fouls"></input></td>
+					<td><input type="number" name="fouls" class="slim"></input></td>
+					<td><input type="number" name="tech_fouls" class="slim"></input></td>
 				</tr>
 				
 			</table>
