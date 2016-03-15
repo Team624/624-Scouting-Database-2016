@@ -70,12 +70,14 @@ include("db_connect.php");
 			<table class="green">
 				<tr>
 					<td></td>
+					<td>Elimination Match?</td>
 					<td>Match #</td>
 					<td>Team #</td>
 					<td>Scout ID</td>
 				</tr>
 				<tr>
 					<td></td>
+					<td><input type="checkbox" name="elim_match" class="small_num" ></td>
 					<td><input type="number" name="match_num" class="small_num" required></td>
 					<td><input type="number" name="team_num" class="small_num" required></td>
 					<td><input type="number" name="scoutID" class="small_num" required></td>
@@ -331,7 +333,10 @@ include("db_connect.php");
 					<td>Lost Comms</td>
 					<td><input type="checkbox" name="lost_comms"></input></td>
 				</tr>
-				
+				<tr>
+					<td>Stuck</td>
+					<td><input type="checkbox" name="stuck"></input></td>
+				</tr>
 				<tr>
 					<td>Tipped</td>
 					<td><input type="checkbox" name="tipped"></input></td>
