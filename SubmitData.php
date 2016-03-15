@@ -68,11 +68,11 @@ include("DatabaseVerification.php");
 	$def_4_speed=(int)$_POST['def_4_speed'];
 	$def_5_speed=(int)$_POST['def_5_speed'];
 	
-	$def_1_stuck=(int)$_POST['def_1_stuck'];
+	/*$def_1_stuck=(int)$_POST['def_1_stuck'];
 	$def_2_stuck=(int)$_POST['def_2_stuck'];
 	$def_3_stuck=(int)$_POST['def_3_stuck'];
 	$def_4_stuck=(int)$_POST['def_4_stuck'];
-	$def_5_stuck=(int)$_POST['def_5_stuck'];
+	$def_5_stuck=(int)$_POST['def_5_stuck'];*/
 	
 	if($_POST['def_1_ball']== "on"){$def_1_ball=1;}
 	if($_POST['def_2_ball']== "on"){$def_2_ball=1;}
@@ -110,12 +110,14 @@ include("DatabaseVerification.php");
 	$tech_fouls=(int)$_POST['tech_fouls'];
 	//Driver Data
 	$drive_manuverability=(int)$_POST['drive_manuverability'];
-	$pushing=(int)$_POST['pushing'];
+	//$pushing=(int)$_POST['pushing'];
 	$Defense_Pushing=(int)$_POST['Defense_Pushing'];
 	$Ball_Control=(int)$_POST['Ball_Control'];
 	//Comments
-	$notes=$_POST['notes'];
-	$shooting_location=$_POST['shooting_location'];
+	$notes = $mysqli->real_escape_string($_POST['notes']);
+	$shooting_location = $mysqli->real_escape_string($_POST['shooting_location']);
+	//$notes=$_POST['notes'];
+	//$shooting_location=$_POST['shooting_location'];
 	
 	$verification_result =databaseVerification($mysqli, $matchNum, $teamNum,$scoutID,$def_category_2,$def_category_3,$def_category_4,$def_category_5);
 	//var_dump($verification_result);
