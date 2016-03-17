@@ -68,6 +68,11 @@ include("db_connect.php");
 		<div class="blackBox">
 			<h2 class="DataTitle">Basic Data</h2>
 			<table class="green">
+				<p>If this is an Elimination Match:
+				<br>Quarterfinal Match #'s are 101 and up
+				<br>Semifinal Match #'s are 201 and up
+				<br>Final Match #'s are 301 and up
+				</p>
 				<tr>
 					<td></td>
 					<td>Elimination Match?</td>
@@ -82,6 +87,7 @@ include("db_connect.php");
 					<td><input type="number" name="team_num" class="small_num" required></td>
 					<td><input type="number" name="scoutID" class="small_num" required></td>
 				</tr>
+				
 			</table>
 			<br>
 			<table class="green">
