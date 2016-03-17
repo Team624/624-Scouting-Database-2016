@@ -19,7 +19,7 @@
 <br>
 <br>
 <form class="Searchforsearch" method="get" action="MatchInfoDisplay.php">
-<br>
+<br><br>
 	<input type="number" name="match">
 	<input type="checkbox" name="playoffs" style="width:30px;padding-top:10px"> <span style="color:#FFF">Playoffs?</span>
 <br>

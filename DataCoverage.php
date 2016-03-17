@@ -53,12 +53,12 @@ include("db_connect.php");
 					if($row["COUNT(*)"] == 0)
 					{
 			?>
-			<td class="not-found"><a href="http://localhost/TeamInfoDisplay.php?team=<?=$team;?>" class="not-found"><?=$team;?></a></td>
+			<td class="not-found"><a href="TeamInfoDisplay.php?team=<?=$team;?>" class="not-found"><?=$team;?></a></td>
 			<?php
 					}else
 					{
 			?>
-			<td class="found"><a href="http://localhost/TeamInfoDisplay.php?team=<?=$team;?>" class="found"><?=$team;?></a></td>
+			<td class="found"><a href="TeamInfoDisplay.php?team=<?=$team;?>" class="found"><?=$team;?></a></td>
 			<?php
 					}
 			}
