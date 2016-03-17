@@ -37,7 +37,7 @@ include("api_connect.php");
 	{
 		?>
 		<tr>
-			<td><?=$row['number']?></td>
+			<td><a href="TeamInfoDisplay.php?team=<?=$row['number'];?>"><?=$row['number']?></a></td>
 			<td><?=$row['name']?></td>
 		</tr>
 		<?php

@@ -20,7 +20,7 @@ table{
 	border-radius: 5px;
 }
 
-table.green{
+.green{
 	border: none;
 	background-color: #4d4d4d;
 	border: 1px solid green;
@@ -64,3 +64,46 @@ h1.title{
 {
 	width:90px;
 }
+.slim
+{
+	width:75px;
+}
+.endBox
+{
+	margin:0 auto;
+	border: none;
+	border-radius: 10px;
+	background-color: #4d4d4d;
+	border: 1px solid green;
+	padding:5px;
+	width:40%;
+}
+a.fakeButton
+{
+	Width:auto;
+	height:25px;
+	border-radius: 5px;
+	background-color: rgba(6, 240, 0, 1);
+	padding:5px 10px 5px 10px;
+	color:black;
+	text-decoration: none;
+}
+a.fakeButton:hover
+{
+	Width:auto;
+	height:25px;
+	border-radius: 5px;
+	background-color: rgba(105, 255, 102, 1);
+	padding:5px 10px 5px 10px;
+	color:black;
+	text-decoration: none;
+}
+
+
+
+
+
+
+
+
+

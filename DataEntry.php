@@ -17,6 +17,17 @@ include("db_connect.php");
 <div class="page_container">
 <br>
 <br>
+
+<?php
+//put querys here
+	$query = "SELECT * FROM schedule";
+	$result = $mysqli->query($query);
+	
+	$query2 = "SELECT * FROM scouts";
+	$result2 = $mysqli->query($query2);
+
+?>
+
 <!--onsubmit="return validate_data_entry()"-->
 	<div class="form_container">
 		<form class="datafield" method="post" id="data_form" action="SubmitData.php">
@@ -68,18 +79,26 @@ include("db_connect.php");
 		<div class="blackBox">
 			<h2 class="DataTitle">Basic Data</h2>
 			<table class="green">
+				<p>If this is an Elimination Match:
+				<br>Quarterfinal Match #'s are 101 and up
+				<br>Semifinal Match #'s are 201 and up
+				<br>Final Match #'s are 301 and up
+				</p>
 				<tr>
 					<td></td>
+					<td>Elimination Match?</td>
 					<td>Match #</td>
 					<td>Team #</td>
 					<td>Scout ID</td>
 				</tr>
 				<tr>
 					<td></td>
+					<td><input type="checkbox" name="elim_match" class="small_num" ></td>
 					<td><input type="number" name="match_num" class="small_num" required></td>
 					<td><input type="number" name="team_num" class="small_num" required></td>
 					<td><input type="number" name="scoutID" class="small_num" required></td>
 				</tr>
+				
 			</table>
 			<br>
 			<table class="green">
@@ -119,18 +138,18 @@ include("db_connect.php");
 			<h2 class="DataTitle">Autonomous</h2>
 			<tr>
 				<td></td>
-				<td>Auto High</td>
-				<td>Auto Low</td>
-			</tr>
-			<tr>
 				<td>Scored</td>
-				<td><input type="number" name="auto_High_Scored" class="small_num" required></td>
-				<td><input type="number" name="auto_Low_Scored" class="small_num" required></td>
+				<td>Miss</td>
 			</tr>
 			<tr>
-				<td>Miss</td>
-				<td><input type="number" name="auto_High_Miss" class="small_num" required></td>
-				<td><input type="number" name="auto_Low_Miss"class="small_num" required></td>
+				<td>Auto High</td>
+				<td><input type="number" name="auto_High_Scored" class="small_num"></td>
+				<td><input type="number" name="auto_High_Miss" class="small_num"></td>
+			</tr>
+			<tr>
+				<td>Auto Low</td>
+				<td><input type="number" name="auto_Low_Scored" class="small_num"></td>
+				<td><input type="number" name="auto_Low_Miss"class="small_num"></td>
 			</tr>
 			</table>
 			<br>
@@ -142,13 +161,13 @@ include("db_connect.php");
 			</tr>
 			<tr>
 				<td>Sucess</td>
-				<td><input type="number" name="auto_Defenses_Reached_Sucess" class="small_num" required></td>
-				<td><input type="number" name="auto_Defenses_Crossed_Sucess" class="small_num" required></td>
+				<td><input type="number" name="auto_Defenses_Reached_Sucess" class="small_num"></td>
+				<td><input type="number" name="auto_Defenses_Crossed_Sucess" class="small_num"></td>
 			</tr>
 			<tr>
 				<td>Failed</td>
-				<td><input type="number" name="auto_Defenses_Reached_Failed" class="small_num" required></td>
-				<td><input type="number" name="auto_Defenses_Crossed_Failed"class="small_num" required></td>
+				<td><input type="number" name="auto_Defenses_Reached_Failed" class="small_num"></td>
+				<td><input type="number" name="auto_Defenses_Crossed_Failed"class="small_num"></td>
 			</tr>
 			</table>
 			<br>
@@ -159,7 +178,7 @@ include("db_connect.php");
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="number" name="auto_Start_Location" class="small_num" min=1 max=6 required></td>
+				<td><input type="number" name="auto_Start_Location" class="small_num" min=0 max=6 required></td>
 				
 			</tr>
 			<tr>
@@ -188,36 +207,36 @@ include("db_connect.php");
 				</tr>
 				<tr>
 					<td>Crossed</td>
-					<td><input type="number" name="def_1_crossed" class="small_num" required></td>
-					<td><input type="number" name="def_2_crossed" class="small_num" required></td>
-					<td><input type="number" name="def_3_crossed" class="small_num" required></td>
-					<td><input type="number" name="def_4_crossed" class="small_num" required></td>
-					<td><input type="number" name="def_5_crossed" class="small_num" required></td>
+					<td><input type="number" name="def_1_crossed" class="small_num"></td>
+					<td><input type="number" name="def_2_crossed" class="small_num"></td>
+					<td><input type="number" name="def_3_crossed" class="small_num"></td>
+					<td><input type="number" name="def_4_crossed" class="small_num"></td>
+					<td><input type="number" name="def_5_crossed" class="small_num"></td>
 				</tr>
 				<tr>
 					<td>Weakened</td>
-					<td><input type="number" name="def_1_weakened" class="small_num" required></td>
-					<td><input type="number" name="def_2_weakened" class="small_num" required></td>
-					<td><input type="number" name="def_3_weakened" class="small_num" required></td>
-					<td><input type="number" name="def_4_weakened" class="small_num" required></td>
-					<td><input type="number" name="def_5_weakened" class="small_num" required></td>
+					<td><input type="number" name="def_1_weakened" class="small_num"></td>
+					<td><input type="number" name="def_2_weakened" class="small_num"></td>
+					<td><input type="number" name="def_3_weakened" class="small_num"></td>
+					<td><input type="number" name="def_4_weakened" class="small_num"></td>
+					<td><input type="number" name="def_5_weakened" class="small_num"></td>
 				</tr>
 				<tr>
 					<td>Speed</td>
-					<td><input type="number" name="def_1_speed" class="small_num" required></td>
-					<td><input type="number" name="def_2_speed" class="small_num" required></td>
-					<td><input type="number" name="def_3_speed" class="small_num" required></td>
-					<td><input type="number" name="def_4_speed" class="small_num" required></td>
-					<td><input type="number" name="def_5_speed" class="small_num" required></td>
+					<td><input type="number" name="def_1_speed" class="small_num"></td>
+					<td><input type="number" name="def_2_speed" class="small_num"></td>
+					<td><input type="number" name="def_3_speed" class="small_num"></td>
+					<td><input type="number" name="def_4_speed" class="small_num"></td>
+					<td><input type="number" name="def_5_speed" class="small_num"></td>
 				</tr>
-				<tr>
+				<!--<tr>
 					<td>Stuck</td>
-					<td><input type="number" name="def_1_stuck" class="small_num" required></td>
-					<td><input type="number" name="def_2_stuck" class="small_num" required></td>
-					<td><input type="number" name="def_3_stuck" class="small_num" required></td>
-					<td><input type="number" name="def_4_stuck" class="small_num" required></td>
-					<td><input type="number" name="def_5_stuck" class="small_num" required></td>
-				</tr>
+					<td><input type="number" name="def_1_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_2_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_3_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_4_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+					<td><input type="number" name="def_5_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
+				</tr>-->
 				<tr>
 					<td>Ball? (Y/N)</td>
 					<td><input type="checkbox" name="def_1_ball" class="small_num" ></td>
@@ -237,36 +256,37 @@ include("db_connect.php");
 					<td>
 						<table class="green">
 								<td></td>
-								<td>Batter High Goal</td>
-								<td>Batter Low Goal</td>
-							</tr>
-							<tr>
 								<td>Scored</td>
-								<td><input type="number" name="batter_high_Scored" class="small_num" required></td>
-								<td><input type="number" name="batter_low_Scored" class="small_num" required></td>
+								<td>Miss</td>
 							</tr>
 							<tr>
-								<td>Miss</td>
-								<td><input type="number" name="batter_high_Miss" class="small_num" required></td>
-								<td><input type="number" name="batter_low_Miss" class="small_num" required></td>
+								<td>Batter High Goal</td>
+								<td><input type="number" name="batter_high_Scored" class="small_num"></td>
+								<td><input type="number" name="batter_high_Miss" class="small_num"></td>
+							</tr>
+							<tr>
+								<td>Batter Low Goal</td>
+								<td><input type="number" name="batter_low_Scored" class="small_num"></td>
+								<td><input type="number" name="batter_low_Miss" class="small_num"></td>
+								
 							</tr>
 						</table>
 						<br>
 						<table class="green">
 							<tr>
 								<td></td>
-								<td>Courtyard High Goal</td>
-								<td>Courtyard Low Goal</td>
-							</tr>
-							<tr>
 								<td>Scored</td>
-								<td><input type="number" name="courtyard_high_Scored" class="small_num" required></td>
-								<td><input type="number" name="courtyard_low_Scored" class="small_num" required></td>
+								<td>Miss</td>
 							</tr>
 							<tr>
-								<td>Miss</td>
-								<td><input type="number" name="courtyard_high_Miss" class="small_num" required></td>
-								<td><input type="number" name="courtyard_low_Miss" class="small_num" required></td>
+								<td>Courtyard High Goal</td>
+								<td><input type="number" name="courtyard_high_Scored" class="small_num"></td>
+								<td><input type="number" name="courtyard_high_Miss" class="small_num"></td>
+							</tr>
+							<tr>
+								<td>Courtyard Low Goal</td>
+								<td><input type="number" name="courtyard_low_Scored" class="small_num"></td>
+								<td><input type="number" name="courtyard_low_Miss" class="small_num"></td>
 							</tr>
 						</table>
 					</td>
@@ -309,7 +329,7 @@ include("db_connect.php");
 							<option name="defending_>75"value="75">>75% Defense</option>
 						</select>
 						-->
-						<input type="number"   name="defense" class="small_num"  min=0 max=100 required></input>
+						<input type="number"   name="defense" class="small_num"  min=0 max=100></input>
 					</td>
 				</tr>
 			</table>
@@ -330,7 +350,10 @@ include("db_connect.php");
 					<td>Lost Comms</td>
 					<td><input type="checkbox" name="lost_comms"></input></td>
 				</tr>
-				
+				<tr>
+					<td>Stuck</td>
+					<td><input type="checkbox" name="stuck"></input></td>
+				</tr>
 				<tr>
 					<td>Tipped</td>
 					<td><input type="checkbox" name="tipped"></input></td>
@@ -341,8 +364,8 @@ include("db_connect.php");
 				</tr>
 				<tr>
 				
-					<td><input type="number" name="fouls"></input></td>
-					<td><input type="number" name="tech_fouls"></input></td>
+					<td><input type="number" name="fouls" class="slim"></input></td>
+					<td><input type="number" name="tech_fouls" class="slim"></input></td>
 				</tr>
 				
 			</table>
@@ -355,11 +378,11 @@ include("db_connect.php");
 					<td>Driving</td>
 					<td>Defense/Bullying</td>
 					<td>Ball Control</td>
-					<td>Pushing</td>
+					<!--<td>Pushing</td>-->
 				</tr>
 				<tr>
 					<td><input type="number" name="drive_manuverability" class="small_num" style="width:100%;" min=0 max=9></input></td>
-					<td><input type="number" name="pushing" style="width:100%;" class="small_num" min=0 max=9></input></td>
+					<!--<td><input type="number" name="pushing" style="width:100%;" class="small_num" min=0 max=9 onfocus="if (this.value=='0') this.value = ''" value="0"></input></td>-->
 					<td><input type="number" name="Defense_Pushing" style="width:100%;" class="small_num" min=0 max=9></input></td>
 					<td><input type="number" name="Ball_Control" style="width:100%;" class="small_num" min=0 max=9></input></td>
 				</tr>

@@ -126,6 +126,7 @@
 			$data["no_show"] += $row['no_show'];
 			$data["mech_fail"] += $row['mech_fail'];
 			$data["lost_comms"] += $row['lost_comms'];
+			$data["stuck"] += $row['stuck'];
 			$data["tipped"] += $row['tipped'];
 			$data["fouls"] += $row['fouls'];
 			$data["tech_fouls"] += $row['tech_fouls'];
@@ -412,6 +413,7 @@
 			$data["no_show"] += $row['no_show'];
 			$data["mech_fail"] += $row['mech_fail'];
 			$data["lost_comms"] += $row['lost_comms'];
+			$data["stuck"] += $row['stuck'];
 			$data["tipped"] += $row['tipped'];
 			
 			$data['boulder_grabs'] += $row['Auto_Boulder_Grab'];
@@ -622,3 +624,208 @@
 		return $data;		
 	}
 ?>
+
+<?php
+function getCSVData($mysqli, $number)
+{
+	$team_query = "SELECT * FROM `match_data` WHERE team_number = '$number'";
+	$result = $mysqli->query($team_query);
+	
+	$data = [];
+	$matches = 0;
+	
+	$max_pts = 0;
+	$max_auto_pts = 0;
+	$max_goals = 0;
+	
+	$max_high = 0;
+	$max_low = 0;
+	
+	$stuck = 0;
+	$crosses = 0;
+	
+	$defense_capability = 0;
+	$defense_times = 0;
+		
+	while($row = $result->fetch_array(MYSQLI_ASSOC))
+	{
+		$shot_points = ($row['courtyard_high_Scored']*5) + ($row['batter_high_Scored']*5) + $row['courtyard_low_Scored'] +  $row['batter_low_Scored'];
+		$data['shooting_points'] += $shot_points;
+		
+		$auto_points = ($row['auto_High_Scored'] * 10) + ($row['auto_Low_Scored'] * 5) + ($row['auto_Defenses_Crossed_Sucess']*10) + ($row['auto_Defenses_Reached_Sucess']*2);
+		$data['auto_points'] += $auto_points;
+		
+		$climb_points = ($row['challenge_Sucess']*5) + ($row['scaled_Sucess']*15);
+		$data["climb_points"] += $climb_points;
+		
+		$data["fouls"] += $row['fouls'];
+		
+		$goals = $row['courtyard_high_Scored'] + $row['batter_high_Scored'] + $row['courtyard_low_Scored'] +  $row['batter_low_Scored'] + $row['auto_High_Scored'] + $row['auto_Low_Scored'];
+		$data['total_goals'] += $goals;
+		
+		$high = $row['courtyard_high_Scored'] + $row['batter_high_Scored'] + $row['auto_High_Scored'];
+		$low = $row['courtyard_low_Scored'] + $row['batter_low_Scored'] + $row['auto_Low_Scored'];
+		
+		$data['high_total'] += $high;
+		$data['low_total'] += $low;
+		
+		$defenseList = [];
+		$defenseList[] = $row['def_category_1'];
+		$defenseList[] = $row['def_category_2'];
+		$defenseList[] = $row['def_category_3'];
+		$defenseList[] = $row['def_category_4'];
+		$defenseList[] = $row['def_category_5'];
+		
+		foreach($defenseList as $t)
+		{
+			//sort things based on which type it is
+			/*
+			0 - Low bar
+			1 - Portcullis
+			2 - Cheval de Frise
+			3 - Moat
+			4 - Ramparts
+			5 - Drawbridge
+			6 - Sally Port
+			7 - Rock Wall
+			8 - Rough Terrain
+			*/
+			if($t==0)
+			{
+				$data['lowbar_cross'] += (int)$row['def_'.$def.'_crossed'];
+				$data['lowbar_stuck'] += (int)$row['def_'.$def.'_stuck'];
+				$data['lowbar_faced']++;
+			}
+			else if($t==1)
+			{
+				$data['portcullis_cross'] += (int)$row['def_'.$def.'_crossed'];
+				$data['portcullis_stuck'] += (int)$row['def_'.$def.'_stuck'];
+				$data['portcullis_faced']++;
+			}
+			else if($t==2)
+			{
+				$data['chili_fries_cross'] += (int)$row['def_'.$def.'_crossed'];
+				$data['chili_fries_stuck'] += (int)$row['def_'.$def.'_stuck'];
+				$data['chili_fries_faced']++;
+			}
+			else if($t==3)
+			{
+				$data['moat_cross'] += (int)$row['def_'.$def.'_crossed'];
+				$data['moat_stuck'] += (int)$row['def_'.$def.'_stuck'];
+				$data['moat_faced']++;
+			}
+			else if($t==4)
+			{
+				$data['ramparts_cross'] += (int)$row['def_'.$def.'_crossed'];
+				$data['ramparts_stuck'] += (int)$row['def_'.$def.'_stuck'];
+				$data['ramparts_faced']++;
+			}
+			else if($t==5)
+			{
+				$data['drawbridge_cross'] += (int)$row['def_'.$def.'_crossed'];
+				$data['drawbridge_stuck'] += (int)$row['def_'.$def.'_stuck'];
+				$data['drawbridge_faced']++;
+			}
+			else if($t==6)
+			{
+				$data['sally_port_cross'] += (int)$row['def_'.$def.'_crossed'];
+				$data['sally_port_stuck'] += (int)$row['def_'.$def.'_stuck'];
+				$data['sally_port_faced']++;
+			}
+			else if($t==7)
+			{
+				$data['rockwall_cross'] += (int)$row['def_'.$def.'_crossed'];
+				$data['rockwall_stuck'] += (int)$row['def_'.$def.'_stuck'];
+				$data['rockwall_faced']++;
+			}
+			else if($t==8)
+			{
+				$data['rough_terrain_cross'] += (int)$row['def_'.$def.'_crossed'];
+				$data['rough_terrain_stuck'] += (int)$row['def_'.$def.'_stuck'];
+				$data['rough_terrain_faced']++;
+			}
+			
+			$stuck += (int)$row['def_'.$def.'_stuck'];
+			$crosses += (int)$row['def_'.$def.'_crossed'];
+			
+			$def++;
+		}
+		
+		$points = $shot_points + $auto_points + $climb_points + ($crosses*5);
+		
+		if($points > $max_pts)
+		{
+			$max_pts = $points;
+		}
+		
+		if($auto_points > $max_auto_pts)
+		{
+			$max_auto_pts = $auto_points;
+		}
+		
+		if($goals > $max_goals)
+		{
+			$max_goals = $goals;
+		}
+		
+		if($goals > $max_high)
+		{
+			$max_high = $goals;
+		}
+		
+		if($goals > $max_low)
+		{
+			$max_low = $goals;
+		}
+		
+		if($row['defense'] >= 50)
+		{
+			$defense_capability += $row['Defense_Pushing'];
+			$defense_times++;
+		}
+		
+		$matches++;
+	}
+	
+	if($matches>0)
+	{
+	$data['stuck'] = $stuck;
+	$data['total_points'] = $data['shooting_points'] + $data['auto_points'] + $data['climb_points'];
+	$data['average_points'] = $data['total_points'] / $matches;
+	$data['high_points'] = $max_pts;
+	$data['high_auto_points'] = $max_auto_pts;
+	$data['average_auto_points'] = $data['auto_points'] / $matches;
+	$data['challenge_percent'] = ($row['challenge_Sucess'] / $matches) * 100;
+	$data['scale_percent'] = ($row['scaled_Sucess'] / $matches) * 100;
+	$data['average_goals'] = $data['total_goals'] / $matches;
+	
+	$data['high_average'] = $data['high_total'] / $matches;
+	$data['low_average'] = $data['low_total'] / $matches;
+	
+	}
+	else
+	{
+		$data['stuck'] = 0;
+		$data['total_points'] = 0;
+		$data['average_points'] = 0;
+		$data['high_points'] = 0;
+		$data['high_auto_points'] = 0;
+		$data['average_auto_points'] = 0;
+		$data['challenge_percent'] = 0;
+		$data['scale_percent'] = 0;
+		$data['average_goals'] = 0;
+		
+		$data['high_average'] = 0;
+		$data['low_average'] = 0;
+	}
+	
+	if($defense_times > 0)
+	{
+		$data['defense_capability'] = $defense_capability / $defense_times;
+	}
+	else
+	{
+		$data['defense_capability'] = 0;
+	}
+	return $data;
+}
