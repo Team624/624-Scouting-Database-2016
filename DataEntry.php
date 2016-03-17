@@ -178,7 +178,7 @@ include("db_connect.php");
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="number" name="auto_Start_Location" class="small_num" min=0 max=6 required></td>
+				<td><input type="number" name="auto_Start_Location" class="small_num" min=0 max=6 onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
 				
 			</tr>
 			<tr>
@@ -409,10 +409,6 @@ include("db_connect.php");
 	</div>
 	<br>
 
-	<!--//As a suggestion for checking the fields, we could select the data from other database tables and check to see if it returns any rows.	
-	
-	$query1 = "INSERT INTO notes (team,match_number,notes) VALUES ('$teamNum','$matchNum','$notes')";
-	$result1= $mysqli->query($query1);
-	if($result && $result1) {-->
+
 </div>
 </div>
