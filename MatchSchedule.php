@@ -40,7 +40,7 @@ include("db_connect.php");
 ?>	
 		<tr class="scheduleZenbra">
 			<td class="side-bar"><a href="MatchInfoDisplay.php?match=<?=$row["match_number"];?>" class="side-bar-a"><b><?=$row["match_number"];?></b></a></td>
-			<td class="time"><b><?=$row['time'];?></b></td>
+			<td class="time"><b><?=str_replace("T"," ",$row['time']);?></b></td>
 			<td class="<?=$row['red_1']=="624"?'green':'red'?>"><a href="TeamInfoDisplay.php?team=<?=$row['red_1'];?>" class="<?=$row['red_1']=="624"?'green-a':'red-a'?>"><?=$row['red_1'];?></a></td>
 			<td class="<?=$row['red_2']=="624"?'green':'red'?>"><a href="TeamInfoDisplay.php?team=<?=$row['red_2'];?>" class="<?=$row['red_2']=="624"?'green-a':'red-a'?>"><?=$row['red_2'];?></a></td>
 			<td class="<?=$row['red_3']=="624"?'green':'red'?>"><a href="TeamInfoDisplay.php?team=<?=$row['red_3'];?>" class="<?=$row['red_3']=="624"?'green-a':'red-a'?>"><?=$row['red_3'];?></a></td>

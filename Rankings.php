@@ -94,7 +94,7 @@ include("api_connect.php");
 	<!--</pre>-->
 					<tr class="bodyRow">
 						<td class="body"><b><?php echo $roast; ?></b></td> 
-						<td class="body"><?php echo $teamNumber; ?></td>
+						<td class="body"><a href="http://localhost/TeamInfoDisplay.php?team=<?=$teamNumber;?>"><?php echo $teamNumber; ?></a></td>
 						<td class="body"><?php echo $qualAverage; ?></td> 
 						<td class="body"><?php echo $autoPoints; ?></td> 
 						<td class="body"><?php echo $defensePoints; ?></td> 
