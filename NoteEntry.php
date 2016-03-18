@@ -34,8 +34,8 @@ include("db_connect.php");
 if(isset($_POST['submitnotes'])){
 if(isset($_POST['selectteam']) && isset($_POST['notes'])) {
 	$teamselect=$_POST['selectteam'];
-	$notes=$_POST['notes'];	
-	
+	//$notes=$_POST['notes'];	
+	$notes = $mysqli->real_escape_string($_POST['notes']);
 	$query = "INSERT INTO note_entry (selectteam,notes) VALUES ('$teamselect','$notes')";
 	$result = $mysqli->query($query);
 	if($result) {

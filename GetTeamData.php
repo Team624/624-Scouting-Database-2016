@@ -126,6 +126,7 @@
 			$data["no_show"] += $row['no_show'];
 			$data["mech_fail"] += $row['mech_fail'];
 			$data["lost_comms"] += $row['lost_comms'];
+			$data["stuck"] += $row['stuck'];
 			$data["tipped"] += $row['tipped'];
 			$data["fouls"] += $row['fouls'];
 			$data["tech_fouls"] += $row['tech_fouls'];
@@ -412,6 +413,7 @@
 			$data["no_show"] += $row['no_show'];
 			$data["mech_fail"] += $row['mech_fail'];
 			$data["lost_comms"] += $row['lost_comms'];
+			$data["stuck"] += $row['stuck'];
 			$data["tipped"] += $row['tipped'];
 			
 			$data['boulder_grabs'] += $row['Auto_Boulder_Grab'];

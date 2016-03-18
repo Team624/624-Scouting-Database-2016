@@ -6,7 +6,7 @@ include("kick_intruders.php");
 include("navbar.php");
 include("api_connect.php");
 include("db_connect.php");
-
+include("TeamPerformanceRankingData.php");
 ?>
 <head><link rel="stylesheet" type="text/css" href="css/SetupStyle.css"></head>
 <br><br>
@@ -37,9 +37,9 @@ include("db_connect.php");
 					$lastname=$_POST['lastname'];
 					$Aid=$_POST['Aid'];
 					$addscoutquery="INSERT INTO scouts (id,firstname,lastname) VALUES ('$Aid','$firstname','$lastname')";
-					$result = $mysqli->query($addscoutquery);
+					$result22 = $mysqli->query($addscoutquery);
 					
-					if($result) {
+					if($result22) {
 						echo"Successfully added info";	
 								}
 					else {
@@ -60,8 +60,8 @@ include("db_connect.php");
 					if(isset($_POST['removescout'])){
 					$Rid=$_POST['Rid'];
 					$removescoutquery="DELETE FROM scouts WHERE id='$Rid'";
-					$result = $mysqli->query($removescoutquery);
-					if($result) {
+					$result222 = $mysqli->query($removescoutquery);
+					if($result222) {
 						echo"Successfully removed scout";	
 								}
 					else {
@@ -411,5 +411,6 @@ else{
 	}
 	?>
 		</div>
-	</div>
+	
+
 </div>
