@@ -122,9 +122,10 @@ include("DatabaseVerification.php");
 	//if($_POST['elim_match']== "on"){$elim=1;}
 	//else{$elim=0;}
 	//$elim=$_POST['elim_match'];
-	var_dump($elim);
-	$verification_result =databaseVerification($mysqli, $matchNum, $teamNum,$scoutID,$def_category_2,$def_category_3,$def_category_4,$def_category_5,$elim);
-	var_dump($verification_result);
+	//var_dump($elim);
+	$verification_result=databaseVerification($mysqli,$matchNum,$teamNum,$scoutID,$def_category_2,$def_category_3,$def_category_4,$def_category_5,$elim);
+	//var_dump($elim1);
+	//var_dump($verification_result);
 	//var_dump($teamMatchCheck_result);
 	//var_dump($matchNum);
 	if($verification_result){
