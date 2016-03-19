@@ -6,7 +6,7 @@ include("kick_intruders.php");
 include("navbar.php");
 include("api_connect.php");
 include("db_connect.php");
-include("TeamPerformanceRankingData.php");
+
 ?>
 <head><link rel="stylesheet" type="text/css" href="css/SetupStyle.css"></head>
 <br><br>

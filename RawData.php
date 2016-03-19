@@ -80,6 +80,7 @@ include("db_connect.php");
 				<td class="rawTop"><p class="rawP">No Show?</P></td>
 				<td class="rawTop"><p class="rawP">Mechanical Failure?</P></td>
 				<td class="rawTop"><p class="rawP">Lost Comms?</P></td>
+				<td class="rawTop"><p class="rawP">Got Stuck?</P></td>
 				<td class="rawTop"><p class="rawP">Got Tipped Over</P></td>
 				<td class="rawTop"><p class="rawP">Fouls?</P></td>
 				<td class="rawTop"><p class="rawP">Tech Fouls?</P></td>
@@ -155,6 +156,7 @@ include("db_connect.php");
 						<td class="rawBody"><?=$row['no_show'];?></td>
 						<td class="rawBody"><?=$row['mech_fail'];?></td>
 						<td class="rawBody"><?=$row['lost_comms'];?></td>
+						<td class="rawBody"><?=$row['stuck'];?></td>
 						<td class="rawBody"><?=$row['tipped'];?></td>
 						<td class="rawBody"><?=$row['fouls'];?></td>
 						<td class="rawBody"><?=$row['tech_fouls'];?></td>
