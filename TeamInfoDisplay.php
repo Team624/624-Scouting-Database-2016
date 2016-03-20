@@ -34,119 +34,85 @@
 <?php
 	$dat = getTeamData($mysqli, $team);
 	
+
+	
 	$team_query = "SELECT `match_number`, `team_number` FROM `match_data` WHERE team_number = '$team'";
-	$result = $mysqli->query($team_query);
 ?>
 <div class="page_container">
 <br>
 <br>
 <div class="info-bar-holder">
     <div class="bar-group">
-      <div class="info-bar" id="auto-bar">
-        <div class="left section">
-          <div class="left info-content">
-            <div class="info-title">Autonomous</div>
-            <div class="row">
-              Auto High: <b><?=$dat['auto_high']?></b> out of <b><?=$dat['auto_high_total']?></b>
-            </div>
-            <div class="row">
-              Auto Low: <b><?=$dat['auto_low']?></b> out of <b><?=$dat['auto_low_total']?></b>
-            </div>
-            <!--<div class="row">
-              Cans Moved: <b><?=$d['auto_cans_moved']?></b> 
-            </div>
-            <div class="row">
-              Cans Knocked: <b  class = "<?=($d['auto_cans_knocked']>=$d['matches_played']/2)?"bad-number":"normal-number" ?>"><?=$d['auto_cans_knocked']?></b> 
-            </div>
-            <br>
-            <div class="row">
-              Step: (<b><?=$d['auto_can_grab_attempt']?></b> Attempts, <b><?=$d['auto_cans_grabed']?></b> grabbed)
-            </div>
-            <br>
-            <div class="row">
-              Autozone: <b><?=$d['auto_zone']?></b>
-            </div>-->
-          </div>
-          <div class="grippy-circles" id="auto-gippies">
-            <p>                              </p>
-          </div>
-        </div>
-        <div class="right section">
-          <div class="right info-content">
-            <div class="table-holder">
-              <table class="matchByMatch">
-                <thead>
-                <th>Matches</th>
-                <?php foreach($match['matches'] as $m) { ?>
-                  <th><?=$m['match_number']?></th>
-                <?php } ?>
-                </thead>
-                <tr>
-                <th class="vertical" >Start Pos.</td>
-                <?php foreach($match['matches'] as $m) { 
-                  if($m['no_show']>0){ ?>
-                  <td class = "bad-cell">Nshow</td>
-                  <?php }
-                  else if(true) { ?>
-                  <td class = "<?=($m['start_location']==4)?"minor-caution-cell":"normal-cell" ?>" ><?=$m['start_location']?></td>
-                  <?php } 
-                  else { ?>
-                  
-                  <?php } ?>
-                <?php } ?>
-                </tr>
-                <!--<th class="vertical" >Totes Moved</td>
-                <?php foreach($d['matches'] as $m) {  ?>
-                  <td class = "normal-cell"><?=$m['auto_totes_moved']?></td>
-                  <?php } ?>
-                </tr>
-                <th class="vertical" >3 Stack</td>
-                <?php foreach($d['matches'] as $m) {  
-                  if($m['auto_three_stack_attempt']>0){ 
-                    if($m['auto_three_stack_score']>0){ ?>
-                      <td><div class="icon-checkmark-2"></div></td>
-                    <?php }
-                    else{?>
-                      <td class="bad-cell">X</td>
-                    <?php }
-                  } 
-                  else { ?>
-                  <td class = "didNotDo"></td>
-                  <?php } ?>
-                <?php } ?>
-                </tr>
-                <th class="vertical" >Cans Knocked</td>
-                <?php foreach($d['matches'] as $m) { //make fancy ?>
-                  <td class = "normal-cell"><?=$m['auto_cans_knocked']?></td>
-                  <?php } ?>
-                </tr>
-                <th class="vertical" >Attempt Step</td>
-                <?php foreach($d['matches'] as $m) { //make fancy ?>
-                  <td class = "normal-cell"><?=$m['auto_can_grab_attempt']?></td>
-                  <?php } ?>
-                </tr>
-                <th class="vertical" >Cans Knocked</td>
-                <?php foreach($d['matches'] as $m) { //make fancy ?>
-                  <td class = "normal-cell"><?=$m['auto_cans_grabed']?></td>
-                  <?php } ?>
-                </tr>
-                <th class="vertical" >Auto Zone</td>
-                <?php foreach($d['matches'] as $m) { 
-                  if($m['auto_zone']>0){ ?>
-                  <td><div class="icon-checkmark-2"></div></td>
-                  <?php }
-                  else { ?>
-                  <td class="didNotDo">X</td>
-                  <?php } ?>
-                <?php } ?>
-                </tr>-->
-               
-              </table>
-            </div>
-          </div>
-        
-        </div>
-      </div>
+		<div class="info-bar" id="auto-bar">
+			<div class="left section">
+				<div class="left info-content">
+					<div class="info-title">Autonomous</div>
+					<div class="row">
+					Auto High: <b><?=$dat['auto_high']?></b> out of <b><?=$dat['auto_high_total']?></b>
+					</div>
+					<div class="row">
+					Auto Low: <b><?=$dat['auto_low']?></b> out of <b><?=$dat['auto_low_total']?></b>
+					</div>
+					<div class="row">
+					Auto Low: <b><?=$dat['auto_low']?></b> out of <b><?=$dat['auto_low_total']?></b>
+					</div>
+				</div>
+				<div class="grippy-circles" id="auto-gippies">
+					<p>                              </p>
+				</div>
+			</div>
+			<div class="right section">
+				<div class="right info-content">
+					<div class="table-holder">
+						<table class="matchByMatch">
+							<thead>
+							<th>Matches</th>
+							<?php
+							$result = $mysqli->query($team_query);
+							
+							foreach($result as $m)
+							{ 
+							//$match = getTeamMatchData($mysqli, $team, $playerMatch);
+							?>
+							<th><?=$m['match_number']?></th>
+							<?php } ?>
+							</thead>
+							<tbody>
+								<tr>
+								<td class="vertical" ><p>Auto High:</p></td>
+								<?php 
+								$result = $mysqli->query($team_query);
+								while($row = $result->fetch_array(MYSQLI_ASSOC))
+								{
+									$playerMatch = $row["match_number"];
+									$match = getTeamMatchData($mysqli, $team, $playerMatch);
+									?>
+									<td><?=$match['auto_high'];?></td>
+									<?php  
+								}
+								?>
+								</tr>
+								<tr>
+								<td class="vertical" ><p>Auto Low:</p></td>
+									<?php 
+									$result = $mysqli->query($team_query);
+									while($row = $result->fetch_array(MYSQLI_ASSOC))
+									{
+										$playerMatch = $row["match_number"];
+										$match = getTeamMatchData($mysqli, $team, $playerMatch);
+										?>
+										<td><?=$match['auto_low'];?></td>
+										<?php  
+									}
+									?>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			
+			</div>
+		</div>
     </div>
 </div>
 <br>
@@ -872,10 +838,13 @@
 	</tbody>
 	<tbody>
 		<?php
+			$result = $mysqli->query($team_query);
+			
 			while($row = $result->fetch_array(MYSQLI_ASSOC))
 			{
 				$playerMatch = $row["match_number"];
 				$match = getTeamMatchData($mysqli, $team, $playerMatch);
+				
 		?>
 		<tr class="teamRow">
 			<td class="teamTBody"><?=$playerMatch?></td>

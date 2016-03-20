@@ -368,6 +368,9 @@
 		$data['rockwall_faced'] = 0;
 		$data['rough_terrain_faced'] = 0;
 		
+		$data['auto_Start_Location'] += $row['auto_Start_Location'];
+		$data['match_number'] += $row['match_number'];
+		
 		
 		while($row = $result->fetch_array(MYSQLI_ASSOC))
 		{
