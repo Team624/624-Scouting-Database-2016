@@ -141,33 +141,21 @@
 			<th class='topTime'rowspan = "1" colspan = "12">Auto</th>
 		</tr>
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "1">High Goals Made</th>
-			<th class='topTime'rowspan = "1" colspan = "1">High Goals Missed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">High Goal Percent</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Low Goals Made</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Low Goals Missed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Low Goals Percent</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Defenses Crossed Success</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Defenses Crossed Failed</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Defenses Reached Sucess</th>
-			<th class='topTime'rowspan = "1" colspan = "1">Defenses Reached Failed</th>
+			<th class='topTime'rowspan = "1" colspan = "1">High Goals</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Low Goals</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Defenses Crossed</th>
+			<th class='topTime'rowspan = "1" colspan = "1">Defenses Reached</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Start With Boulder?</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Boulder Grab Success?</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr class="Row">
-			<td class="teamTBody"><?=$dat['auto_high']?></td>
-			<td class="teamTBody"><?=$dat['auto_High_Miss']?></td>
-			<td class="teamTBody"><?php if($dat['auto_high_total'] > 0){ echo round($dat['auto_high']/$dat['auto_high_total'] * 100,2); }else{ echo "0"; }?>%</td>
-			<td class="teamTBody"><?=$dat['auto_low']?></td>
-			<td class="teamTBody"><?=$dat['auto_Low_Miss']?></td>
-			<td class="teamTBody"><?php if($dat['auto_low_total'] > 0){ echo round($dat['auto_low']/$dat['auto_low_total'] * 100,2); }else{ echo "0"; }?>%</td>
-			<td class="teamTBody"><?=$dat['auto_def_cross']?></td>
-			<td class="teamTBody"><?=$dat['auto_Defenses_Crossed_Failed']?></td>
-			<td class="teamTBody"><?=$dat['auto_def_reach']?></td>
-			<td class="teamTBody"><?=$dat['auto_Defenses_Reached_Failed']?></td>
-			<td class="teamTBody"><?=$dat['Auto_StartWithBoulder']?></td>
+			<td class="teamTBody"><?=$dat['auto_high']?>/<?=$dat['auto_high_total']?></td>
+			<td class="teamTBody"><?=$dat['auto_low']?>/<?=$dat['auto_low_total']?></td>
+			<td class="teamTBody"><?=$dat['auto_def_cross']?>/<?=$dat['auto_Defenses_Crossed_Failed']+$dat['auto_def_cross']?></td>
+			<td class="teamTBody"><?=$dat['auto_def_reach']?>/<?=$dat['auto_def_reach']+$dat['auto_Defenses_Reached_Failed']?></td>
+			<td class="teamTBody"><?=$dat['Auto_StartWithBoulder']?>/<?=$dat['played']?></td>
 			<td class="teamTBody"><?=$dat['boulder_grabs']?></td>
 		</tr>
 	</tbody>
