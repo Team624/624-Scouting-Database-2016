@@ -229,14 +229,14 @@ include("db_connect.php");
 					<td><input type="number" name="def_4_speed" class="small_num"></td>
 					<td><input type="number" name="def_5_speed" class="small_num"></td>
 				</tr>
-				<!--<tr>
+				<tr>
 					<td>Stuck</td>
-					<td><input type="number" name="def_1_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
-					<td><input type="number" name="def_2_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
-					<td><input type="number" name="def_3_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
-					<td><input type="number" name="def_4_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
-					<td><input type="number" name="def_5_stuck" class="small_num" onfocus="if (this.value=='0') this.value = ''" value="0"required></td>
-				</tr>-->
+					<td><input type="number" name="def_1_stuck" class="small_num"></td>
+					<td><input type="number" name="def_2_stuck" class="small_num"></td>
+					<td><input type="number" name="def_3_stuck" class="small_num"></td>
+					<td><input type="number" name="def_4_stuck" class="small_num"></td>
+					<td><input type="number" name="def_5_stuck" class="small_num"></td>
+				</tr>
 				<tr>
 					<td>Ball? (Y/N)</td>
 					<td><input type="checkbox" name="def_1_ball" class="small_num" ></td>

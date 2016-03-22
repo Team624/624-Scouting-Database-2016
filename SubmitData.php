@@ -68,11 +68,11 @@ include("DatabaseVerification.php");
 	$def_4_speed=(int)$_POST['def_4_speed'];
 	$def_5_speed=(int)$_POST['def_5_speed'];
 	
-	/*$def_1_stuck=(int)$_POST['def_1_stuck'];
+	$def_1_stuck=(int)$_POST['def_1_stuck'];
 	$def_2_stuck=(int)$_POST['def_2_stuck'];
 	$def_3_stuck=(int)$_POST['def_3_stuck'];
 	$def_4_stuck=(int)$_POST['def_4_stuck'];
-	$def_5_stuck=(int)$_POST['def_5_stuck'];*/
+	$def_5_stuck=(int)$_POST['def_5_stuck'];
 	
 	if($_POST['def_1_ball']== "on"){$def_1_ball=1;}
 	if($_POST['def_2_ball']== "on"){$def_2_ball=1;}
