@@ -237,14 +237,14 @@ include("db_connect.php");
 					<td><input type="number" name="def_4_stuck" class="small_num"></td>
 					<td><input type="number" name="def_5_stuck" class="small_num"></td>
 				</tr>
-				<tr>
+				<!--<tr>
 					<td>Ball? (Y/N)</td>
 					<td><input type="checkbox" name="def_1_ball" class="small_num" ></td>
 					<td><input type="checkbox" name="def_2_ball" class="small_num" ></td>
 					<td><input type="checkbox" name="def_3_ball" class="small_num" ></td>
 					<td><input type="checkbox" name="def_4_ball" class="small_num" ></td>
 					<td><input type="checkbox" name="def_5_ball" class="small_num" ></td>
-				</tr>
+				</tr>-->
 					
 			</table>
 		</div>

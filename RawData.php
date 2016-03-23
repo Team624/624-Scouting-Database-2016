@@ -61,11 +61,11 @@ include("db_connect.php");
 				<td class="rawTop"><p class="rawP">Defense Stuck 3</P></td>
 				<td class="rawTop"><p class="rawP">Defense Stuck 4</P></td>
 				<td class="rawTop"><p class="rawP">Defense Stuck 5</P></td>
-				<td class="rawTop"><p class="rawP">Defense With Ball 1</P></td>
+				<!--<td class="rawTop"><p class="rawP">Defense With Ball 1</P></td>
 				<td class="rawTop"><p class="rawP">Defense With Ball 2</P></td>
 				<td class="rawTop"><p class="rawP">Defense With Ball 3</P></td>
 				<td class="rawTop"><p class="rawP">Defense With Ball 4</P></td>
-				<td class="rawTop"><p class="rawP">Defense With Ball 5</P></td>
+				<td class="rawTop"><p class="rawP">Defense With Ball 5</P></td>-->
 				<td class="rawTop"><p class="rawP">Batter High Scored</P></td>
 				<td class="rawTop"><p class="rawP">Batter Low Scored</P></td>
 				<td class="rawTop"><p class="rawP">Batter High Missed</P></td>
@@ -137,11 +137,11 @@ include("db_connect.php");
 						<td class="rawBody"><?=$row['def_3_stuck'];?></td>
 						<td class="rawBody"><?=$row['def_4_stuck'];?></td>
 						<td class="rawBody"><?=$row['def_5_stuck'];?></td>
-						<td class="rawBody"><?=$row['def_1_ball'];?></td>
+						<!--<td class="rawBody"><?=$row['def_1_ball'];?></td>
 						<td class="rawBody"><?=$row['def_2_ball'];?></td>
 						<td class="rawBody"><?=$row['def_3_ball'];?></td>
 						<td class="rawBody"><?=$row['def_4_ball'];?></td>
-						<td class="rawBody"><?=$row['def_5_ball'];?></td>
+						<td class="rawBody"><?=$row['def_5_ball'];?></td>-->
 						<td class="rawBody"><?=$row['batter_high_Scored'];?></td>
 						<td class="rawBody"><?=$row['batter_low_Scored'];?></td>
 						<td class="rawBody"><?=$row['batter_high_miss'];?></td>

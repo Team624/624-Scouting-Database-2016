@@ -132,7 +132,7 @@
 			<th class="topTime" rowspan = "3" colspan = "1">Name</th>
 			<th class="topTime" rowspan = "1" colspan = "4">Auto</th>
 			<th class="topTime" rowspan = "1" colspan = "2">Teleop Shooting</th>
-			<th class="topTime" rowspan = "1" colspan = "37">Defense</th>
+			<th class="topTime" rowspan = "1" colspan = "28">Defense</th>
 			<th class="topTime" rowspan = "1" colspan = "2">Climbing</th>
 			<th class="topTime" rowspan = "1" colspan = "7">Robot Issues</th>
 			</tr>
@@ -148,15 +148,15 @@
 			<th class='topTime'rowspan = "2" colspan = "1">High Goal%</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Low Goal%</th>
 			<!--Defense-->
-			<th class='topTime'rowspan = "1" colspan = "4">Lowbar</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Portcullis</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Cheval de Frise</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Moat</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Ramparts</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Drawbridge</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Sally Port</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Rock Wall</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Rough Terrain</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Lowbar</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Portcullis</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Cheval de Frise</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Moat</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Ramparts</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Drawbridge</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Sally Port</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Rock Wall</th>
+			<th class='topTime'rowspan = "1" colspan = "3">Rough Terrain</th>
 			<th class='topTime'rowspan = "2" colspan = "1">Defense Rating</th>
 			<!--Climbing-->
 			<th class='topTime'rowspan = "2" colspan = "1">Challenge Sucess?</th>
@@ -175,47 +175,47 @@
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
+		<!--<th class='topTime'>Ball?</th>-->
 		<!--Portcullis-->	
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
+		<!--<th class='topTime'>Ball?</th>-->
 		<!--Cheval de Frise-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
+		<!--<th class='topTime'>Ball?</th>-->
 		<!--Moat-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
+		<!--<th class='topTime'>Ball?</th>-->
 		<!--Ramparts-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
+		<!--<th class='topTime'>Ball?</th>-->
 		<!--Drawbridge-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
+		<!--<th class='topTime'>Ball?</th>-->
 		<!--Sally Port-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
+		<!--<th class='topTime'>Ball?</th>-->
 		<!--Rock Wall-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
+		<!--<th class='topTime'>Ball?</th>-->
 		<!--Rough Terrain-->
 		<th class='topTime'>Crossed</th>
 		<th class='topTime'>Speed</th>
 		<th class='topTime'>Stuck</th>
-		<th class='topTime'>Ball?</th>
+		<!--<th class='topTime'>Ball?</th>-->
 		
 	</tr>
 		</thead>
@@ -255,47 +255,47 @@
 			<th class='red'><?=$red1Info['lowbar_cross']?></th>
 			<th class='red'><?=$red1Info['lowbar_speed']?></th>
 			<th class='red'><?=$red1Info['lowbar_stuck']?></th>
-			<th class='red'><?=$red1Info['lowbar_ball']?></th>
+			<!--<th class='red'><?=$red1Info['lowbar_ball']?></th>-->
 			<!--Portcullis-->
 			<th class='red'><?=$red1Info['portcullis_cross']?></th>
 			<th class='red'><?=$red1Info['portcullis_speed']?></th>
 			<th class='red'><?=$red1Info['portcullis_stuck']?></th>
-			<th class='red'><?=$red1Info['portcullis_ball']?></th>
+			<!--<th class='red'><?=$red1Info['portcullis_ball']?></th>-->
 			<!--Cheval de Frise-->
 			<th class='red'><?=$red1Info['chili_fries_cross']?></th>
 			<th class='red'><?=$red1Info['chili_fries_speed']?></th>
 			<th class='red'><?=$red1Info['chili_fries_stuck']?></th>
-			<th class='red'><?=$red1Info['chili_fries_ball']?></th>
+			<!--<th class='red'><?=$red1Info['chili_fries_ball']?></th>-->
 			<!--Moat-->
 			<th class='red'><?=$red1Info['moat_cross']?></th>
 			<th class='red'><?=$red1Info['moat_speed']?></th>
 			<th class='red'><?=$red1Info['moat_stuck']?></th>
-			<th class='red'><?=$red1Info['moat_ball']?></th>
+			<!--<th class='red'><?=$red1Info['moat_ball']?></th>-->
 			<!--Ramparts-->
 			<th class='red'><?=$red1Info['ramparts_cross']?></th>
 			<th class='red'><?=$red1Info['ramparts_speed']?></th>
 			<th class='red'><?=$red1Info['ramparts_stuck']?></th>
-			<th class='red'><?=$red1Info['ramparts_ball']?></th>
+			<!--<th class='red'><?=$red1Info['ramparts_ball']?></th>-->
 			<!--Drawbridge-->
 			<th class='red'><?=$red1Info['drawbridge_cross']?></th>
 			<th class='red'><?=$red1Info['drawbridge_speed']?></th>
 			<th class='red'><?=$red1Info['drawbridge_stuck']?></th>
-			<th class='red'><?=$red1Info['drawbridge_ball']?></th>
+			<!--<th class='red'><?=$red1Info['drawbridge_ball']?></th>-->
 			<!--Sally Port-->
 			<th class='red'><?=$red1Info['sally_port_cross']?></th>
 			<th class='red'><?=$red1Info['sally_port_speed']?></th>
 			<th class='red'><?=$red1Info['sally_port_stuck']?></th>
-			<th class='red'><?=$red1Info['sally_port_ball']?></th>
+			<!--<th class='red'><?=$red1Info['sally_port_ball']?></th>-->
 			<!--Rock Wall-->
 			<th class='red'><?=$red1Info['rockwall_cross']?></th>
 			<th class='red'><?=$red1Info['rockwall_speed']?></th>
 			<th class='red'><?=$red1Info['rockwall_stuck']?></th>
-			<th class='red'><?=$red1Info['rockwall_ball']?></th>
+			<!--<th class='red'><?=$red1Info['rockwall_ball']?></th>-->
 			<!--Rough Terrain-->
 			<th class='red'><?=$red1Info['rough_terrain_cross']?></th>
 			<th class='red'><?=$red1Info['rough_terrain_speed']?></th>
 			<th class='red'><?=$red1Info['rough_terrain_stuck']?></th>
-			<th class='red'><?=$red1Info['rough_terrain_ball']?></th>
+			<!--<th class='red'><?=$red1Info['rough_terrain_ball']?></th>-->
 			<!--Defense Rating-->
 			<th class='red'><?=$red1Info['defense']?></th>
 			<!--Climbing-->
@@ -346,47 +346,47 @@
 			<th class='red'><?=$red2Info['lowbar_cross']?></th>
 			<th class='red'><?=$red2Info['lowbar_speed']?></th>
 			<th class='red'><?=$red2Info['lowbar_stuck']?></th>
-			<th class='red'><?=$red2Info['lowbar_ball']?></th>
+			<!--<th class='red'><?=$red2Info['lowbar_ball']?></th>-->
 			<!--Portcullis-->
 			<th class='red'><?=$red2Info['portcullis_cross']?></th>
 			<th class='red'><?=$red2Info['portcullis_speed']?></th>
 			<th class='red'><?=$red2Info['portcullis_stuck']?></th>
-			<th class='red'><?=$red2Info['portcullis_ball']?></th>
+			<!--<th class='red'><?=$red2Info['portcullis_ball']?></th>-->
 			<!--Cheval de Frise-->
 			<th class='red'><?=$red2Info['chili_fries_cross']?></th>
 			<th class='red'><?=$red2Info['chili_fries_speed']?></th>
 			<th class='red'><?=$red2Info['chili_fries_stuck']?></th>
-			<th class='red'><?=$red2Info['chili_fries_ball']?></th>
+			<!--<th class='red'><?=$red2Info['chili_fries_ball']?></th>-->
 			<!--Moat-->
 			<th class='red'><?=$red2Info['moat_cross']?></th>
 			<th class='red'><?=$red2Info['moat_speed']?></th>
 			<th class='red'><?=$red2Info['moat_stuck']?></th>
-			<th class='red'><?=$red2Info['moat_ball']?></th>
+			<!--<th class='red'><?=$red2Info['moat_ball']?></th>-->
 			<!--Ramparts-->
 			<th class='red'><?=$red2Info['ramparts_cross']?></th>
 			<th class='red'><?=$red2Info['ramparts_speed']?></th>
 			<th class='red'><?=$red2Info['ramparts_stuck']?></th>
-			<th class='red'><?=$red2Info['ramparts_ball']?></th>
+			<!--<th class='red'><?=$red2Info['ramparts_ball']?></th>-->
 			<!--Drawbridge-->
 			<th class='red'><?=$red2Info['drawbridge_cross']?></th>
 			<th class='red'><?=$red2Info['drawbridge_speed']?></th>
 			<th class='red'><?=$red2Info['drawbridge_stuck']?></th>
-			<th class='red'><?=$red2Info['drawbridge_ball']?></th>
+			<!--<th class='red'><?=$red2Info['drawbridge_ball']?></th>-->
 			<!--Sally Port-->
 			<th class='red'><?=$red2Info['sally_port_cross']?></th>
 			<th class='red'><?=$red2Info['sally_port_speed']?></th>
 			<th class='red'><?=$red2Info['sally_port_stuck']?></th>
-			<th class='red'><?=$red2Info['sally_port_ball']?></th>
+			<!--<th class='red'><?=$red2Info['sally_port_ball']?></th>-->
 			<!--Rock Wall-->
 			<th class='red'><?=$red2Info['rockwall_cross']?></th>
 			<th class='red'><?=$red2Info['rockwall_speed']?></th>
 			<th class='red'><?=$red2Info['rockwall_stuck']?></th>
-			<th class='red'><?=$red2Info['rockwall_ball']?></th>
+			<!--<th class='red'><?=$red2Info['rockwall_ball']?></th>-->
 			<!--Rough Terrain-->
 			<th class='red'><?=$red2Info['rough_terrain_cross']?></th>
 			<th class='red'><?=$red2Info['rough_terrain_speed']?></th>
 			<th class='red'><?=$red2Info['rough_terrain_stuck']?></th>
-			<th class='red'><?=$red2Info['rough_terrain_ball']?></th>
+			<!--<th class='red'><?=$red2Info['rough_terrain_ball']?></th>-->
 			<!--Defense Rating-->
 			<th class='red'><?=$red2Info['defense']?></th>
 			<!--Climbing-->
@@ -437,47 +437,47 @@
 			<th class='red'><?=$red3Info['lowbar_cross']?></th>
 			<th class='red'><?=$red3Info['lowbar_speed']?></th>
 			<th class='red'><?=$red3Info['lowbar_stuck']?></th>
-			<th class='red'><?=$red3Info['lowbar_ball']?></th>
+			<!--<th class='red'><?=$red3Info['lowbar_ball']?></th>-->
 			<!--Portcullis-->
 			<th class='red'><?=$red3Info['portcullis_cross']?></th>
 			<th class='red'><?=$red3Info['portcullis_speed']?></th>
 			<th class='red'><?=$red3Info['portcullis_stuck']?></th>
-			<th class='red'><?=$red3Info['portcullis_ball']?></th>
+			<!--<th class='red'><?=$red3Info['portcullis_ball']?></th>-->
 			<!--Cheval de Frise-->
 			<th class='red'><?=$red3Info['chili_fries_cross']?></th>
 			<th class='red'><?=$red3Info['chili_fries_speed']?></th>
 			<th class='red'><?=$red3Info['chili_fries_stuck']?></th>
-			<th class='red'><?=$red3Info['chili_fries_ball']?></th>
+			<!--<th class='red'><?=$red3Info['chili_fries_ball']?></th>-->
 			<!--Moat-->
 			<th class='red'><?=$red3Info['moat_cross']?></th>
 			<th class='red'><?=$red3Info['moat_speed']?></th>
 			<th class='red'><?=$red3Info['moat_stuck']?></th>
-			<th class='red'><?=$red3Info['moat_ball']?></th>
+			<!--<th class='red'><?=$red3Info['moat_ball']?></th>-->
 			<!--Ramparts-->
 			<th class='red'><?=$red3Info['ramparts_cross']?></th>
 			<th class='red'><?=$red3Info['ramparts_speed']?></th>
 			<th class='red'><?=$red3Info['ramparts_stuck']?></th>
-			<th class='red'><?=$red3Info['ramparts_ball']?></th>
+			<!--<th class='red'><?=$red3Info['ramparts_ball']?></th>-->
 			<!--Drawbridge-->
 			<th class='red'><?=$red3Info['drawbridge_cross']?></th>
 			<th class='red'><?=$red3Info['drawbridge_speed']?></th>
 			<th class='red'><?=$red3Info['drawbridge_stuck']?></th>
-			<th class='red'><?=$red3Info['drawbridge_ball']?></th>
+			<!--<th class='red'><?=$red3Info['drawbridge_ball']?></th>-->
 			<!--Sally Port-->
 			<th class='red'><?=$red3Info['sally_port_cross']?></th>
 			<th class='red'><?=$red3Info['sally_port_speed']?></th>
 			<th class='red'><?=$red3Info['sally_port_stuck']?></th>
-			<th class='red'><?=$red3Info['sally_port_ball']?></th>
+			<!--<th class='red'><?=$red3Info['sally_port_ball']?></th>-->
 			<!--Rock Wall-->
 			<th class='red'><?=$red3Info['rockwall_cross']?></th>
 			<th class='red'><?=$red3Info['rockwall_speed']?></th>
 			<th class='red'><?=$red3Info['rockwall_stuck']?></th>
-			<th class='red'><?=$red3Info['rockwall_ball']?></th>
+			<!--<th class='red'><?=$red3Info['rockwall_ball']?></th>-->
 			<!--Rough Terrain-->
 			<th class='red'><?=$red3Info['rough_terrain_cross']?></th>
 			<th class='red'><?=$red3Info['rough_terrain_speed']?></th>
 			<th class='red'><?=$red3Info['rough_terrain_stuck']?></th>
-			<th class='red'><?=$red3Info['rough_terrain_ball']?></th>
+			<!--<th class='red'><?=$red3Info['rough_terrain_ball']?></th>-->
 			<!--Defense Rating-->
 			<th class='red'><?=$red3Info['defense']?></th>
 			<!--Climbing-->
@@ -528,47 +528,47 @@
 			<th class='blue'><?=$blue1Info['lowbar_cross']?></th>
 			<th class='blue'><?=$blue1Info['lowbar_speed']?></th>
 			<th class='blue'><?=$blue1Info['lowbar_stuck']?></th>
-			<th class='blue'><?=$blue1Info['lowbar_ball']?></th>
+			<!--<th class='blue'><?=$blue1Info['lowbar_ball']?></th>-->
 			<!--Portcullis-->
 			<th class='blue'><?=$blue1Info['portcullis_cross']?></th>
 			<th class='blue'><?=$blue1Info['portcullis_speed']?></th>
 			<th class='blue'><?=$blue1Info['portcullis_stuck']?></th>
-			<th class='blue'><?=$blue1Info['portcullis_ball']?></th>
+			<!--<th class='blue'><?=$blue1Info['portcullis_ball']?></th>-->
 			<!--Cheval de Frise-->
 			<th class='blue'><?=$blue1Info['chili_fries_cross']?></th>
 			<th class='blue'><?=$blue1Info['chili_fries_speed']?></th>
 			<th class='blue'><?=$blue1Info['chili_fries_stuck']?></th>
-			<th class='blue'><?=$blue1Info['chili_fries_ball']?></th>
+			<!--<th class='blue'><?=$blue1Info['chili_fries_ball']?></th>-->
 			<!--Moat-->
 			<th class='blue'><?=$blue1Info['moat_cross']?></th>
 			<th class='blue'><?=$blue1Info['moat_speed']?></th>
 			<th class='blue'><?=$blue1Info['moat_stuck']?></th>
-			<th class='blue'><?=$blue1Info['moat_ball']?></th>
+			<!--<th class='blue'><?=$blue1Info['moat_ball']?></th>-->
 			<!--Ramparts-->
 			<th class='blue'><?=$blue1Info['ramparts_cross']?></th>
 			<th class='blue'><?=$blue1Info['ramparts_speed']?></th>
 			<th class='blue'><?=$blue1Info['ramparts_stuck']?></th>
-			<th class='blue'><?=$blue1Info['ramparts_ball']?></th>
+			<!--<th class='blue'><?=$blue1Info['ramparts_ball']?></th>-->
 			<!--Drawbridge-->
 			<th class='blue'><?=$blue1Info['drawbridge_cross']?></th>
 			<th class='blue'><?=$blue1Info['drawbridge_speed']?></th>
 			<th class='blue'><?=$blue1Info['drawbridge_stuck']?></th>
-			<th class='blue'><?=$blue1Info['drawbridge_ball']?></th>
+			<!--<th class='blue'><?=$blue1Info['drawbridge_ball']?></th>-->
 			<!--Sally Port-->
 			<th class='blue'><?=$blue1Info['sally_port_cross']?></th>
 			<th class='blue'><?=$blue1Info['sally_port_speed']?></th>
 			<th class='blue'><?=$blue1Info['sally_port_stuck']?></th>
-			<th class='blue'><?=$blue1Info['sally_port_ball']?></th>
+			<!--<th class='blue'><?=$blue1Info['sally_port_ball']?></th>-->
 			<!--Rock Wall-->
 			<th class='blue'><?=$blue1Info['rockwall_cross']?></th>
 			<th class='blue'><?=$blue1Info['rockwall_speed']?></th>
 			<th class='blue'><?=$blue1Info['rockwall_stuck']?></th>
-			<th class='blue'><?=$blue1Info['rockwall_ball']?></th>
+			<!--<th class='blue'><?=$blue1Info['rockwall_ball']?></th>-->
 			<!--Rough Terrain-->
 			<th class='blue'><?=$blue1Info['rough_terrain_cross']?></th>
 			<th class='blue'><?=$blue1Info['rough_terrain_speed']?></th>
 			<th class='blue'><?=$blue1Info['rough_terrain_stuck']?></th>
-			<th class='blue'><?=$blue1Info['rough_terrain_ball']?></th>
+			<!--<th class='blue'><?=$blue1Info['rough_terrain_ball']?></th>-->
 			<!--Defense Rating-->
 			<th class='blue'><?=$blue1Info['defense']?></th>
 			<!--Climbing-->
@@ -619,47 +619,47 @@
 			<th class='blue'><?=$blue2Info['lowbar_cross']?></th>
 			<th class='blue'><?=$blue2Info['lowbar_speed']?></th>
 			<th class='blue'><?=$blue2Info['lowbar_stuck']?></th>
-			<th class='blue'><?=$blue2Info['lowbar_ball']?></th>
+			<!--<th class='blue'><?=$blue2Info['lowbar_ball']?></th>-->
 			<!--Portcullis-->
 			<th class='blue'><?=$blue2Info['portcullis_cross']?></th>
 			<th class='blue'><?=$blue2Info['portcullis_speed']?></th>
 			<th class='blue'><?=$blue2Info['portcullis_stuck']?></th>
-			<th class='blue'><?=$blue2Info['portcullis_ball']?></th>
+			<!--<th class='blue'><?=$blue2Info['portcullis_ball']?></th>-->
 			<!--Cheval de Frise-->
 			<th class='blue'><?=$blue2Info['chili_fries_cross']?></th>
 			<th class='blue'><?=$blue2Info['chili_fries_speed']?></th>
 			<th class='blue'><?=$blue2Info['chili_fries_stuck']?></th>
-			<th class='blue'><?=$blue2Info['chili_fries_ball']?></th>
+			<!--<th class='blue'><?=$blue2Info['chili_fries_ball']?></th>-->
 			<!--Moat-->
 			<th class='blue'><?=$blue2Info['moat_cross']?></th>
 			<th class='blue'><?=$blue2Info['moat_speed']?></th>
 			<th class='blue'><?=$blue2Info['moat_stuck']?></th>
-			<th class='blue'><?=$blue2Info['moat_ball']?></th>
+			<!--<th class='blue'><?=$blue2Info['moat_ball']?></th>-->
 			<!--Ramparts-->
 			<th class='blue'><?=$blue2Info['ramparts_cross']?></th>
 			<th class='blue'><?=$blue2Info['ramparts_speed']?></th>
 			<th class='blue'><?=$blue2Info['ramparts_stuck']?></th>
-			<th class='blue'><?=$blue2Info['ramparts_ball']?></th>
+			<!--<th class='blue'><?=$blue2Info['ramparts_ball']?></th>-->
 			<!--Drawbridge-->
 			<th class='blue'><?=$blue2Info['drawbridge_cross']?></th>
 			<th class='blue'><?=$blue2Info['drawbridge_speed']?></th>
 			<th class='blue'><?=$blue2Info['drawbridge_stuck']?></th>
-			<th class='blue'><?=$blue2Info['drawbridge_ball']?></th>
+			<!--<th class='blue'><?=$blue2Info['drawbridge_ball']?></th>-->
 			<!--Sally Port-->
 			<th class='blue'><?=$blue2Info['sally_port_cross']?></th>
 			<th class='blue'><?=$blue2Info['sally_port_speed']?></th>
 			<th class='blue'><?=$blue2Info['sally_port_stuck']?></th>
-			<th class='blue'><?=$blue2Info['sally_port_ball']?></th>
+			<!--<th class='blue'><?=$blue2Info['sally_port_ball']?></th>-->
 			<!--Rock Wall-->
 			<th class='blue'><?=$blue2Info['rockwall_cross']?></th>
 			<th class='blue'><?=$blue2Info['rockwall_speed']?></th>
 			<th class='blue'><?=$blue2Info['rockwall_stuck']?></th>
-			<th class='blue'><?=$blue2Info['rockwall_ball']?></th>
+			<!--<th class='blue'><?=$blue2Info['rockwall_ball']?></th>-->
 			<!--Rough Terrain-->
 			<th class='blue'><?=$blue2Info['rough_terrain_cross']?></th>
 			<th class='blue'><?=$blue2Info['rough_terrain_speed']?></th>
 			<th class='blue'><?=$blue2Info['rough_terrain_stuck']?></th>
-			<th class='blue'><?=$blue2Info['rough_terrain_ball']?></th>
+			<!--<th class='blue'><?=$blue2Info['rough_terrain_ball']?></th>-->
 			<!--Defense Rating-->
 			<th class='blue'><?=$blue2Info['defense']?></th>
 			<!--Climbing-->
@@ -710,47 +710,47 @@
 			<th class='blue'><?=$blue3Info['lowbar_cross']?></th>
 			<th class='blue'><?=$blue3Info['lowbar_speed']?></th>
 			<th class='blue'><?=$blue3Info['lowbar_stuck']?></th>
-			<th class='blue'><?=$blue3Info['lowbar_ball']?></th>
+			<!--<th class='blue'><?=$blue3Info['lowbar_ball']?></th>-->
 			<!--Portcullis-->
 			<th class='blue'><?=$blue3Info['portcullis_cross']?></th>
 			<th class='blue'><?=$blue3Info['portcullis_speed']?></th>
 			<th class='blue'><?=$blue3Info['portcullis_stuck']?></th>
-			<th class='blue'><?=$blue3Info['portcullis_ball']?></th>
+			<!--<th class='blue'><?=$blue3Info['portcullis_ball']?></th>-->
 			<!--Cheval de Frise-->
 			<th class='blue'><?=$blue3Info['chili_fries_cross']?></th>
 			<th class='blue'><?=$blue3Info['chili_fries_speed']?></th>
 			<th class='blue'><?=$blue3Info['chili_fries_stuck']?></th>
-			<th class='blue'><?=$blue3Info['chili_fries_ball']?></th>
+			<!--<th class='blue'><?=$blue3Info['chili_fries_ball']?></th>-->
 			<!--Moat-->
 			<th class='blue'><?=$blue3Info['moat_cross']?></th>
 			<th class='blue'><?=$blue3Info['moat_speed']?></th>
 			<th class='blue'><?=$blue3Info['moat_stuck']?></th>
-			<th class='blue'><?=$blue3Info['moat_ball']?></th>
+			<!--<th class='blue'><?=$blue3Info['moat_ball']?></th>-->
 			<!--Ramparts-->
 			<th class='blue'><?=$blue3Info['ramparts_cross']?></th>
 			<th class='blue'><?=$blue3Info['ramparts_speed']?></th>
 			<th class='blue'><?=$blue3Info['ramparts_stuck']?></th>
-			<th class='blue'><?=$blue3Info['ramparts_ball']?></th>
+			<!--<th class='blue'><?=$blue3Info['ramparts_ball']?></th>-->
 			<!--Drawbridge-->
 			<th class='blue'><?=$blue3Info['drawbridge_cross']?></th>
 			<th class='blue'><?=$blue3Info['drawbridge_speed']?></th>
 			<th class='blue'><?=$blue3Info['drawbridge_stuck']?></th>
-			<th class='blue'><?=$blue3Info['drawbridge_ball']?></th>
+			<!--<th class='blue'><?=$blue3Info['drawbridge_ball']?></th>-->
 			<!--Sally Port-->
 			<th class='blue'><?=$blue3Info['sally_port_cross']?></th>
 			<th class='blue'><?=$blue3Info['sally_port_speed']?></th>
 			<th class='blue'><?=$blue3Info['sally_port_stuck']?></th>
-			<th class='blue'><?=$blue3Info['sally_port_ball']?></th>
+			<!--<th class='blue'><?=$blue3Info['sally_port_ball']?></th>-->
 			<!--Rock Wall-->
 			<th class='blue'><?=$blue3Info['rockwall_cross']?></th>
 			<th class='blue'><?=$blue3Info['rockwall_speed']?></th>
 			<th class='blue'><?=$blue3Info['rockwall_stuck']?></th>
-			<th class='blue'><?=$blue3Info['rockwall_ball']?></th>
+			<!--<th class='blue'><?=$blue3Info['rockwall_ball']?></th>-->
 			<!--Rough Terrain-->
 			<th class='blue'><?=$blue3Info['rough_terrain_cross']?></th>
 			<th class='blue'><?=$blue3Info['rough_terrain_speed']?></th>
 			<th class='blue'><?=$blue3Info['rough_terrain_stuck']?></th>
-			<th class='blue'><?=$blue3Info['rough_terrain_ball']?></th>
+			<!--<th class='blue'><?=$blue3Info['rough_terrain_ball']?></th>-->
 			<!--Defense Rating-->
 			<th class='blue'><?=$blue3Info['defense']?></th>
 			<!--Climbing-->
