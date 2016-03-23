@@ -760,23 +760,16 @@
 	</thead>
 	<tbody>	
 		<?php
-			$note_query = "SELECT * FROM `note_entry` WHERE selectteam='$team' ORDER BY `id` ASC";
-			$notes = $mysqli->query($note_query);
+			$note_query2 = "SELECT * FROM note_entry WHERE selectteam='$team' ORDER BY id ASC";
+			$notes2 = $mysqli->query($note_query2);
 			
-			if($notes===FALSE)
-			{
-				//NOPE
-			}
-			else
-			{
-				while($row = $notes->fetch_array(MYSQLI_ASSOC))
+			while($row2 = $notes2->fetch_array(MYSQLI_ASSOC))
 				{
 					?>
 					<tr class="teamRow">
-						<td class="teamTBody"><?=$row["notes"]?></td>
+						<td class="teamTBody"><?=$row2['notes']?></td>
 					</tr>
 					<?php
-				}
 			}
 		?>
 	</tbody>
