@@ -772,7 +772,9 @@ if($dat["played"]>0)
 </table>
 <br>
 <br>
-
+<?php
+}
+?>
 <h1>Other Notes</h1>
 <br><br>
 <table class="teamTable">
@@ -798,6 +800,10 @@ if($dat["played"]>0)
 		?>
 	</tbody>
 </table>
+<?php
+if($dat["played"]>0)
+{
+?>
 <h1>Match-By-Match</h1>
 <table class="teamTable">
 	<thead>
@@ -1109,6 +1115,8 @@ if($dat["played"]>0)
 {
 	//var_dump($dat);
 ?>
+<br>
+<br>
 <h2>There is not data for this team yet.</h2>
 <?php
 }
