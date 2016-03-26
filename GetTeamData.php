@@ -626,6 +626,35 @@
 		
 		return $data;		
 	}
+
+function getAutoDef($mysqli,$team_num)
+{
+	$data = [];
+	$data['auto_Crossed_0']=0;
+	$data['auto_Crossed_1']=0;
+	$data['auto_Crossed_2']=0;
+	$data['auto_Crossed_3']=0;
+	$data['auto_Crossed_4']=0;
+	$data['auto_Crossed_5']=0;
+	$data['auto_Crossed_6']=0;
+	$data['auto_Crossed_7']=0;
+	$data['auto_Crossed_8']=0;
+	
+	$team_query = "SELECT * FROM `match_data` WHERE team_number = '$team_num'";//(`red1`='$team_num' OR `red2`='$team_num' OR `red3`='$team_num' OR `blue1`='$team_num' OR `blue2`='$team_num' OR `blue3`='$team_num')";
+	$result = $mysqli->query($team_query);
+	
+	while($row = $result->fetch_array(MYSQLI_ASSOC))
+	{
+		
+		$def = $row['def_category_'.$row['auto_Start_Location']];
+		
+		if($row['auto_Defenses_Crossed_Sucess'])
+		{
+		$data['auto_Crossed_'.$def]++;
+		}
+	}
+	return $data;
+}
 ?>
 
 <?php

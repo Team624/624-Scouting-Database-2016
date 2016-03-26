@@ -135,6 +135,11 @@
 	?>
 
 <h3>Matches Played: <?=$dat["played"]?></h3>
+<?php
+if($dat["played"]>0)
+{
+
+?>
 <h1>Scoring</h1>
 <table class="teamTable">
 	<thead>
@@ -236,7 +241,7 @@
 	<thead>
 		
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "4">Low Bar</th>
+			<th class='topTime'rowspan = "1" colspan = "6">Low Bar</th>
 		</tr>
 		<tr class="topRow">
 		<!--ONE SUGGESTION I WOULD MAKE IS TO TAKE THE # OF TIMES CROSSED/# of Appearances -->
@@ -244,9 +249,12 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1"> Avg.Speed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
-			<!--<th class='topTime'rowspan = "1" colspan = "1">BALLS!!!</th>-->
+			<th class='topTime'rowspan = "1" colspan = "1">Auto Crossed</th>
 		</tr>
 	</thead>
+	<?php
+		$def = getAutoDef($mysqli,$team);
+	?>
 	<tbody>
 		<tr class="Row">
 			<td class="teamTBody"><?=$dat['lowbar_faced']?></td>
@@ -257,7 +265,7 @@
 			<td class="teamTBody"><?=$dat['lowbar_cross'] /*/ $dat['lowbar_faced']*/?></td>
 			<td class="teamTBody"><?=round($dat['lowbar_speed'] / $dat['lowbar_faced'],2)?></td>
 			<td class="teamTBody"><?=$dat['lowbar_stuck'] /*/ $dat['lowbar_faced']*/?></td>
-			<!--<td class="teamTBody"><?=$dat['lowbar_ball'] /*/ $dat['lowbar_faced']*/?></td>-->
+			<td class="teamTBody"><?=$def['auto_Crossed_0']?></td>
 			<?php
 				}
 				else{
@@ -278,11 +286,11 @@
 <table class="teamTable">
 	<thead>
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "8">Category A</th>
+			<th class='topTime'rowspan = "1" colspan = "10">Category A</th>
 		</tr>
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "4">Portcullis</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Cheval De Frise</th>
+			<th class='topTime'rowspan = "1" colspan = "5">Portcullis</th>
+			<th class='topTime'rowspan = "1" colspan = "5">Cheval De Frise</th>
 		</tr>
 		<tr class="topRow">
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
@@ -290,12 +298,14 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Avg.Speed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<!--<th class='topTime'rowspan = "1" colspan = "1">BALLS!!!</th>-->
+			<th class='topTime'rowspan = "1" colspan = "1">Auto Crossed</th>
 			
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Avg.Speed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<!--<th class='topTime'rowspan = "1" colspan = "1">BALLS!!!</th>-->
+			<th class='topTime'rowspan = "1" colspan = "1">Auto Crossed</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -309,6 +319,7 @@
 			<td class="teamTBody"><?=round($dat['portcullis_speed'] / $dat['portcullis_faced'],2)?></td>
 			<td class="teamTBody"><?=$dat['portcullis_stuck'] // $dat['portcullis_faced']?></td>
 			<!--<td class="teamTBody"><?=$dat['portcullis_ball'] /*/ $dat['portcullis_faced']*/?></td>-->
+			<td class="teamTBody"><?=$def['auto_Crossed_1']?></td>
 			<?php
 				}
 				else{
@@ -331,6 +342,7 @@
 			<td class="teamTBody"><?=round($dat['chili_fries_speed'] / $dat['chili_fries_faced'],2)?></td>
 			<td class="teamTBody"><?=$dat['chili_fries_stuck'] // $dat['chili_fries_faced']?></td>
 			<!--<td class="teamTBody"><?=$dat['chili_fries_ball'] /*/ $dat['chili_fries_faced']*/?></td>-->
+			<td class="teamTBody"><?=$def['auto_Crossed_2']?></td>
 			<?php
 				}
 				else{
@@ -351,11 +363,11 @@
 <table class="teamTable">
 	<thead>
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "8">Category B</th>
+			<th class='topTime'rowspan = "1" colspan = "10">Category B</th>
 		</tr>
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "4">Moat</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Ramparts</th>
+			<th class='topTime'rowspan = "1" colspan = "5">Moat</th>
+			<th class='topTime'rowspan = "1" colspan = "5">Ramparts</th>
 		</tr>
 		<tr class="topRow">
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
@@ -363,12 +375,14 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Avg.Speed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<!--<th class='topTime'rowspan = "1" colspan = "1">BALLS!!!</th>-->
+			<th class='topTime'rowspan = "1" colspan = "1">Auto Crossed</th>
 			
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Avg.Speed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<!--<th class='topTime'rowspan = "1" colspan = "1">BALLS!!!</th>-->
+			<th class='topTime'rowspan = "1" colspan = "1">Auto Crossed</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -382,6 +396,7 @@
 			<td class="teamTBody"><?=round($dat['moat_speed'] / $dat['moat_faced'],2)?></td>
 			<td class="teamTBody"><?=$dat['moat_stuck']//$dat['moat_faced']?></td>
 			<!--<td class="teamTBody"><?=$dat['moat_ball'] /*/ $dat['moat_faced']*/?></td>-->
+			<td class="teamTBody"><?=$def['auto_Crossed_3']?></td>
 			<?php
 				}
 				else{
@@ -404,6 +419,7 @@
 			<td class="teamTBody"><?=round($dat['ramparts_speed'] / $dat['ramparts_faced'],2)?></td>
 			<td class="teamTBody"><?=$dat['ramparts_stuck'] // $dat['ramparts_faced']?></td>
 			<!--<td class="teamTBody"><?=$dat['ramparts_ball'] // $dat['ramparts_faced']?></td>-->
+			<td class="teamTBody"><?=$def['auto_Crossed_4']?></td>
 			<?php
 				}
 				else{
@@ -424,11 +440,11 @@
 <table class="teamTable">
 	<thead>
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "8">Category C</th>
+			<th class='topTime'rowspan = "1" colspan = "10">Category C</th>
 		</tr>
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "4">Drawbridge</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Sally Port</th>
+			<th class='topTime'rowspan = "1" colspan = "5">Drawbridge</th>
+			<th class='topTime'rowspan = "1" colspan = "5">Sally Port</th>
 		</tr>
 		<tr class="topRow">
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
@@ -436,12 +452,14 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Avg.Speed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<!--<th class='topTime'rowspan = "1" colspan = "1">BALLS!!!</th>-->
+			<th class='topTime'rowspan = "1" colspan = "1">Auto Crossed</th>
 			
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Avg.Speed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<!--<th class='topTime'rowspan = "1" colspan = "1">BALLS!!!</th>-->
+			<th class='topTime'rowspan = "1" colspan = "1">Auto Crossed</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -455,6 +473,7 @@
 			<td class="teamTBody"><?=round($dat['drawbridge_speed'] / $dat['drawbridge_faced'],2)?></td>
 			<td class="teamTBody"><?=$dat['drawbridge_stuck'] // $dat['drawbridge_faced']?></td>
 			<!--<td class="teamTBody"><?=$dat['drawbridge_ball'] // $dat['drawbridge_faced']?></td>-->
+			<td class="teamTBody"><?=$def['auto_Crossed_5']?></td>
 			<?php
 				}
 				else{
@@ -477,6 +496,7 @@
 			<td class="teamTBody"><?=round($dat['sally_port_speed'] / $dat['sally_port_faced'],2)?></td>
 			<td class="teamTBody"><?=$dat['sally_port_stuck'] // $dat['sally_port_faced']?></td>
 			<!--<td class="teamTBody"><?=$dat['sally_port_ball'] // $dat['sally_port_faced']?></td>-->
+			<td class="teamTBody"><?=$def['auto_Crossed_6']?></td>
 			<?php
 				}
 				else{
@@ -497,11 +517,11 @@
 <table class="teamTable">
 	<thead>
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "8">Category D</th>
+			<th class='topTime'rowspan = "1" colspan = "10">Category D</th>
 		</tr>
 		<tr class="topRow">
-			<th class='topTime'rowspan = "1" colspan = "4">Rough Terrain</th>
-			<th class='topTime'rowspan = "1" colspan = "4">Rock Wall</th>
+			<th class='topTime'rowspan = "1" colspan = "5">Rough Terrain</th>
+			<th class='topTime'rowspan = "1" colspan = "5">Rock Wall</th>
 		</tr>
 		<tr class="topRow">
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
@@ -509,12 +529,14 @@
 			<th class='topTime'rowspan = "1" colspan = "1">Avg.Speed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<!--<th class='topTime'rowspan = "1" colspan = "1">BALLS!!!</th>-->
+			<th class='topTime'rowspan = "1" colspan = "1">Auto Crossed</th>
 			
 			<th class='topTime'rowspan = "1" colspan = "1">Appearances</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Crossed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Avg.Speed</th>
 			<th class='topTime'rowspan = "1" colspan = "1">Stuck</th>
 			<!--<th class='topTime'rowspan = "1" colspan = "1">BALLS!!!</th>-->
+			<th class='topTime'rowspan = "1" colspan = "1">Auto Crossed</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -528,6 +550,7 @@
 			<td class="teamTBody"><?=round($dat['rough_terrain_speed'] / $dat['rough_terrain_faced'],2)?></td>
 			<td class="teamTBody"><?=$dat['rough_terrain_stuck'] // $dat['rough_terrain_faced']?></td>
 			<!--<td class="teamTBody"><?=$dat['rough_terrain_ball'] // $dat['rough_terrain_faced']?></td>-->
+			<td class="teamTBody"><?=$def['auto_Crossed_8']?></td>
 			<?php
 				}
 				else{
@@ -550,6 +573,7 @@
 			<td class="teamTBody"><?=round($dat['rockwall_speed'] / $dat['rockwall_faced'],2)?></td>
 			<td class="teamTBody"><?=$dat['rockwall_stuck'] // $dat['rockwall_faced']?></td>
 			<!--<td class="teamTBody"><?=$dat['rockwall_ball']  // $dat['rockwall_faced']?></td>-->
+			<td class="teamTBody"><?=$def['auto_Crossed_7']?></td>
 			<?php
 				}
 				else{
@@ -749,7 +773,9 @@
 </table>
 <br>
 <br>
-
+<?php
+}
+?>
 <h1>Other Notes</h1>
 <br><br>
 <table class="teamTable">
@@ -775,6 +801,10 @@
 		?>
 	</tbody>
 </table>
+<?php
+if($dat["played"]>0)
+{
+?>
 <h1>Match-By-Match</h1>
 <table class="teamTable">
 	<thead>
@@ -839,8 +869,6 @@
 			<th class="topTime"rowspan = "1" colspan = "1">Match #</th>
 			<th class="topTime"rowspan = "1" colspan = "1">Auto high %</th>
 			<th class="topTime"rowspan = "1" colspan = "1">Auto Low %</th>
-			<th class="topTime"rowspan = "1" colspan = "1">Teleop High %</th>
-			<th class="topTime"rowspan = "1" colspan = "1">Teleop Low %</th>
 			<th class="topTime"rowspan = "1" colspan = "1">Batter High %</th>
 			<th class="topTime"rowspan = "1" colspan = "1">Batter Low %</th>
 			<th class="topTime"rowspan = "1" colspan = "1">Court High %</th>
@@ -857,14 +885,12 @@
 		?>
 		<tr class="teamRow">
 			<td class="teamTBody"><?=$playerMatch;?></td>
-			<td class="teamTBody"><?php if($match['auto_high_total'] > 0){ echo round($match['auto_high']/$match['auto_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody"><?php if($match['auto_low_total'] > 0){ echo round($match['auto_low']/$match['auto_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody"><?php if($match['teleop_high_total'] > 0){ echo round($match['teleop_high']/$match['teleop_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody"><?php if($match['teleop_low_total'] > 0){ echo round($match['teleop_low']/$match['teleop_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody"><?php if($match['batter_high_total'] > 0){ echo round($match['batter_high']/$match['batter_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody"><?php if($match['batter_low_total'] > 0){ echo round($match['batter_low']/$match['batter_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody"><?php if($match['court_high_total'] > 0){ echo round($match['courtyard_high']/$match['court_high_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
-			<td class="teamTBody"><?php if($match['court_low_total'] > 0){ echo round($match['courtyard_low']/$match['court_low_total'] * 100,2).'%'; }else{ echo "N/A"; }?></td>
+			<td class="teamTBody"><?php if($match['auto_high_total'] > 0){ echo $match['auto_high'].'/'.$match['auto_high_total'];}else{ echo "N/A"; }?></td>
+			<td class="teamTBody"><?php if($match['auto_low_total'] > 0){ echo $match['auto_low'].'/'.$match['auto_low_total'];}else{ echo "N/A"; }?></td>
+			<td class="teamTBody"><?php if($match['batter_high_total'] > 0){ echo $match['batter_high'],'/'.$match['batter_high_total']; }else{ echo "N/A"; }?></td>
+			<td class="teamTBody"><?php if($match['batter_low_total'] > 0){ echo $match['batter_low'].'/'.$match['batter_low_total']; }else{ echo "N/A"; }?></td>
+			<td class="teamTBody"><?php if($match['court_high_total'] > 0){ echo $match['courtyard_high'].'/'.$match['court_high_total']; }else{ echo "N/A"; }?></td>
+			<td class="teamTBody"><?php if($match['court_low_total'] > 0){ echo $match['courtyard_low'].'/'.$match['court_low_total']; }else{ echo "N/A"; }?></td>
 			<td class="teamTBody"><?=$match['shooting_location']?></td>
 		</tr>
 		<?php
@@ -1086,8 +1112,20 @@
 	</div>
 
 <?php
+}else
+{
 	//var_dump($dat);
 ?>
 <br>
 <br>
+<h2>There is not data for this team yet.</h2>
+<?php
+}
+?>
+<br>
+<br>
 </div>
+
+
+
+

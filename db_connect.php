@@ -6,7 +6,7 @@
 	//if you ever want to access your own database instead, this is the place to do it.
 	//Just uncomment out and add in your own info.
 	//$dbhost = localhost /*$ini['dbhost']*/;
-//	$dbname =  scout2016     /*$ini['dbname']*/;
+	//$dbname =  scout2016     /*$ini['dbname']*/;
 	//$dbuser = SkaiCow       /*$ini['dbuser']*/;
 	//$dbpass = clutchcode01       /*$ini['dbpass']*/; 
 	
