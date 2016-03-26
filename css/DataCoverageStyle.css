@@ -79,7 +79,25 @@ a.not-found
 	color:#ff8080;
 }
 
-
+@media only screen and (max-width : 485px) {
+	
+	.Schedule-table
+{
+	background-color: #1a1a1a;
+	background-image: url("../images/pixel_bg.png");
+	width: 100%;
+	margin: 0 auto;
+	font-size: 70%;
+	overflow: hidden;
+	border-collapse: collapse;
+	border-radius: 25px 25px 25px 25px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #000000;
+	text-align: center;
+}
+	
+}
 
 
 

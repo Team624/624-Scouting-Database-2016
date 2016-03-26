@@ -68,7 +68,7 @@ h1.title{
 {
 	width:75px;
 }
-.endBox
+.endBoxGood
 {
 	margin:0 auto;
 	border: none;
@@ -77,6 +77,19 @@ h1.title{
 	border: 1px solid green;
 	padding:5px;
 	width:40%;
+	min-width:300px;
+}
+.endBoxBad
+{
+	margin:0 auto;
+	border: none;
+	border-radius: 10px;
+	background-color: #4d4d4d;
+	border: 1px solid red;
+	padding:5px;
+	width:40%;
+	color:red;
+	min-width:250px;
 }
 a.fakeButton
 {

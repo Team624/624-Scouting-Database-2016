@@ -190,6 +190,15 @@ tr.Row:nth-child(odd)
 	background-color: rgb(18, 18, 18);
 }
 
+@media only screen and (max-width : 1200px) {
+	
+	.teamTable
+	{
+		font-size:100%;
+	}
+	
+}
+
 
 
 

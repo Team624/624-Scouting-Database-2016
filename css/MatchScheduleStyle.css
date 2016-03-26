@@ -76,6 +76,20 @@ tr.scheduleZenbra:hover
 	background-color: rgba(230, 230, 230, .2);
 }
 
+@media only screen and (max-width : 622px) {
+	
+	.table-top-time
+	{
+		display: none;
+		font-size:80%;
+	}
+	.time
+	{
+		display: none;
+		font-size:80%;
+	}
+	
+}
 
 
 

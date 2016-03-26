@@ -135,7 +135,7 @@ include("DatabaseVerification.php");
 	$query2 = "INSERT INTO notes (team,match_number,notes) VALUES ('$teamNum','$matchNum','$notes')";
 	$result2 = $mysqli->query($query2);
 ?>
-<div class="endBox">
+<div class="endBoxGood">
 <?php
 	if($result&&$result2) {
 	echo"Successfully added info";
@@ -149,6 +149,7 @@ include("DatabaseVerification.php");
 	<a href="index.php" class="fakeButton">Go back to the main site</a>
 	<br>
 	<br>
+</div>
 <?php	
 	}
 	else {
@@ -156,8 +157,12 @@ include("DatabaseVerification.php");
 	}
 	}
 	else{
-		echo"Entry Failed Validation,Try Again.";
 ?>
+<div class="endBoxBad">
+<?php
+		echo"<p>Entry <b>Failed</b> Validation,Try Again.</p>";
+?>
+
 	<br>
 	<br>
 	<a href="DataEntry.php" class="fakeButton">Go back to Entering Data</a>
@@ -167,8 +172,9 @@ include("DatabaseVerification.php");
 	<a href="index.php" class="fakeButton">Go back to the main site</a>
 	<br>
 	<br>
+</div>
 <?php
 }
 	}
 	?>
-</div>
+

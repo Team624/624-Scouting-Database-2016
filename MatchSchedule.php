@@ -22,7 +22,7 @@ include("db_connect.php");
 	<table class="matchTable">
 		<tr class="top">
 			<th class="table-top"><b>Match</b></th>
-			<th class="table-top"><b>Timed</b></th>
+			<th class="table-top-time"><b>Timed</b></th>
 			<th class="table-top"><b>Red 1</b></th>
 			<th class="table-top"><b>Red 2</b></th>
 			<th class="table-top"><b>Red 3</b></th>
