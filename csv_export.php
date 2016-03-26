@@ -69,10 +69,10 @@ foreach($numbers as $n)
 	$csv[$i][] = $data['auto_points'];
 	$csv[$i][] = $data['high_auto_points'];
 	$csv[$i][] = $data['average_auto_points'];
-	$csv[$i][] = $data['challenge_percent'];
-	$csv[$i][] = $data['scale_percent'];
+	$csv[$i][] = $data['challenge_total'];
+	$csv[$i][] = $data['scale_total'];
 	
-	$csv[$i][] = $data['lowbar_crosses'];
+	$csv[$i][] = $data['lowbar_cross'];
 	$csv[$i][] = $data['portcullis_cross'];
 	$csv[$i][] = $data['chili_fries_cross'];
 	$csv[$i][] = $data['moat_cross'];
@@ -83,11 +83,11 @@ foreach($numbers as $n)
 	$csv[$i][] = $data['rough_terrain_cross'];
 	
 	$csv[$i][] = $data['high_total'];
-	$csv[$i][] = $data['high_total'];
+	$csv[$i][] = $data['high_high'];
 	$csv[$i][] = $data['high_average'];
 	
 	$csv[$i][] = $data['low_total'];
-	$csv[$i][] = $data['low_total'];
+	$csv[$i][] = $data['low_high'];
 	$csv[$i][] = $data['low_average'];
 	
 	$csv[$i][] = $data['total_goals'];

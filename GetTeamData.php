@@ -652,7 +652,7 @@ function getCSVData($mysqli, $number)
 		
 	while($row = $result->fetch_array(MYSQLI_ASSOC))
 	{
-		$shot_points = ($row['courtyard_high_Scored']*5) + ($row['batter_high_Scored']*5) + $row['courtyard_low_Scored'] +  $row['batter_low_Scored'];
+		$shot_points = ($row['courtyard_high_Scored']*5) + ($row['batter_high_Scored']*5) + ($row['courtyard_low_Scored']*2) +  ($row['batter_low_Scored']*2);
 		$data['shooting_points'] += $shot_points;
 		
 		$auto_points = ($row['auto_High_Scored'] * 10) + ($row['auto_Low_Scored'] * 5) + ($row['auto_Defenses_Crossed_Sucess']*10) + ($row['auto_Defenses_Reached_Sucess']*2);
@@ -672,12 +672,17 @@ function getCSVData($mysqli, $number)
 		$data['high_total'] += $high;
 		$data['low_total'] += $low;
 		
+		$data['challenge_total'] += $row['challenge_Sucess'];
+		$data['scale_total'] += $row['scaled_Sucess'];
+		
 		$defenseList = [];
 		$defenseList[] = $row['def_category_1'];
 		$defenseList[] = $row['def_category_2'];
 		$defenseList[] = $row['def_category_3'];
 		$defenseList[] = $row['def_category_4'];
 		$defenseList[] = $row['def_category_5'];
+		
+		$def=1;
 		
 		foreach($defenseList as $t)
 		{
@@ -749,7 +754,7 @@ function getCSVData($mysqli, $number)
 			}
 			
 			$stuck += (int)$row['def_'.$def.'_stuck'];
-			$crosses += (int)$row['def_'.$def.'_crossed'];
+			$crosses += (int)$row['def_'.$def.'_weakened'];
 			
 			$def++;
 		}
@@ -771,14 +776,14 @@ function getCSVData($mysqli, $number)
 			$max_goals = $goals;
 		}
 		
-		if($goals > $max_high)
+		if($high > $max_high)
 		{
-			$max_high = $goals;
+			$max_high = $high;
 		}
 		
-		if($goals > $max_low)
+		if($low > $max_low)
 		{
-			$max_low = $goals;
+			$max_low = $low;
 		}
 		
 		if($row['defense'] >= 50)
@@ -790,6 +795,8 @@ function getCSVData($mysqli, $number)
 		$matches++;
 	}
 	
+	
+	
 	if($matches>0)
 	{
 	$data['stuck'] = $stuck;
@@ -798,8 +805,7 @@ function getCSVData($mysqli, $number)
 	$data['high_points'] = $max_pts;
 	$data['high_auto_points'] = $max_auto_pts;
 	$data['average_auto_points'] = $data['auto_points'] / $matches;
-	$data['challenge_percent'] = ($row['challenge_Sucess'] / $matches) * 100;
-	$data['scale_percent'] = ($row['scaled_Sucess'] / $matches) * 100;
+	
 	$data['average_goals'] = $data['total_goals'] / $matches;
 	
 	$data['high_average'] = $data['high_total'] / $matches;
@@ -814,13 +820,14 @@ function getCSVData($mysqli, $number)
 		$data['high_points'] = 0;
 		$data['high_auto_points'] = 0;
 		$data['average_auto_points'] = 0;
-		$data['challenge_percent'] = 0;
-		$data['scale_percent'] = 0;
 		$data['average_goals'] = 0;
 		
 		$data['high_average'] = 0;
 		$data['low_average'] = 0;
 	}
+	
+	$data['high_high'] = $max_high;
+	$data['low_high'] = $max_low;
 	
 	if($defense_times > 0)
 	{
@@ -832,3 +839,5 @@ function getCSVData($mysqli, $number)
 	}
 	return $data;
 }
+
+?>

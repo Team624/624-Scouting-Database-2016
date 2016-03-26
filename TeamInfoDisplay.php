@@ -124,7 +124,8 @@
 </form>
 <br>
 <br>
-	<img src="/team_pics/<?=$team?>.png" width=400 height=400 class="image"></img>
+	<!--<img src="/team_pics/<?=$team?>.png" width=400 height=400 class="image"></img>-->
+	<a href="/team_pics/<?=$team?>.png">Robot Picture</a>
 <br>
 
 	<h1><?php echo "Team " . $team. " - ".$teamname; ?></h1>

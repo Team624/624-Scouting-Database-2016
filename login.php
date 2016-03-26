@@ -12,7 +12,7 @@
 		<script>location.href = "drivers_page.php"</script>
 		<?php
 	}
-	else if(strcmp($pass,"pro624scout")==0)
+	else if(strcmp($pass,"money624admin")==0)
 	{
 		$_SESSION['valid'] = true;
 		$_SESSION['type'] = "admin";
