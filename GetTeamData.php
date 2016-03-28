@@ -681,6 +681,8 @@ function getCSVData($mysqli, $number)
 		
 	while($row = $result->fetch_array(MYSQLI_ASSOC))
 	{
+		$crosses = 0;
+		
 		$shot_points = ($row['courtyard_high_Scored']*5) + ($row['batter_high_Scored']*5) + ($row['courtyard_low_Scored']*2) +  ($row['batter_low_Scored']*2);
 		$data['shooting_points'] += $shot_points;
 		

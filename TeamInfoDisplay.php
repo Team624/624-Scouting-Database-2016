@@ -186,7 +186,7 @@ if($dat["played"]>0)
 		<tr class="Row">
 			<td class="teamTBody"><?=$dat['teleop_high']?>/<?=$dat['teleop_high_total']?></td>
 			<td class="teamTBody"><?=$dat['batter_high']?>/<?=$dat['batter_high_total']?></td>
-			<td class="teamTBody"><?=$dat['courtyard_high']?>/<?=$dat['courtyard_high']+$dat['courtyard_high_Miss']?></td>
+			<td class="teamTBody"><?=$dat['courtyard_high']?>/<?=$dat['court_high_total']?></td>
 		</tr>
 	</tbody>
 		
@@ -209,7 +209,7 @@ if($dat["played"]>0)
 		<tr class="Row">
 			<td class="teamTBody"><?=$dat['teleop_low']?>/<?=$dat['teleop_low_total']?></td>
 			<td class="teamTBody"><?=$dat['batter_low']?>/<?=$dat['batter_low_total']?></td>
-			<td class="teamTBody"><?=$dat['courtyard_low']?>/<?=$dat['courtyard_low']+$dat['courtyard_low_miss']?></td>
+			<td class="teamTBody"><?=$dat['courtyard_low']?>/<?=$dat['court_low_total']?></td>
 		</tr>
 	</tbody>
 		
