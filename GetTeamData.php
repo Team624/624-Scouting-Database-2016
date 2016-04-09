@@ -116,8 +116,8 @@
 			$data["teleop_high_miss"] += $row['courtyard_high_Miss'] +  $row['batter_high_Miss'];
 			$data["teleop_low_miss"] += $row['courtyard_low_Miss'] +  $row['batter_low_Miss'];
 			
-			$data["teleop_high_total"] += $row['courtyard_high_Scored'] +  $row['batter_high_Scored'] + $row['batter_high_Miss'] + $row['courtyard_high_Miss'];
-			$data["teleop_low_total"] += $row['courtyard_low_Scored'] +  $row['batter_low_Scored'] + $row['batter_low_Miss'] + $row['courtyard_low_Miss'];
+			$data["teleop_high_total"] += $row['courtyard_high_Scored'] +  $row['batter_high_Scored'] + $row['batter_high_miss'] + $row['courtyard_high_Miss'];
+			$data["teleop_low_total"] += $row['courtyard_low_Scored'] +  $row['batter_low_Scored'] + $row['batter_low_miss'] + $row['courtyard_low_miss'];
 			
 			$data["challenge"] += $row['challenge_Sucess'];
 			$data["climbs"] += $row['scaled_Sucess'];
@@ -405,8 +405,8 @@
 			$data["teleop_high_miss"] += $row['courtyard_high_Missed'] +  $row['batter_high_Missed'];
 			$data["teleop_low_miss"] += $row['courtyard_low_Missed'] +  $row['batter_low_Missed'];
 			
-			$data["teleop_high_total"] += $row['courtyard_high_Scored'] +  $row['batter_high_Scored'] + $row['batter_high_Miss'] + $row['courtyard_high_Miss'];
-			$data["teleop_low_total"] += $row['courtyard_low_Scored'] +  $row['batter_low_Scored'] + $row['batter_low_Miss'] + $row['courtyard_low_Miss'];
+			$data["teleop_high_total"] += $row['courtyard_high_Scored'] +  $row['batter_high_Scored'] + $row['batter_high_miss'] + $row['courtyard_high_Miss'];
+			$data["teleop_low_total"] += $row['courtyard_low_Scored'] +  $row['batter_low_Scored'] + $row['batter_low_miss'] + $row['courtyard_low_miss'];
 			
 			$data["challenge"] += $row['challenge_Sucess'];
 			$data["climbs"] += $row['scaled_Sucess'];
